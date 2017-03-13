@@ -15,14 +15,29 @@ class Pegawai extends Model
     	return Pegawai::where('username', $username)->first();
     }
 
-    public static function getTimAkreditasiByProdi($kode_prodi)
+
+    public static function getPegawaiIsPimpinan($username) {
+    	$pegawai = Pegawai::getPegawaiByUsername($username);
+    	if($pegawai->isPimpinan == 1){
+    		return true;
+    	}
+    	return false;
+    }
+
+     public static function getPegawaiIsTimAkreditasi($username) {
+    	$pegawai = Pegawai::getPegawaiByUsername($username);
+    	if($pegawai->isTimAkreditasi == 1){
+    		return true;
+    	}
+    	return false;
+    }
+        public static function getTimAkreditasiByProdi($kode_prodi)
     {
-    	return DB::table('pegawai')
+        return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->select('pegawai.nama', 'pegawai.no_pegawai')
             ->where('pegawai.isTimAkreditasi',1)
             ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
             ->get();;
     }
-
 }
