@@ -1,0 +1,52 @@
+/*
+ * Start Bootstrap - Logo Nav (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+	background-color: #70cbe8;
+}
+
+
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+}
+
+#kotaklogin{
+    position: relative;
+}
+
+#kotakbiru{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 400px;
+}
+
+#tombollogin{
+    position: absolute;
+    left: 480px;
+    top: 320px;
+}
+

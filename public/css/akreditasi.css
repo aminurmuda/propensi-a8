@@ -1,0 +1,107 @@
+/*
+ * Start Bootstrap - Logo Nav (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+
+}
+
+
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.dropdownstandar li a:hover{
+    background-color: #1875c5;
+    color: white !important;
+}
+
+.dropdownstandar ul{
+    background-color: #70cbe8 !important;
+}
+
+
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+@media(min-width:768px) {
+    body {
+        padding-top: 100px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
+    }
+
+    .navbar-fixed-top .navbar-brand {
+        padding: 15px 0;
+    }
+}
+
+ .navbar{
+    background-color: #70cbe8;
+    
+    border-width: 0px;
+}
+
+
+#logonav{
+    width: 180px;
+}
+
+.navbar-nav a{
+    color: black !important;
+}
+
+/* footer */
+
+        footer {
+            color: black;
+            background: #70cbe8;
+            padding: 17px 0 18px 0;
+            border-top: 0px solid #000;    
+        }
+        footer a {
+            color: #999;
+        }
+        footer a:hover {
+            color: #efefef;
+        }
+      
+
+        /* responsive footer fix by Aalaap Ghag */
+        @media (max-width: 767px) {
+            body {
+                padding-right: 0px;
+                padding-left: 0px;
+            }
+    
+            footer, .wrapper {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+
+        /* end responsive footer fix */
+
+#footerbawah{
+    text-align: center;
+}
+
+#kontenkelola{
+
+}
+
+.input-group {
+    margin: 20px auto;
+    width: 100%;
+}
+
+.inputform{
+    border-color: grey;
+    border-width: 1pt;
+    padding-left: 50px;
+    padding-right: 50px;
+}
