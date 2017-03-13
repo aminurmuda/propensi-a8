@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 // Route untuk mengakses halaman khusus
-Route::get('secret', 'MainController@secret');
+Route::get('login', 'MainController@login');
 
 // Route untuk logout
 Route::get('logout', 'MainController@logout');
