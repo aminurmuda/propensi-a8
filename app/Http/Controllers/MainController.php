@@ -26,8 +26,9 @@ class MainController extends Controller
 			echo 'Kamu Pimpinan';
 		} elseif ($userIsTimAkreditasi) {
 			echo 'Kamu Tim Akreditasi Yah';
-		} 
-		echo 'Mohon Maaf Kamu Tidak memiliki akses';
+		} else {
+			echo 'Mohon Maaf Kamu Tidak memiliki akses';
+		}
 	
 	}
 
