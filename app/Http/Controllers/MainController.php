@@ -23,7 +23,7 @@ class MainController extends Controller
 
 		$users = Pegawai::getPegawaiByUsername($username);
 
-		dd($users);
+		// dd($users);
 
 		/*$id = $isTimAkreditasi->isTimAkreditasi;
 		echo $id;*/
@@ -31,10 +31,18 @@ class MainController extends Controller
 			return view('secret', [
 				'user' => $user
 		]);*/
+
+		$timAkreditasi=Pegawai::getTimAkreditasiByProdi(2);
+		dd($timAkreditasi);
 	}
 
 	public function logout()
 	{
 		return SSO::logout();
+	}
+
+	public function lihatPengguna($kode_prodi) {
+		$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
+			dd($timAkreditasi);
 	}
 }
