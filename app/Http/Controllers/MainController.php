@@ -16,21 +16,19 @@ class MainController extends Controller
 
 		$user = SSO::getUser();
 		$username = $user->username;
-		// echo $username;
 
-		/*$isTimAkreditasi = DB::select('select isTimAkreditasi from pegawai where username = :username', ['username' => $username]);
-		dd($isTimAkreditasi[0]->isTimAkreditasi);*/
-
-		$users = Pegawai::getPegawaiByUsername($username);
-
-		dd($users);
-
-		/*$id = $isTimAkreditasi->isTimAkreditasi;
-		echo $id;*/
-		/*if($isTimAkreditasi === 1) 
-			return view('secret', [
+		$userIsPimpinan = Pegawai::getPegawaiIsPimpinan($username);
+		$userIsTimAkreditasi = Pegawai::getPegawaiIsTimAkreditasi($username);
+		if($userIsPimpinan) {
+			/*return view('secret', [
 				'user' => $user
-		]);*/
+			]);*/
+			echo 'Kamu Pimpinan';
+		} elseif ($userIsTimAkreditasi) {
+			echo 'Kamu Tim Akreditasi Yah';
+		} 
+		echo 'Mohon Maaf Kamu Tidak memiliki akses';
+	
 	}
 
 	public function logout()

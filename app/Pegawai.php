@@ -13,4 +13,20 @@ class Pegawai extends Model
     {
     	return Pegawai::where('username', $username)->first();
     }
+
+    public static function getPegawaiIsPimpinan($username) {
+    	$pegawai = Pegawai::getPegawaiByUsername($username);
+    	if($pegawai->isPimpinan == 1){
+    		return true;
+    	}
+    	return false;
+    }
+
+     public static function getPegawaiIsTimAkreditasi($username) {
+    	$pegawai = Pegawai::getPegawaiByUsername($username);
+    	if($pegawai->isTimAkreditasi == 1){
+    		return true;
+    	}
+    	return false;
+    }
 }
