@@ -29,4 +29,10 @@ class Pegawai extends Model
     	}
     	return false;
     }
+
+    public static function deleteTimAkreditasi($username) {
+        return DB::table('pegawai')
+                    ->where('username', $username)
+                    ->update(['isTimAkreditasi'=> 0])
+    }
 }
