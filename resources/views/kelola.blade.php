@@ -118,15 +118,17 @@
                     </thead>
                   
                     <tbody>
+                        @foreach($timAkreditasi as $pegawai)
                         <tr>
-                            <td>Hari Ari</td>
-                            <td>12345 </td>
+                            <td>{{$pegawai->nama}}</td>
+                            <td>{{$pegawai->no_pegawai}}</td>
                             <td>
                                 <button class="glyphicon glyphicon-trash" type="submit"></button>
                             </td>
                            
                         </tr>
-                        <tr>
+                        @endforeach
+<!--                         <tr>
                             <td>Ani nini</td>
                             <td>123333</td>
                             <td><button class="glyphicon glyphicon-trash" type="submit"></button>
@@ -164,7 +166,7 @@
                                 <button class="glyphicon glyphicon-trash" type="submit"></button>
                             </td>
                            
-                        </tr>
+                        </tr> -->
 
                     </tbody>
                 </table> 

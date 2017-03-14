@@ -39,6 +39,10 @@ class MainController extends Controller
 
 	public function lihatPengguna($kode_prodi) {
 		$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
-			dd($timAkreditasi);
+			// dd($timAkreditasi);
+
+			return view('kelola', [
+				'timAkreditasi' => $timAkreditasi
+			]);
 	}
 }
