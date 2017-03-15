@@ -12,10 +12,10 @@
     <title>Kelola Tim Akreditasi - Modul Akreditasi</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../../public/css/akreditasi.css" rel="stylesheet">
+    <link href="css/akreditasi.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -29,60 +29,61 @@
 
 <body>
 
-     <!-- Navigation -->
+    <!-- Navigation -->
     <div class="navbar-wrapper">
-        <div class="container-fluid">
-            <nav class="navbar navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">
-                            <img class="img-responsive" id="logonav" src="../../images/logo.png" alt="" >
-                        </a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#" class="">Home</a></li>
-                            
-                            <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang Standar <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Standar 2</a></li>
-                                    <li><a href="#">Standar 4</a></li>
-                                    <li><a href="#">Standar 7</a></li>
-                                </ul>
-                            </li>
-
-
-                            <li><a href="#">Riwayat Akreditasi</a></li>
-                            <li class="active"><a href="#">Kelola Tim Akreditasi </a>
-                               
-                            </li>
-                           
-                        </ul>
-                        <ul class="nav navbar-nav pull-right">
-                            <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    
-                                    <li><a href="#">My Profile</a></li>
-                                </ul>
-                            </li>
-                            <li class=""><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img class="img-responsive" id="logonav" src="images/logo.png" alt="" >
+                    </a>
                 </div>
-            </nav>
-        </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="">Home</a></li>
+                        
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang Standar <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Standar 2</a></li>
+                                <li><a href="#">Standar 4</a></li>
+                                <li><a href="#">Standar 7</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li><a href="#">Riwayat Akreditasi</a></li>
+                        <li class="active"><a href="#">Kelola Tim Akreditasi </a>
+                           
+                        </li>
+                       
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                
+                                <li><a href="#">My Profile</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 </div>
+
 
     <!-- Page Content -->
     <div class="container">
         <div class="row">
-            <div  class="col-md-8 col-md-offset2" id="kontenkelola">
+            <div  class="col-md-8 col-md-offset-2" id="kontenkelola">
 
                 <div id="titlekelola"> 
                      <img class="img-responsive" src="images/kelolatim.png" alt="" >
@@ -202,11 +203,11 @@
 
 
     <!-- jQuery -->
-    <script src="../../public/js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../public/js/bootstrap.min.js">
+    <script src="js/bootstrap.min.js">
     </script>
 
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"> </script>

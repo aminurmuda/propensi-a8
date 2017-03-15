@@ -12,7 +12,7 @@ class Pegawai extends Model
 
     public static function getPegawaiByUsername($username)
     {
-    	return Pegawai::where('username', $username)->first();
+        return $pegawai = Pegawai::where('username', $username)->first();
     }
 
 
@@ -44,5 +44,10 @@ class Pegawai extends Model
         return DB::table('pegawai')
                     ->where('username', $username)
                     ->update(['isTimAkreditasi'=> 0]);
+    }
+
+    public static function addTimAkreditasi($username) {
+        return Pegawai::where('username', $username)
+                    ->update(['isTimAkreditasi' => 1]);
     }
 }
