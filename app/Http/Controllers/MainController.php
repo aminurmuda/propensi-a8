@@ -45,4 +45,10 @@ class MainController extends Controller
 				'timAkreditasi' => $timAkreditasi
 			]);
 	}
+
+	public function hapusPengguna($kode_prodi,$username){
+		$timAkreditasi = Pegawai::deleteTimAkreditasi($username);
+		// echo $kode_prodi;
+		MainController::lihatPengguna($kode_prodi);
+	}
 }

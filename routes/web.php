@@ -22,5 +22,6 @@ Route::get('login', 'MainController@login');
 Route::get('logout', 'MainController@logout');
 
 Route::get('timakreditasi/{kode_prodi}', 'MainController@lihatPengguna');
+Route::get ('hapus/{kode_prodi}/{username}', 'MainController@hapusPengguna');
 
 
