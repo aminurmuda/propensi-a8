@@ -23,4 +23,9 @@ class PegawaiController extends Controller
 				'timAkreditasi' => $timAkreditasi
 		]);
 	}
+
+	public function tambahPengguna($username){
+		Pegawai::addTimAkreditasi($username);
+		return 'tim akreditasi berhasil ditambahkan';
+	}
 }
