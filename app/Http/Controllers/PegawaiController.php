@@ -15,8 +15,12 @@ class PegawaiController extends Controller
     public function addTimAkreditasi(){
 
     }
-
-    public function lihatDaftarAkreditasi(){
-
-    }
+    
+    public function lihatPengguna($kode_prodi) {
+		$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
+		// dd($timAkreditasi);
+		return view('kelola', [
+				'timAkreditasi' => $timAkreditasi
+		]);
+	}
 }

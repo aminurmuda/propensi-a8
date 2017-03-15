@@ -25,12 +25,11 @@ class MainController extends Controller
 			/*return view('secret', [
 				'user' => $user
 			]);*/
-			/*if($userIsPimpinan) {
+			if($userIsPimpinan) {
 				echo 'Kamu Pimpinan';
 			} elseif($userIsTimAkreditasi){
 				echo 'Kamu Tim Akreditasi Yah';
-			}*/
-			dd($userPegawai);
+			}
 		} else {
 			echo 'Mohon Maaf Kamu Tidak memiliki akses';
 		}
@@ -41,12 +40,5 @@ class MainController extends Controller
 		return SSO::logout();
 	}
 
-	public function lihatPengguna($kode_prodi) {
-		$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
-			// dd($timAkreditasi);
-
-			return view('kelola', [
-				'timAkreditasi' => $timAkreditasi
-			]);
-	}
+	
 }
