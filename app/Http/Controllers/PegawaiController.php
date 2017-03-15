@@ -17,12 +17,17 @@ class PegawaiController extends Controller
 
     }
     
-    public function lihatPengguna($kode_prodi) {
-		$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
-		// dd($timAkreditasi);
-		return view('kelola', [
-				'timAkreditasi' => $timAkreditasi
-		]);
+    public function lihatPengguna($kode_prodi, Request $request) {
+    	// if ($request->session()->has('user')) {
+	    	$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
+			// dd($timAkreditasi);
+			return view('kelola', [
+					'timAkreditasi' => $timAkreditasi
+			]);	
+    	// } else {
+    	// 	return view('landing');
+    	// }
+		
 	}
 
 	public function tambahPengguna($username) {

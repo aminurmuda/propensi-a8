@@ -7,15 +7,17 @@ use SSO\SSO;
 use App\Pegawai;
 use DB;
 
+
 class MainController extends Controller
 {
-	public function login()
+	public function login(Request $request)
 	{
 		if(!SSO::check())
 			SSO::authenticate();
 
 		$user = SSO::getUser();
 		$username = $user->username;
+		$request->session()->put('user', $username);
 
 		//Mencari pegawai berdasarkan username sso yang login
 		$userPegawai = Pegawai::getPegawaiByUsername($username);		
@@ -38,8 +40,9 @@ class MainController extends Controller
 		}
 	}
 
-	public function logout()
+	public function logout(Request $request)
 	{
+		$request->session()->pull('user');
 		return SSO::logout();
 	}
 }
