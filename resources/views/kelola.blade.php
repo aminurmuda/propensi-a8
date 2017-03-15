@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="col-md-12 col-md-offset-3">
-                    <form action="#">
+                    <form action="timakreditasi/tambah/{username}" method="POST">
                       <div class="input-group">
                          <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder="Username" >
                         
@@ -102,7 +102,7 @@
                     </form>
 
 
-                    <form action="#">
+                    <form action="#" method="POST"> 
                       <div class="input-group">
                          <input class="btn btn-md inputform" name="nip" id="nip" type="nip" placeholder="NIP" >
 
