@@ -45,4 +45,9 @@ class Pegawai extends Model
                     ->where('username', $username)
                     ->update(['isTimAkreditasi'=> 0]);
     }
+
+    public static function addTimAkreditasi($username) {
+        return Pegawai::where('username', $username)
+                    ->update(['isTimAkreditasi' => 1]);
+    }
 }
