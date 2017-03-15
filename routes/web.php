@@ -26,4 +26,4 @@ Route::get ('hapus/{kode_prodi}/{username}', 'MainController@hapusPengguna');
 
 Route::get('timakreditasi/{kode_prodi}', 'PegawaiController@lihatPengguna');
 
-Route::put('timakreditasi/tambah/{username}', 'MainController@tambahPengguna(username)');
+Route::put('timakreditasi/tambah/{username}', 'PegawaiController@tambahPengguna');
