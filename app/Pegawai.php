@@ -12,7 +12,7 @@ class Pegawai extends Model
 
     public static function getPegawaiByUsername($username)
     {
-    	return Pegawai::where('username', $username)->first();
+        return $pegawai = Pegawai::where('username', $username)->first();
     }
 
 

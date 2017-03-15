@@ -17,41 +17,26 @@ class MainController extends Controller
 		$user = SSO::getUser();
 		$username = $user->username;
 
-		$userIsPimpinan = Pegawai::getPegawaiIsPimpinan($username);
-		$userIsTimAkreditasi = Pegawai::getPegawaiIsTimAkreditasi($username);
-		if($userIsPimpinan) {
+		$userPegawai = Pegawai::getPegawaiByUsername($username);		
+
+		if($userPegawai) {
+			$userIsPimpinan = Pegawai::getPegawaiIsPimpinan($username);
+			$userIsTimAkreditasi = Pegawai::getPegawaiIsTimAkreditasi($username);
 			/*return view('secret', [
 				'user' => $user
 			]);*/
-			echo 'Kamu Pimpinan';
-		} elseif ($userIsTimAkreditasi) {
-			echo 'Kamu Tim Akreditasi Yah';
+			if($userIsPimpinan) {
+				echo 'Kamu Pimpinan';
+			} elseif($userIsTimAkreditasi){
+				echo 'Kamu Tim Akreditasi Yah';
+			}
 		} else {
 			echo 'Mohon Maaf Kamu Tidak memiliki akses';
 		}
-	
 	}
 
 	public function logout()
 	{
 		return SSO::logout();
 	}
-
-	public function tambahPengguna($username){
-		$timAkreditasi = Pegawai::addTimAkreditasi($username);
-		return view('kelola',[
-				'timAkreditasi' => $timAkreditasi
-			]);
-	}
-
-	public function lihatPengguna($kode_prodi) {
-		$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
-			// dd($timAkreditasi);
-
-			return view('kelola', [
-				'timAkreditasi' => $timAkreditasi
-			]);
-	}
-
-
 }
