@@ -12,10 +12,10 @@
     <title>Kelola Tim Akreditasi - Modul Akreditasi</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../public/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/akreditasi.css" rel="stylesheet">
+    <link href="../../public/css/akreditasi.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -42,7 +42,7 @@
                     <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img class="img-responsive" id="logonav" src="images/logo.png" alt="" >
+                        <img class="img-responsive" id="logonav" src="../../public/images/logo.png" alt="" >
                     </a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
@@ -86,7 +86,7 @@
             <div  class="col-md-8 col-md-offset-2" id="kontenkelola">
 
                 <div id="titlekelola"> 
-                     <img class="img-responsive" src="images/kelolatim.png" alt="" >
+                     <img class="img-responsive" src="../../public/images/kelolatim.png" alt="" >
                      
                      <br>
                 </div>
@@ -131,7 +131,7 @@
                             <td>{{$pegawai->nama}}</td>
                             <td>{{$pegawai->no_pegawai}}</td>
                             <td>
-                                <button class="glyphicon glyphicon-trash" type="submit"></button>
+                                <center><button class="glyphicon glyphicon-trash" type="submit"></button></center>
                             </td>
                            
                         </tr>
@@ -203,11 +203,11 @@
 
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="../../public/js/jquery.js"></script>
 
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js">
+    <script src="../../public/js/bootstrap.min.js">
     </script>
 
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"> </script>
