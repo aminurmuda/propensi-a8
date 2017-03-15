@@ -13,9 +13,22 @@ class PegawaiController extends Controller
 		return 'tim akreditasi berhasil dihapus';
     }
 
-    public function addTimAkreditasi(){
+    public function lihatPegawaiIsNotTimAkreditasi(){
+    	Pegawai::getAllPegawaiIsNotTimAkreditasi();
+    	return 'terlihat semua';
+    }
+
+    public function lihatPegawaiIsNotTimAkreditasiByUsername($username){
+    	Pegawai::getPegawaiIsNotTimAkreditasiByUsername($username);
+    	return 'terlihat berdasarkan username';
 
     }
+
+    public function lihatPegawaiIsNotTimAkreditasiBy($no_pegawai){
+    	Pegawai::getPegawaiIsNotTimAkreditasiByNIP($no_pegawai);
+    	return 'terlihat berdasarkan NIP';
+    }
+
     
     public function lihatPengguna($kode_prodi, Request $request) {
     	// if ($request->session()->has('user')) {
