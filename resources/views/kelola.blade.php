@@ -42,7 +42,7 @@
                     <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">
-                        <img class="img-responsive" id="logonav" src="../../public/images/logo.png" alt="" >
+                        <img class="img-responsive" id="logonav" src="images/logo.png" alt="" >
                     </a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
