@@ -7,9 +7,10 @@ use SSO\SSO;
 use App\Pegawai;
 use DB;
 
+
 class MainController extends Controller
 {
-	public function login()
+	public function login(Request $request)
 	{
 		if(!SSO::check())
 			SSO::authenticate();
@@ -25,18 +26,22 @@ class MainController extends Controller
 			/*return view('secret', [
 				'user' => $user
 			]);*/
+			$request->session()->put('user', $username);
 			if($userIsPimpinan) {
 				echo 'Kamu Pimpinan';
+				// echo $request->session()->get('user');
 			} elseif($userIsTimAkreditasi){
 				echo 'Kamu Tim Akreditasi Yah';
+				// echo $request->session()->get('user');
 			}
 		} else {
 			echo 'Mohon Maaf Kamu Tidak memiliki akses';
 		}
 	}
 
-	public function logout()
+	public function logout(Request $request)
 	{
+		$request->session()->pull('user');
 		return SSO::logout();
 	}
 }
