@@ -12,10 +12,10 @@
     <title>Home - Modul Akreditasi</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../../public/css/akreditasi.css" rel="stylesheet">
+    <link href="css/akreditasi.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">
-                    <img class="img-responsive" id="logonav" src="../../public/images/logo.png" alt="">
+                    <img class="img-responsive" id="logonav" src="images/logo.png" alt="">
                 </a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -189,11 +189,11 @@
 
 
     <!-- jQuery -->
-    <script src="../../public/js/jquery.js"></script>
+    <script src="js/jquery.js"></script>
 
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../public/js/bootstrap.min.js">
+    <script src="js/bootstrap.min.js">
     </script>
 
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"> </script>
