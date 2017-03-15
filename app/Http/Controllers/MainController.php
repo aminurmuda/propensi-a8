@@ -40,4 +40,13 @@ class MainController extends Controller
 	{
 		return SSO::logout();
 	}
+
+	public function lihatPengguna($kode_prodi) {
+		$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
+			// dd($timAkreditasi);
+
+			return view('kelola', [
+				'timAkreditasi' => $timAkreditasi
+			]);
+	}
 }

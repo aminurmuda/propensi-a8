@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Pegawai;
+use DB;
 
 class Pegawai extends Model
 {
@@ -13,6 +14,7 @@ class Pegawai extends Model
     {
         return $pegawai = Pegawai::where('username', $username)->first();
     }
+
 
     public static function getPegawaiIsPimpinan($username) {
     	$pegawai = Pegawai::getPegawaiByUsername($username);
@@ -29,7 +31,15 @@ class Pegawai extends Model
     	}
     	return false;
     }
-
+        public static function getTimAkreditasiByProdi($kode_prodi)
+    {
+        return DB::table('pegawai')
+            ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->select('pegawai.nama', 'pegawai.no_pegawai')
+            ->where('pegawai.isTimAkreditasi',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->get();
+    }
     public static function deleteTimAkreditasi($username) {
         return DB::table('pegawai')
                     ->where('username', $username)
