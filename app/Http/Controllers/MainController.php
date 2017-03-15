@@ -17,21 +17,24 @@ class MainController extends Controller
 		$user = SSO::getUser();
 		$username = $user->username;
 
+		//Mencari pegawai berdasarkan username sso yang login
 		$userPegawai = Pegawai::getPegawaiByUsername($username);		
 
+		//Validasi apakah yang login merupakan pegawai atau bukan
 		if($userPegawai) {
 			$userIsPimpinan = Pegawai::getPegawaiIsPimpinan($username);
 			$userIsTimAkreditasi = Pegawai::getPegawaiIsTimAkreditasi($username);
-			/*return view('secret', [
-				'user' => $user
-			]);*/
+			//Validasi jika yang login merupakan pimpinan
 			if($userIsPimpinan) {
-				echo 'Kamu Pimpinan';
-			} elseif($userIsTimAkreditasi){
-				echo 'Kamu Tim Akreditasi Yah';
+				return view ('home', [
+					'user' => $user]);
+			} elseif($userIsTimAkreditasi){	//Validasi jika yang login merupakan tim akreditasi
+				return view ('home', [
+					'user' => $user]);
 			}
 		} else {
-			echo 'Mohon Maaf Kamu Tidak memiliki akses';
+			return view ('logingagal', [
+					'user' => $user]);
 		}
 	}
 
