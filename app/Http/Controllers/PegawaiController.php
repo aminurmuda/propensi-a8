@@ -8,8 +8,9 @@ use DB;
 
 class PegawaiController extends Controller
 {
-    public function deleteTimAkreditasi(){
-    	
+    public function deleteTimAkreditasi($username){
+    	Pegawai::deleteTimAkreditasi($username);
+		return 'tim akreditasi berhasil dihapus';
     }
 
     public function addTimAkreditasi(){
@@ -29,8 +30,9 @@ class PegawaiController extends Controller
 		
 	}
 
-	public function tambahPengguna($username){
+	public function tambahPengguna($username) {
 		Pegawai::addTimAkreditasi($username);
 		return 'tim akreditasi berhasil ditambahkan';
 	}
+
 }
