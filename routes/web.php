@@ -23,4 +23,4 @@ Route::get('logout', 'MainController@logout');
 
 Route::get('timakreditasi/{kode_prodi}', 'PegawaiController@lihatPengguna');
 
-
+Route::put('timakreditasi/tambah/{username}', 'MainController@tambahPengguna(username)');

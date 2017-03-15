@@ -39,6 +39,4 @@ class MainController extends Controller
 	{
 		return SSO::logout();
 	}
-
-	
 }

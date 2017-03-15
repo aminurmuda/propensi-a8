@@ -30,90 +30,60 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="navigation" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    <div class="navbar-wrapper">
+    <div class="container-fluid">
+        <nav class="navbar navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    <img class="img-responsive" id="logonav" src="images/logo.png" alt="">
-                </a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Borang Standar <b class="caret"></b></a>
-                        <ul class="dropdown-menu dropdownstandar">
-                          <li>
-                            <a href="#">Standar 2</a>
-                          </li>
-                          <li>
-                            <a href="#">Standar 4</a>
-                          </li>
-                          <li>
-                            <a href="#">Standar 7</a>
-                          </li>
-     <!-- Navigation -->
-    <div class="navbar-wrapper">
-        <div class="container-fluid">
-            <nav class="navbar navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">
-                            <img class="img-responsive" id="logonav" src="../../images/logo.png" alt="" >
-                        </a>
-                    </div>
-                    <div id="navbar" class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#" class="">Home</a></li>
-                            
-                            <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang Standar <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Standar 2</a></li>
-                                    <li><a href="#">Standar 4</a></li>
-                                    <li><a href="#">Standar 7</a></li>
-                                </ul>
-                            </li>
-
-
-                            <li><a href="#">Riwayat Akreditasi</a></li>
-                            <li class="active"><a href="#">Kelola Tim Akreditasi </a>
-                               
-                            </li>
-                           
->>>>>>> 61cdc36b613bdd80f1461260e07668a7d5c31880
-                        </ul>
-                        <ul class="nav navbar-nav pull-right">
-                            <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    
-                                    <li><a href="#">My Profile</a></li>
-                                </ul>
-                            </li>
-                            <li class=""><a href="#">Logout</a></li>
-                        </ul>
-                    </div>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img class="img-responsive" id="logonav" src="images/logo.png" alt="" >
+                    </a>
                 </div>
-            </nav>
-        </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="">Home</a></li>
+                        
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang Standar <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Standar 2</a></li>
+                                <li><a href="#">Standar 4</a></li>
+                                <li><a href="#">Standar 7</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li><a href="#">Riwayat Akreditasi</a></li>
+                        <li class="active"><a href="#">Kelola Tim Akreditasi </a>
+                           
+                        </li>
+                       
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                
+                                <li><a href="#">My Profile</a></li>
+                            </ul>
+                        </li>
+                        <li class=""><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 </div>
+
 
     <!-- Page Content -->
     <div class="container">
         <div class="row">
-            <div  class="col-md-8 col-md-offset2" id="kontenkelola">
+            <div  class="col-md-8 col-md-offset-2" id="kontenkelola">
 
                 <div id="titlekelola"> 
                      <img class="img-responsive" src="images/kelolatim.png" alt="" >
