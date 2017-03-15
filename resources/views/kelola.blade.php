@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Home - Modul Akreditasi</title>
+    <title>Kelola Tim Akreditasi - Modul Akreditasi</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../public/css/bootstrap.min.css" rel="stylesheet">
@@ -29,80 +29,87 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" id="navigation" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">
-                    <img class="img-responsive" id="logonav" src="../../public/images/logo.png" alt="">
-                </a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Borang Standar <b class="caret"></b></a>
-                        <ul class="dropdown-menu dropdownstandar">
-                          <li>
-                            <a href="#">Standar 2</a>
-                          </li>
-                          <li>
-                            <a href="#">Standar 4</a>
-                          </li>
-                          <li>
-                            <a href="#">Standar 7</a>
-                          </li>
+     <!-- Navigation -->
+    <div class="navbar-wrapper">
+        <div class="container-fluid">
+            <nav class="navbar navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img class="img-responsive" id="logonav" src="../../images/logo.png" alt="" >
+                        </a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#" class="">Home</a></li>
+                            
+                            <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang Standar <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Standar 2</a></li>
+                                    <li><a href="#">Standar 4</a></li>
+                                    <li><a href="#">Standar 7</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li><a href="#">Riwayat Akreditasi</a></li>
+                            <li class="active"><a href="#">Kelola Tim Akreditasi </a>
+                               
+                            </li>
+                           
                         </ul>
-                    </li>
-                    <li>
-                        <a href="#">Riwayat Akreditasi</a>
-                    </li>
-                    <li>
-                        <a href="#">Kelola Tim Akreditasi</a>
-                    </li>
-                </ul>
-
-                <div class="nav navbar-nav  collapse navbar-collapse navbar-right">
-                    
-
-                    <a href="#">Logout</a>
+                        <ul class="nav navbar-nav pull-right">
+                            <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    
+                                    <li><a href="#">My Profile</a></li>
+                                </ul>
+                            </li>
+                            <li class=""><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <!-- /.navbar-collapse -->
+            </nav>
         </div>
-        <!-- /.container -->
-    </nav>
+</div>
 
     <!-- Page Content -->
-    <div class="container col-,d-8">
+    <div class="container">
         <div class="row">
-            <div  class="col-md-8 center-block" id="kontenkelola">
+            <div  class="col-md-8 col-md-offset2" id="kontenkelola">
 
-                <form action="#">
-                  <div class="input-group">
-                     <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder="Username" >
+                <div id="titlekelola"> 
+                     <img class="img-responsive" src="images/kelolatim.png" alt="" >
+                     
+                     <br>
+                </div>
+
+                <div class="col-md-12 col-md-offset-3">
+                    <form action="#">
+                      <div class="input-group">
+                         <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder="Username" >
+                        
+                         <button class="btn btn-info btn-md" type="submit">Add</button>
                     
-                     <button class="btn btn-info btn-md" type="submit">Add</button>
-                
-                  </div>
-                </form>
+                      </div>
+                    </form>
 
 
-                <form action="#">
-                  <div class="input-group">
-                     <input class="btn btn-md inputform" name="nip" id="nip" type="nip" placeholder="NIP" >
+                    <form action="#">
+                      <div class="input-group">
+                         <input class="btn btn-md inputform" name="nip" id="nip" type="nip" placeholder="NIP" >
 
-                     <button class="btn btn-info btn-md" type="submit">Add</button>
-                    
-                  </div>
-                </form>
+                         <button class="btn btn-info btn-md" type="submit">Add</button>
+                        
+                      </div>
+                    </form>
+                </div>
 
 
                  <!-- <img class="img-responsive center-block" id="kotakbiru" src="images/kotakdaftarpengguna.png" alt="" > -->
@@ -171,8 +178,12 @@
                     </tbody>
                 </table> 
 
-                <button class="btn btn-info btn-md" type="submit">Save</button>
-                <button class="btn btn-info btn-md" type="submit">Cancel</button>
+                <br>
+
+                <div id="savetable" >
+                    <button class="btn btn-info btn-md col-md-offset-4" type="submit">Save</button>
+                    <button class="btn btn-info btn-md col-md-offset-1" type="submit">Cancel</button>
+                </div>
                 <br>
                 <br>
 
@@ -205,6 +216,68 @@
       $(document).ready(function() {
         $('#example').DataTable();
     } );
+    </script>
+
+    <!-- script untuk navigation -->
+    <script> 
+            $(function(){
+            $('.button-checkbox').each(function(){
+                var $widget = $(this),
+                    $button = $widget.find('button'),
+                    $checkbox = $widget.find('input:checkbox'),
+                    color = $button.data('color'),
+                    settings = {
+                            on: {
+                                icon: 'glyphicon glyphicon-check'
+                            },
+                            off: {
+                                icon: 'glyphicon glyphicon-unchecked'
+                            }
+                    };
+
+                $button.on('click', function () {
+                    $checkbox.prop('checked', !$checkbox.is(':checked'));
+                    $checkbox.triggerHandler('change');
+                    updateDisplay();
+                });
+
+                $checkbox.on('change', function () {
+                    updateDisplay();
+                });
+
+                function updateDisplay() {
+                    var isChecked = $checkbox.is(':checked');
+                    // Set the button's state
+                    $button.data('state', (isChecked) ? "on" : "off");
+
+                    // Set the button's icon
+                    $button.find('.state-icon')
+                        .removeClass()
+                        .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+                    // Update the button's color
+                    if (isChecked) {
+                        $button
+                            .removeClass('btn-default')
+                            .addClass('btn-' + color + ' active');
+                    } 
+                    else 
+                    { 
+                        $button
+                            .removeClass('btn-' + color + ' active')
+                            .addClass('btn-default');
+                    }
+                }
+                function init() {
+                    updateDisplay();
+                    // Inject the icon if applicable
+                    if ($button.find('.state-icon').length == 0) {
+                        $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i> ');
+                    }
+                }
+                init();
+            });
+        });
     </script>
 
 </body>
