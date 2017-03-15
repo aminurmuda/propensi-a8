@@ -7,6 +7,9 @@
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Change if height of navigation changes. */
 	background-color: #70cbe8;
+
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
@@ -44,9 +47,54 @@ body {
     max-width: 400px;
 }
 
-#tombollogin{
+
+/*#tombollogin{
     position: absolute;
     left: 480px;
     top: 320px;
 }
+*/
+
+.img-wrapper {
+  position: relative;
+ }
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 15px;
+  text-align: center;
+}
+
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 53%;
+}
+
+/* kalo mau buat button responsive jd kecil buat mobile view!! if u want */
+
+/*
+.btn-responsive {
+  /* matches 'btn-md' 
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+@media (max-width:760px) { 
+    /* matches 'btn-xs' 
+    .btn-responsive {
+        padding: 1px 5px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+    }
+}
+
+*/
 
