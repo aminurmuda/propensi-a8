@@ -33,10 +33,10 @@
     <div class="container">
         
             <div class="col-md-12 img-wrapper" id="kotaklogin" >
-                  <img class="img-responsive center-block" src="images/welcome.png" alt="" >
+                  <img class="img-responsive center-block" src="images/nowelcome.png" alt="" >
                   
                   <div class="img-overlay">
-                 <p> Maaf, Anda tidak memiliki akses. </p>
+                 <p id="mssglogingagal"> Maaf, Anda tidak memiliki akses. </p>
              </div>
 
                  <!-- <img class="img-responsive center-block" id="kotaklogin" src="images/loginsso.png" alt="" >
