@@ -17,10 +17,12 @@ class PegawaiController extends Controller
     	// }
     }
 
-    public function lihatPegawaiIsNotTimAkreditasi(){
+    public function lihatPegawaiIsNotTimAkreditasi($kode_fakultas){
     	// if ($request->session()->has('user')) {
-    	Pegawai::getAllPegawaiIsNotTimAkreditasi();
-    	return 'terlihat semua';
+    	$pegawai = Pegawai::getAllPegawaiIsNotTimAkreditasi($kode_fakultas);
+    	return view('listpegawai', [
+            'pegawai' => $pegawai
+        ]);
     	// } else {
     	// 	return view('landing');
     	// }

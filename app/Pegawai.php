@@ -24,14 +24,15 @@ class Pegawai extends Model
     	return false;
     }
 
-     public static function getPegawaiIsTimAkreditasi($username) {
+    public static function getPegawaiIsTimAkreditasi($username) {
     	$pegawai = Pegawai::getPegawaiByUsername($username);
     	if($pegawai->isTimAkreditasi == 1){
     		return true;
     	}
     	return false;
     }
-        public static function getTimAkreditasiByProdi($kode_prodi)
+    
+    public static function getTimAkreditasiByProdi($kode_prodi)
     {
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
@@ -51,8 +52,14 @@ class Pegawai extends Model
                     ->update(['isTimAkreditasi' => 1]);
     }
 
-    public static function getAllPegawaiIsNotTimAkreditasi(){
-        return Pegawai::where('isTimAkreditasi', 0);
+    public static function getAllPegawaiIsNotTimAkreditasi($kode_fakultas){
+        return DB::table('pegawai')
+            ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
+            ->select('pegawai.nama', 'pegawai.no_pegawai')
+            ->where('pegawai.isTimAkreditasi',0)
+            ->where('program_studi.kode_fakultas',$kode_fakultas)
+            ->get();
     }
 
     public static function getPegawaiIsNotTimAkreditasiByUsername($username){
@@ -65,7 +72,7 @@ class Pegawai extends Model
                         ->where('no_pegawai', $no_pegawai);
     }
 
-       public static function getTimAkreditasiByFakultas($kode_fakultas)
+    public static function getTimAkreditasiByFakultas($kode_fakultas)
     {
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
