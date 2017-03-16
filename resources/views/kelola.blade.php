@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Kelola Tim Akreditasi - Modul Akreditasia</title>
+    <title>Kelola Tim Akreditasi - Modul Akreditasi</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
