@@ -43,7 +43,7 @@ class MainController extends Controller
 	public function logout(Request $request)
 	{
 		$request->session()->pull('user');
-		return SSO::logout();
+		return SSO::logout(url('/'));
 	}
 
 
