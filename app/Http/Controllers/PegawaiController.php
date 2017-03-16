@@ -9,30 +9,46 @@ use DB;
 class PegawaiController extends Controller
 {
     public function deleteTimAkreditasi($username){
+    	// if ($request->session()->has('user')) {
     	Pegawai::deleteTimAkreditasi($username);
 		return 'tim akreditasi berhasil dihapus';
+		// } else {
+    	// 	return view('landing');
+    	// }
     }
 
     public function lihatPegawaiIsNotTimAkreditasi(){
+    	// if ($request->session()->has('user')) {
     	Pegawai::getAllPegawaiIsNotTimAkreditasi();
     	return 'terlihat semua';
+    	// } else {
+    	// 	return view('landing');
+    	// }
     }
 
     public function lihatPegawaiIsNotTimAkreditasiByUsername($username){
+    	// if ($request->session()->has('user')) {
     	Pegawai::getPegawaiIsNotTimAkreditasiByUsername($username);
     	return 'terlihat berdasarkan username';
+    	// } else {
+    	// 	return view('landing');
+    	// }
 
     }
 
     public function lihatPegawaiIsNotTimAkreditasiBy($no_pegawai){
+    	// if ($request->session()->has('user')) {
     	Pegawai::getPegawaiIsNotTimAkreditasiByNIP($no_pegawai);
     	return 'terlihat berdasarkan NIP';
+    	    	// } else {
+    	// 	return view('landing');
+    	// }
     }
 
     
-    public function lihatPengguna($kode_prodi, Request $request) {
+    public function lihatPengguna($kode_fakultas, Request $request) {
     	// if ($request->session()->has('user')) {
-	    	$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
+	    	$timAkreditasi = Pegawai::getTimAkreditasiByFakultas($kode_fakultas);
 			// dd($timAkreditasi);
 			return view('kelola', [
 					'timAkreditasi' => $timAkreditasi
