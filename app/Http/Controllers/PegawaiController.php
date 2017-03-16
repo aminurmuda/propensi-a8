@@ -57,7 +57,9 @@ class PegawaiController extends Controller
 	    	$timAkreditasi = Pegawai::getTimAkreditasiByFakultas($kode_fakultas);
 			// dd($timAkreditasi);
 			return view('kelola', [
-					'timAkreditasi' => $timAkreditasi
+					'timAkreditasi' => $timAkreditasi,
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kode_fakultas
 			]);	
     	// } else {
     	// 	return view('landing');

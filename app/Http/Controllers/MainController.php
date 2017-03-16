@@ -26,13 +26,23 @@ class MainController extends Controller
 		if($userPegawai) {
 			$userIsPimpinan = Pegawai::getPegawaiIsPimpinan($username);
 			$userIsTimAkreditasi = Pegawai::getPegawaiIsTimAkreditasi($username);
+			$kodeFakultas = Pegawai::getFakultasPegawai($username);
 			//Validasi jika yang login merupakan pimpinan
 			if($userIsPimpinan) {
+				$request->session()->put('role', 'Pimpinan');
 				return view ('home', [
-					'user' => $user]);
+					'user' => $user,
+					'role' => 'Pimpinan',
+					'kode_fakultas' => $kodeFakultas->kode_fakultas
+					]);
 			} elseif($userIsTimAkreditasi){	//Validasi jika yang login merupakan tim akreditasi
+				$request->session()->put('role', 'Tim Akreditasi');
 				return view ('home', [
-					'user' => $user]);
+					'user' => $user,
+					'role' => 'Tim Akreditasi',
+					'kode_fakultas' => $kodeFakultas->kode_fakultas
+					]
+					);
 			}
 		} else {
 			return view ('logingagal', [
@@ -43,6 +53,7 @@ class MainController extends Controller
 	public function logout(Request $request)
 	{
 		$request->session()->pull('user');
+		$request->session()->pull('role');
 		return SSO::logout(url('/'));
 	}
 

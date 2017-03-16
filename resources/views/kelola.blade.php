@@ -59,13 +59,13 @@
 
 
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        <li class="active"><a href="#">Kelola Tim Akreditasi </a>
+                        <li class="active"><a href="/timakreditasi/{{$kode_fakultas}}">Kelola Tim Akreditasi </a>
                            
                         </li>
                        
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  <span class="caret"></span></a>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  {{$role}}<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
                                 <li><a href="#">My Profile</a></li>
