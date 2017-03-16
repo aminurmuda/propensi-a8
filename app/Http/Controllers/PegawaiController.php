@@ -8,6 +8,10 @@ use DB;
 
 class PegawaiController extends Controller
 {
+    public function _construct(){
+        
+    }
+
     public function deleteTimAkreditasi($username){
     	// if ($request->session()->has('user')) {
     	Pegawai::deleteTimAkreditasi($username);
