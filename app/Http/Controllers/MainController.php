@@ -7,38 +7,45 @@ use SSO\SSO;
 use App\Pegawai;
 use DB;
 
+
 class MainController extends Controller
 {
-	public function login()
+	public function login(Request $request)
 	{
 		if(!SSO::check())
 			SSO::authenticate();
 
 		$user = SSO::getUser();
 		$username = $user->username;
+		$request->session()->put('user', $username);
 
+		//Mencari pegawai berdasarkan username sso yang login
 		$userPegawai = Pegawai::getPegawaiByUsername($username);		
 
+		//Validasi apakah yang login merupakan pegawai atau bukan
 		if($userPegawai) {
 			$userIsPimpinan = Pegawai::getPegawaiIsPimpinan($username);
 			$userIsTimAkreditasi = Pegawai::getPegawaiIsTimAkreditasi($username);
-			/*return view('secret', [
-				'user' => $user
-			]);*/
+			//Validasi jika yang login merupakan pimpinan
 			if($userIsPimpinan) {
-				echo 'Kamu Pimpinan';
-			} elseif($userIsTimAkreditasi){
-				echo 'Kamu Tim Akreditasi Yah';
+				return view ('home', [
+					'user' => $user]);
+			} elseif($userIsTimAkreditasi){	//Validasi jika yang login merupakan tim akreditasi
+				return view ('home', [
+					'user' => $user]);
 			}
 		} else {
-			echo 'Mohon Maaf Kamu Tidak memiliki akses';
+			return view ('logingagal', [
+					'user' => $user]);
 		}
 	}
 
-	public function logout()
+	public function logout(Request $request)
 	{
+		$request->session()->pull('user');
 		return SSO::logout();
 	}
+<<<<<<< HEAD
 
 
 	public function lihatPengguna($kode_prodi) {
@@ -57,3 +64,6 @@ class MainController extends Controller
 	}
 
 }
+=======
+}
+>>>>>>> dc9d40918b0ca3634a6caf0d76a426df98f9f6ef
