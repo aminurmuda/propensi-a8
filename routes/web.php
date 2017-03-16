@@ -22,10 +22,10 @@ Route::get('login', 'MainController@login');
 Route::get('logout', 'MainController@logout');
 
 
-Route::get('timakreditasi/{kode_prodi}', 'MainController@lihatPengguna');
-Route::get ('hapus/{kode_prodi}/{username}', 'MainController@hapusPengguna');
+// Route::get('timakreditasi/{kode_prodi}', 'MainController@lihatPengguna');
+// Route::get ('hapus/{username}', 'MainController@hapusPengguna');
 
-Route::get('timakreditasi/{kode_prodi}', 'PegawaiController@lihatPengguna');
+// Route::get('timakreditasi/{kode_prodi}', 'PegawaiController@lihatPengguna');
 
 Route::get('timakreditasi/{kode_fakultas}', 'PegawaiController@lihatPengguna');
 
