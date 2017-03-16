@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Kelola Tim Akreditasi - Modul Akreditasi</title>
+    <title>Kelola Tim Akreditasi - Modul Akreditasia</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -131,7 +131,7 @@
                             <td>{{$pegawai->nama}}</td>
                             <td>{{$pegawai->no_pegawai}}</td>
                             <td>
-                                <center><button class="glyphicon glyphicon-trash" type="submit"></button></center>
+                                <center><a href="#"><button class="glyphicon glyphicon-trash" type="submit"></button></a></center>
                             </td>
                            
                         </tr>
