@@ -45,4 +45,21 @@ class MainController extends Controller
 		$request->session()->pull('user');
 		return SSO::logout();
 	}
+
+
+	public function lihatPengguna($kode_prodi) {
+		$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
+			// dd($timAkreditasi);
+
+			return view('kelola', [
+				'timAkreditasi' => $timAkreditasi
+			]);
+	}
+
+	public function hapusPengguna($kode_prodi,$username){
+		$timAkreditasi = Pegawai::deleteTimAkreditasi($username);
+		// echo $kode_prodi;
+		MainController::lihatPengguna($kode_prodi);
+	}
+
 }
