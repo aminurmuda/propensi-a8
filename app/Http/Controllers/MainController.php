@@ -45,7 +45,6 @@ class MainController extends Controller
 		$request->session()->pull('user');
 		return SSO::logout();
 	}
-<<<<<<< HEAD
 
 
 	public function lihatPengguna($kode_prodi) {
@@ -64,6 +63,3 @@ class MainController extends Controller
 	}
 
 }
-=======
-}
->>>>>>> dc9d40918b0ca3634a6caf0d76a426df98f9f6ef
