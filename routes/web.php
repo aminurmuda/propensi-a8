@@ -21,14 +21,14 @@ Route::get('login', 'MainController@login');
 // Route untuk logout
 Route::get('logout', 'MainController@logout');
 
-<<<<<<< HEAD
+
 Route::get('timakreditasi/{kode_prodi}', 'MainController@lihatPengguna');
 Route::get ('hapus/{kode_prodi}/{username}', 'MainController@hapusPengguna');
 
 Route::get('timakreditasi/{kode_prodi}', 'PegawaiController@lihatPengguna');
-=======
+
 Route::get('timakreditasi/{kode_fakultas}', 'PegawaiController@lihatPengguna');
->>>>>>> dc9d40918b0ca3634a6caf0d76a426df98f9f6ef
+
 
 Route::get('timakreditasi/tambah/{username}', 'PegawaiController@tambahPengguna');
 

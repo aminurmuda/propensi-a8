@@ -58,7 +58,7 @@ class MainController extends Controller
 
 	public function hapusPengguna($kode_prodi,$username){
 		$timAkreditasi = Pegawai::deleteTimAkreditasi($username);
-		// echo $kode_prodi;
+		 //echo $kode_prodi;
 		MainController::lihatPengguna($kode_prodi);
 	}
 
