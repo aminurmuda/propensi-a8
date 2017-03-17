@@ -12,6 +12,12 @@ class PegawaiController extends Controller
         
     }
 
+	/**
+	 * Method deleteTimAkreditasi untuk menghilangkan akses pegawai yang sudah tidak menjadi tim akreditasi lagi
+	 * 
+	 * @param string $username username pegawai yang ingin dihapus aksesnya
+	 * @return ....
+	 */
     public function deleteTimAkreditasi($username){
     	// if ($request->session()->has('user')) {
     	Pegawai::deleteTimAkreditasi($username);
@@ -21,6 +27,12 @@ class PegawaiController extends Controller
     	// }
     }
 
+	/**
+	 * Method lihatPegawaiIsNotTimAkreditasi untuk menampilkan list semua pegawai yang bukan merupakan tim akreditasi
+	 * 
+	 * @param string $kode_fakultas kode fakultas dari pengguna yang sedang login
+	 * @return view halaman daftar pegawai
+	 */
     public function lihatPegawaiIsNotTimAkreditasi($kode_fakultas){
     	// if ($request->session()->has('user')) {
     	$pegawai = Pegawai::getAllPegawaiIsNotTimAkreditasi($kode_fakultas);
@@ -32,6 +44,12 @@ class PegawaiController extends Controller
     	// }
     }
 
+	/**
+	 * Method lihatPegawaiIsNotTimAkreditasiByUsername untuk mencari pegawai yang bukan merupakan tim akreditasi berdasarkan nama
+	 * 
+	 * @param string $username adalah username yang ingin dicari
+	 * @return .....
+	 */
     public function lihatPegawaiIsNotTimAkreditasiByUsername($username){
     	// if ($request->session()->has('user')) {
     	Pegawai::getPegawaiIsNotTimAkreditasiByUsername($username);
@@ -42,6 +60,12 @@ class PegawaiController extends Controller
 
     }
 
+	/**
+	 * Method lihatPegawaiIsNotTimAkreditasiBy untuk mencari pegawai yang bukan merupakan tim akreditasi berdasarkan NIP
+	 * 
+	 * @param string $no_pegawai merupakan NIP yang ingin dicari
+	 * @return .....
+	 */
     public function lihatPegawaiIsNotTimAkreditasiBy($no_pegawai){
     	// if ($request->session()->has('user')) {
     	Pegawai::getPegawaiIsNotTimAkreditasiByNIP($no_pegawai);
@@ -51,7 +75,13 @@ class PegawaiController extends Controller
     	// }
     }
 
-    
+	/**
+	 * Method lihatPengguna untuk menampilkan list semua tim akreditasi
+	 * 
+	 * @param string $kode_fakultas kode fakultas dari pengguna yang sedang login
+	 * @param Request $request untuk session
+	 * @return view halaman daftar tim akreditasi
+	 */
     public function lihatPengguna($kode_fakultas, Request $request) {
     	// if ($request->session()->has('user')) {
 	    	$timAkreditasi = Pegawai::getTimAkreditasiByFakultas($kode_fakultas);
@@ -67,6 +97,12 @@ class PegawaiController extends Controller
 		
 	}
 
+	/**
+	 * Method tambahPengguna untuk memberikan akses kepada suatu pegawai
+	 * 
+	 * @param string $username username pegawai yang ingin diberikan akses
+	 * @return ......
+	 */
 	public function tambahPengguna($username) {
 		Pegawai::addTimAkreditasi($username);
 		return 'tim akreditasi berhasil ditambahkan';

@@ -10,6 +10,12 @@ use DB;
 
 class MainController extends Controller
 {
+	/**
+	 * Method login dijalankan ketika pengguna telah memasukkan username dan password kedalam SSO
+	 * 
+	 * @param Request $request untuk session
+	 * @return view home untuk masing-masing role.
+	 */
 	public function login(Request $request)
 	{
 		if(!SSO::check())
@@ -50,13 +56,18 @@ class MainController extends Controller
 		}
 	}
 
+	/**
+	 * Method logout dijalankan ketika pengguna ingin keluar dari modul
+	 * 
+	 * @param Request $request untuk session
+	 * @return kembali ke halaman root (utama)
+	 */
 	public function logout(Request $request)
 	{
 		$request->session()->pull('user');
 		$request->session()->pull('role');
 		return SSO::logout(url('/'));
 	}
-
 
 	public function lihatPengguna($kode_prodi) {
 		$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
@@ -66,11 +77,4 @@ class MainController extends Controller
 				'timAkreditasi' => $timAkreditasi
 			]);
 	}
-
-	// public function hapusPengguna($username){
-	// 	$timAkreditasi = Pegawai::deleteTimAkreditasi($username);
-	// 	 //echo $kode_prodi;
-	// 	MainController::lihatPengguna($kode_prodi);
-	// }
-
 }
