@@ -92,4 +92,14 @@ class Pegawai extends Model
             ->where('pegawai.username',$username)
             ->get();
     }
+
+    public static function lihatProfilPengguna($username)
+    {
+    return DB::table('pegawai')
+        ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+        ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
+        ->select('pegawai.nama', 'pegawai.no_pegawai','pegawai.username','program_studi.nama_prodi')
+        ->where('pegawai.username',$username)
+        ->get();
+    }
 }

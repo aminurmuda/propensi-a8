@@ -26,3 +26,5 @@ Route::get('timakreditasi/{kode_fakultas}', 'PegawaiController@lihatPengguna');
 Route::get('timakreditasi/tambah/{username}', 'PegawaiController@tambahPengguna');
 
 Route::get('timakreditasi/hapus/{username}', 'PegawaiController@deleteTimAkreditasi');
+
+Route::get('profil/{username}', 'PegawaiController@profilPengguna');

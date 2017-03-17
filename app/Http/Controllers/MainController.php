@@ -39,14 +39,15 @@ class MainController extends Controller
 				return view ('home', [
 					'user' => $user,
 					'role' => 'Pimpinan',
-					'kode_fakultas' => $kodeFakultas->kode_fakultas
+					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]);
 			} elseif($userIsTimAkreditasi){	//Validasi jika yang login merupakan tim akreditasi
+
 				$request->session()->put('role', 'Tim Akreditasi');
 				return view ('home', [
 					'user' => $user,
 					'role' => 'Tim Akreditasi',
-					'kode_fakultas' => $kodeFakultas->kode_fakultas
+					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]
 					);
 			}

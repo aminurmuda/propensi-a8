@@ -89,7 +89,8 @@ class PegawaiController extends Controller
 			return view('kelola', [
 					'timAkreditasi' => $timAkreditasi,
 					'role' => $request->session()->get('role'),
-					'kode_fakultas' => $kode_fakultas
+					'kode_fakultas' => $kode_fakultas,
+					'user' => $request->session()->get('user')
 			]);	
     	// } else {
     	// 	return view('landing');
@@ -107,5 +108,16 @@ class PegawaiController extends Controller
 		Pegawai::addTimAkreditasi($username);
 		return 'tim akreditasi berhasil ditambahkan';
 	}
+
+	/**
+	 * Method profilPengguna untuk melihat profil pengguna yang sedang login beserta rolenya
+	 * 
+	 * @param string $username username pegawai yang ingin diberikan akses
+	 * @return ......
+	 */
+	public function profilPengguna($username) {
+		$pengguna = Pegawai::lihatProfilPengguna($username);
+		return $pengguna[0]->nama;
+	}	
 
 }
