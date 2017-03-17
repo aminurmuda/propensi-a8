@@ -47,7 +47,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="#" class="">Home</a></li>
+                        <li class="active"><a href="#" class="">Home</a></li>
                         
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang Standar <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -59,8 +59,12 @@
 
 
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        <li class="active"><a href="/timakreditasi/{{$kode_fakultas}">Kelola Tim Akreditasi </a>
-                           
+                        <li class="dropdown"><a href="/timakreditasi/{{$kode_fakultas}" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
+                           <ul class="dropdown-menu">
+                                <li><a href="#">Tambah Pengguna</a></li>
+                                <li><a href="#">Lihat dan Hapus Pengguna</a></li>
+    
+                            </ul>
                         </li>
                        
                     </ul>

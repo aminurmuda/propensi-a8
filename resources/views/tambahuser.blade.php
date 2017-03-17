@@ -116,7 +116,7 @@
                             <td>{{$pegawai->nama}}</td>
                             <td>{{$pegawai->no_pegawai}}</td>
                             <td>
-                                <center><a href="hapus/{{$pegawai->username}}"><button class="glyphicon glyphicon-trash" type="submit"></button></a></center>
+                                <center><a href="hapus/{{$pegawai->username}}"><button class="glyphicon glyphicon-plus" type="submit"></button></a></center>
                             </td>
                            
                         </tr>
