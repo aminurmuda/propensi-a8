@@ -59,7 +59,7 @@
 
 
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        <li class="dropdown"><a href="/timakreditasi/{{$kode_fakultas}" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
+                        <li class="dropdown"><a href="/timakreditasi/{{$kode_fakultas}}" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="#">Tambah Pengguna</a></li>
                                 <li><a href="#">Lihat dan Hapus Pengguna</a></li>
