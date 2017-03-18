@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use SSO\SSO;
 
 class PimpinanMiddleWare
 {
@@ -17,7 +18,7 @@ class PimpinanMiddleWare
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check() && Auth::Pegawai()->isPimpinan == 1) {
+        if (SSO::check()) {
             return $next($request);
         } else {
             return redirect('/');   

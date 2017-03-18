@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('landing');
 });
@@ -19,12 +20,19 @@ Route::get('/', function () {
 Route::get('login', 'MainController@login');
 
 // Route untuk logout
-Route::get('logout', 'MainController@logout');
 
-Route::get('timakreditasi/{kode_fakultas}', 'PegawaiController@lihatPengguna');
 
-Route::get('timakreditasi/tambah/{username}', 'PegawaiController@tambahPengguna');
+// Route::get('home', 'MainController@home')->middleware('home')->name('home');
 
-Route::get('timakreditasi/hapus/{username}', 'PegawaiController@deleteTimAkreditasi');
+Route::group(['middleware'=>['home']], function() {
+Route::get('home', 'MainController@home')->name('home');
+Route::get('logout', 'MainController@logout')->name('logout');
 
-Route::get('profil/{username}', 'PegawaiController@profilPengguna');
+Route::get('timakreditasi/{kode_fakultas}', 'PegawaiController@lihatPengguna')->name('timakreditasi/{kode_fakultas}');
+
+Route::get('timakreditasi/tambah/{username}', 'PegawaiController@tambahPengguna')->name('timakreditasi/tambah/{username}');
+
+Route::get('timakreditasi/hapus/{username}', 'PegawaiController@deleteTimAkreditasi')->name('timakreditasi/hapus/{username}');
+
+Route::get('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
+});

@@ -19,12 +19,8 @@ class PegawaiController extends Controller
 	 * @return ....
 	 */
     public function deleteTimAkreditasi($username){
-    	// if ($request->session()->has('user')) {
     	Pegawai::deleteTimAkreditasi($username);
 		return 'tim akreditasi berhasil dihapus';
-		// } else {
-    	// 	return view('landing');
-    	// }
     }
 
 	/**
@@ -34,14 +30,10 @@ class PegawaiController extends Controller
 	 * @return view halaman daftar pegawai
 	 */
     public function lihatPegawaiIsNotTimAkreditasi($kode_fakultas){
-    	// if ($request->session()->has('user')) {
     	$pegawai = Pegawai::getAllPegawaiIsNotTimAkreditasi($kode_fakultas);
     	return view('listpegawai', [
             'pegawai' => $pegawai
         ]);
-    	// } else {
-    	// 	return view('landing');
-    	// }
     }
 
 	/**
@@ -51,12 +43,8 @@ class PegawaiController extends Controller
 	 * @return .....
 	 */
     public function lihatPegawaiIsNotTimAkreditasiByUsername($username){
-    	// if ($request->session()->has('user')) {
     	Pegawai::getPegawaiIsNotTimAkreditasiByUsername($username);
     	return 'terlihat berdasarkan username';
-    	// } else {
-    	// 	return view('landing');
-    	// }
 
     }
 
@@ -67,12 +55,8 @@ class PegawaiController extends Controller
 	 * @return .....
 	 */
     public function lihatPegawaiIsNotTimAkreditasiBy($no_pegawai){
-    	// if ($request->session()->has('user')) {
     	Pegawai::getPegawaiIsNotTimAkreditasiByNIP($no_pegawai);
     	return 'terlihat berdasarkan NIP';
-    	    	// } else {
-    	// 	return view('landing');
-    	// }
     }
 
 	/**
@@ -83,18 +67,25 @@ class PegawaiController extends Controller
 	 * @return view halaman daftar tim akreditasi
 	 */
     public function lihatPengguna($kode_fakultas, Request $request) {
-    	// if ($request->session()->has('user')) {
+
+    	//validasi jika kode fakultas yang ingin diakses tidak sesuai dengan kode fakultas pengguna
+    	$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+    	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+    	if ($kodeFakultasPengguna==$kode_fakultas) {
 	    	$timAkreditasi = Pegawai::getTimAkreditasiByFakultas($kode_fakultas);
-			// dd($timAkreditasi);
 			return view('kelola', [
 					'timAkreditasi' => $timAkreditasi,
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kode_fakultas,
 					'user' => $request->session()->get('user')
-			]);	
-    	// } else {
-    	// 	return view('landing');
-    	// }
+			]);	    		
+    	} 
+    		return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $request->session()->get('user')
+			]);	    		
 		
 	}
 
