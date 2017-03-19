@@ -60,7 +60,7 @@
                         </li>
 
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        @if ($role=='Tim Akreditasi')
+                        @if ($role!='Tim Akreditasi')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
@@ -97,8 +97,8 @@
                      <br>
                      <br>
                      <br>
-                     <div class="alert alert-success">
-                      <strong>{{ $username }}</strong> berhasil dihapus dari Tim Akreditasi.
+                     <div class="alert alert-danger">
+                      <strong>{{ $pegawai -> nama }}</strong> berhasil dihapus dari Tim Akreditasi.
                     </div>
                      <br>
                      <br>

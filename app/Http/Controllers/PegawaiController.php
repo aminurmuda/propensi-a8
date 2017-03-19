@@ -21,9 +21,13 @@ class PegawaiController extends Controller
 	 */
 	public function tambahTimAkreditasi($username, Request $request) {
 		Pegawai::addTimAkreditasi($username);
+		$pegawai = Pegawai::getPegawaiByUsername($username);
+		$kodeFakultas = Pegawai::getFakultasPegawai($username);
 		return view('tambah-sukses', [
 			'role' => $request->session()->get('role'),
-            'user' => $request->session()->get('user'),        
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pegawai,      
+            'kode_fakultas' => $kodeFakultas,  
             'username' => $username
 		]);
 	}
@@ -36,9 +40,13 @@ class PegawaiController extends Controller
 	 */
     public function deleteTimAkreditasi($username, Request $request){
     	Pegawai::deleteTimAkreditasi($username);
+    	$pegawai = Pegawai::getPegawaiByUsername($username);
+    	$kodeFakultas = Pegawai::getFakultasPegawai($username);
 		return view('hapus-sukses', [
 			'role' => $request->session()->get('role'),
             'user' => $request->session()->get('user'),
+            'kode_fakultas' => $kodeFakultas,
+            'pegawai' => $pegawai,
             'username' => $username
 		]);
     }
