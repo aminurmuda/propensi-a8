@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="{{ url('css/akreditasi.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Montserrat">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -92,6 +94,8 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-0" >
             <div class="db-wrapper">
+                <h2>Profil Pengguna</h2>
+                <br>
                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <tr>
                         <th>Name:</th>
@@ -140,7 +144,7 @@
 
 
 <footer>
-  <div class="container">
+  <div class="footer navbar-fixed-bottom">
     <p id="footerbawah">Copyright © 2017 Propensi A08. All Rights Reserved</p>
   </div>
 </footer>
