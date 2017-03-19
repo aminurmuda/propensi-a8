@@ -18,9 +18,13 @@ class PegawaiController extends Controller
 	 * @param string $username username pegawai yang ingin diberikan akses
 	 * @return ......
 	 */
-	public function tambahTimAkreditasi($username) {
+	public function tambahTimAkreditasi($username, Request $request) {
 		Pegawai::addTimAkreditasi($username);
-		return 'tim akreditasi berhasil ditambahkan';
+		return view('tambah-sukses', [
+			'role' => $request->session()->get('role'),
+            'user' => $request->session()->get('user'),        
+            'username' => $username
+		]);
 	}
 
 	/**
@@ -29,9 +33,13 @@ class PegawaiController extends Controller
 	 * @param string $username username pegawai yang ingin dihapus aksesnya
 	 * @return ....
 	 */
-    public function deleteTimAkreditasi($username){
+    public function deleteTimAkreditasi($username, Request $request){
     	Pegawai::deleteTimAkreditasi($username);
-		return 'tim akreditasi berhasil dihapus';
+		return view('hapus-sukses', [
+			'role' => $request->session()->get('role'),
+            'user' => $request->session()->get('user'),
+            'username' => $username
+		]);
     }
 
 	/**
