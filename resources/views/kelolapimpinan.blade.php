@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Kelola Tim Akreditasi - Modul Akreditasi</title>
+    <title>Kelola Pimpinan - Modul Akreditasi</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -31,7 +31,7 @@
 
 <body>
 
-    <!-- Navigation -->
+   <!-- Navigation -->
     <div class="navbar-wrapper">
     <div class="container-fluid">
         <nav class="navbar navbar-fixed-top">
@@ -59,9 +59,9 @@
                             </ul>
                         </li>
 
+
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        
-                        @if ($role!='Tim Akreditasi' && $role!='Admin')
+                         @if ($role!='Tim Akreditasi' && $role!='Admin')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
@@ -74,7 +74,6 @@
                         @if ($role=='Admin')
                         <li><a href="#">Kelola Pimpinan</a></li>
                         @endif
-
                        
                     </ul>
                     <ul class="nav navbar-nav pull-right">
@@ -93,6 +92,8 @@
 </div>
 
 
+
+
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -100,33 +101,112 @@
 
                 <div id="titlekelola"> 
                      <h2>Kelola Pimpinan</h2>
-                     
-                     <br>
-                     <br>
-                     <br>
                 </div>
 
-                 <div class="col-md-12 col-md-offset-3">
-                    <form action="{username}" method="POST" id="form-cari">
-               
+                 <div class="col-md-5 col-md-offset-3">
+                    <form action="{{ url('kelolapimpinan/tambah') }}" method="POST" id="form-cari">
+                    <!-- {{ csrf_field() }} -->
                       <div class="input-group">
-                         <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder="Username" >
-                        
-	       				 <select class="form-control" id="sel1">
-					        <option>Pimpinan Universitas</option>
-					        <option>Pimpinan Fakultas</option>
-					        <option>BPMA</option>
-	      				</select>
+                      <h4>Tambah Pimpinan</h4>
+                         <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder=" Username" >
 
-	      				<button type="button" class="btn btn-primary"> Simpan</button>
-	      				<button type="button" class="btn btn-primary">Batal</button>
-	                    
+                         <br>
+                         <br>
+                        
+                         <select class="form-control" id="sel1">
+                            <option name="isBPMA" value="1">BPMA</option>
+                            <option name="isPimpinanFakultas" value="2">Pimpinan Fakultas</option>
+                            <option name="isPimpinanUniv" value="3">Pimpinan Universitas</option>
+                        </select>
+
+                        <br>
+                        <br>
+                        <br>
+
+                        <button type="button" class="btn btn-primary col-md-offset-4" type="submit"> Tambah</button>
+                        
+                        
                       </div>
 
 
                     </form>
+
+
+                     
                  </div>
-               
+
+                
+
+
+                 <!-- <img class="img-responsive center-block" id="kotakbiru" src="images/kotakdaftarpengguna.png" alt="" > -->
+
+                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIP</th>
+                            <th>Edit</th>
+                    
+                        </tr>
+                    </thead>
+                  
+                    <tbody>
+                       @foreach($listPimpinan as $pimpinan)
+                        <tr>
+                            <td>{{$pimpinan->nama}}</td>
+                            <td>{{$pimpinan->no_pegawai}}</td>
+                            <td>
+                                <center>
+                                <a href="hapus/{{$pimpinan->username}}">
+                                <button class="glyphicon glyphicon-trash" type="submit" data-toggle="modal" data-target="#confirmationModal" data-username="{{$pimpinan->username}}"></button>
+                                </a> 
+                                </center>
+                            </td>
+                           
+                        </tr> 
+                        @endforeach 
+                        <!--<tr>
+                            <td>Ani nini</td>
+                            <td>123333</td>
+                            <td><button class="glyphicon glyphicon-trash" type="submit"></button>
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                            <td>Ashton Cox</td>
+                            <td>156352</td>
+                            <td>
+                                <button class="glyphicon glyphicon-trash" type="submit"></button>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td>18249834</td>
+                            <td>
+                                <button class="glyphicon glyphicon-trash" type="submit"></button>
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td>Airi Satou</td>
+                            <td>122222</td>
+                            <td>
+                                <button class="glyphicon glyphicon-trash" type="submit"></button>
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                            <td>Brielle Williamson</td>
+                            <td>1256362</td>
+                            <td>
+                                <button class="glyphicon glyphicon-trash" type="submit"></button>
+                            </td>
+                           
+                        </tr> -->
+
+                    </tbody>
+                </table> 
 
                 <br>
 
@@ -141,6 +221,27 @@
 
     <!-- Modal -->
   <div class="modal fade" id="confirmationModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Hapus Tim Akreditasi</h4>
+        </div>
+        <div class="modal-body">
+          <p id='isi'>isinya</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" id="link" ><button type="button" class="btn btn-default">Yakin</button></a>
+         <button type="button" class="btn btn-default" data-dismiss="modal">batal</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="modal fade" id="confirmationModal1" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -183,6 +284,11 @@
     <script>
       $(document).ready(function() {
         $('#example').DataTable();
+
+        /*// TODO===================
+        $('#username').on('change', function() {
+            $('#form-cari').attr('action', $('#username').val());
+        });*/
     } );
     </script>
 
@@ -247,7 +353,15 @@
             });
         });
 
-            $('#confirmationModal').on('show.bs.modal', function(e) {
+        $('#confirmationModal').on('show.bs.modal', function(e) {
+          var username = e.relatedTarget.dataset.username;
+          document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+username+ " dari tim akreditasi?";
+          var link = document.getElementById("link");
+          var linkHapus = "hapus/"+username;
+        link.setAttribute("href", linkHapus);
+      });
+
+        $('#confirmationModal1').on('show.bs.modal', function(e) {
           var username = e.relatedTarget.dataset.username;
           document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+username+ " dari tim akreditasi?";
           var link = document.getElementById("link");

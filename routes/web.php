@@ -21,19 +21,27 @@ Route::group(['middleware'=>['home']], function() {
 Route::get('home', 'MainController@home')->name('home');
 Route::get('logout', 'MainController@logout')->name('logout');
 
-Route::get('timakreditasi/kelola/{kode_fakultas}', 'PegawaiController@lihatPengguna')->name('timakreditasi/kelola/{kode_fakultas}');
+Route::get('timakreditasi/kelola/{kode_fakultas}', 'PegawaiController@lihatPengguna')->name('timakreditasi/kelola/{kode_fakultas}'); //pimpinan fakultas only
 
-Route::get('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPegawaiIsNotTimAkreditasi')->name('timakreditasi/tambah/{kode_fakultas}');
+Route::get('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPegawaiIsNotTimAkreditasi')->name('timakreditasi/tambah/{kode_fakultas}'); //pimpinan fakultas only
 
-Route::get('timakreditasi/tambah/tambah/{username}', 'PegawaiController@tambahTimAkreditasi')->name('timakreditasi/tambah/tambah/{username}');
+Route::get('timakreditasi/tambah/tambah/{username}', 'PegawaiController@tambahTimAkreditasi')->name('timakreditasi/tambah/tambah/{username}'); //pimpinan fakultas only
 
-Route::get('timakreditasi/kelola/hapus/{username}', 'PegawaiController@deleteTimAkreditasi')->name('timakreditasi/hapus/{username}');
+Route::get('timakreditasi/kelola/hapus/{username}', 'PegawaiController@deleteTimAkreditasi')->name('timakreditasi/hapus/{username}'); //pimpinan fakultas only
 
 Route::get('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
 
-Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')->name('kelolapimpinan');
 
-Route::get('pimpinan', 'PegawaiController@kelolapimpinan')->name('pimpinan');
+Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')->name('kelolapimpinan/{username}');
+
+Route::get('kelolapimpinan/hapus/{username}', 'PegawaiController@hapusPimpinan')->name('kelolapimpinan/hapus/{username}');
+
+Route::get('kelolapimpinan/tambah', 'PegawaiController@tambahPimpinan')->name('kelolapimpinan/hapus/{username}/{valuePimpinan}');
+
+Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')->name('kelolapimpinan'); //admin only
+
+
+Route::get('pimpinan', 'PegawaiController@kelolapimpinan')->name('pimpinan'); //admin only
 });
 
 //kalau udah login, ngakses route dibawah ini akan diarahkan ke home
