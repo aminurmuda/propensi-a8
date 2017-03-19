@@ -93,6 +93,8 @@
                      <img class="img-responsive" src="{{ url('images/kelolatim.png') }}" alt="" >
                      
                      <br>
+                     <br>
+                     <br>
                 </div>
 
                 
