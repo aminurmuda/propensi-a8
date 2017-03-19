@@ -97,8 +97,8 @@
                      <br>
                      <br>
                      <br>
-                     <div class="alert alert-danger">
-                      <strong>{{ $pegawai -> nama }}</strong> berhasil dihapus dari pimpinan.
+                     <div class="alert alert-success">
+                      <strong>{{ $pegawai -> nama }}</strong> berhasil ditambah sebagai pimpinan.
                     </div>
                      <br>
                     <p>Anda akan kembali ke <a href="{{ URL::previous() }}">halaman sebelumnya</a> dalam waktu <span id="seconds">5</span> detik.</p>

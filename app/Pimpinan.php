@@ -48,9 +48,8 @@ class Pimpinan extends Model
     public static function tambahPimpinanIsPimpinanFakultas($username) {
     	$kodeFakultas= Pegawai::getFakultasPegawai($username);
 
-    	$kocak = DB::table('pimpinan')
+    	return DB::table('pimpinan')
                     ->insert(['isBPMA'=> 0, 'isPimpinanFakultas' => 1, 'id_fakultas' => $kodeFakultas[0]->kode_fakultas, 'isPimpinanUniv' => 0]);
-        dd($kocak);
     }
 
     public static function tambahPimpinanIsPimpinanUniv() {
