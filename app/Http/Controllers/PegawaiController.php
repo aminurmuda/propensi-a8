@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pegawai;
+use App\Pimpinan;
 use DB;
 
 class PegawaiController extends Controller
@@ -20,9 +21,13 @@ class PegawaiController extends Controller
 	 */
 	public function tambahTimAkreditasi($username, Request $request) {
 		Pegawai::addTimAkreditasi($username);
+		$pegawai = Pegawai::getPegawaiByUsername($username);
+		$kodeFakultas = Pegawai::getFakultasPegawai($username);
 		return view('tambah-sukses', [
 			'role' => $request->session()->get('role'),
-            'user' => $request->session()->get('user'),        
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pegawai,      
+            'kode_fakultas' => $kodeFakultas,  
             'username' => $username
 		]);
 	}
@@ -35,9 +40,13 @@ class PegawaiController extends Controller
 	 */
     public function deleteTimAkreditasi($username, Request $request){
     	Pegawai::deleteTimAkreditasi($username);
+    	$pegawai = Pegawai::getPegawaiByUsername($username);
+    	$kodeFakultas = Pegawai::getFakultasPegawai($username);
 		return view('hapus-sukses', [
 			'role' => $request->session()->get('role'),
             'user' => $request->session()->get('user'),
+            'kode_fakultas' => $kodeFakultas,
+            'pegawai' => $pegawai,
             'username' => $username
 		]);
     }
@@ -59,24 +68,24 @@ class PegawaiController extends Controller
     }
 
 	/**
-	 * Method lihatPegawaiIsNotTimAkreditasiByUsername untuk mencari pegawai yang bukan merupakan tim akreditasi berdasarkan nama
+	 * Method getCalonPimpinanByUsername untuk mencari pegawai yang bukan merupakan tim akreditasi berdasarkan username sebagai kandidat menjadi pimpinan
 	 * 
 	 * @param string $username adalah username yang ingin dicari
 	 * @return .....
 	 */
-    public function lihatPegawaiIsNotTimAkreditasiByUsername($username){
+    public function getCalonPimpinanByUsername($username){
     	Pegawai::getPegawaiIsNotTimAkreditasiByUsername($username);
     	return 'terlihat berdasarkan username';
 
     }
 
 	/**
-	 * Method lihatPegawaiIsNotTimAkreditasiBy untuk mencari pegawai yang bukan merupakan tim akreditasi berdasarkan NIP
+	 * Method getCalonPimpinanByNIP untuk mencari pegawai yang bukan merupakan tim akreditasi berdasarkan NIP sebagai kandidat menjadi pimpinan
 	 * 
 	 * @param string $no_pegawai merupakan NIP yang ingin dicari
 	 * @return .....
 	 */
-    public function lihatPegawaiIsNotTimAkreditasiBy($no_pegawai){
+    public function getCalonPimpinanByNIP($no_pegawai){
     	Pegawai::getPegawaiIsNotTimAkreditasiByNIP($no_pegawai);
     	return 'terlihat berdasarkan NIP';
     }
@@ -135,7 +144,14 @@ class PegawaiController extends Controller
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kodeFakultasPengguna,
 					'user' => $request->session()->get('user')
-			]);	    
+			]);	 
+	}
+
+
+	public function setUpPimpinan($id_pimpinan, $valuePimpinan, $username) {
+		Pegawai::setIsPimpinan($username);
+		Pimpinan::setGeneralPimpinan($id_pimpinan, $valuePimpinan, $username);
+		return "Pimpinan ditambahkan";
 	}	
 
 }
