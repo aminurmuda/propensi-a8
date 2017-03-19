@@ -39,6 +39,33 @@ class Pimpinan extends Model
     	}
     }
 
+    public static function tambahPimpinanIsBPMA($username) {
+    	$kodeFakultas = getFakultasPegawai($username);
+    	return DB::table('pimpinan')
+                    ->insert(['isBPMA'=> 1, 'isPimpinanFakultas' => 0, 'id_fakultas' => $kodeFakultas, 'isPimpinanUniv' => 0]);
+    }
+
+    public static function tambahPimpinanIsPimpinanFakultas($username) {
+    	$kodeFakultas=getFakultasPegawai($username);
+    	return DB::table('pimpinan')
+                    ->insert(['isBPMA'=> 0, 'isPimpinanFakultas' => 1, 'id_fakultas' => $kodeFakultas, 'isPimpinanUniv' => 0]);
+    }
+
+    public static function tambahPimpinanIsPimpinanUniv() {
+    	return DB::table('pimpinan')
+                   ->insert(['isBPMA'=> 0, 'isPimpinanFakultas' => 0, 'id_fakultas' => null, 'isPimpinanUniv' => 1]);
+    }
+
+    public static function addPimpinan($valuePimpinan, $username) {
+    	if($valuePimpinan == 1) {
+    		return Pimpinan::tambahPimpinanIsBPMA($username);
+    	} elseif($valuePimpinan == 2) {
+    		return Pimpinan::tambahPimpinanIsPimpinanFakultas($username);
+    	} else {
+    		return Pimpinan::tambahPimpinanIsPimpinanUniv();
+    	}
+    }
+
     public static function hapusPimpinan($id_pimpinan) {
     	return DB::table('pimpinan')
                     ->where('id_pimpinan', $id_pimpinan)
