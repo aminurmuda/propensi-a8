@@ -152,6 +152,18 @@ class PegawaiController extends Controller
 		Pegawai::setIsPimpinan($username);
 		Pimpinan::setGeneralPimpinan($id_pimpinan, $valuePimpinan, $username);
 		return "Pimpinan ditambahkan";
-	}	
+	}
+
+	public function kelolaPimpinanPage($username, Request $request) {
+		$pengguna = Pegawai::lihatProfilPengguna($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+		return view('kelolapimpinan', [
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username,
+					'pengguna' =>$pengguna[0]
+		]);
+	}
 
 }
