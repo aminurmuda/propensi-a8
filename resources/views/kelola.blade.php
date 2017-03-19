@@ -199,7 +199,7 @@
         </div>
         <div class="modal-footer">
           <a href="#" id="link" ><button type="button" class="btn btn-default">Yakin</button></a>
-         <button type="button" class="btn btn-default" data dismiss="modal">batal</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal">batal</button>
         </div>
       </div>
       
