@@ -89,6 +89,12 @@ class Pegawai extends Model
                     ->update(['isPimpinan'=> 1]);
     }
 
+    public static function hapusIsPimpinan($username) {
+        return DB::table('pegawai')
+                    ->where('username', $username)
+                    ->update(['isPimpinan'=> 0]);
+    }
+
     public static function getAllPegawaiIsNotTimAkreditasi($kode_fakultas){
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
