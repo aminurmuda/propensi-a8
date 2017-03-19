@@ -101,9 +101,7 @@
                       <strong>{{ $pegawai -> nama }}</strong> berhasil ditambahkan menjadi Tim Akreditasi.
                     </div>
                      <br>
-                     <br>
-                     
-                    <a href="{{ URL::previous() }}">Kembali</a>
+                    <p>Anda akan kembali ke <a href="{{ URL::previous() }}">halaman sebelumnya</a> dalam waktu <span id="seconds">5</span> detik.</p>
 
                 </div>
             </div>
@@ -115,6 +113,32 @@
         <p id="footerbawah">Copyright © 2017 Propensi A08. All Rights Reserved</p>
       </div>
     </footer>
+
+    <script type="text/JavaScript">
+    var seconds = 5; // seconds for HTML
+    var foo; // variable for clearInterval() function
+
+    function redirect() {
+        document.location.href = '{{ URL::previous() }}';
+    }
+
+    function updateSecs() {
+        document.getElementById("seconds").innerHTML = seconds;
+        seconds--;
+        if (seconds == -1) {
+            clearInterval(foo);
+            redirect();
+        }
+    }
+
+    function countdownTimer() {
+        foo = setInterval(function () {
+            updateSecs()
+        }, 1000);
+    }
+
+    countdownTimer();
+    </script>
 
 </body>
 
