@@ -45,7 +45,7 @@ class MainController extends Controller
 			]);
 	}
 
-	public function home(Request $request)
+    public function home(Request $request)
 	{
 		$user = SSO::getUser();
 		$username = $user->username;
@@ -59,17 +59,29 @@ class MainController extends Controller
 			$userIsPimpinan = Pegawai::getPegawaiIsPimpinan($username);
 			$userIsTimAkreditasi = Pegawai::getPegawaiIsTimAkreditasi($username);
 			$kodeFakultas = Pegawai::getFakultasPegawai($username);
-			//Validasi jika yang login merupakan pimpinan
 			if($userIsPimpinan) {
-				$request->session()->put('role', 'Pimpinan');
+				//validasi isBPMA, isPimpinanFakultas,isPimpinanUniv
+				$pimpinan = Pegawai::getPimpinanPegawai($username);
+				$isBPMA = $pimpinan[0] -> isBPMA;
+				$isPimpinanFakultas = $pimpinan[0] -> isPimpinanFakultas;
+				$role='';
+
+				if($isBPMA == 1) {
+					$role = 'BPMA';
+				} else if ($isPimpinanFakultas == 1) {
+					$role='Pimpinan Fakultas';
+				} else {
+					$role='Pimpinan Universitas';
+				} 
+				$request->session()->put('role', $role);
 				return view ('home', [
 					'user' => $user,
-					'role' => 'Pimpinan',
+					'role' => $role,
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas,
 					]);
 			} elseif($userIsTimAkreditasi){	//Validasi jika yang login merupakan tim akreditasi
 
-				$request->session()->put('role', 'Tim Akreditasi');
+				$request->session()->put('role', 'Tim Akreditasi');;
 				return view ('home', [
 					'user' => $user,
 					'role' => 'Tim Akreditasi',
