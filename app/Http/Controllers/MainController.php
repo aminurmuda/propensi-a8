@@ -77,13 +77,21 @@ class MainController extends Controller
 					'role' => $role,
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas,
 					]);
-				
+
 			} elseif($userIsTimAkreditasi){	//Validasi jika yang login merupakan tim akreditasi
 
 				$request->session()->put('role', 'Tim Akreditasi');;
 				return view ('home', [
 					'user' => $user,
 					'role' => 'Tim Akreditasi',
+					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
+					]
+					);
+			} else { //admin
+				$request->session()->put('role', 'Admin');;
+				return view ('home', [
+					'user' => $user,
+					'role' => 'Admin',
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]
 					);
