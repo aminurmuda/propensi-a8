@@ -17,7 +17,7 @@ class Pimpinan extends Model
     }
 
     public static function setAktifPimpinanIsPimpinanFakultas($id_pimpinan, $username) {
-    	$kodeFakultas=getFakultasPegawai($username);
+    	$kodeFakultas= Pegawai::getFakultasPegawai($username);
     	return DB::table('pimpinan')
                     ->where('id_pimpinan', $id_pimpinan)
                     ->update(['isBPMA'=> 0, 'isPimpinanFakultas' => 1, 'isPimpinanUniv' => 0, 'id_fakultas' => $kodeFakultas]);
@@ -40,15 +40,17 @@ class Pimpinan extends Model
     }
 
     public static function tambahPimpinanIsBPMA($username) {
-    	$kodeFakultas = getFakultasPegawai($username);
+    	$kodeFakultas = Pegawai::getFakultasPegawai($username);
     	return DB::table('pimpinan')
-                    ->insert(['isBPMA'=> 1, 'isPimpinanFakultas' => 0, 'id_fakultas' => $kodeFakultas, 'isPimpinanUniv' => 0]);
+                    ->insert(['isBPMA'=> 1, 'isPimpinanFakultas' => 0, 'id_fakultas' => $kodeFakultas[0]->kode_fakultas, 'isPimpinanUniv' => 0]);
     }
 
     public static function tambahPimpinanIsPimpinanFakultas($username) {
-    	$kodeFakultas=getFakultasPegawai($username);
-    	return DB::table('pimpinan')
-                    ->insert(['isBPMA'=> 0, 'isPimpinanFakultas' => 1, 'id_fakultas' => $kodeFakultas, 'isPimpinanUniv' => 0]);
+    	$kodeFakultas= Pegawai::getFakultasPegawai($username);
+
+    	$kocak = DB::table('pimpinan')
+                    ->insert(['isBPMA'=> 0, 'isPimpinanFakultas' => 1, 'id_fakultas' => $kodeFakultas[0]->kode_fakultas, 'isPimpinanUniv' => 0]);
+        dd($kocak);
     }
 
     public static function tambahPimpinanIsPimpinanUniv() {

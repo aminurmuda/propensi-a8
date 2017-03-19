@@ -218,13 +218,12 @@ class PegawaiController extends Controller
 		]);
 	}
 
-	public function tambahPimpinan(Request $request) {
-		$print = $request->input('username');
-		return $print;
-		// $pimpinan = Pegawai::getPegawaiByUsername($username);
-		// Pegawai::setIsPimpinan($username);
-		// //Pimpinan::addPimpinan($valuePimpinan, $username);
-		// return "pimpinan di set";
+	public function tambahPimpinan($username, $valuePimpinan) {
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		Pegawai::setIsPimpinan($username);
+		Pimpinan::addPimpinan($valuePimpinan, $username);
+		
+		return "pimpinan di set";
 	}
 
 }
