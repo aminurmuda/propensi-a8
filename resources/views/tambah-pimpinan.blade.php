@@ -93,7 +93,7 @@
 
                 <div id="titlekelola"> 
                      <h2>Kelola Pimpinan</h2>
-                     <span>Hapus Pimpinan</span>
+                     <span>Tambah Pimpinan</span>
                      <br>
                      <br>
                      <br>
