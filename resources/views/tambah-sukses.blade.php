@@ -103,7 +103,7 @@
                      <br>
                      <br>
                      
-                    <a href="#" class="btn btn-primary btn-md pull-right">Kembali</a>
+                    <a href="{{ URL::previous() }}">Kembali</a>
 
                 </div>
             </div>

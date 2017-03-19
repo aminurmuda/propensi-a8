@@ -22,8 +22,7 @@ class PegawaiController extends Controller
 		Pegawai::addTimAkreditasi($username);
 		return view('tambah-sukses', [
 			'role' => $request->session()->get('role'),
-            'user' => $request->session()->get('user'),
-            
+            'user' => $request->session()->get('user'),        
             'username' => $username
 		]);
 	}
@@ -122,12 +121,21 @@ class PegawaiController extends Controller
 		$pengguna = Pegawai::lihatProfilPengguna($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
-		return view('profile', [
+		if($username == $request->session()->get('user')){
+			return view('profile', [
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kodeFakultasPengguna,
 					'user' => $username,
 					'pengguna' =>$pengguna[0]
 					]);
+		}
+			
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $request->session()->get('user')
+			]);	    
 	}	
 
 }
