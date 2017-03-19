@@ -104,35 +104,26 @@
                 </div>
 
                  <div class="col-md-5 col-md-offset-3">
-                    <form action="{{ url('kelolapimpinan/tambah') }}" method="POST" id="form-cari">
-                    <!-- {{ csrf_field() }} -->
+                    <form action="" method="POST" id="form-cari">
+                    {{ csrf_field() }}
                       <div class="input-group">
                       <h4>Tambah Pimpinan</h4>
                          <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder=" Username" >
-
                          <br>
                          <br>
-                        
-                         <select class="form-control" id="sel1">
-                            <option name="isBPMA" value="1">BPMA</option>
-                            <option name="isPimpinanFakultas" value="2">Pimpinan Fakultas</option>
-                            <option name="isPimpinanUniv" value="3">Pimpinan Universitas</option>
-                        </select>
-
+                        <select class="form-control" id="sel1">
+                           <option name="undefined" value="0">Select Role</option>
+                           <option name="isBPMA" value="1">BPMA</option>
+                           <option name="isPimpinanFakultas" value="2">Pimpinan Fakultas</option>
+                           <option name="isPimpinanUniv" value="3">Pimpinan Universitas</option>
+                        </select> 
                         <br>
                         <br>
                         <br>
-
-                        <button type="button" class="btn btn-primary col-md-offset-4" type="submit"> Tambah</button>
-                        
-                        
+                        <button class="btn btn-primary col-md-offset-4" type="submit"> Tambah</button>
                       </div>
-
-
+                      
                     </form>
-
-
-                     
                  </div>
 
                 
@@ -285,10 +276,12 @@
       $(document).ready(function() {
         $('#example').DataTable();
 
-        /*// TODO===================
+        // TODO===================
         $('#username').on('change', function() {
-            $('#form-cari').attr('action', $('#username').val());
-        });*/
+            $('#sel1').on('change', function() {
+                $('#form-cari').attr('action', 'tambah/'+ $('#username').val() + '/' + $('#sel1').val());
+            })
+        });
     } );
     </script>
 
