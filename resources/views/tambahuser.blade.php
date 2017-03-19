@@ -182,7 +182,7 @@
 
 
 <footer>
-  <div class="container">
+  <div class="footer navbar-fixed-bottom">
     <p id="footerbawah">Copyright © 2017 Propensi A08. All Rights Reserved</p>
   </div>
 </footer>
