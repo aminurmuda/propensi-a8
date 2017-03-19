@@ -100,7 +100,7 @@
                     <div class="plan-div">
                         <p class="plan-text">
                             <br>
-                            Lihat dan Ubah Borang Standar 2
+                            Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu
                         </p>
                     </div>
                     <div class="pricing-footer">
@@ -121,7 +121,7 @@
                     </div>
                     <div class="plan-div">
                         <p class="plan-text">
-                            <br>Lihat dan Ubah Borang Standar 4
+                            <br>Sumber Daya Manusia
                         </p>
                     </div>
                     <div class="pricing-footer">
@@ -143,7 +143,7 @@
 
                     <div class="plan-div">
                         <p class="plan-text">
-                            <br>Lihat dan Ubah Borang Standar 7
+                            <br>Penelitian, Pelayanan/Pengabdian Kepada Masyarakat dan Kerjasama
                         </p>
                     </div>
                     <div class="pricing-footer">
