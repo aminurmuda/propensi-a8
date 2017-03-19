@@ -11,19 +11,12 @@
 |
 */
 
-
-Route::get('/', function () {
-    return view('landing');
-});
-
 // Route untuk mengakses halaman khusus
 Route::get('login', 'MainController@login');
 
 // Route untuk logout
 
-
-// Route::get('home', 'MainController@home')->middleware('home')->name('home');
-
+//kalau belum login, mengakses route dibawah akan diarahkan ke halaman login
 Route::group(['middleware'=>['home']], function() {
 Route::get('home', 'MainController@home')->name('home');
 Route::get('logout', 'MainController@logout')->name('logout');
@@ -36,3 +29,8 @@ Route::get('timakreditasi/hapus/{username}', 'PegawaiController@deleteTimAkredit
 
 Route::get('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
 });
+
+//kalau udah login, ngakses route dibawah ini akan diarahkan ke home
+Route::get('/', function () {
+    return view('landing');
+})->middleware('beranda')->name('/');

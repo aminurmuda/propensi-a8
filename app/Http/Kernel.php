@@ -56,6 +56,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'home' => \App\Http\Middleware\PimpinanMiddleWare::class
+        'home' => \App\Http\Middleware\PimpinanMiddleWare::class,
+        'beranda' => \App\Http\Middleware\BerandaMiddleware::class
     ];
 }
