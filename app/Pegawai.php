@@ -77,6 +77,12 @@ class Pegawai extends Model
                     ->update(['isTimAkreditasi'=> 0]);
     }
 
+    /**
+     * Method addTimAkreditasi untuk melakukan penambahan anggota tim akreditasi oleh pimpinan fakultas 
+     * 
+     * @param string $username username pegawai yang akan menjadi anggota tim akreditasi
+     * @return pegawai dengan $username  menjadi anggota tim akreditasi
+     */      
     public static function addTimAkreditasi($username) {
         return DB::table('pegawai')
                     ->where('username', $username)
@@ -95,6 +101,12 @@ class Pegawai extends Model
                     ->update(['isPimpinan'=> 0]);
     }
 
+    /**
+     * Method getAllPegawaiIsNotTimAkreditasi untuk mendapatkan list pegawai yang bukan anggota tim akreditasi
+     * 
+     * @param int $kode_fakultas id fakultas dari pegawai yang bukan anggota tim akreditasi
+     * @return data pegawai yang terdapat di suatu fakultas 
+     */
     public static function getAllPegawaiIsNotTimAkreditasi($kode_fakultas){
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
@@ -116,6 +128,12 @@ class Pegawai extends Model
                         ->where('no_pegawai', $no_pegawai);
     }
 
+     /**
+     * Method getTimAkreditasiByFakultas untuk mendapatkan list tim akreditasi pada suatu fakultas
+     * 
+     * @param int $kode_fakultas id fakultas dari suatu fakultas
+     * @return list tim akreditasi dari suatu fakultas yang sesuai
+     */      
     public static function getTimAkreditasiByFakultas($kode_fakultas)
     {
         return DB::table('pegawai')
@@ -127,6 +145,13 @@ class Pegawai extends Model
             ->get();
     }
 
+
+        /**
+         * Method getFakultasPegawai untuk mendapatkan kode fakultas dari pegawai
+         * 
+         * @param string $username username pegawai yang akan diambil kode fakultasnya
+         * @return kode fakultas dari pegawai
+         */ 
         public static function getFakultasPegawai($username)
     {
         return DB::table('pegawai')
@@ -137,6 +162,12 @@ class Pegawai extends Model
             ->get();
     }
 
+    /**
+     * Method lihatProfilPengguna untuk menampilkan data lengkap dari pengguna yang sedang login
+     * 
+     * @param string $username username pengguna yang sedang login
+     * @return data lengkap dari pengguna yang sedang login
+     */  
     public static function lihatProfilPengguna($username)
     {
     return DB::table('pegawai')
@@ -147,6 +178,12 @@ class Pegawai extends Model
         ->get();
     }
 
+    /**
+     * Method getPimpinanPegawai untuk mendapatkan data pegawai yang menjadi pimpinan
+     * 
+     * @param string $username username pegawai yang merupakan seorang pimpinan
+     * @return pegawai dengan $username yang menjadi pimpinan 
+     */   
     public static function getPimpinanPegawai($username) {
         return DB::table('pegawai')
             ->join('pimpinan', 'pimpinan.id_pimpinan', '=', 'pegawai.id_pimpinan')
