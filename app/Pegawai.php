@@ -48,16 +48,18 @@ class Pegawai extends Model
     }
 
     public static function addTimAkreditasi($username) {
-        return Pegawai::where('username', $username)
-                    ->update(['isTimAkreditasi' => 1]);
+        return DB::table('pegawai')
+                    ->where('username', $username)
+                    ->update(['isTimAkreditasi'=> 1]);
     }
 
     public static function getAllPegawaiIsNotTimAkreditasi($kode_fakultas){
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
-            ->select('pegawai.nama', 'pegawai.no_pegawai')
+            ->select('pegawai.username', 'pegawai.nama', 'pegawai.no_pegawai')
             ->where('pegawai.isTimAkreditasi',0)
+            ->where('pegawai.isPimpinan', 0)
             ->where('program_studi.kode_fakultas',$kode_fakultas)
             ->get();
     }

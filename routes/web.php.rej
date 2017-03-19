@@ -1,9 +1,0 @@
-diff a/routes/web.php b/routes/web.php	(rejected hunks)
-@@ -22,6 +22,7 @@
- Route::get('logout', 'MainController@logout');
- 
- <<<<<<< HEAD
-+Route::get('timakreditasi/{kode_prodi}', 'MainController@lihatPengguna');
- Route::get ('hapus/{kode_prodi}/{username}', 'MainController@hapusPengguna');
- 
- Route::get('timakreditasi/{kode_prodi}', 'PegawaiController@lihatPengguna');

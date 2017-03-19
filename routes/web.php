@@ -21,11 +21,13 @@ Route::group(['middleware'=>['home']], function() {
 Route::get('home', 'MainController@home')->name('home');
 Route::get('logout', 'MainController@logout')->name('logout');
 
-Route::get('timakreditasi/{kode_fakultas}', 'PegawaiController@lihatPengguna')->name('timakreditasi/{kode_fakultas}');
+Route::get('timakreditasi/kelola/{kode_fakultas}', 'PegawaiController@lihatPengguna')->name('timakreditasi/kelola/{kode_fakultas}');
 
-Route::get('timakreditasi/tambah/{username}', 'PegawaiController@tambahPengguna')->name('timakreditasi/tambah/{username}');
+Route::get('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPegawaiIsNotTimAkreditasi')->name('timakreditasi/tambah/{kode_fakultas}');
 
-Route::get('timakreditasi/hapus/{username}', 'PegawaiController@deleteTimAkreditasi')->name('timakreditasi/hapus/{username}');
+Route::get('timakreditasi/tambah/tambah/{username}', 'PegawaiController@tambahTimAkreditasi')->name('timakreditasi/tambah/tambah/{username}');
+
+Route::get('timakreditasi/kelola/hapus/{username}', 'PegawaiController@deleteTimAkreditasi')->name('timakreditasi/hapus/{username}');
 
 Route::get('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
 });

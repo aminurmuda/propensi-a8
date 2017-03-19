@@ -61,10 +61,10 @@
 
 
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        <li class="dropdown"><a href="{{ url('timakreditasi/$kode_fakultas') }}" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
-                                <li><a href="#">Tambah Pengguna</a></li>
-                                <li><a href="#">Lihat dan Hapus Pengguna</a></li>
+                                <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
+                                <li><a href="{{ url('/timakreditasi/kelola/'.$kode_fakultas) }}">Lihat dan Hapus Pengguna</a></li>
     
                             </ul>
                         </li>
@@ -74,7 +74,7 @@
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  {{$role}}<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
-                                <li><a href="#">My Profile</a></li>
+                                <li><a href="{{ url('profil/'.$user) }}">My Profile</a></li>
                             </ul>
                         </li>
                         <li class=""><a href="{{ url('logout') }}">Logout</a></li>
@@ -116,12 +116,12 @@
                     </thead>
                   
                     <tbody>
-                        @foreach($timAkreditasi as $pegawai)
+                        @foreach($pegawai as $pegawai)
                         <tr>
                             <td>{{$pegawai->nama}}</td>
                             <td>{{$pegawai->no_pegawai}}</td>
                             <td>
-                                <center><a href="{{ url('hapus/$pegawai->username') }}"><button class="glyphicon glyphicon-plus" type="submit"></button></a></center>
+                                <center><button class="glyphicon glyphicon-plus" type="submit" data-toggle="modal" data-target="#confirmationModal" data-username="{{$pegawai->username}}"></button></center>
                             </td>
                            
                         </tr>
@@ -179,7 +179,27 @@
         </div>
     </div>
     <!-- /.container -->
-
+     <!-- Modal -->
+      <div class="modal fade" id="confirmationModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Menambah Tim Akreditasi</h4>
+            </div>
+            <div class="modal-body">
+              <p id='isi'>isinya</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" id="link" ><button type="button" class="btn btn-default">Yakin</button></a>
+             <button type="button" class="btn btn-default" data-dismiss="modal">batal</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
 
 <footer>
   <div class="container">
@@ -265,6 +285,14 @@
                 }
                 init();
             });
+        });
+
+             $('#confirmationModal').on('show.bs.modal', function(e) {
+              var username = e.relatedTarget.dataset.username;
+              document.getElementById("isi").innerHTML="Anda yakin ingin menambah "+username+ " dari tim akreditasi?";
+              var link = document.getElementById("link");
+              var linkTambah = "tambah/" + username;
+            link.setAttribute("href", linkTambah);
         });
     </script>
 

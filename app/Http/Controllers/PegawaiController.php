@@ -12,6 +12,17 @@ class PegawaiController extends Controller
         
     }
 
+    /**
+	 * Method tambahPengguna untuk memberikan akses kepada suatu pegawai
+	 * 
+	 * @param string $username username pegawai yang ingin diberikan akses
+	 * @return ......
+	 */
+	public function tambahTimAkreditasi($username) {
+		Pegawai::addTimAkreditasi($username);
+		return 'tim akreditasi berhasil ditambahkan';
+	}
+
 	/**
 	 * Method deleteTimAkreditasi untuk menghilangkan akses pegawai yang sudah tidak menjadi tim akreditasi lagi
 	 * 
@@ -29,10 +40,13 @@ class PegawaiController extends Controller
 	 * @param string $kode_fakultas kode fakultas dari pengguna yang sedang login
 	 * @return view halaman daftar pegawai
 	 */
-    public function lihatPegawaiIsNotTimAkreditasi($kode_fakultas){
+    public function lihatPegawaiIsNotTimAkreditasi($kode_fakultas, Request $request){
     	$pegawai = Pegawai::getAllPegawaiIsNotTimAkreditasi($kode_fakultas);
-    	return view('listpegawai', [
-            'pegawai' => $pegawai
+    	return view('tambahuser', [
+            'pegawai' => $pegawai,
+            'role' => $request->session()->get('role'),
+            'kode_fakultas' => $kode_fakultas,
+            'user' => $request->session()->get('user')
         ]);
     }
 
@@ -87,17 +101,6 @@ class PegawaiController extends Controller
 					'user' => $request->session()->get('user')
 			]);	    		
 		
-	}
-
-	/**
-	 * Method tambahPengguna untuk memberikan akses kepada suatu pegawai
-	 * 
-	 * @param string $username username pegawai yang ingin diberikan akses
-	 * @return ......
-	 */
-	public function tambahPengguna($username) {
-		Pegawai::addTimAkreditasi($username);
-		return 'tim akreditasi berhasil ditambahkan';
 	}
 
 	/**
