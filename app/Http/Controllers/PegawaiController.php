@@ -203,12 +203,19 @@ class PegawaiController extends Controller
 		
 	}
 
-	public function hapusPimpinan($username) {
+	public function hapusPimpinan($username, Request $request) {
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$pegawai = Pegawai::getPegawaiByUsername($username);
+		$kodeFakultas = Pegawai::getFakultasPegawai($username);
 		Pegawai::hapusIsPimpinan($username);
 		Pimpinan::hapusPimpinan($pimpinan->id_pimpinan);
-
-		return "berhasil dihapus pimpinannya";
+		return view('hapus-pimpinan',[
+			'role' => $request->session()->get('role'),
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pegawai,      
+            'kode_fakultas' => $kodeFakultas,  
+            'username' => $username
+		]);
 	}
 
 	public function tambahPimpinan(Request $request) {
