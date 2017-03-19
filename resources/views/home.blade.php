@@ -72,7 +72,7 @@
                         @endif
 
                         @if ($role=='Admin')
-                        <li><a href="#">Kelola Pimpinan</a></li>
+                        <li><a href="{{ url('kelolapimpinan/'.$user->username) }}">Kelola Pimpinan</a></li>
                         @endif
 
                        

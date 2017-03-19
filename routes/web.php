@@ -30,6 +30,10 @@ Route::get('timakreditasi/tambah/tambah/{username}', 'PegawaiController@tambahTi
 Route::get('timakreditasi/kelola/hapus/{username}', 'PegawaiController@deleteTimAkreditasi')->name('timakreditasi/hapus/{username}');
 
 Route::get('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
+
+Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')->name('kelolapimpinan');
+
+Route::get('pimpinan', 'PegawaiController@kelolapimpinan')->name('pimpinan');
 });
 
 //kalau udah login, ngakses route dibawah ini akan diarahkan ke home

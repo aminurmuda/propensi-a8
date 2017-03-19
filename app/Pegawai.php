@@ -83,6 +83,12 @@ class Pegawai extends Model
                     ->update(['isTimAkreditasi'=> 1]);
     }
 
+    public static function setIsPimpinan($username) {
+        return DB::table('pegawai')
+                    ->where('username', $username)
+                    ->update(['isPimpinan'=> 1]);
+    }
+
     public static function getAllPegawaiIsNotTimAkreditasi($kode_fakultas){
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
@@ -94,12 +100,12 @@ class Pegawai extends Model
             ->get();
     }
 
-    public static function getPegawaiIsNotTimAkreditasiByUsername($username){
+    public static function getCalonPimpinanByUsername($username){
         return Pegawai::where('isTimAkreditasi', 0)
                         ->where('username', $username);
     }
 
-    public static function getPegawaiIsNotTimAkreditasiByNIP($no_pegawai){
+    public static function getCalonPimpinanByNIP($no_pegawai){
         return Pegawai::where('isTimAkreditasi', 0)
                         ->where('no_pegawai', $no_pegawai);
     }
@@ -141,4 +147,5 @@ class Pegawai extends Model
             ->select('pegawai.username', 'pegawai.nama', 'pegawai.no_pegawai','pimpinan.isBPMA','pimpinan.isPimpinanFakultas','pimpinan.id_fakultas','pimpinan.isPimpinanUniv')
             ->where('pegawai.username',$username)->get();
     }
+
 }
