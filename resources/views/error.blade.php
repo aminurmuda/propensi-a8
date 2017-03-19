@@ -73,7 +73,7 @@
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  {{$role}}<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
-                                <li><a href="{{ url('profil/$user') }}">My Profile</a></li>
+                                <li><a href="{{ url('profil/'.$user) }}">My Profile</a></li>
                             </ul>
                         </li>
                         <li class=""><a href="{{ url('logout') }}">Logout</a></li>
