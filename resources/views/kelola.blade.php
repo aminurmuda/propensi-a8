@@ -95,7 +95,7 @@
 
                 <div id="titlekelola"> 
                      <img class="img-responsive" src="{{ url('images/kelolatim.png') }}" alt="" >
-                     <span>Tambah dan Hapus Pengguna</span>
+                     <span>Lihat dan Hapus Pengguna</span>
                      
                      <br>
                      <br>
