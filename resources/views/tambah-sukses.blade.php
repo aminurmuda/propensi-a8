@@ -49,7 +49,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ url('home') }}" class="">Home</a></li>
+                        <li><a href="{{ url('home') }}" class="">Home</a></li>
                         
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang Standar <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -59,24 +59,24 @@
                             </ul>
                         </li>
 
-
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        @if ($role!='Tim Akreditasi')
+                        @if ($role=='Tim Akreditasi')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
-                                <li><a href="{{ url('/timakreditasi/'.$kode_fakultas.'/tambah') }}">Tambah Pengguna</a></li>
-                                <li><a href="{{ url('/timakreditasi/'.$kode_fakultas) }}">Lihat dan Hapus Pengguna</a></li>
-                                
+                                <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
+                                <li><a href="{{ url('/timakreditasi/kelola/'.$kode_fakultas) }}">Lihat dan Hapus Pengguna</a></li>
+    
                             </ul>
                         </li>
                         @endif
+
                        
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as {{$role}} <span class="caret"></span></a>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  {{$role}}<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
-                                <li><a href="{{ url('profil/'.$user->username) }}">My Profile</a></li>
+                                <li><a href="{{ url('profil/'.$user) }}">My Profile</a></li>
                             </ul>
                         </li>
                         <li class=""><a href="{{ url('logout') }}">Logout</a></li>
@@ -109,7 +109,6 @@
             </div>
         </div>
     </div>
-    
 
     <footer>
       <div class="footer navbar-fixed-bottom">
