@@ -148,9 +148,9 @@
                             <td>{{$pimpinan->no_pegawai}}</td>
                             <td>
                                 <center>
-                                <a href="hapus/{{$pimpinan->username}}">
-                                <button class="glyphicon glyphicon-trash" type="submit" data-toggle="modal" data-target="#confirmationModal" data-username="{{$pimpinan->username}}"></button>
-                                </a> 
+                               <!--  <a href="hapus/{{$pimpinan->username}}"> -->
+                                <button class="glyphicon glyphicon-trash" type="submit" data-toggle="modal" data-target="#confirmationModal" data-name="{{$pimpinan->nama}}" data-username="{{$pimpinan->username}}"></button>
+                                <!-- </a> --> 
                                 </center>
                             </td>
                            
@@ -218,14 +218,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Hapus Tim Akreditasi</h4>
+          <h4 class="modal-title">Hapus Pimpinan</h4>
         </div>
         <div class="modal-body">
           <p id='isi'>isinya</p>
         </div>
         <div class="modal-footer">
           <a href="#" id="link" ><button type="button" class="btn btn-default">Yakin</button></a>
-         <button type="button" class="btn btn-default" data-dismiss="modal">batal</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
         </div>
       </div>
       
@@ -239,14 +239,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Hapus Tim Akreditasi</h4>
+          <h4 class="modal-title">Menambah Pimpinan</h4>
         </div>
         <div class="modal-body">
-          <p id='isi'>isinya</p>
+          <p id='isi1'>isinya</p>
         </div>
         <div class="modal-footer">
-          <a href="#" id="link" ><button type="button" class="btn btn-default">Yakin</button></a>
-         <button type="button" class="btn btn-default" data-dismiss="modal">batal</button>
+          <a href="#" id="link1" ><button type="button" class="btn btn-default">Yakin</button></a>
+         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
         </div>
       </div>
       
@@ -347,8 +347,9 @@
         });
 
         $('#confirmationModal').on('show.bs.modal', function(e) {
+          var name = e.relatedTarget.dataset.name;
           var username = e.relatedTarget.dataset.username;
-          document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+username+ " dari tim akreditasi?";
+          document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+name+ " dari pimpinan?";
           var link = document.getElementById("link");
           var linkHapus = "hapus/"+username;
         link.setAttribute("href", linkHapus);
@@ -356,9 +357,11 @@
 
         $('#confirmationModal1').on('show.bs.modal', function(e) {
           var username = e.relatedTarget.dataset.username;
-          document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+username+ " dari tim akreditasi?";
-          var link = document.getElementById("link");
-          var linkHapus = "hapus/"+username;
+          var name = e.relatedTarget.dataset.username;
+          var nip = e.relatedTarget.dataset.nip;
+          document.getElementById("isi1").innerHTML="Anda yakin ingin menambah dengan data berikut menjadi pimpinan? <br> Username: "+username+"<br> Nama: "+name+"<br> NIP: "+nip;
+          var link = document.getElementById("link1");
+          //var linkHapus = "hapus/"+username;
         link.setAttribute("href", linkHapus);
       });
     </script>
