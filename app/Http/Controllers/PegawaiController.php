@@ -17,7 +17,7 @@ class PegawaiController extends Controller
 	 * Method tambahPengguna untuk memberikan akses kepada suatu pegawai
 	 * 
 	 * @param string $username username pegawai yang ingin diberikan akses
-	 * @return ......
+	 * @return view halaman notifikasi bahwa user telah ditambahkan sebagai tim akreditasi
 	 */
 	public function tambahTimAkreditasi($username, Request $request) {
 		Pegawai::addTimAkreditasi($username);
@@ -36,7 +36,7 @@ class PegawaiController extends Controller
 	 * Method deleteTimAkreditasi untuk menghilangkan akses pegawai yang sudah tidak menjadi tim akreditasi lagi
 	 * 
 	 * @param string $username username pegawai yang ingin dihapus aksesnya
-	 * @return ....
+	 * @return view halaman notifikasi bahwa user telah dihapus dari tim akreditasi
 	 */
     public function deleteTimAkreditasi($username, Request $request){
     	Pegawai::deleteTimAkreditasi($username);
