@@ -33,7 +33,7 @@
     <div class="container">
         
             <div class="col-md-12 img-wrapper" id="kotaklogin" >
-                  <img class="img-responsive center-block" src="images/nowelcome.png" alt="" >
+                  <img class="img-responsive center-block" src="{{ url('images/nowelcome.png') }}" alt="" >
                   
                   <div class="img-overlay">
                  <p id="mssglogingagal"> Maaf, Anda tidak memiliki akses. </p>
