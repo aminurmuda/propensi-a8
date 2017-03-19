@@ -56,10 +56,10 @@ body {
 
 /* footer */
 
-        footer {
+        footer .footer {
             color: black;
             background: #70cbe8;
-            padding: 17px 0 18px 0;
+            padding: 10px 0 8px 0;
             border-top: 0px solid #000;    
         }
         footer a {

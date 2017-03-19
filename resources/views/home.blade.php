@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="{{ url('css/akreditasi.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Montserrat">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,7 +61,7 @@
 
 
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        @if ($role=='Tim Akreditasi')
+                        @if ($role!='Tim Akreditasi')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
@@ -171,7 +173,7 @@
 
 
 <footer>
-  <div class="container">
+  <div class="footer navbar-fixed-bottom">
     <p id="footerbawah">Copyright © 2017 Propensi A08. All Rights Reserved</p>
   </div>
 </footer>

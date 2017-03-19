@@ -109,9 +109,16 @@ class PegawaiController extends Controller
 	 * @param string $username username pegawai yang ingin diberikan akses
 	 * @return ......
 	 */
-	public function profilPengguna($username) {
+	public function profilPengguna($username, Request $request) {
 		$pengguna = Pegawai::lihatProfilPengguna($username);
-		return $pengguna[0]->nama;
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+		return view('profile', [
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username,
+					'pengguna' =>$pengguna[0]
+					]);
 	}	
 
 }
