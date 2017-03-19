@@ -10,12 +10,23 @@ class Pegawai extends Model
 {
     protected $table = 'pegawai';
 
+    /**
+     * Method getPegawaiByUsername untuk mendapatkan pegawai dengan username tertentu
+     * 
+     * @param string $username username pegawai yang ingin dicari
+     * @return Pegawai model
+     */
     public static function getPegawaiByUsername($username)
     {
         return $pegawai = Pegawai::where('username', $username)->first();
     }
 
-
+    /**
+     * Method getPegawaiIsPimpinan untuk menngetahui apakah pegawai merupakan pimpinan
+     * 
+     * @param string $username username pegawai yang ingin dicari
+     * @return true jika pimpinan.
+     */
     public static function getPegawaiIsPimpinan($username) {
     	$pegawai = Pegawai::getPegawaiByUsername($username);
     	if($pegawai->isPimpinan == 1){
@@ -24,6 +35,12 @@ class Pegawai extends Model
     	return false;
     }
 
+    /**
+     * Method getPegawaiIsTimAkreditasi untuk mengetahui apakah pegawai merupakan tim akreditasi
+     * 
+     * @param string $username username pegawai yang ingin dicari
+     * @return true jika tim akreditasi
+     */
     public static function getPegawaiIsTimAkreditasi($username) {
     	$pegawai = Pegawai::getPegawaiByUsername($username);
     	if($pegawai->isTimAkreditasi == 1){
@@ -31,7 +48,13 @@ class Pegawai extends Model
     	}
     	return false;
     }
-    
+
+    /**
+     * Method getTimAkreditasiByProdi untuk mendapatkan list tim akreditasi dari suatu prodi
+     * 
+     * @param string $kode_prodi kode prodi dari tim akreditasi yang dicari
+     * @return List tim akreditasi 
+     */    
     public static function getTimAkreditasiByProdi($kode_prodi)
     {
         return DB::table('pegawai')
@@ -41,6 +64,13 @@ class Pegawai extends Model
             ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
             ->get();
     }
+
+    /**
+     * Method deleteTimAkreditasi agar pegawai tidak menjadi tim akreditasi
+     * 
+     * @param string $username username pegawai yang tidak lagi menjadi tim akreditasi
+     * @return pegawai dengan $usernam tidak lagi menjadi tim akreditasi
+     */      
     public static function deleteTimAkreditasi($username) {
         return DB::table('pegawai')
                     ->where('username', $username)

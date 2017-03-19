@@ -14,7 +14,7 @@ class MainController extends Controller
 	 * Method login dijalankan ketika pengguna telah memasukkan username dan password kedalam SSO
 	 * 
 	 * @param Request $request untuk session
-	 * @return view home untuk masing-masing role.
+	 * @return route home untuk menampilkan beranda untuk masing-masing role
 	 */
 	public function login(Request $request)
 	{
@@ -36,15 +36,12 @@ class MainController extends Controller
 		return SSO::logout(url('/'));
 	}
 
-	public function lihatPengguna($kode_prodi) {
-		$timAkreditasi = Pegawai::getTimAkreditasiByProdi($kode_prodi);
-			// dd($timAkreditasi);
-
-			return view('kelola', [
-				'timAkreditasi' => $timAkreditasi
-			]);
-	}
-
+	/**
+	 * Method home dijalankan ketika pengguna ingin keluar dari modul
+	 * 
+	 * @param Request $request untuk session
+	 * @return view halaman utama sesuai masing-masing role
+	 */
     public function home(Request $request)
 	{
 		$user = SSO::getUser();
@@ -60,6 +57,7 @@ class MainController extends Controller
 			$userIsTimAkreditasi = Pegawai::getPegawaiIsTimAkreditasi($username);
 			$kodeFakultas = Pegawai::getFakultasPegawai($username);
 			if($userIsPimpinan) {
+				
 				//validasi isBPMA, isPimpinanFakultas,isPimpinanUniv
 				$pimpinan = Pegawai::getPimpinanPegawai($username);
 				$isBPMA = $pimpinan[0] -> isBPMA;
@@ -79,6 +77,7 @@ class MainController extends Controller
 					'role' => $role,
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas,
 					]);
+				
 			} elseif($userIsTimAkreditasi){	//Validasi jika yang login merupakan tim akreditasi
 
 				$request->session()->put('role', 'Tim Akreditasi');;

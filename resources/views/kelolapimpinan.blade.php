@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modul Akreditasi</title>
+    <title>Kelola Tim Akreditasi - Modul Akreditasi</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
@@ -49,7 +49,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ url('home') }}" class="">Home</a></li>
+                        <li><a href="{{ url('home') }}" class="">Home</a></li>
                         
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang Standar <span class="caret"></span></a>
                             <ul class="dropdown-menu">
@@ -59,8 +59,8 @@
                             </ul>
                         </li>
 
-
                         <li><a href="#">Riwayat Akreditasi</a></li>
+                        
                         @if ($role!='Tim Akreditasi' && $role!='Admin')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
@@ -78,10 +78,10 @@
                        
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as {{$role}} <span class="caret"></span></a>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  {{$role}}<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
-                                <li><a href="{{ url('profil/'.$user->username) }}">My Profile</a></li>
+                                <li><a href="{{ url('profil/'.$user) }}">My Profile</a></li>
                             </ul>
                         </li>
                         <li class=""><a href="{{ url('logout') }}">Logout</a></li>
@@ -94,93 +94,72 @@
 
 
     <!-- Page Content -->
-
     <div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-0" >
-            
-           
+        <div class="row">
+            <div  class="col-md-8 col-md-offset-2" id="kontenkelola">
 
-            <div class="db-wrapper">
-                <div class="db-pricing-eleven db-bk-color-one">
-                    <div class="price">
-                       <!-- <p class="plan-name"></p> -->
-                       <br>
-                        <p> STANDAR 2 </p>
-                        
-                    </div>
-                    <div class="plan-div">
-                        <p class="plan-text">
-                            <br>
-                            Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu
-                        </p>
-                    </div>
-                    <div class="pricing-footer">
-
-                        <a href="#" class="btn db-button-color-square btn-m round">Pilih Standar</a>
-                    </div>
+                <div id="titlekelola"> 
+                     <h2>Kelola Pimpinan</h2>
+                     
+                     <br>
+                     <br>
+                     <br>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-md-offset-0">
-            <div class="db-wrapper">
-                <div class="db-pricing-eleven db-bk-color-one">
-                    <div class="price">
-                        <br>
-                        <p>STANDAR 4</p>
+
+                 <div class="col-md-12 col-md-offset-3">
+                    <form action="{username}" method="POST" id="form-cari">
+               
+                      <div class="input-group">
+                         <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder="Username" >
                         
+	       				 <select class="form-control" id="sel1">
+					        <option>Pimpinan Universitas</option>
+					        <option>Pimpinan Fakultas</option>
+					        <option>BPMA</option>
+	      				</select>
 
-                    </div>
-                    <div class="plan-div">
-                        <p class="plan-text">
-                            <br>Sumber Daya Manusia
-                        </p>
-                    </div>
-                    <div class="pricing-footer">
+	      				<button type="button" class="btn btn-primary"> Simpan</button>
+	      				<button type="button" class="btn btn-primary">Batal</button>
+	                    
+                      </div>
 
-                        <a href="#" class="btn db-button-color-square btn-m round">Pilih Standar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 col-md-offset-0">
-            <div class="db-wrapper">
-                <div class="db-pricing-eleven db-bk-color-one">
-                    <div class="price">
-                        <br>
-                        <p>STANDAR 7</p>
-                        
 
-                    </div>
+                    </form>
+                 </div>
+               
 
-                    <div class="plan-div">
-                        <p class="plan-text">
-                            <br>Penelitian, Pelayanan/Pengabdian Kepada Masyarakat dan Kerjasama
-                        </p>
-                    </div>
-                    <div class="pricing-footer">
+                <br>
 
-                        <a href="#" class="btn db-button-color-square btn-m round">Pilih Standar</a>
-                    </div>
-                </div>
+              
+                <br>
+                <br>
+
             </div>
         </div>
     </div>
-
-    
-   
-   <br>
-   <br>
-   <br>
-   <br>
-
-
-
-</div>
-
-    
     <!-- /.container -->
 
+    <!-- Modal -->
+  <div class="modal fade" id="confirmationModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Hapus Tim Akreditasi</h4>
+        </div>
+        <div class="modal-body">
+          <p id='isi'>isinya</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" id="link" ><button type="button" class="btn btn-default">Yakin</button></a>
+         <button type="button" class="btn btn-default" data-dismiss="modal">batal</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
 <footer>
   <div class="footer navbar-fixed-bottom">
@@ -267,6 +246,14 @@
                 init();
             });
         });
+
+            $('#confirmationModal').on('show.bs.modal', function(e) {
+          var username = e.relatedTarget.dataset.username;
+          document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+username+ " dari tim akreditasi?";
+          var link = document.getElementById("link");
+          var linkHapus = "hapus/"+username;
+        link.setAttribute("href", linkHapus);
+      });
     </script>
 
 </body>
