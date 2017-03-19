@@ -31,7 +31,7 @@
 
 <body>
 
-    <!-- Navigation -->
+   <!-- Navigation -->
     <div class="navbar-wrapper">
     <div class="container-fluid">
         <nav class="navbar navbar-fixed-top">
@@ -59,8 +59,8 @@
                             </ul>
                         </li>
 
+
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        @if ($role=='Tim Akreditasi')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
@@ -68,8 +68,6 @@
     
                             </ul>
                         </li>
-                        @endif
-
                        
                     </ul>
                     <ul class="nav navbar-nav pull-right">
@@ -88,6 +86,8 @@
 </div>
 
 
+
+
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -95,7 +95,7 @@
 
                 <div id="titlekelola"> 
                      <img class="img-responsive" src="{{ url('images/kelolatim.png') }}" alt="" >
-                     <span>Tambah dan Hapus Pengguna</span>
+                     <span>Lihat dan Hapus Pengguna</span>
                      
                      <br>
                      <br>

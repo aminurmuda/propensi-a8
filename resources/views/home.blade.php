@@ -61,7 +61,7 @@
 
 
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        @if ($role!='Tim Akreditasi')
+                        @if ($role!='Tim Akreditasi' && $role!='Admin')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
@@ -70,6 +70,11 @@
                             </ul>
                         </li>
                         @endif
+
+                        @if ($role=='Admin')
+                        <li><a href="#">Kelola Pimpinan</a></li>
+                        @endif
+
                        
                     </ul>
                     <ul class="nav navbar-nav pull-right">
@@ -93,6 +98,9 @@
     <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-0" >
+            
+           
+
             <div class="db-wrapper">
                 <div class="db-pricing-eleven db-bk-color-one">
                     <div class="price">
@@ -158,6 +166,8 @@
             </div>
         </div>
     </div>
+
+    
    
    <br>
    <br>

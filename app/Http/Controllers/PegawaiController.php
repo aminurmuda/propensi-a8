@@ -19,9 +19,13 @@ class PegawaiController extends Controller
 	 * @param string $username username pegawai yang ingin diberikan akses
 	 * @return ......
 	 */
-	public function tambahTimAkreditasi($username) {
+	public function tambahTimAkreditasi($username, Request $request) {
 		Pegawai::addTimAkreditasi($username);
-		return 'tim akreditasi berhasil ditambahkan';
+		return view('tambah-sukses', [
+			'role' => $request->session()->get('role'),
+            'user' => $request->session()->get('user'),        
+            'username' => $username
+		]);
 	}
 
 	/**
@@ -30,9 +34,13 @@ class PegawaiController extends Controller
 	 * @param string $username username pegawai yang ingin dihapus aksesnya
 	 * @return ....
 	 */
-    public function deleteTimAkreditasi($username){
+    public function deleteTimAkreditasi($username, Request $request){
     	Pegawai::deleteTimAkreditasi($username);
-		return 'tim akreditasi berhasil dihapus';
+		return view('hapus-sukses', [
+			'role' => $request->session()->get('role'),
+            'user' => $request->session()->get('user'),
+            'username' => $username
+		]);
     }
 
 	/**
@@ -114,12 +122,21 @@ class PegawaiController extends Controller
 		$pengguna = Pegawai::lihatProfilPengguna($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
-		return view('profile', [
+		if($username == $request->session()->get('user')){
+			return view('profile', [
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kodeFakultasPengguna,
 					'user' => $username,
 					'pengguna' =>$pengguna[0]
 					]);
+		}
+			
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $request->session()->get('user')
+			]);	 
 	}
 
 

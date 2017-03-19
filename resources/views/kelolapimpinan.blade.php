@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="{{ url('css/akreditasi.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Montserrat">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -57,9 +59,9 @@
                             </ul>
                         </li>
 
-
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        @if ($role=='Pimpinan Fakultas')
+                        
+                        @if ($role!='Tim Akreditasi' && $role!='Admin')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
@@ -68,12 +70,18 @@
                             </ul>
                         </li>
                         @endif
+
+                        @if ($role=='Admin')
+                        <li><a href="#">Kelola Pimpinan</a></li>
+                        @endif
+
+                       
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as  {{$role}}<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
-                                <li><a href="{{ url('profil/$user') }}">My Profile</a></li>
+                                <li><a href="{{ url('profil/'.$user) }}">My Profile</a></li>
                             </ul>
                         </li>
                         <li class=""><a href="{{ url('logout') }}">Logout</a></li>
@@ -90,7 +98,35 @@
         <div class="row">
             <div  class="col-md-8 col-md-offset-2" id="kontenkelola">
 
-                 <center><h2>{{$message}}</h2></center>
+                <div id="titlekelola"> 
+                     <h2>Kelola Pimpinan</h2>
+                     
+                     <br>
+                     <br>
+                     <br>
+                </div>
+
+                 <div class="col-md-12 col-md-offset-3">
+                    <form action="{username}" method="POST" id="form-cari">
+               
+                      <div class="input-group">
+                         <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder="Username" >
+                        
+	       				 <select class="form-control" id="sel1">
+					        <option>Pimpinan Universitas</option>
+					        <option>Pimpinan Fakultas</option>
+					        <option>BPMA</option>
+	      				</select>
+
+	      				<button type="button" class="btn btn-primary"> Simpan</button>
+	      				<button type="button" class="btn btn-primary">Batal</button>
+	                    
+                      </div>
+
+
+                    </form>
+                 </div>
+               
 
                 <br>
 
@@ -118,6 +154,7 @@
         </div>
         <div class="modal-footer">
           <a href="#" id="link" ><button type="button" class="btn btn-default">Yakin</button></a>
+         <button type="button" class="btn btn-default" data-dismiss="modal">batal</button>
         </div>
       </div>
       
@@ -125,7 +162,7 @@
   </div>
 
 <footer>
-  <div class="container">
+  <div class="footer navbar-fixed-bottom">
     <p id="footerbawah">Copyright © 2017 Propensi A08. All Rights Reserved</p>
   </div>
 </footer>
