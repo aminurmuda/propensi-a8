@@ -61,10 +61,10 @@
                         <li><a href="#">Riwayat Akreditasi</a></li>
                         @if (!$role=='Tim Akreditasi')
                         {!!
-                        '<li class="dropdown"><a href="/timakreditasi/{{$kode_fakultas}}" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
+                        '<li class="dropdown"><a href="{{ url('/timakreditasi/'.$kode_fakultas) }}" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="#">Tambah Pengguna</a></li>
-                                <li><a href="{{ url('timakreditasi/'.$kode_fakultas) }}">Lihat dan Hapus Pengguna</a></li>
+                                <li><a href="{{ url('/timakreditasi/'.$kode_fakultas) }}">Lihat dan Hapus Pengguna</a></li>
     
                             </ul>
                         </li>'
@@ -76,7 +76,7 @@
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as {{$role}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
-                                <li><a href="{{ url('profil/$user->username') }}">My Profile</a></li>
+                                <li><a href="{{ url('profil/'.$user->username) }}">My Profile</a></li>
                             </ul>
                         </li>
                         <li class=""><a href="{{ url('logout') }}">Logout</a></li>
