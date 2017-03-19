@@ -64,7 +64,7 @@
                         '<li class="dropdown"><a href="/timakreditasi/{{$kode_fakultas}}" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="#">Tambah Pengguna</a></li>
-                               <li><a href="/timakreditasi/{{$kode_fakultas}}">Lihat dan Hapus Pengguna</a></li>
+                                <li><a href="{{ url('timakreditasi/'.$kode_fakultas) }}">Lihat dan Hapus Pengguna</a></li>
     
                             </ul>
                         </li>'
@@ -76,10 +76,10 @@
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as {{$role}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
-                                <li><a href="profil/{{$user->username}}">My Profile</a></li>
+                                <li><a href="{{ url('profil/$user->username') }}">My Profile</a></li>
                             </ul>
                         </li>
-                        <li class=""><a href="#">Logout</a></li>
+                        <li class=""><a href="{{ url('logout') }}">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                     <div class="plan-div">
                         <p class="plan-text">
                             <br>
-                            Lihat dan Ubah Borang Standar 2
+                            Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu
                         </p>
                     </div>
                     <div class="pricing-footer">
@@ -125,7 +125,7 @@
                     </div>
                     <div class="plan-div">
                         <p class="plan-text">
-                            <br>Lihat dan Ubah Borang Standar 4
+                            <br>Sumber Daya Manusia
                         </p>
                     </div>
                     <div class="pricing-footer">
@@ -147,7 +147,7 @@
 
                     <div class="plan-div">
                         <p class="plan-text">
-                            <br>Lihat dan Ubah Borang Standar 7
+                            <br>Penelitian, Pelayanan/Pengabdian Kepada Masyarakat dan Kerjasama
                         </p>
                     </div>
                     <div class="pricing-footer">
