@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="{{ url('css/akreditasi.css') }}" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Montserrat">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
