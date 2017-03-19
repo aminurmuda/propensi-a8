@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Pegawai;
+use App\Pimpinan;
 use DB;
 
 class Pegawai extends Model
@@ -189,6 +190,13 @@ class Pegawai extends Model
             ->join('pimpinan', 'pimpinan.id_pimpinan', '=', 'pegawai.id_pimpinan')
             ->select('pegawai.username', 'pegawai.nama', 'pegawai.no_pegawai','pimpinan.isBPMA','pimpinan.isPimpinanFakultas','pimpinan.id_fakultas','pimpinan.isPimpinanUniv')
             ->where('pegawai.username',$username)->get();
+    }
+
+
+    public static function lihatSemuaPimpinan(){
+        return DB::table('pegawai')
+            ->where('isPimpinan',1)
+            ->where('isTimAkreditasi',0)->get();
     }
 
 }

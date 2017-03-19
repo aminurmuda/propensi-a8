@@ -31,7 +31,11 @@ Route::get('timakreditasi/kelola/hapus/{username}', 'PegawaiController@deleteTim
 
 Route::get('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
 
-Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')->name('kelolapimpinan');
+Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')->name('kelolapimpinan/{username}');
+
+Route::get('kelolapimpinan/hapus/{username}', 'PegawaiController@hapusPimpinan')->name('kelolapimpinan/hapus/{username}');
+
+Route::get('kelolapimpinan/tambah', 'PegawaiController@tambahPimpinan')->name('kelolapimpinan/hapus/{username}/{valuePimpinan}');
 
 Route::get('pimpinan', 'PegawaiController@kelolapimpinan')->name('pimpinan');
 });

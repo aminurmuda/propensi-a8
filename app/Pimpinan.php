@@ -69,7 +69,7 @@ class Pimpinan extends Model
     public static function hapusPimpinan($id_pimpinan) {
     	return DB::table('pimpinan')
                     ->where('id_pimpinan', $id_pimpinan)
-                    ->update(['isBPMA'=> 0, 'isPimpinanFakultas' => 0, 'isPimpinanUniv' => 0]);
+                    ->update(['isBPMA'=> 0, 'isPimpinanFakultas' => 0, 	'isPimpinanUniv' => 0]);
     }
 
 }

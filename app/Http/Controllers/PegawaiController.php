@@ -156,14 +156,34 @@ class PegawaiController extends Controller
 
 	public function kelolaPimpinanPage($username, Request $request) {
 		$pengguna = Pegawai::lihatProfilPengguna($username);
+		$listPimpinan = Pegawai::lihatSemuaPimpinan();
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+		//dd($listPimpinan);
 		return view('kelolapimpinan', [
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kodeFakultasPengguna,
+					'listPimpinan' => $listPimpinan,
 					'user' => $username,
 					'pengguna' =>$pengguna[0]
 		]);
+	}
+
+	public function hapusPimpinan($username) {
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		Pegawai::hapusIsPimpinan($username);
+		Pimpinan::hapusPimpinan($pimpinan->id_pimpinan);
+
+		return "berhasil dihapus pimpinannya";
+	}
+
+	public function tambahPimpinan(Request $request) {
+		$print = $request->input('username');
+		return $print;
+		// $pimpinan = Pegawai::getPegawaiByUsername($username);
+		// Pegawai::setIsPimpinan($username);
+		// //Pimpinan::addPimpinan($valuePimpinan, $username);
+		// return "pimpinan di set";
 	}
 
 }

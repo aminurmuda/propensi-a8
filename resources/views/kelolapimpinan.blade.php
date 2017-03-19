@@ -104,8 +104,8 @@
                 </div>
 
                  <div class="col-md-5 col-md-offset-3">
-                    <form action="{username}" method="POST" id="form-cari">
-               
+                    <form action="{{ url('kelolapimpinan/tambah') }}" method="POST" id="form-cari">
+                    <!-- {{ csrf_field() }} -->
                       <div class="input-group">
                       <h4>Tambah Pimpinan</h4>
                          <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder=" Username" >
@@ -114,16 +114,16 @@
                          <br>
                         
                          <select class="form-control" id="sel1">
-                            <option>Pimpinan Universitas</option>
-                            <option>Pimpinan Fakultas</option>
-                            <option>BPMA</option>
+                            <option name="isBPMA" value="1">BPMA</option>
+                            <option name="isPimpinanFakultas" value="2">Pimpinan Fakultas</option>
+                            <option name="isPimpinanUniv" value="3">Pimpinan Universitas</option>
                         </select>
 
                         <br>
                         <br>
                         <br>
 
-                        <button type="button" class="btn btn-primary col-md-offset-4"> Tambah</button>
+                        <button type="button" class="btn btn-primary col-md-offset-4" type="submit"> Tambah</button>
                         
                         
                       </div>
@@ -151,21 +151,21 @@
                     </thead>
                   
                     <tbody>
-                      <!-- >  @foreach($timAkreditasi as $pegawai)
+                       @foreach($listPimpinan as $pimpinan)
                         <tr>
-                            <td>{{$pegawai->nama}}</td>
-                            <td>{{$pegawai->no_pegawai}}</td>
+                            <td>{{$pimpinan->nama}}</td>
+                            <td>{{$pimpinan->no_pegawai}}</td>
                             <td>
                                 <center>
-                                <!-- <a href="hapus/{{$pegawai->username}}">
-                                <button class="glyphicon glyphicon-trash" type="submit" data-toggle="modal" data-target="#confirmationModal" data-username="{{$pegawai->username}}"></button>
-                                <!-- </a> 
+                                <a href="hapus/{{$pimpinan->username}}">
+                                <button class="glyphicon glyphicon-trash" type="submit" data-toggle="modal" data-target="#confirmationModal" data-username="{{$pimpinan->username}}"></button>
+                                </a> 
                                 </center>
                             </td>
                            
                         </tr> 
-                        @endforeach -->
-                        <tr>
+                        @endforeach 
+                        <!--<tr>
                             <td>Ani nini</td>
                             <td>123333</td>
                             <td><button class="glyphicon glyphicon-trash" type="submit"></button>
@@ -203,7 +203,7 @@
                                 <button class="glyphicon glyphicon-trash" type="submit"></button>
                             </td>
                            
-                        </tr> 
+                        </tr> -->
 
                     </tbody>
                 </table> 
@@ -221,6 +221,27 @@
 
     <!-- Modal -->
   <div class="modal fade" id="confirmationModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Hapus Tim Akreditasi</h4>
+        </div>
+        <div class="modal-body">
+          <p id='isi'>isinya</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#" id="link" ><button type="button" class="btn btn-default">Yakin</button></a>
+         <button type="button" class="btn btn-default" data-dismiss="modal">batal</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="modal fade" id="confirmationModal1" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -263,6 +284,11 @@
     <script>
       $(document).ready(function() {
         $('#example').DataTable();
+
+        /*// TODO===================
+        $('#username').on('change', function() {
+            $('#form-cari').attr('action', $('#username').val());
+        });*/
     } );
     </script>
 
@@ -327,7 +353,15 @@
             });
         });
 
-            $('#confirmationModal').on('show.bs.modal', function(e) {
+        $('#confirmationModal').on('show.bs.modal', function(e) {
+          var username = e.relatedTarget.dataset.username;
+          document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+username+ " dari tim akreditasi?";
+          var link = document.getElementById("link");
+          var linkHapus = "hapus/"+username;
+        link.setAttribute("href", linkHapus);
+      });
+
+        $('#confirmationModal1').on('show.bs.modal', function(e) {
           var username = e.relatedTarget.dataset.username;
           document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+username+ " dari tim akreditasi?";
           var link = document.getElementById("link");
