@@ -159,7 +159,7 @@ class PegawaiController extends Controller
 	 * Method profilPengguna untuk melihat profil pengguna yang sedang login beserta rolenya
 	 * 
 	 * @param string $username username pegawai yang ingin diberikan akses
-	 * @return ......
+	 * @return profil data dari pengguna yang sedang login
 	 */
 	public function profilPengguna($username, Request $request) {
 		$pengguna = Pegawai::lihatProfilPengguna($username);
@@ -182,6 +182,12 @@ class PegawaiController extends Controller
 			]);	 
 	}
 
+	/**
+	 * Method setUpPimpinan untuk menjadikan pegawai sebagai pimpinan
+	 * 
+	 * @param int $id_pimpinan, $valuePimpinan, dan $username pegawai yang ingin dijadikan pimpinan
+	 * @return pimpinan berhasil ditambahkan ke dalam database
+	 */
 
 	public function setUpPimpinan($id_pimpinan, $valuePimpinan, $username) {
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -199,6 +205,12 @@ class PegawaiController extends Controller
 		]);	 
 	}
 
+	/**
+	 * Method kelolaPimpinanPage untuk menampilkan halaman list dari pimpinan
+	 * 
+	 * @param String $username, username dari pengguna yang sedang login (admin)
+	 * @return list pimpinan berhasil ditampilkan dalam halaman
+	 */
 	public function kelolaPimpinanPage($username, Request $request) {
 		$pengguna = Pegawai::lihatProfilPengguna($username);
 		// $listPimpinan=Pegawai::getPimpinanPegawai();
@@ -223,7 +235,12 @@ class PegawaiController extends Controller
 			]);	 
 		
 	}
-
+	/**
+	 * Method hapusPimpinan untuk menghapus pimpinan
+	 * 
+	 * @param string $username, $request
+	 * @return pimpinan berhasil dihapus
+	 */
 	public function hapusPimpinan($username, Request $request) {
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$pegawai = Pegawai::getPegawaiByUsername($username);
@@ -249,11 +266,18 @@ class PegawaiController extends Controller
 			]);	 		
 	}
 
+	/**
+	 * Method tambahPimpinan untuk menambah pimpinan
+	 * 
+	 * @param string $username, $valuePimpinan jenis pimpinan yang akan dipilih $request
+	 * @return pimpinan berhasil ditambahkan
+	 */
 	public function tambahPimpinan($username, $valuePimpinan, Request $request) {
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		if($pimpinan == null) {
+		
+		if($pimpinan == null) { //jika pegawai tidak ditemukan dalam database
 			return view('error-username',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),

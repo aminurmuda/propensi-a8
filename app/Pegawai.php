@@ -90,12 +90,24 @@ class Pegawai extends Model
                     ->update(['isPimpinan'=> 0, 'isTimAkreditasi'=> 1, 'id_pimpinan'=> null]);
     }
 
+    /**
+     * Method setIsPimpinan untuk menjadikan pegawai sebagai pimpinan
+     * 
+     * @param string $username username pegawai yang ingin dijadikan pimpinan
+     * @return pegawai menjadi pimpinan (isPimpinan==1)
+     */
     public static function setIsPimpinan($username) {
         return DB::table('pegawai')
                     ->where('username', $username)
                     ->update(['isPimpinan'=> 1, 'isTimAkreditasi' => 0]);
     }
 
+     /**
+     * Method hapusIsPimpinan untuk menghapus pegawai yang menjadi pimpinan
+     * 
+     * @param string $username username pimpinan yang ingin dihapus
+     * @return pegawai tidak lagi menjadi pimpinan (isPimpinan==0)
+     */
     public static function hapusIsPimpinan($username) {
         return DB::table('pegawai')
                     ->where('username', $username)
@@ -119,11 +131,23 @@ class Pegawai extends Model
             ->get();
     }
 
+     /**
+     * Method getCalonPimpinanByUsername untuk mendapatkan username pegawai yang akan menjadi pimpinan
+     * 
+     * @param string $username username pegawai yang ingin dijadikan pimpinan
+     * @return username dari pegawai yang akan menjadi pimpinan 
+     */
     public static function getCalonPimpinanByUsername($username){
         return Pegawai::where('isTimAkreditasi', 0)
                         ->where('username', $username);
     }
 
+    /**
+     * Method getCalonPimpinanByNIP untuk mendapatkan NIP pegawai yang akan menjadi pimpinan
+     * 
+     * @param string $no_pegawai NIP pegawai yang ingin dijadikan pimpinan
+     * @return NIP dari pegawai yang akan menjadi pimpinan 
+     */
     public static function getCalonPimpinanByNIP($no_pegawai){
         return Pegawai::where('isTimAkreditasi', 0)
                         ->where('no_pegawai', $no_pegawai);
@@ -192,7 +216,12 @@ class Pegawai extends Model
             ->where('pegawai.username',$username)->get();
     }
 
-
+    /**
+     * Method lihatSemuaPimpinan untuk mendapatkan list semua pimpinan
+     * 
+     * @param 
+     * @return pegawai yang menjadi pimpinan
+     */ 
     public static function lihatSemuaPimpinan(){
         return DB::table('pegawai')
             ->join('pimpinan', 'pimpinan.id_pimpinan', '=', 'pegawai.id_pimpinan')
@@ -200,6 +229,12 @@ class Pegawai extends Model
             ->get();
     }
 
+    /**
+     * Method updateIdPimpinanPegawai untuk mengubah id dari pimpinan yang baru (perubahan jabatan pimpinan)
+     * 
+     * @param string $username username pegawai yang merupakan seorang pimpinan
+     * @return id pimpinan terbaru dari pegawai dengan $username yang sesuai
+     */ 
     public static function updateIdPimpinanPegawai($username) {
         $idPimpinan = Pimpinan::getIdPimpinanTerakhir();
         return DB::table('pegawai')
