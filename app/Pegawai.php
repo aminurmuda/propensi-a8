@@ -199,4 +199,11 @@ class Pegawai extends Model
             ->where('isTimAkreditasi',0)->get();
     }
 
+    public static function updateIdPimpinanPegawai($username) {
+        $idPimpinan = Pimpinan::getIdPimpinanTerakhir();
+        return DB::table('pegawai')
+                  -> where('username', $username)
+                  -> update(['id_pimpinan'=> $idPimpinan]);
+    }
+
 }

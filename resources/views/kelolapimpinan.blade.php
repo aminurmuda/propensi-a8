@@ -108,7 +108,7 @@
                     {{ csrf_field() }}
                       <div class="input-group">
                       <h4>Tambah Pimpinan</h4>
-                         <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder=" Username" >
+                         <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder=" Username">
                          <br>
                          <br>
                         <select class="form-control" id="sel1">

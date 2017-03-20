@@ -73,4 +73,10 @@ class Pimpinan extends Model
                     ->update(['isBPMA'=> 0, 'isPimpinanFakultas' => 0, 	'isPimpinanUniv' => 0]);
     }
 
+    public static function getIdPimpinanTerakhir() {
+    	$idPimpinan = Pimpinan::select('id_pimpinan')
+    							->orderBy('id_pimpinan', 'desc')->first();
+    	return $idPimpinan->id_pimpinan;
+    }
+
 }

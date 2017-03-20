@@ -224,6 +224,7 @@ class PegawaiController extends Controller
 		$kodeFakultas = Pegawai::getFakultasPegawai($username);
 		Pegawai::setIsPimpinan($username);
 		Pimpinan::addPimpinan($valuePimpinan, $username);
+		Pegawai::updateIdPimpinanPegawai($username);
 		if($pimpinan->username != null && $valuePimpinan != 0) {
 			return view('tambah-pimpinan',[
 			'role' => $request->session()->get('role'),
