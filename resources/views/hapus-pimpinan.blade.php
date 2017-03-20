@@ -60,7 +60,7 @@
                         </li>
 
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                        @if ($role!='Tim Akreditasi')
+                       @if ($role=='Pimpinan Fakultas')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
@@ -69,6 +69,10 @@
                             </ul>
                         </li>
                         @endif
+
+                       @if ($role=='Admin')
+                        <li><a href="{{ url('kelolapimpinan/'.$user) }}">Kelola Pimpinan</a></li>
+                        @endif                        
 
                        
                     </ul>

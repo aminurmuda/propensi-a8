@@ -61,7 +61,7 @@
 
 
                         <li><a href="#">Riwayat Akreditasi</a></li>
-                         @if ($role!='Tim Akreditasi' && $role!='Admin')
+                       @if ($role=='Pimpinan Fakultas')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
                                 <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
@@ -72,7 +72,7 @@
                         @endif
 
                         @if ($role=='Admin')
-                        <li><a href="#">Kelola Pimpinan</a></li>
+                        <li><a href="{{ url('kelolapimpinan/'.$user) }}">Kelola Pimpinan</a></li>
                         @endif
                        
                     </ul>
@@ -108,10 +108,12 @@
                     {{ csrf_field() }}
                       <div class="input-group">
                       <h4>Tambah Pimpinan</h4>
-                         <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder=" Username">
+
+                         <input class="btn btn-md inputform" name="username" id="username" type="username" placeholder=" Username" required>
+
                          <br>
                          <br>
-                        <select class="form-control" id="sel1">
+                        <select class="form-control" id="sel1" required>
                            <option name="undefined" value="0">Select Role</option>
                            <option name="isBPMA" value="1">BPMA</option>
                            <option name="isPimpinanFakultas" value="2">Pimpinan Fakultas</option>

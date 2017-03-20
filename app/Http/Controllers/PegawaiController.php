@@ -20,16 +20,26 @@ class PegawaiController extends Controller
 	 * @return view halaman notifikasi bahwa user telah ditambahkan sebagai tim akreditasi
 	 */
 	public function tambahTimAkreditasi($username, Request $request) {
-		Pegawai::addTimAkreditasi($username);
-		$pegawai = Pegawai::getPegawaiByUsername($username);
-		$kodeFakultas = Pegawai::getFakultasPegawai($username);
-		return view('tambah-sukses', [
-			'role' => $request->session()->get('role'),
-            'user' => $request->session()->get('user'),
-            'pegawai' => $pegawai,      
-            'kode_fakultas' => $kodeFakultas,  
-            'username' => $username
-		]);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+    	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+    	if ($request->session()->get('role')=='Pimpinan Fakultas'){
+			Pegawai::addTimAkreditasi($username);
+			$pegawai = Pegawai::getPegawaiByUsername($username);
+			$kodeFakultas = Pegawai::getFakultasPegawai($username);
+			return view('tambah-sukses', [
+				'role' => $request->session()->get('role'),
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pegawai,      
+	            'kode_fakultas' => $kodeFakultas,  
+	            'username' => $username
+			]);
+		}
+    	return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $request->session()->get('user')
+			]);	
 	}
 
 	/**
@@ -39,16 +49,26 @@ class PegawaiController extends Controller
 	 * @return view halaman notifikasi bahwa user telah dihapus dari tim akreditasi
 	 */
     public function deleteTimAkreditasi($username, Request $request){
-    	Pegawai::deleteTimAkreditasi($username);
-    	$pegawai = Pegawai::getPegawaiByUsername($username);
-    	$kodeFakultas = Pegawai::getFakultasPegawai($username);
-		return view('hapus-sukses', [
-			'role' => $request->session()->get('role'),
-            'user' => $request->session()->get('user'),
-            'kode_fakultas' => $kodeFakultas,
-            'pegawai' => $pegawai,
-            'username' => $username
-		]);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+    	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+    	if ($request->session()->get('role')=='Pimpinan Fakultas'){    	
+	    	Pegawai::deleteTimAkreditasi($username);
+	    	$pegawai = Pegawai::getPegawaiByUsername($username);
+	    	$kodeFakultas = Pegawai::getFakultasPegawai($username);
+			return view('hapus-sukses', [
+				'role' => $request->session()->get('role'),
+	            'user' => $request->session()->get('user'),
+	            'kode_fakultas' => $kodeFakultas,
+	            'pegawai' => $pegawai,
+	            'username' => $username
+			]);
+		}
+    	return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $request->session()->get('user')
+			]);	
     }
 
 	/**
@@ -209,32 +229,51 @@ class PegawaiController extends Controller
 		$kodeFakultas = Pegawai::getFakultasPegawai($username);
 		Pegawai::hapusIsPimpinan($username);
 		Pimpinan::hapusPimpinan($pimpinan->id_pimpinan);
-		return view('hapus-pimpinan',[
-			'role' => $request->session()->get('role'),
-            'user' => $request->session()->get('user'),
-            'pegawai' => $pegawai,      
-            'kode_fakultas' => $kodeFakultas,  
-            'username' => $username
-		]);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;		
+		if ($request->session()->get('role')=='Admin') {
+			return view('hapus-pimpinan',[
+				'role' => $request->session()->get('role'),
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pegawai,      
+	            'kode_fakultas' => $kodeFakultas,  
+	            'username' => $username
+			]);
+		}
+		return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $request->session()->get('user')
+			]);	 		
 	}
 
 	public function tambahPimpinan($username, $valuePimpinan, Request $request) {
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$pegawai = Pegawai::getPegawaiByUsername($username);
-		$kodeFakultas = Pegawai::getFakultasPegawai($username);
+		$kodeFakultas = Pegawai::getFakultasPegawai($username); //kode fakultas username yang sedang ingin ditambah
 		Pegawai::setIsPimpinan($username);
 		Pimpinan::addPimpinan($valuePimpinan, $username);
 		Pegawai::updateIdPimpinanPegawai($username);
-		if($pimpinan->username != null && $valuePimpinan != 0) {
-			return view('tambah-pimpinan',[
-			'role' => $request->session()->get('role'),
-            'user' => $request->session()->get('user'),
-            'pegawai' => $pegawai,      
-            'kode_fakultas' => $kodeFakultas,  
-            'username' => $username
-			]);
-		} 
-		
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login	
+		if ($request->session()->get('role')=='Admin') {		
+			if($pimpinan->username != null && $valuePimpinan != 0) {
+				return view('tambah-pimpinan',[
+				'role' => $request->session()->get('role'),
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pegawai,      
+	            'kode_fakultas' => $kodeFakultas,  
+	            'username' => $username
+				]);
+			} 
+		}
+		return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $request->session()->get('user')
+			]);	
 	}
 
 }
