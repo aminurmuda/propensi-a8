@@ -99,7 +99,7 @@ class Pegawai extends Model
     public static function hapusIsPimpinan($username) {
         return DB::table('pegawai')
                     ->where('username', $username)
-                    ->update(['isPimpinan'=> 0]);
+                    ->update(['isPimpinan'=> 0, 'id_pimpinan'=> null]);
     }
 
     /**
