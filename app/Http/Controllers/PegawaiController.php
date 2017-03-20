@@ -201,6 +201,7 @@ class PegawaiController extends Controller
 
 	public function kelolaPimpinanPage($username, Request $request) {
 		$pengguna = Pegawai::lihatProfilPengguna($username);
+		// $listPimpinan=Pegawai::getPimpinanPegawai();
 		$listPimpinan = Pegawai::lihatSemuaPimpinan();
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
@@ -250,30 +251,39 @@ class PegawaiController extends Controller
 
 	public function tambahPimpinan($username, $valuePimpinan, Request $request) {
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
-		$pegawai = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		if($pimpinan == null) {
+			return view('error-username',[
+				'role' => $request->session()->get('role'),
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pimpinan,      
+	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'username' => $username
+			]);
+		}
 		$kodeFakultas = Pegawai::getFakultasPegawai($username); //kode fakultas username yang sedang ingin ditambah
 		Pegawai::setIsPimpinan($username);
 		Pimpinan::addPimpinan($valuePimpinan, $username);
-		Pegawai::updateIdPimpinanPegawai($username);
-		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
-		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login	
+		Pegawai::updateIdPimpinanPegawai($username);	
 		if ($request->session()->get('role')=='Admin') {		
 			if($pimpinan->username != null && $valuePimpinan != 0) {
 				return view('tambah-pimpinan',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
-	            'pegawai' => $pegawai,      
+	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultas,  
 	            'username' => $username
 				]);
 			} 
+
 		}
 		return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kodeFakultasPengguna,
 					'user' => $request->session()->get('user')
-			]);	
+		]);	
 	}
 
 }

@@ -122,22 +122,29 @@
                         <br>
                         <br>
                         <br>
-                        <button class="btn btn-primary col-md-offset-4" type="submit"> Tambah</button>
+                        <button class="btn btn-primary col-md-offset-4" type="submit" onclick="return confirm('Apakah anda yakin ingin menambah '+$('#username').val() +' menjadi pimpinan?');return false;"> Tambah</button>
                       </div>
                       
                     </form>
+                    <br>
+                    <div id="titledaftar"> 
+                         <h2>Daftar Pimpinan</h2>
+                     </div>
+                     <br>
                  </div>
 
                 
 
 
                  <!-- <img class="img-responsive center-block" id="kotakbiru" src="images/kotakdaftarpengguna.png" alt="" > -->
-
+                 
                  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+
                     <thead>
                         <tr>
                             <th>Nama</th>
                             <th>NIP</th>
+                            <th>Role</th>
                             <th>Edit</th>
                     
                         </tr>
@@ -148,6 +155,15 @@
                         <tr>
                             <td>{{$pimpinan->nama}}</td>
                             <td>{{$pimpinan->no_pegawai}}</td>
+                            @if ($pimpinan->isBPMA==1)
+                                <td>BPMA</td>
+                            @endif
+                            @if ($pimpinan->isPimpinanFakultas==1)
+                                <td>Pimpinan Fakultas</td>
+                            @endif
+                            @if ($pimpinan->isPimpinanUniv==1)
+                                <td>Pimpinan Universitas</td>
+                            @endif
                             <td>
                                 <center>
                                <!--  <a href="hapus/{{$pimpinan->username}}"> -->

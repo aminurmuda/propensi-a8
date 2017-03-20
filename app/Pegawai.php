@@ -87,13 +87,13 @@ class Pegawai extends Model
     public static function addTimAkreditasi($username) {
         return DB::table('pegawai')
                     ->where('username', $username)
-                    ->update(['isTimAkreditasi'=> 1]);
+                    ->update(['isPimpinan'=> 0, 'isTimAkreditasi'=> 1, 'id_pimpinan'=> null]);
     }
 
     public static function setIsPimpinan($username) {
         return DB::table('pegawai')
                     ->where('username', $username)
-                    ->update(['isPimpinan'=> 1]);
+                    ->update(['isPimpinan'=> 1, 'isTimAkreditasi' => 0]);
     }
 
     public static function hapusIsPimpinan($username) {
@@ -195,8 +195,9 @@ class Pegawai extends Model
 
     public static function lihatSemuaPimpinan(){
         return DB::table('pegawai')
-            ->where('isPimpinan',1)
-            ->where('isTimAkreditasi',0)->get();
+            ->join('pimpinan', 'pimpinan.id_pimpinan', '=', 'pegawai.id_pimpinan')
+            ->select('pegawai.username', 'pegawai.nama', 'pegawai.no_pegawai','pimpinan.isBPMA','pimpinan.isPimpinanFakultas','pimpinan.id_fakultas','pimpinan.isPimpinanUniv')
+            ->get();
     }
 
     public static function updateIdPimpinanPegawai($username) {
