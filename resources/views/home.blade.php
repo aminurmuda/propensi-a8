@@ -15,18 +15,20 @@
                     <div class="price">
                        <!-- <p class="plan-name"></p> -->
                        <br>
-                        <p> STANDAR 2 </p>
+                        <p> Borang 3A </p>
                         
                     </div>
                     <div class="plan-div">
                         <p class="plan-text">
                             <br>
-                            Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu
+                            Borang Akreditasi yang diisi oleh program studi
                         </p>
                     </div>
                     <div class="pricing-footer">
 
-                        <a href="#" class="btn db-button-color-square btn-m round">Pilih Standar</a>
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 2</a>
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 4</a>
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 7</a>
                     </div>
                 </div>
             </div>
@@ -36,18 +38,21 @@
                 <div class="db-pricing-eleven db-bk-color-one">
                     <div class="price">
                         <br>
-                        <p>STANDAR 4</p>
+                        <p>Borang 3B</p>
                         
 
                     </div>
                     <div class="plan-div">
                         <p class="plan-text">
-                            <br>Sumber Daya Manusia
+                            <br>Borang Institusi yang diisi oleh fakultas
                         </p>
                     </div>
                     <div class="pricing-footer">
 
-                        <a href="#" class="btn db-button-color-square btn-m round">Pilih Standar</a>
+                        
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 2</a>
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 4</a>
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 7</a>
                     </div>
                 </div>
             </div>
@@ -57,19 +62,19 @@
                 <div class="db-pricing-eleven db-bk-color-one">
                     <div class="price">
                         <br>
-                        <p>STANDAR 7</p>
+                        <p>Evaluasi Diri</p>
                         
 
                     </div>
 
                     <div class="plan-div">
                         <p class="plan-text">
-                            <br>Penelitian, Pelayanan/Pengabdian Kepada Masyarakat dan Kerjasama
+                            <br>Evaluasi Diri Program Studi
                         </p>
                     </div>
                     <div class="pricing-footer">
 
-                        <a href="#" class="btn db-button-color-square btn-m round">Pilih Standar</a>
+                        <a href="#" class="btn db-button-color-square btn-m round">Pilih</a>
                     </div>
                 </div>
             </div>

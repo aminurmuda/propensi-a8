@@ -50,8 +50,9 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{ url('home') }}" class="">Home</a></li>
-                        
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang Standar <span class="caret"></span></a>
+
+                        <!-- role tim akreditasi --> 
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3A <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="{{ url('standar2') }}">Standar 2</a></li>
                                 <li><a href="#">Standar 4</a></li>
@@ -59,8 +60,19 @@
                             </ul>
                         </li>
 
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3B <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url('standar2') }}">Standar 2</a></li>
+                                <li><a href="#">Standar 4</a></li>
+                                <li><a href="#">Standar 7</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#">Evaluasi Diri</a></li>
 
                         <li><a href="#">Riwayat Akreditasi</a></li>
+
+                        <!-- role pimpinan fakultas -->
                        @if ($role=='Pimpinan Fakultas')
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
@@ -71,9 +83,22 @@
                         </li>
                         @endif
 
+
+                        <!-- role super admin -->
                         @if ($role=='Admin')
                         <li><a href="{{ url('kelolapimpinan/'.$user->username) }}">Kelola Pimpinan</a></li>
+
+                        <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
+                           <ul class="dropdown-menu">
+                                <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
+                                <li><a href="{{ url('/timakreditasi/kelola/'.$kode_fakultas) }}">Lihat dan Hapus Pengguna</a></li>
+    
+                            </ul>
+                        </li>
                         @endif
+
+                        <!-- role pimpinan reviewer -->
+
 
                        
                     </ul>
