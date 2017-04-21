@@ -316,9 +316,18 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-			$prodi = program_studi::getAllProdi();
+		$role=$request->session()->get('role');
+			//untuk pimpinan univ, reviewer univ, admin
+			if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas' || $role=='Admin'){
+				$prodi = program_studi::getAllProdi();
+			} else {
+				//untuk pimpinan fakultas
+				$prodi = program_studi::getProdiByFakultas($kodeFakultasPengguna);				
+			}
+
+		
 			return view('pilihprodi',[
-				'role' => $request->session()->get('role'),
+				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
@@ -326,5 +335,19 @@ class PegawaiController extends Controller
 	            'username' => $username
 			]);
 	}	
+
+	public function lihat3a4(Request $request) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+			return view('view3a4',[
+				'role' => $request->session()->get('role'),
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pimpinan,      
+	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'username' => $username
+			]);
+	}		
 
 }

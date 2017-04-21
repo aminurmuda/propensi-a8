@@ -54,7 +54,7 @@
                         <!-- role tim akreditasi --> 
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3A <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                @if($role!='Pimpinan Universitas' && $role!='Reviewer Universitas' && $role!='Admin'))
+                                @if($role!='Pimpinan Universitas' && $role!='Reviewer Universitas' && $role!='Admin')
                                 <li><a href="{{ url('3a/standar2/'.$kode_fakultas) }}">Standar 2</a></li>
                                 <li><a href="{{ url('3a/standar4/'.$kode_fakultas) }}">Standar 4</a></li>
                                 <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">Standar 7</a></li>

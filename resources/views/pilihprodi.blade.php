@@ -15,8 +15,9 @@
                         <p> Pilih Program Studi </p>
                         
                     </div>
+                    <form action="{{url(Route::current()->getName())}}">
+                    {{csrf_field()}}
                     <div class="plan-div">
-                    <form>
                           <div class="form-group">
                             <select class="form-control" id="selectProdi">
                             @foreach($prodi as $prodi)
@@ -24,12 +25,14 @@
                               @endforeach
                             </select>
                           </div>
-                    </form>
+
                     </div>
                     <div class="pricing-footer">
 
-                        <a href="#" class="btn db-button-color-square btn-m round">Pilih</a>
+                        <!-- <a href="#" class="btn db-button-color-square btn-m round">Pilih</a> -->
+                        <button class="btn db-button-color-square btn-m round" type="submit"> Pilih </button>                        
                     </div>
+                    </form>                    
                 </div>
             </div>
         </div>

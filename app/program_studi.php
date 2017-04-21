@@ -21,4 +21,11 @@ class program_studi extends Model
         return DB::table('program_studi')->get();
     }
 
+    public static function getProdiByFakultas($kode_fakultas)
+    {
+        return DB::table('program_studi')
+        ->where('kode_fakultas',$kode_fakultas)
+        ->get();
+    }
+
 }
