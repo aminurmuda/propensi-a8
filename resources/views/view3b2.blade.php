@@ -8,7 +8,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3B, Standar 2</h3>
             <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span>
-            <button class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</button>
+             <a href="{{ url('3b/standar2edit/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 

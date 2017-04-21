@@ -50,7 +50,18 @@ Route::get('pimpinan', 'PegawaiController@kelolapimpinan')->name('pimpinan'); //
 Route::get('3a/standar4', 'PegawaiController@pilihProdi')->name('3a/standar4'); //pimpinan univ only
 Route::post('3a/standar4/submit', 'PegawaiController@lihat3a4')->name('3a/standar4/submit'); //pimpinan univ only
 Route::get('3a/standar4/{kodeProdi}', 'PegawaiController@lihat3a4')->name('3a/standar4/{kodeProdi}'); 
+
+Route::get('3a/standar2/{kodeProdi}', 'PegawaiController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
+
+Route::get('3b/standar2/{kodeProdi}', 'PegawaiController@lihat3b2')->name('3b/standar2/{kodeProdi}'); 
+
+Route::get('3a/standar2edit/{kodeProdi}', 'PegawaiController@edit3a2')->name('3a/standar2edit/{kodeProdi}');
+
+Route::get('3b/standar2edit/{kodeProdi}', 'PegawaiController@edit3b2')->name('3b/standar2edit/{kodeProdi}'); 
+
 });
+
+
 
 //kalau udah login, ngakses route dibawah ini akan diarahkan ke home
 Route::get('/', function () {
