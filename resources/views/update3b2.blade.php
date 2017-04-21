@@ -6,9 +6,9 @@
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <h3>Borang 3B, Standar 2</h3>
+            <h3>Ubah Borang 3B, Standar 2</h3>
             <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span>
-            <button class="btn-primary btn-lg pull-right glyphicon glyphicon-ok"> Simpan</button>
+            <a class="btn-primary btn-lg pull-right glyphicon glyphicon-ok"> Simpan</a>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 

@@ -51,6 +51,8 @@ Route::get('3a/standar4', 'PegawaiController@pilihProdi')->name('3a/standar4'); 
 Route::get('3a/standar4/submit', 'PegawaiController@lihat3a4')->name('3a/standar4/submit'); //pimpinan univ only
 Route::get('3a/standar4/{kodeProdi}', 'PegawaiController@lihat3a4')->name('3a/standar4/{kodeProdi}'); 
 
+Route::get('3a/standar4edit/{kodeProdi}', 'PegawaiController@edit3a4')->name('3a/standar4edit/{kodeProdi}'); 
+
 Route::get('3a/standar2/{kodeProdi}', 'PegawaiController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
 
 Route::get('3b/standar2/{kodeProdi}', 'PegawaiController@lihat3b2')->name('3b/standar2/{kodeProdi}'); 
