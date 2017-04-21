@@ -55,6 +55,9 @@ class MainController extends Controller
 		if($userPegawai) {
 			$userIsPimpinan = Pegawai::getPegawaiIsPimpinan($username);
 			$userIsTimAkreditasi = Pegawai::getPegawaiIsTimAkreditasi($username);
+			$userIsReviewerProdi = Pegawai::getPegawaiIsReviewerProdi($username);
+			$userIsReviewerUniv = Pegawai::getPegawaiIsReviewerUniv($username);
+			$userIsAdmin = Pegawai::getPegawaiIsAdmin($username);
 			$kodeFakultas = Pegawai::getFakultasPegawai($username);
 			if($userIsPimpinan) {
 				
@@ -87,11 +90,27 @@ class MainController extends Controller
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]
 					);
-			} else { //admin
+			} elseif($userIsAdmin) { //admin
 				$request->session()->put('role', 'Admin');;
 				return view ('home', [
 					'user' => $user,
 					'role' => 'Admin',
+					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
+					]
+					);
+			} elseif($userIsReviewerProdi) { //reviewer prodi
+				$request->session()->put('role', 'Admin');;
+				return view ('home', [
+					'user' => $user,
+					'role' => 'Reviewer Prodi',
+					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
+					]
+					);
+			} else { //reviewer univ
+				$request->session()->put('role', 'Admin');;
+				return view ('home', [
+					'user' => $user,
+					'role' => 'Reviewer Universitas',
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]
 					);

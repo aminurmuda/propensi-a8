@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     <!-- Page Content -->
 
     <div class="container">
@@ -12,6 +11,7 @@
                 <h2>Profil Pengguna</h2>
                 <br>
                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                @foreach($pengguna as $pengguna)
                     <tr>
                         <th>Name:</th>
                         <td>{{$pengguna->nama}}</td>
@@ -32,6 +32,7 @@
                          <th>Program Studi</th>
                          <td>{{$pengguna->nama_prodi}}</td>
                     </tr>
+                @endforeach
                 </table>
             </div>
         </div>

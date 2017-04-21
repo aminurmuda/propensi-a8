@@ -170,7 +170,7 @@ class PegawaiController extends Controller
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kodeFakultasPengguna,
 					'user' => $username,
-					'pengguna' =>$pengguna[0]
+					'pengguna' =>$pengguna
 					]);
 		}
 			
