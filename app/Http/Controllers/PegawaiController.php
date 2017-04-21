@@ -342,10 +342,15 @@ class PegawaiController extends Controller
 	}	
 
 	public function lihat3a4(Request $request) {
+
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		if ($request->get('selectProdi')){
+			$yangDipilih = $request->get('selectProdi'); 	
+			echo $yangDipilih;
+		}
 			return view('view3a4',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
