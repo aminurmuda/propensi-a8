@@ -36,7 +36,7 @@
                              Fakultas/Sekolah Tinggi dalam mengelola program studi. 
                              <br><br>
 
-                             Uraikan secara ringkas sistem dan pelaksanaan tata pamong di Fakultas/Sekolah Tinggi untuk memilih pemimpin dan membangun sistem tata pamong yang kredibel, akuntabel, transparan, bertanggung jawab dan adil.
+                             Uraikan secara ringkas sistem dan pelaksanaan tata pamong di Fakultas/Sekolah Tinggi untuk memilih pemimpin dan membangun sistem tata pamong yang kredibel, akuntabel, transparan, bertanggung jawab dan adil. <br><br>
 
                             <div class="form-group">
                               <textarea class="form-control" rows="5" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
@@ -60,7 +60,7 @@
                     <div id="two" class="panel-collapse collapse">
                         <div class="panel-body">
 
-                             Gambarkan struktur organisasi  Fakultas/Sekolah Tinggi serta tugas/fungsi dari tiap unit yang ada.
+                             Gambarkan struktur organisasi  Fakultas/Sekolah Tinggi serta tugas/fungsi dari tiap unit yang ada. <br><br>
                              <div class="form-group">
                               <textarea class="form-control" rows="5" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
 
@@ -104,7 +104,7 @@
                             menjalin kerjasama dan menjadi rujukan bagi publik.
                             <br><br>
 
-                            Jelaskan pola kepemimpinan dalam Fakultas/Sekolah Tinggi.
+                            Jelaskan pola kepemimpinan dalam Fakultas/Sekolah Tinggi. <br><br>
 
                             <div class="form-group">
                               <textarea class="form-control" rows="5" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
@@ -129,7 +129,7 @@
 
                             Sistem pengelolaan fungsional dan operasional program studi mencakup <i>planning, organizing, staffing, leading, controlling,</i> serta operasi internal dan eksternal
                             <br><br>
-                            Jelaskan sistem pengelolaan Fakultas/Sekolah Tinggi serta ketersediaan Renstra dan Renop.
+                            Jelaskan sistem pengelolaan Fakultas/Sekolah Tinggi serta ketersediaan Renstra dan Renop. <br><br>
 
                             <div class="form-group">
                               <textarea class="form-control" rows="5" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
@@ -153,7 +153,7 @@
                     </div>
                     <div id="five" class="panel-collapse collapse">
                         <div class="panel-body">
-                            Jelaskan sistem penjaminan mutu dalam Fakultas/Sekolah Tinggi.  Jelaskan pula standar mutu yang digunakan.
+                            Jelaskan sistem penjaminan mutu dalam Fakultas/Sekolah Tinggi.  Jelaskan pula standar mutu yang digunakan. <br><br>
 
                             <div class="form-group">
                               <textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
