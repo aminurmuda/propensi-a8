@@ -19,6 +19,7 @@ class program_studi extends Model
     public static function getAllProdi()
     {
         return DB::table('program_studi')->get();
+        
     }
 
     public static function getProdiByFakultas($kode_fakultas)
