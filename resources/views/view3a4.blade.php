@@ -610,8 +610,7 @@
                           <td>@mdo</td>
                           <td>Mark</td>                          
                           <td>Mark</td>
-                          <td>Otto</td>                                                  
-                          <td>Otto</td>
+                          <td>Mark</td>
                         </tr>
                         <tr>
                           <td>Otto</td>
@@ -619,10 +618,9 @@
                           <td>Mark</td>                          
                           <td>Mark</td>
                           <td>Otto</td>                                                  
-                          <td>Otto</td>
                         </tr>                        
                         <tr>
-                          <th scope="row" colspan="6">TOTAL</th>                         
+                          <th scope="row" colspan="5">TOTAL</th>                         
                           <td>@mdo</td>
                           <td>Mark</td>                                                    
                         </tr>
