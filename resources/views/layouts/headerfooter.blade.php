@@ -97,8 +97,8 @@
 
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
-                                <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
-                                <li><a href="{{ url('/timakreditasi/kelola/'.$kode_fakultas) }}">Lihat dan Hapus Pengguna</a></li>
+                                <li><a href="{{ url('/timakreditasi/tambah/') }}">Tambah Pengguna</a></li>
+                                <li><a href="{{ url('/timakreditasi/kelola/') }}">Lihat dan Hapus Pengguna</a></li>
     
                             </ul>
                         </li>

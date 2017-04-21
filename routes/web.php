@@ -21,6 +21,10 @@ Route::group(['middleware'=>['home']], function() {
 Route::get('home', 'MainController@home')->name('home');
 Route::get('logout', 'MainController@logout')->name('logout');
 
+Route::get('timakreditasi/kelola', 'PegawaiController@pilihFakultas')->name('timakreditasi/kelola'); //Admin kelola Tim Akreditasi
+
+Route::get('timakreditasi/tambah', 'PegawaiController@pilihFakultas')->name('timakreditasi/tambah'); //Admin kelola Tim Akreditasi
+
 Route::get('timakreditasi/kelola/{kode_fakultas}', 'PegawaiController@lihatPengguna')->name('timakreditasi/kelola/{kode_fakultas}'); //pimpinan fakultas only
 
 Route::get('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPegawaiIsNotTimAkreditasi')->name('timakreditasi/tambah/{kode_fakultas}'); //pimpinan fakultas only

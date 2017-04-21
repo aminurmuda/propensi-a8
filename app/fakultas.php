@@ -3,12 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\program_studi;
+use App\fakultas;
 use DB;
 
-class program_studi extends Model
+class fakultas extends Model
 {
-    protected $table = 'program_studi';
+    protected $table = 'fakultas';
 
     /**
      * Method getPegawaiByUsername untuk mendapatkan pegawai dengan username tertentu
@@ -16,10 +16,9 @@ class program_studi extends Model
      * @param string $username username pegawai yang ingin dicari
      * @return Pegawai model
      */
-    public static function getAllProdi()
+    public static function getAllFakultas()
     {
-        return DB::table('program_studi')->get();
-        
+        return DB::table('fakultas')->get();
     }
 
 }

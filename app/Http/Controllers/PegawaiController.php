@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Pegawai;
 use App\Pimpinan;
 use App\program_studi;
+use App\fakultas;
 use DB;
 
 class PegawaiController extends Controller
@@ -23,7 +24,8 @@ class PegawaiController extends Controller
 	public function tambahTimAkreditasi($username, Request $request) {
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
-    	if ($request->session()->get('role')=='Pimpinan Fakultas'){
+    	$role = $request->session()->get('role');
+    	if ($role=='Pimpinan Fakultas'|| $role=='Admin'){
 			Pegawai::addTimAkreditasi($username);
 			$pegawai = Pegawai::getPegawaiByUsername($username);
 			$kodeFakultas = Pegawai::getFakultasPegawai($username);
@@ -52,7 +54,8 @@ class PegawaiController extends Controller
     public function deleteTimAkreditasi($username, Request $request){
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
-    	if ($request->session()->get('role')=='Pimpinan Fakultas'){    	
+    	$role = $request->session()->get('role');
+    	if ($role=='Pimpinan Fakultas'|| $role=='Admin'){   	
 	    	Pegawai::deleteTimAkreditasi($username);
 	    	$pegawai = Pegawai::getPegawaiByUsername($username);
 	    	$kodeFakultas = Pegawai::getFakultasPegawai($username);
@@ -82,7 +85,8 @@ class PegawaiController extends Controller
     	//validasi jika kode fakultas yang ingin diakses tidak sesuai dengan kode fakultas pengguna
     	$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
-    	if ($request->session()->get('role')=='Pimpinan Fakultas'){
+    	$role = $request->session()->get('role');
+    	if ($role=='Pimpinan Fakultas'||$role=='Admin'){
 	    		if ($kodeFakultasPengguna==$kode_fakultas) {
 			    	$pegawai = Pegawai::getAllPegawaiIsNotTimAkreditasi($kode_fakultas);
 			    	return view('tambahuser', [
@@ -136,7 +140,8 @@ class PegawaiController extends Controller
     	//validasi jika kode fakultas yang ingin diakses tidak sesuai dengan kode fakultas pengguna
     	$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
-    	if ($request->session()->get('role')=='Pimpinan Fakultas'){
+    	$role = $request->session()->get('role');
+    	if ($role=='Pimpinan Fakultas'||$role=='Admin'){
 	    		if ($kodeFakultasPengguna==$kode_fakultas) {
 		    	$timAkreditasi = Pegawai::getTimAkreditasiByFakultas($kode_fakultas);
 				return view('kelola', [
@@ -316,15 +321,32 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-			$prodi = program_studi::getAllProdi();
-			return view('pilihprodi',[
-				'role' => $request->session()->get('role'),
-	            'user' => $request->session()->get('user'),
-	            'pegawai' => $pimpinan,      
-	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'prodi' => $prodi,  
-	            'username' => $username
-			]);
+		$prodi = program_studi::getAllProdi();
+		return view('pilihprodi',[
+			'role' => $request->session()->get('role'),
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pimpinan,      
+            'kode_fakultas' => $kodeFakultasPengguna,  
+            'prodi' => $prodi,  
+            'username' => $username
+		]);
 	}	
+
+	public function pilihFakultas(Request $request) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+		$fakultas = fakultas::getAllFakultas();
+		return view('pilihfakultas',[
+			'role' => $request->session()->get('role'),
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pimpinan,      
+            'kode_fakultas' => $kodeFakultasPengguna,  
+            'fakultas' => $fakultas,  
+            'username' => $username
+		]);
+	}
+
 
 }
