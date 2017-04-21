@@ -54,9 +54,16 @@
                         <!-- role tim akreditasi --> 
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3A <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ url('standar2') }}">Standar 2</a></li>
-                                <li><a href="#">Standar 4</a></li>
-                                <li><a href="#">Standar 7</a></li>
+                                @if($role!='Pimpinan Universitas' && $role!='Reviewer Universitas' && $role!='Admin'))
+                                <li><a href="{{ url('3a/standar2/'.$kode_fakultas) }}">Standar 2</a></li>
+                                <li><a href="{{ url('3a/standar4/'.$kode_fakultas) }}">Standar 4</a></li>
+                                <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">Standar 7</a></li>
+                                @endif
+                                @if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas' || $role=='Admin')
+                                <li><a href="{{ url('3a/standar2') }}">Standar 2</a></li>
+                                <li><a href="{{ url('3a/standar4') }}">Standar 4</a></li>
+                                <li><a href="{{ url('3a/standar7') }}">Standar 7</a></li>
+                                @endif
                             </ul>
                         </li>
 
@@ -86,7 +93,7 @@
 
                         <!-- role super admin -->
                         @if ($role=='Admin')
-                        <li><a href="{{ url('kelolapimpinan/'.$user->username) }}">Kelola Pimpinan</a></li>
+                        <li><a href="{{ url('kelolapimpinan/'.$user) }}">Kelola Pimpinan</a></li>
 
                         <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
                            <ul class="dropdown-menu">
@@ -106,7 +113,7 @@
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as {{$role}} <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
-                                <li><a href="{{ url('profil/'.$user->username) }}">My Profile</a></li>
+                                <li><a href="{{ url('profil/'.$user) }}">My Profile</a></li>
                             </ul>
                         </li>
                         <li class=""><a href="{{ url('logout') }}">Logout</a></li>

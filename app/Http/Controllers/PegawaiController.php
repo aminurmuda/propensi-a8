@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pegawai;
 use App\Pimpinan;
+use App\program_studi;
 use DB;
 
 class PegawaiController extends Controller
@@ -309,5 +310,21 @@ class PegawaiController extends Controller
 					'user' => $request->session()->get('user')
 		]);	
 	}
+
+	public function pilihProdi(Request $request) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+			$prodi = program_studi::getAllProdi();
+			return view('pilihprodi',[
+				'role' => $request->session()->get('role'),
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pimpinan,      
+	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'prodi' => $prodi,  
+	            'username' => $username
+			]);
+	}	
 
 }

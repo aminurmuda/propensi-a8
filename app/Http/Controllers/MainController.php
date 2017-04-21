@@ -76,7 +76,7 @@ class MainController extends Controller
 				} 
 				$request->session()->put('role', $role);
 				return view ('home', [
-					'user' => $user,
+					'user' => $username,
 					'role' => $role,
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas,
 					]);
@@ -85,7 +85,7 @@ class MainController extends Controller
 
 				$request->session()->put('role', 'Tim Akreditasi');;
 				return view ('home', [
-					'user' => $user,
+					'user' => $username,
 					'role' => 'Tim Akreditasi',
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]
@@ -93,7 +93,7 @@ class MainController extends Controller
 			} elseif($userIsAdmin) { //admin
 				$request->session()->put('role', 'Admin');;
 				return view ('home', [
-					'user' => $user,
+					'user' => $username,
 					'role' => 'Admin',
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]
@@ -101,7 +101,7 @@ class MainController extends Controller
 			} elseif($userIsReviewerProdi) { //reviewer prodi
 				$request->session()->put('role', 'Admin');;
 				return view ('home', [
-					'user' => $user,
+					'user' => $username,
 					'role' => 'Reviewer Prodi',
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]
@@ -109,7 +109,7 @@ class MainController extends Controller
 			} else { //reviewer univ
 				$request->session()->put('role', 'Admin');;
 				return view ('home', [
-					'user' => $user,
+					'user' => $username,
 					'role' => 'Reviewer Universitas',
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]
@@ -117,7 +117,7 @@ class MainController extends Controller
 			}
 		} else {
 			return view ('logingagal', [
-					'user' => $user]);
+					'user' => $username]);
 		}
 	}	
 }
