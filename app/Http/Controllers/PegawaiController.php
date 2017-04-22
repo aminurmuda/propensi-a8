@@ -7,6 +7,7 @@ use App\Pegawai;
 use App\Pimpinan;
 use App\program_studi;
 use App\fakultas;
+use App\dosen;
 use DB;
 
 class PegawaiController extends Controller
@@ -347,17 +348,30 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+
+		$QKodeProdiPengguna = Pegawai::getProdiPegawai($request->session()->get('user'));		
+		$kodeProdiPengguna=$QKodeProdiPengguna[0]->kode_prodi_pengajaran;	 //belum disesuain sama kode prodi tim akreditasi
 		if ($request->get('selectProdi')){
-			$yangDipilih = $request->get('selectProdi'); 	
-			echo $yangDipilih;
+			$selectedProdi = $request->get('selectProdi'); 	
+		} else {
+			$selectedProdi=$kodeProdiPengguna;
 		}
+
+		//poin 4.5.4
+		$standar4_5_4 = Dosen::getPrestasiDosen($selectedProdi);
+
+		//poin 4.5.5
+		$standar4_5_5 = Dosen::getOrganisasiDosen($selectedProdi);
+
 
 			return view('view3a4',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username
+	            'username' => $username,
+	            'standar4_5_4' => $standar4_5_4,
+	            'standar4_5_5' => $standar4_5_5
 			]);
 	}		
 

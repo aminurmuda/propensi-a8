@@ -593,7 +593,7 @@
                         <tr>
                           <th rowspan="2">#</th>
                           <th rowspan="2">Nama Dosen</th>
-                          <th rowspan="2">Jenis Kegiatan*</th>
+                          <th rowspan="2" colspan="2">Jenis Kegiatan*</th>
                           <th rowspan="2">Tempat</th>
                           <th rowspan="2">Waktu</th>
                           <th colspan="2">Sebagai</th>
@@ -609,6 +609,7 @@
                           <td rowspan="2">Mark</td>
                           <td>Otto</td>
                           <td>@mdo</td>
+                          <td>@mdo</td>
                           <td>Mark</td>                          
                           <td>Mark</td>
                           <td>Mark</td>
@@ -616,12 +617,13 @@
                         <tr>
                           <td>Otto</td>
                           <td>@mdo</td>
+                          <td>@mdo</td>
                           <td>Mark</td>                          
                           <td>Mark</td>
                           <td>Otto</td>                                                  
                         </tr>                        
                         <tr>
-                          <th scope="row" colspan="5">TOTAL</th>                         
+                          <th scope="row" colspan="6">TOTAL</th>                         
                           <td>@mdo</td>
                           <td>Mark</td>                                                    
                         </tr>
@@ -643,26 +645,23 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>
-                        </tr>
+                          <th scope="row">(1)</th>
+                          <td>(2)</td>
+                          <td>(3)</td>
+                          <td>(4)</td>
+                          <td>(5)</td>                          
+                        </tr> 
+                        <?php $i=1 ?>
+                        @foreach($standar4_5_4 as $standar4_5_4)                     
                         <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                          <td>Mark</td>                         
+                          <th scope="row">{{$i}}</th>
+                          <td>{{$standar4_5_4 -> namaPegawai}}</td>
+                          <td>{{$standar4_5_4 -> nama}}</td>
+                          <td>{{$standar4_5_4 -> waktu}}</td>
+                          <td>{{$standar4_5_4 -> tingkat}}</td>                          
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                          <td>Mark</td>
-                        </tr>
+                        <?php $i++ ?>
+                        @endforeach
                       </tbody>
                     </table>                    
                     </div>              
@@ -681,26 +680,23 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>                          
-                        </tr>
+                          <th scope="row">(1)</th>
+                          <td>(2)</td>
+                          <td>(3)</td>
+                          <td>(4)</td>
+                          <td>(5)</td>                          
+                        </tr> 
+                        <?php $i=0 ?>
+                        @foreach($standar4_5_5 as $standar4_5_5)                     
                         <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                          <td>Mark</td>
+                          <th scope="row">{{$i}}</th>
+                          <td>{{$standar4_5_5 -> namaPegawai}}</td>
+                          <td>{{$standar4_5_5 -> nama}}</td>
+                          <td>{{$standar4_5_5 -> kurun_waktu}}</td>
+                          <td>{{$standar4_5_5 -> tingkat}}</td>                          
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                          <td>Mark</td>                          
-                        </tr>             
+                        <?php $i++ ?>
+                        @endforeach
                       </tbody>
                     </table>                    
                     </div>                      
