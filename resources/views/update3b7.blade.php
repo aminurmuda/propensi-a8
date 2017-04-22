@@ -6,10 +6,10 @@
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <h3>Borang 3A, Standar 7</h3>
+            <h3>Ubah Borang 3B, Standar 7</h3>
             <span> Penelitian, Pelayanan/Pengabdian Kepada Masyarakat, dan Kerjasama</span>
 
-             <a href="{{ url('3a/standar7edit/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+             <a class="btn-primary btn-lg pull-right glyphicon glyphicon-ok"> Simpan</a>
 
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
@@ -19,93 +19,31 @@
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#one">
          
-         7.1 Penelitian Dosen Tetap yang Bidang Keahliannya Sesuai dengan PS
+         7.1 Penelitian
         </a>
       </h4>
                     </div>
                     <div id="one" class="panel-collapse collapse">
                         <div class="panel-body">
-                            7.1.1   Tuliskan jumlah judul penelitian* yang sesuai dengan bidang keilmuan PS, yang dilakukan oleh dosen tetap yang bidang keahliannya sesuai dengan PS selama tiga tahun terakhir dengan mengikuti format tabel berikut:
+                            7.1.1  Tuliskan jumlah dan dana penelitian yang dilakukan oleh masing-masing PS di lingkungan Fakultas/Sekolah Tinggi dalam tiga tahun terakhir dengan mengikuti format tabel berikut:
                              <br><br>
 
                             <div class="table-responsive">
                             <table class="table table-striped table-bordered">
                             <tr>
-                                <th>Sumber Pembiayaan</th>
-                                <th>TS-2 </th>
-                                <th>TS-1</th>
-                                <th>TS</th>
-                            </tr>
-
-                            <tr>
-                                <td>(1)</td>
-                                <td>(2)</td>
-                                <td>(3)</td>
-                                <td>(4)</td>
-                            </tr>
-
-                            <tr>
-                                <td>Pembiayaan sendiri oleh peneliti</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td>PT yang bersangkutan</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td>Depdiknas</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td>Institusi dalam negeri di luar Depdiknas</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td>Institusi luar negri</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                             
-
-                            </table>
-                            </div>
-                            Catatan: (*) sediakan data pendukung pada saat asesmen lapangan<br><br>
-
-                            7.1.2   Adakah mahasiswa tugas akhir yang dilibatkan dalam penelitian dosen dalam tiga tahun terakhir?
-                            <br>
-
-                            <form action="">
-  								<input type="radio" name="answer" value="tidak"> Tidak ada<br>
-  								<input type="radio" name="answer" value="ada"> Ada<br><br>
-
-							</form>
-
-							Jika ada, banyaknya mahasiswa PS yang ikut serta dalam penelitian dosen adalah  ... orang, dari ... mahasiswa yang melakukan tugas akhir melalui skripsi<br><br>
-
-							7.1.3  Tuliskan judul artikel ilmiah/karya ilmiah/karya seni/buku yang dihasilkan selama tiga tahun terakhir oleh dosen tetap yang bidang keahliannya sesuai dengan PS dengan mengikuti format tabel berikut:<br>
-
-                            <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
-                            <tr>
                                 <th rowspan="2">No.</th>
-                                <th rowspan="2">Judul</th>
-                                <th rowspan="2">Nama-nama Dosen</th>
-                                <th rowspan="2">Dihasilkan/Dipublikasikan pada</th>
-                                <th rowspan="2">Tahun Penyajian/Publikasi</th>
-                                <th colspan="3">Tingkat*</th>
+                                <th rowspan="2">Nama Program Studi</th>
+                                <th colspan="3">Jumlah Judul Penelitian</th>
+                                <th colspan="3">Total Dana Penelitian (Juta Rp)</th>
+                            </tr>
+
+                            <tr>
+                            	<th>TS-2</th>
+                            	<th>TS-1</th>
+                            	<th>TS</th>
+                            	<th>TS-2</th>
+                            	<th>TS-1</th>
+                            	<th>TS</th>
                             </tr>
 
                             <tr>
@@ -120,86 +58,64 @@
                             </tr>
 
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                           
-                           <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td rowspan="5">Jumlah</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            </table>
-                            </div>
-                            Catatan: * = Tuliskan banyaknya dosen pada sel yang sesuai
-                            <br><br>
-
-                            7.1.4  Sebutkan karya dosen dan atau mahasiswa Program Studi yang telah memperoleh/sedang memproses perlindungan Hak atas Kekayaan Intelektual (HaKI) selama tiga tahun terakhir.<br><br>
-
-                             <div class="table-responsive">
-                            <table class="table table-striped table-bordered">
-                            <tr>
-                                <th>No.</th>
-                                <th>Karya*</th>
-                            </tr>
-
-                            <tr>
-                                <td>(1)</td>
-                                <td>(2)</td>
-                              
-                            </tr>
-
-                            <tr>
                                 <td>1</td>
+                                <td>PS 1: ...</td>
                                 <td></td>
-                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
 
                             <tr>
                                 <td>2</td>
+                                <td>PS 2: ...</td>
                                 <td></td>
-                             
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
-                           
-                           <tr>
-                                <td>Dst.</td>
+
+                            <tr>
+                                <td>..</td>
+                                <td>...</td>
                                 <td></td>
-                              
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td>Total</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
 
                             </table>
                             </div>
-                            * Lampirkan surat paten HaKI atau keterangan sejenis.<br>
+                           Catatan: Kegiatan yang dilakukan bersama oleh dua PS atau lebih sebaiknya dicatat sebagai kegiatan PS yang relevansinya paling dekat. <br><br>
+
+                            7.1.2   Uraikan pandangan pimpinan  Fakultas/Sekolah Tinggi tentang data pada butir 7.1.1, dalam perspektif: kesesuaian dengan Visi dan Misi, kecukupan, kewajaran, upaya pengembangan dan peningkatan mutu. Uraikan pula kendala-kendala yang dihadapi. 
+                            <br><br>
+
+
+                            <div class="form-group">
+                              <textarea class="form-control" rows="5" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
+
+                              </textarea>
+                            </div>
+
+
 
                            
                         </div>
@@ -212,23 +128,33 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#two">
-       7.2  Kegiatan Pelayanan/Pengabdian kepada Masyarakat (PkM)
+       7.2  Pelayanan/Pengabdian kepada Masyarakat
         </a>
       </h4>
                     </div>
                     <div id="two" class="panel-collapse collapse">
                         <div class="panel-body">
+                        	
+                        	Pelayanan/Pengabdian kepada Masyarakat adalah penerapan bidang ilmu untuk menyelesaikan masalah di masyarakat (termasuk masyarakat industri, pemerintah, dsb.<br><br>
 
+                             7.2.1  Tuliskan jumlah dan dana kegiatan pelayanan/pengabdian kepada masyarakat yang dilakukan oleh masing-masing PS di lingkungan Fakultas dalam tiga tahun terakhir dengan mengikuti format tabel berikut:<br><br>
 
-                             7.2.1  Tuliskan jumlah kegiatan Pelayanan/Pengabdian kepada Masyarakat (*) yang sesuai dengan bidang keilmuan PS selama tiga tahun terakhir yang dilakukan oleh dosen tetap yang bidang keahliannya sesuai dengan PS dengan mengikuti format tabel berikut:<br><br>
-
-                             <div class="table-responsive">
+                              <div class="table-responsive">
                             <table class="table table-striped table-bordered">
                             <tr>
-                                <th>Sumber Dana Kegiatan Pelayanan/Pengabdian kepada Masyarakat</th>
-                                <th>TS-2</th>
-                                <th>TS-1 </th>
-                                <th>TS</th>
+                                <th rowspan="2">No.</th>
+                                <th rowspan="2">Nama Program Studi</th>
+                                <th colspan="3">Jumlah Judul Kegiatan Pelayanan/Pengabdian kepada Masyarakat</th>
+                                <th colspan="3">Total Dana Kegiatan Pelayanan/Pengabdian kepada Masyarakat (Juta Rp)</th>
+                            </tr>
+
+                            <tr>
+                            	<th>TS-2</th>
+                            	<th>TS-1</th>
+                            	<th>TS</th>
+                            	<th>TS-2</th>
+                            	<th>TS-1</th>
+                            	<th>TS</th>
                             </tr>
 
                             <tr>
@@ -236,65 +162,68 @@
                                 <td>(2)</td>
                                 <td>(3)</td>
                                 <td>(4)</td>
-                               
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td>(7)</td>
+                                <td>(8)</td>
                             </tr>
 
                             <tr>
-                                <td>Pembiayaan sendiri oleh dosen</td>
+                                <td>1</td>
+                                <td>PS 1: ...</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
 
                             <tr>
-                                <td>PT yang bersangkutan</td>
+                                <td>2</td>
+                                <td>PS 2: ...</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
 
                             <tr>
-                                <td>Depdiknas</td>
+                                <td>..</td>
+                                <td>...</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                               
+                                <td></td>
+                                <td></td>
+                                <td></td>
                             </tr>
 
                             <tr>
-                                <td>Institusi dalam negeri di luar Depdiknas</td>
+                                <td></td>
+                                <td>Total</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                               
-                            </tr>
-
-                            <tr>
-                                <td>Institusi luar negeri</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                               
                             </tr>
 
                             </table>
                             </div>
-                           Catatan: (*) Pelayanan/Pengabdian kepada Masyarakat adalah penerapan bidang ilmu untuk menyelesaikan masalah di masyarakat (termasuk masyarakat industri, pemerintah, dsb.)<br><br>
 
-                           7.2.2   Adakah mahasiswa yang dilibatkan dalam kegiatan pelayanan/pengabdian kepada masyarakat dalam tiga tahun terakhir?<br>
+                            
+                           Catatan: Kegiatan yang dilakukan bersama oleh dua PS atau lebih agar dicatat sebagai kegiatan PS yang relevansinya paling dekat.<br><br>
 
-                           <form action="">
-  								<input type="radio" name="answer" value="tidak"> Tidak ada<br>
-  								<input type="radio" name="answer" value="ada"> Ada<br><br>
+                          
+							7.2.2  Uraikan pandangan Fakultas/Sekolah Tinggi tentang data pada butir 7.2.1 dalam perspektif: kesesuaian dengan Visi dan Misi, kecukupan, kewajaran, upaya pengembangan dan peningkatan mutu. Uraikan pula kendala-kendala yang dihadapi.<br><br>
 
-							</form>
-
-							Jika Ya, jelaskan tingkat partisipasi dan bentuk keterlibatan mahasiswa dalam kegiatan pelayanan/pengabdian kepada masyarakat.
-
+                           
                              <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
+                              <textarea class="form-control" rows="5" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
 
                               </textarea>
                             </div>
@@ -318,7 +247,7 @@
                         <div class="panel-body">
 
 
-                             7.3.1  Tuliskan instansi dalam negeri yang menjalin kerjasama* yang terkait dengan program studi/jurusan dalam tiga tahun terakhir.<br><br>
+                             7.3.1  Tuliskan instansi dalam negeri yang menjalin kerjasama*  dengan Fakultas/Sekolah Tinggi dalam tiga tahun terakhir.<br><br>
 
                              <div class="table-responsive">
                             <table class="table table-striped table-bordered">
@@ -387,7 +316,7 @@
                            Catatan : (*) dokumen pendukung disediakan pada saat asesmen lapangan<br><br>
 
                           
-							7.3.2  Tuliskan instansi luar negeri yang menjalin kerjasama* yang terkait dengan program studi/jurusan dalam tiga tahun terakhir.<br>
+							7.3.2  Tuliskan instansi luar negeri yang menjalin kerjasama*  dengan Fakultas/Sekolah Tinggi dalam tiga tahun terakhir.<br>
 							 <div class="table-responsive">
                             <table class="table table-striped table-bordered">
                             <tr>

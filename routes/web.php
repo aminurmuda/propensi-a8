@@ -77,6 +77,10 @@ Route::get('3a/standar7edit/{kodeProdi}', 'PegawaiController@edit3a7')->name('3a
 Route::get('3b/standar4/{kodeProdi}', 'PegawaiController@lihat3b4')->name('3b/standar4/{kodeProdi}');
 Route::get('3b/standar4edit/{kodeProdi}', 'PegawaiController@edit3b4')->name('3b/standar4edit/{kodeProdi}');
 
+Route::get('3b/standar7/{kodeProdi}', 'PegawaiController@lihat3b7')->name('3b/standar7/{kodeProdi}');
+Route::get('3b/standar7edit/{kodeProdi}', 'PegawaiController@edit3b7')->name('3b/standar7edit/{kodeProdi}');
+
+
 });
 
 
