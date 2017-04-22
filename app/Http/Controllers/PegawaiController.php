@@ -351,6 +351,7 @@ class PegawaiController extends Controller
 			$yangDipilih = $request->get('selectProdi'); 	
 			echo $yangDipilih;
 		}
+
 			return view('view3a4',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
