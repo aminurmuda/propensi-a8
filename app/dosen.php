@@ -46,4 +46,23 @@ class dosen extends Model
             ->get();
     }
 
+       /**
+         * Method getFakultasPegawai untuk mendapatkan kode fakultas dari pegawai
+         * 
+         * @param string $username username pegawai yang akan diambil kode fakultasnya
+         * @return kode fakultas dari pegawai
+         */ 
+        public static function getKegiatanDosen($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('kegiatan_dosen', 'kegiatan_dosen.id_dosen', '=', 'dosen.id_dosen')
+            ->select('pegawai.nama as namaPegawai','kegiatan_dosen.jenis', 'kegiatan_dosen.nama_kegiatan','kegiatan_dosen.tempat','kegiatan_dosen.waktu','kegiatan_dosen.peran')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->get();
+    }    
+
 }

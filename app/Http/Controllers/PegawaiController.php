@@ -358,6 +358,9 @@ class PegawaiController extends Controller
 		}
 
 		//poin 4.5.4
+		$standar4_5_3 = Dosen::getKegiatanDosen($selectedProdi);
+
+		//poin 4.5.4
 		$standar4_5_4 = Dosen::getPrestasiDosen($selectedProdi);
 
 		//poin 4.5.5
@@ -370,6 +373,7 @@ class PegawaiController extends Controller
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
+	            'standar4_5_3' => $standar4_5_3,
 	            'standar4_5_4' => $standar4_5_4,
 	            'standar4_5_5' => $standar4_5_5
 			]);

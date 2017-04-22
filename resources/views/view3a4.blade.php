@@ -619,6 +619,38 @@
                       </thead>
                       <tbody>
                         <tr>
+                          <th >(1)</th>
+                          <td >(2)</td>
+                          <td colspan="2">(3)</td>
+                          <td>(4)</td>
+                          <td>(5)</td>
+                          <td>(6)</td>                          
+                          <td>(7)</td>
+                        </tr>
+                        <?php $i=0 ?>
+                        @foreach($standar4_5_3 as $standar4_5_3)                     
+                        <tr>
+                          <th scope="row">{{$i}}</th>
+                          <td>{{$standar4_5_3 -> namaPegawai}}</td>
+                          <td>{{$standar4_5_3 -> jenis}}</td>
+                          <td>{{$standar4_5_3 -> nama_kegiatan}}</td>
+                          <td>{{$standar4_5_3 -> tempat}}</td>                          
+                            <td>{{$standar4_5_3 -> waktu}}</td>
+                            @if($standar4_5_3 ->peran=='Penyaji') 
+                                <td>V</td>
+                                @else
+                                <td></td>
+                            @endif
+                            @if($standar4_5_3 ->peran=='Peserta') 
+                                <td>V</td>
+                                @else
+                                <td></td>
+                            @endif
+                        </tr>
+                        <?php $i++ ?>
+                        @endforeach
+
+                        <tr>
                           <th scope="row" rowspan="2">1</th>
                           <td rowspan="2">Mark</td>
                           <td>Otto</td>
