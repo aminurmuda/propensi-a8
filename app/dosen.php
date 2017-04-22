@@ -118,4 +118,65 @@ class dosen extends Model
             ->get();
     }            
 
+            public static function getDosenTetapPSAktivitas($kode_prodi,$tahun)
+    {
+
+        // $periode = $tahun-1."/".$tahun;
+        $tahun_sebelum = $tahun-1;
+        $periode= "$tahun_sebelum/$tahun";
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('dosen_mata_kuliah', 'dosen.id_dosen', '=', 'dosen_mata_kuliah.id_dosen')
+            ->join('mata_kuliah', 'mata_kuliah.kode_mata_kuliah', '=', 'dosen_mata_kuliah.kode_mata_kuliah')
+            ->join('rincian_kinerja_pengajaran', 'rincian_kinerja_pengajaran.kode_mata_kuliah', '=', 'mata_kuliah.kode_mata_kuliah')
+            ->select('pegawai.nama as namaPegawai','dosen.bidang_keahlian','mata_kuliah.kode_mata_kuliah','mata_kuliah.nama','rincian_kinerja_pengajaran.rencana_pengajaran','rincian_kinerja_pengajaran.realisasi_pengajaran','rincian_kinerja_pengajaran.periode_pendidikan','rincian_kinerja_pengajaran.jumlah_kelas')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('periode_pendidikan',$periode)
+            ->where('dosen.flag_kesesuaian',1)
+            // ->where(DB::raw("substr('periode_pengajaran', 6)"),$tahun)
+            ->get();
+    }  
+
+            public static function getDosenTetapTidakPSAktivitas($kode_prodi,$tahun)
+    {
+
+        // $periode = $tahun-1."/".$tahun;
+        $tahun_sebelum = $tahun-1;
+        $periode= "$tahun_sebelum/$tahun";
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('dosen_mata_kuliah', 'dosen.id_dosen', '=', 'dosen_mata_kuliah.id_dosen')
+            ->join('mata_kuliah', 'mata_kuliah.kode_mata_kuliah', '=', 'dosen_mata_kuliah.kode_mata_kuliah')
+            ->join('rincian_kinerja_pengajaran', 'rincian_kinerja_pengajaran.kode_mata_kuliah', '=', 'mata_kuliah.kode_mata_kuliah')
+            ->select('pegawai.nama as namaPegawai','dosen.bidang_keahlian','mata_kuliah.kode_mata_kuliah','mata_kuliah.nama','rincian_kinerja_pengajaran.rencana_pengajaran','rincian_kinerja_pengajaran.realisasi_pengajaran','rincian_kinerja_pengajaran.periode_pendidikan','rincian_kinerja_pengajaran.jumlah_kelas')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('periode_pendidikan',$periode)
+            ->where('dosen.flag_kesesuaian',0)
+            // ->where(DB::raw("substr('periode_pengajaran', 6)"),$tahun)
+            ->get();
+    }    
+
+            public static function getDosenTidakTetapAktivitas($kode_prodi,$tahun)
+    {
+
+        // $periode = $tahun-1."/".$tahun;
+        $tahun_sebelum = $tahun-1;
+        $periode= "$tahun_sebelum/$tahun";
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('dosen_mata_kuliah', 'dosen.id_dosen', '=', 'dosen_mata_kuliah.id_dosen')
+            ->join('mata_kuliah', 'mata_kuliah.kode_mata_kuliah', '=', 'dosen_mata_kuliah.kode_mata_kuliah')
+            ->join('rincian_kinerja_pengajaran', 'rincian_kinerja_pengajaran.kode_mata_kuliah', '=', 'mata_kuliah.kode_mata_kuliah')
+            ->select('pegawai.nama as namaPegawai','dosen.bidang_keahlian','mata_kuliah.kode_mata_kuliah','mata_kuliah.nama','rincian_kinerja_pengajaran.rencana_pengajaran','rincian_kinerja_pengajaran.realisasi_pengajaran','rincian_kinerja_pengajaran.periode_pendidikan','rincian_kinerja_pengajaran.jumlah_kelas')
+            ->where('dosen.isDosenTetap',0)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('periode_pendidikan',$periode)
+            // ->where(DB::raw("substr('periode_pengajaran', 6)"),$tahun)
+            ->get();
+    }      
 }
