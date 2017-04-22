@@ -16,15 +16,19 @@ class dosen extends Model
          * @param string $username username pegawai yang akan diambil kode fakultasnya
          * @return kode fakultas dari pegawai
          */ 
-        public static function getOrganisasiDosen($kode_prodi)
+        public static function getOrganisasiDosen($kode_prodi,$tahun)
     {
+        $tahun_min=$tahun-3;
         return DB::table('dosen')
             ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('organisasi_dosen', 'organisasi_dosen.id_dosen', '=', 'dosen.id_dosen')
-            ->select('pegawai.nama as namaPegawai','organisasi_dosen.nama', 'organisasi_dosen.kurun_waktu','organisasi_dosen.tingkat')
+            ->select('pegawai.nama as namaPegawai','organisasi_dosen.nama', 'organisasi_dosen.tahun_mulai','organisasi_dosen.tahun_selesai','organisasi_dosen.tingkat')
             ->where('dosen.isDosenTetap',1)
             ->where('dosen.flag_aktif',1)
             ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('organisasi_dosen.tahun_selesai',">=",$tahun_min)
+            ->where('organisasi_dosen.tahun_mulai',"<=",$tahun)
+            ->orwhere('organisasi_dosen.tahun_selesai',NULL)
             ->get();
     }
 
@@ -34,8 +38,9 @@ class dosen extends Model
          * @param string $username username pegawai yang akan diambil kode fakultasnya
          * @return kode fakultas dari pegawai
          */ 
-        public static function getPrestasiDosen($kode_prodi)
+        public static function getPrestasiDosen($kode_prodi,$tahun)
     {
+        $tahun_min=$tahun-3;
         return DB::table('dosen')
             ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('prestasi_dosen', 'prestasi_dosen.id_dosen', '=', 'dosen.id_dosen')
@@ -43,6 +48,8 @@ class dosen extends Model
             ->where('dosen.isDosenTetap',1)
             ->where('dosen.flag_aktif',1)
             ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('waktu',"<=",$tahun)
+            ->where('waktu',">=",$tahun_min)
             ->get();
     }
 
@@ -52,8 +59,9 @@ class dosen extends Model
          * @param string $username username pegawai yang akan diambil kode fakultasnya
          * @return kode fakultas dari pegawai
          */ 
-        public static function getKegiatanDosen($kode_prodi)
+        public static function getKegiatanDosen($kode_prodi,$tahun)
     {
+        $tahun_min=$tahun-3;
         return DB::table('dosen')
             ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('kegiatan_dosen', 'kegiatan_dosen.id_dosen', '=', 'dosen.id_dosen')
@@ -62,11 +70,14 @@ class dosen extends Model
             ->where('dosen.flag_aktif',1)
             ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
             ->where('dosen.flag_kesesuaian',1)
+            ->where(DB::raw("year('kegiatan_dosen.waktu')"),"<=",$tahun)
+            ->where(DB::raw("year('kegiatan_dosen.waktu')"),">=",$tahun_min)
             ->get();
     }  
 
-        public static function getProgramDosen($kode_prodi)
+        public static function getProgramDosen($kode_prodi,$tahun)
     {
+        $tahun_min=$tahun-3;
         return DB::table('dosen')
             ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('program_tugas_dosen', 'program_tugas_dosen.id_dosen', '=', 'dosen.id_dosen')
@@ -74,6 +85,8 @@ class dosen extends Model
             ->where('dosen.isDosenTetap',1)
             ->where('dosen.flag_aktif',1)
             ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('tahun_mulai',"<=",$tahun)
+            ->where('tahun_mulai',">=",$tahun_min)
             ->get();
     } 
 
@@ -179,4 +192,21 @@ class dosen extends Model
             // ->where(DB::raw("substr('periode_pengajaran', 6)"),$tahun)
             ->get();
     }      
+
+            public static function getTenagaAhliDosen($kode_prodi,$tahun)
+    {
+        $tahun_min = $tahun-3;
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('kegiatan_dosen', 'kegiatan_dosen.id_dosen', '=', 'dosen.id_dosen')
+            ->join('riwayat_pendidikan', 'riwayat_pendidikan.id_pegawai', '=', 'pegawai.id_pegawai')
+            ->select('pegawai.nama as namaPegawai','kegiatan_dosen.nama_kegiatan','kegiatan_dosen.waktu')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('kegiatan_dosen.peran',"Penyaji")
+            ->where(DB::raw("year('kegiatan_dosen.waktu')"),"<=",$tahun)
+            ->where(DB::raw("year('kegiatan_dosen.waktu')"),">=",$tahun_min)
+            ->get();
+    } 
 }

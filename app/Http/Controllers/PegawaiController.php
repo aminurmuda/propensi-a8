@@ -381,17 +381,21 @@ class PegawaiController extends Controller
 		//poin 4.4.2
 		$standar4_4_2 = Dosen::getDosenTidakTetapAktivitas($selectedProdi,$tahun);
 
+		//poin 4.5.1
+		$standar4_5_1 = Dosen::getTenagaAhliDosen($selectedProdi,$tahun);
+
 		//poin 4.5.2
-		$standar4_5_2 = Dosen::getProgramDosen($selectedProdi);
+		$standar4_5_2 = Dosen::getProgramDosen($selectedProdi,$tahun);
 
 		//poin 4.5.3
-		$standar4_5_3 = Dosen::getKegiatanDosen($selectedProdi);
+		$standar4_5_3 = Dosen::getKegiatanDosen($selectedProdi,$tahun);
 
 		//poin 4.5.4
-		$standar4_5_4 = Dosen::getPrestasiDosen($selectedProdi);
+		$standar4_5_4 = Dosen::getPrestasiDosen($selectedProdi,$tahun);
 
 		//poin 4.5.5
-		$standar4_5_5 = Dosen::getOrganisasiDosen($selectedProdi);
+		$standar4_5_5 = Dosen::getOrganisasiDosen($selectedProdi,$tahun);
+		// dd($standar4_5_5);
 
 		//poin 4.6.1
 		$standar4_6_1_a = tendik::getPendidikanA($selectedProdi);
@@ -490,6 +494,7 @@ class PegawaiController extends Controller
 	            'standar4_3_5' => $standar4_3_5,
 	            'standar4_4_1' => $standar4_4_1,
 	            'standar4_4_2' => $standar4_4_2,
+	            'standar4_5_1' => $standar4_5_1,
 	            'standar4_5_2' => $standar4_5_2,
 	            'standar4_5_3' => $standar4_5_3,
 	            'standar4_5_4' => $standar4_5_4,

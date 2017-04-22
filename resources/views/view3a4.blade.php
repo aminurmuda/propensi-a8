@@ -526,7 +526,7 @@
                                 <td>{{$standar4_4_2 -> kode_mata_kuliah}}</td>
                                 <td>{{$standar4_4_2 -> nama}}</td>
                                 <td>{{$standar4_4_2 -> jumlah_kelas}}</td>
-                                <td>{{$standar4_4_2 -> rencana_pengajaran}}</td>                          
+                                <td>{{$standar4_4_2 -> rencana_pengajaran}}</td>                  
                                 <td>{{$standar4_4_2 -> realisasi_pengajaran}}</td>
                               </tr>
                               <?php $i++?>
@@ -584,23 +584,21 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
+                          <th >(1)</th>
+                          <td >(2)</td>
+                          <td>(3)</td>
+                          <td>(4)</td>
                         </tr>
+                        <?php $i=1 ?>
+                        @foreach($standar4_5_1 as $standar4_5_1)                     
                         <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
+                          <th scope="row">{{$i}}</th>
+                          <td>{{$standar4_5_1 -> namaPegawai}}</td>
+                          <td>{{$standar4_5_1 -> nama_kegiatan}}</td>
+                          <td>{{$standar4_5_1 -> waktu}}</td>
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
+                        <?php $i++ ?>
+                        @endforeach
                       </tbody>
                     </table>                    
                     </div>
@@ -784,8 +782,14 @@
                           <th scope="row">{{$i}}</th>
                           <td>{{$standar4_5_5 -> namaPegawai}}</td>
                           <td>{{$standar4_5_5 -> nama}}</td>
-                          <td>{{$standar4_5_5 -> kurun_waktu}}</td>
-                          <td>{{$standar4_5_5 -> tingkat}}</td>                          
+                          <?php
+                          if (is_null($standar4_5_5 -> tahun_selesai)) {
+                          $kurun_waktu= date('Y') - $standar4_5_5 -> tahun_mulai . " tahun";  
+                          } else {
+                                                    $kurun_waktu= $standar4_5_5 -> tahun_selesai - $standar4_5_5 -> tahun_mulai. " tahun";}
+                          ?>
+                          <td>{{$kurun_waktu}}</td>
+                          <td>{{$standar4_5_5 -> tingkat}}</td>
                         </tr>
                         <?php $i++ ?>
                         @endforeach
