@@ -357,7 +357,19 @@ class PegawaiController extends Controller
 			$selectedProdi=$kodeProdiPengguna;
 		}
 
-		//poin 4.5.4
+		//poin 4.3.1
+		$standar4_3_1 = Dosen::getDosenTetapSesuai($selectedProdi);
+
+		//poin 4.3.2
+		$standar4_3_2 = Dosen::getDosenTetapTidakSesuai($selectedProdi);
+
+		//poin 4.4.1
+		$standar4_4_1 = Dosen::getDosenTidakTetap($selectedProdi);
+
+		//poin 4.5.2
+		$standar4_5_2 = Dosen::getProgramDosen($selectedProdi);
+
+		//poin 4.5.3
 		$standar4_5_3 = Dosen::getKegiatanDosen($selectedProdi);
 
 		//poin 4.5.4
@@ -373,6 +385,10 @@ class PegawaiController extends Controller
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
+	            'standar4_3_1' => $standar4_3_1,
+	            'standar4_3_2' => $standar4_3_2,
+	            'standar4_4_1' => $standar4_4_1,
+	            'standar4_5_2' => $standar4_5_2,
 	            'standar4_5_3' => $standar4_5_3,
 	            'standar4_5_4' => $standar4_5_4,
 	            'standar4_5_5' => $standar4_5_5

@@ -100,9 +100,34 @@
                                 <th>Tgl. Lahir</th>
                                 <th>Jabatan Akademik</th>
                                 <th>Gelar Akademik</th>
-                                <th>Pendidikan S1, S2, S3, Asal Universitas</th>
+                                <th colspan="2">Pendidikan S1, S2, S3, Asal Universitas</th>
                                 <th>Bidang Keahlian untuk Setiap Jenjang Pendidikan</th>
                               </tr>
+                              <tr>
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td colspan="2">(7)</td> 
+                                <td>(8)</td>                         
+                              </tr>
+                              <?php $i=1 ?>
+                            @foreach($standar4_3_1 as $standar4_3_1 )
+                              <tr>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_3_1 -> namaPegawai}}</td>
+                                <td>{{$standar4_3_1 -> NIDN}}</td>
+                                <td>{{$standar4_3_1 -> tanggal_lahir}}</td>
+                                <td>{{$standar4_3_1 -> nama}}</td>
+                                <td>{{$standar4_3_1 -> riwayat_pendidikan}}</td>
+                                <td>{{$standar4_3_1 -> gelar_pendidikan}}</td>                          
+                                <td>{{$standar4_3_1 -> instansi_pendidikan}}</td>
+                                <td>{{$standar4_3_1 -> bidang_keahlian}}</td>
+                              </tr>
+                              <?php $i++?>
+                              @endforeach                              
                               <tr>
                                 <td rowspan="2">1</td>
                                 <td rowspan="2">January</td>
@@ -117,22 +142,7 @@
                                 <td>February</td>
                                 <td>$80</td>
                                 <td>$80</td>
-                              </tr>  
-                              <tr>
-                                <td rowspan="2">2</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">$100</td>
-                                <td rowspan="2">$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>
-                              <tr>
-                                <td>February</td>
-                                <td>$80</td>
-                                <td>$80</td>
-                              </tr>                                                            
+                              </tr>                                                              
                               </table>
                             </div>
                             * Fotokopi ijazah agar disiapkan saat visitasi. <br>
@@ -154,24 +164,34 @@
                                 <th>Tgl. Lahir</th>
                                 <th>Jabatan Akademik</th>
                                 <th>Gelar Akademik</th>
-                                <th>Pendidikan S1, S2, S3, Asal Universitas</th>
+                                <th colspan="2">Pendidikan S1, S2, S3, Asal Universitas</th>
                                 <th>Bidang Keahlian untuk Setiap Jenjang Pendidikan</th>
                               </tr>
                               <tr>
-                                <td rowspan="2">1</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">$100</td>
-                                <td rowspan="2">$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td colspan="2">(7)</td> 
+                                <td>(8)</td>                         
                               </tr>
+                              <?php $i=1 ?>
+                            @foreach($standar4_3_2 as $standar4_3_2 )
                               <tr>
-                                <td>February</td>
-                                <td>$80</td>
-                                <td>$80</td>
-                              </tr>  
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_3_2 -> namaPegawai}}</td>
+                                <td>{{$standar4_3_2 -> NIDN}}</td>
+                                <td>{{$standar4_3_2 -> tanggal_lahir}}</td>
+                                <td>{{$standar4_3_2 -> nama}}</td>
+                                <td>{{$standar4_3_2 -> riwayat_pendidikan}}</td>
+                                <td>{{$standar4_3_2 -> gelar_pendidikan}}</td>                          
+                                <td>{{$standar4_3_2 -> instansi_pendidikan}}</td>
+                                <td>{{$standar4_3_2 -> bidang_keahlian}}</td>
+                              </tr>
+                              <?php $i++?>
+                              @endforeach    
                               <tr>
                                 <td rowspan="2">2</td>
                                 <td rowspan="2">January</td>
@@ -416,8 +436,31 @@
                                 <th>Tgl. Lahir</th>
                                 <th>Jabatan Akademik***</th>
                                 <th>Gelar Akademik</th>
-                                <th>Pendidikan S1, S2, S3, Asal Universitas</th>
+                                <th colspan="2">Pendidikan S1, S2, S3, Asal Universitas</th>
                               </tr>
+                              <tr>
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td colspan="2">(7)</td>                          
+                              </tr>
+                              <?php $i=1 ?>
+                            @foreach($standar4_4_1 as $standar4_4_1 )
+                              <tr>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_4_1 -> namaPegawai}}</td>
+                                <td>{{$standar4_4_1 -> NIDN}}</td>
+                                <td>{{$standar4_4_1 -> tanggal_lahir}}</td>
+                                <td>{{$standar4_4_1 -> nama}}</td>
+                                <td>{{$standar4_4_1 -> riwayat_pendidikan}}</td>
+                                <td>{{$standar4_4_1 -> gelar_pendidikan}}</td>                          
+                                <td>{{$standar4_4_1 -> instansi_pendidikan}}</td>
+                              </tr>
+                              <?php $i++?>
+                              @endforeach
                               <tr>
                                 <td rowspan="2">1</td>
                                 <td rowspan="2">January</td>
@@ -430,20 +473,7 @@
                               <tr>
                                 <td>February</td>
                                 <td>$80</td>
-                              </tr>  
-                              <tr>
-                                <td rowspan="2">2</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">$100</td>
-                                <td rowspan="2">$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>
-                              <tr>
-                                <td>February</td>
-                                <td>$80</td>
-                              </tr>                                                            
+                              </tr>                                                              
                               </table>
                             </div>           
                             <br>                
@@ -569,33 +599,28 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>                          
+                      <tr>
+                          <th scope="row">(1)</th>
+                          <td>(2)</td>
+                          <td>(3)</td>
+                          <td>(4)</td>
+                          <td>(5)</td>
+                          <td>(6)</td>
+                          <td>(7)</td>                          
                         </tr>
+                        <?php $i=1 ?>
+                      @foreach($standar4_5_2 as$standar4_5_2 )
                         <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>                          
+                          <th scope="row">{{$i}}</th>
+                          <td>{{$standar4_5_2 -> namaPegawai}}</td>
+                          <td>{{$standar4_5_2 -> jenjang_lanjut}}</td>
+                          <td>{{$standar4_5_2 -> bidang_studi}}</td>
+                          <td>{{$standar4_5_2 -> perguruan_tinggi}}</td>
+                          <td>{{$standar4_5_2 -> negara}}</td>
+                          <td>{{$standar4_5_2 -> tahun_mulai}}</td>                          
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>                          
-                        </tr>
+                        <?php $i++?>
+                        @endforeach
                       </tbody>
                     </table>                    
                     </div>            
@@ -790,7 +815,7 @@
                       <tbody>
                         <tr>
                           <th scope="row">1</th>
-                          <td>Mark</td>
+                          <td>Pustakawan*</td>
                           <td>Otto</td>
                           <td>@mdo</td>
                           <td>Mark</td>                          
@@ -802,8 +827,8 @@
                           <td>Mark</td>                                                    
                         </tr>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
+                          <th scope="row">2</th>
+                          <td>Laboran/teknisi/analis/operator/programmer</td>
                           <td>Otto</td>
                           <td>@mdo</td>
                           <td>Mark</td>                          
@@ -814,6 +839,19 @@
                           <td>@mdo</td>
                           <td>Mark</td>                                                    
                         </tr>   
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Administrasi</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                          <td>Mark</td>                          
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                          <td>Mark</td>                          
+                          <td>@mdo</td>
+                          <td>Mark</td>                                                    
+                        </tr>                           
                         <tr>
                           <th scope="row" colspan="2">Jumlah</th>
                           <td>Otto</td>
