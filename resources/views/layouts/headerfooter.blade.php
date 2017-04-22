@@ -54,7 +54,7 @@
                         <!-- role tim akreditasi --> 
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3A <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                @if($role!='Pimpinan Universitas' && $role!='Reviewer Universitas' && $role!='Admin'))
+                                @if($role!='Pimpinan Universitas' && $role!='Reviewer Universitas' && $role!='Admin')
                                 <li><a href="{{ url('3a/standar2/'.$kode_fakultas) }}">Standar 2</a></li>
                                 <li><a href="{{ url('3a/standar4/'.$kode_fakultas) }}">Standar 4</a></li>
                                 <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">Standar 7</a></li>
@@ -69,15 +69,24 @@
 
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3B <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ url('standar2') }}">Standar 2</a></li>
-                                <li><a href="#">Standar 4</a></li>
-                                <li><a href="#">Standar 7</a></li>
+                               @if($role!='Pimpinan Universitas' && $role!='Reviewer Universitas' && $role!='Admin')
+                                <li><a href="{{ url('3b/standar2/'.$kode_fakultas) }}">Standar 2</a></li>
+                                <li><a href="{{ url('3b/standar4/'.$kode_fakultas) }}">Standar 4</a></li>
+                                <li><a href="{{ url('3b/standar7/'.$kode_fakultas) }}">Standar 7</a></li>
+                                @endif
+                                @if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas' || $role=='Admin')
+                                <li><a href="{{ url('3b/standar2') }}">Standar 2</a></li>
+                                <li><a href="{{ url('3b/standar4') }}">Standar 4</a></li>
+                                <li><a href="{{ url('3b/standar7') }}">Standar 7</a></li>
+                                @endif
                             </ul>
                         </li>
 
                         <li><a href="#">Evaluasi Diri</a></li>
 
+                        @if($role!='Tim Akreditasi')
                         <li><a href="#">Riwayat Akreditasi</a></li>
+                        @endif
 
                         <!-- role pimpinan fakultas -->
                        @if ($role=='Pimpinan Fakultas')
@@ -214,7 +223,17 @@
         });
     </script>
 
-    
+       <script> $(document).ready(function () {
+            $('.collapse.in').prev('.panel-heading').addClass('active');
+            $('#accordion, #bs-collapse')
+                .on('show.bs.collapse', function (a) {
+                    $(a.target).prev('.panel-heading').addClass('active');
+                })
+                .on('hide.bs.collapse', function (a) {
+                    $(a.target).prev('.panel-heading').removeClass('active');
+                });
+        });
+    </script> <!-- untuk accordion -->
 
 </body>
 

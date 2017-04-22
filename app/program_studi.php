@@ -22,13 +22,11 @@ class program_studi extends Model
         
     }
 
-    public static function getAllProdiByKodeFakultas($kode_fakultas)
+    public static function getProdiByFakultas($kode_fakultas)
     {
         return DB::table('program_studi')
-            ->select('program_studi.kode_prodi', 'program_studi.nama_prodi')
-            ->where('kode_fakultas',$kode_fakultas)
-            ->get();
-        
+        ->where('kode_fakultas',$kode_fakultas)
+        ->get();
     }
 
 }

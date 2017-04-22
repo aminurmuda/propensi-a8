@@ -6,9 +6,9 @@
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <h3>Borang 3A, Standar 2</h3>
+            <h3> Ubah Borang 3A, Standar 2</h3>
             <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span>
-            <button class="btn-primary btn-lg pull-right glyphicon glyphicon-ok"> Simpan</button>
+            <a class="btn-primary btn-lg pull-right glyphicon glyphicon-ok"> Simpan</a>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -89,7 +89,8 @@
                             Kepemimpinan publik berkaitan dengan kemampuan menjalin kerjasama 
                             dan menjadi rujukan bagi publik. <br><br>
 
-                             Jelaskan pola kepemimpinan dalam Program Studi.
+
+                             Jelaskan pola kepemimpinan dalam Program Studi. <br><br>
                              <div class="form-group">
                               <textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
 
@@ -117,7 +118,8 @@
 
                             <br><br>
 
-                            Jelaskan sistem pengelolaan Program Studi serta dokumen pendukungnya.
+
+                            Jelaskan sistem pengelolaan Program Studi serta dokumen pendukungnya. <br><br>
                             <div class="form-group">
                               <textarea class="form-control" rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
 
@@ -139,7 +141,8 @@
                     <div id="four" class="panel-collapse collapse ">
                         <div class="panel-body">
 
-                            Bagaimanakah pelaksanaan penjaminan mutu pada Program Studi? Jelaskan.
+                            Bagaimanakah pelaksanaan penjaminan mutu pada Program Studi? Jelaskan. <br><br>
+
                            <div class="form-group">
                               <textarea class="form-control" rows="5" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
 
@@ -162,7 +165,66 @@
                     </div>
                     <div id="five" class="panel-collapse collapse">
                         <div class="panel-body">
-                            Apakah program studi telah melakukan kajian tentang proses pembelajaran melalui umpan balik dari dosen, mahasiswa, alumni, dan pengguna lulusan mengenai harapan dan persepsi mereka?  Jika Ya, jelaskan isi umpan balik dan tindak lanjutnya.
+
+                            Apakah program studi telah melakukan kajian tentang proses pembelajaran melalui umpan balik dari dosen, mahasiswa, alumni, dan pengguna lulusan mengenai harapan dan persepsi mereka?  Jika Ya, jelaskan isi umpan balik dan tindak lanjutnya. <br><br>
+
+                             <table>
+                                  <tr>
+                                    <th>Umpan Balik dari</th>
+                                    <th>Isi Umpan Balik</th>
+                                    <th>Tindak lanjut</th>
+                                  </tr>
+                                  <tr>
+                                    <th>(1)</td>
+                                    <th>(2)</td>
+                                    <th>(3)</td>
+                                  </tr>
+                                  <tr>
+                                    <td>Dosen</td>
+                                    <td><textarea></textarea></td>
+                                    <td><textarea></textarea></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Mahasiswa</td>
+                                    <td><textarea></textarea></td>
+                                    <td><textarea></textarea></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Alumni</td>
+                                    <td><textarea></textarea></td>
+                                    <td><textarea></textarea></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Pengguna Lulusan</td>
+                                    <td><textarea></textarea></td>
+                                    <td><textarea></textarea></td>
+                                  </tr>
+
+                    
+                                  
+                                </table>
+
+                                <style>
+                                    table {
+                                        font-family: arial, sans-serif;
+                                        border-collapse: collapse;
+                                        width: 100%;
+                                    }
+
+                                    td, th {
+                                        border: 1px solid #dddddd;
+                            
+                                        padding: 8px;
+
+                                    }
+
+                                    th {
+                                        background-color: #dddddd;
+                                        text-align: center;
+                                    }
+
+                                </style>
+
                         </div>
                     </div>
                 </div>
@@ -178,7 +240,8 @@
                     </div>
                     <div id="six" class="panel-collapse collapse">
                         <div class="panel-body">
-                            Jelaskan upaya untuk menjamin keberlanjutan <i>(sustainability)</i> program studi ini, khususnya dalam hal:<br>
+
+                            Jelaskan upaya untuk menjamin keberlanjutan <i>(sustainability)</i> program studi ini, khususnya dalam hal:<br> <br>
                             a. Upaya untuk peningkatan animo calon mahasiswa:<br>
                             b. Upaya peningkatan mutu manajemen: <br>
 
@@ -187,6 +250,9 @@
                             d. Upaya untuk pelaksanaan dan hasil kerjasama kemitraan:<br>
 
                             e. Upaya dan prestasi memperoleh dana hibah kompetitif: <br>
+
+                            <br>
+
 
                             <div class="form-group">
                               <textarea class="form-control" rows="5" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.

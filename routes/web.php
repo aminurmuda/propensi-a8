@@ -25,7 +25,10 @@ Route::get('timakreditasi/kelola', 'PegawaiController@pilihFakultas')->name('tim
 
 Route::get('timakreditasi/tambah', 'PegawaiController@pilihFakultas')->name('timakreditasi/tambah'); //Admin kelola Tim Akreditasi
 
+
 Route::get('timakreditasi/tambah/update/{username}', 'PegawaiController@profilUpdateTimAkreditasi')->name('timakreditasi/tambah/{username}'); //Update pegawai menjadi tim Akreditasi
+
+
 
 Route::get('timakreditasi/kelola/{kode_fakultas}', 'PegawaiController@lihatPengguna')->name('timakreditasi/kelola/{kode_fakultas}'); //pimpinan fakultas only
 
@@ -49,8 +52,24 @@ Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')-
 
 Route::get('pimpinan', 'PegawaiController@kelolapimpinan')->name('pimpinan'); //admin only
 
-Route::get('3a/standar2', 'PegawaiController@pilihProdi')->name('3a/standar2'); //pimpinan univ only
+
+Route::get('3a/standar4', 'PegawaiController@pilihProdi')->name('3a/standar4'); //pimpinan univ only
+Route::get('3a/standar4/submit', 'PegawaiController@lihat3a4')->name('3a/standar4/submit'); //pimpinan univ only
+Route::get('3a/standar4/{kodeProdi}', 'PegawaiController@lihat3a4')->name('3a/standar4/{kodeProdi}'); 
+
+Route::get('3a/standar4edit/{kodeProdi}', 'PegawaiController@edit3a4')->name('3a/standar4edit/{kodeProdi}'); 
+
+Route::get('3a/standar2/{kodeProdi}', 'PegawaiController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
+
+Route::get('3b/standar2/{kodeProdi}', 'PegawaiController@lihat3b2')->name('3b/standar2/{kodeProdi}'); 
+
+Route::get('3a/standar2edit/{kodeProdi}', 'PegawaiController@edit3a2')->name('3a/standar2edit/{kodeProdi}');
+
+Route::get('3b/standar2edit/{kodeProdi}', 'PegawaiController@edit3b2')->name('3b/standar2edit/{kodeProdi}'); 
+
 });
+
+
 
 //kalau udah login, ngakses route dibawah ini akan diarahkan ke home
 Route::get('/', function () {
