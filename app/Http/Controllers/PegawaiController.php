@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pegawai;
 use App\Pimpinan;
+use App\program_studi;
+use App\fakultas;
 use DB;
 
 class PegawaiController extends Controller
@@ -21,8 +23,9 @@ class PegawaiController extends Controller
 	 */
 	public function tambahTimAkreditasi($username, Request $request) {
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
-    	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
-    	if ($request->session()->get('role')=='Pimpinan Fakultas'){
+    	$kodeFakultasPengguna= $QKodeFakultasPengguna[0]->kode_fakultas;
+    	$role = $request->session()->get('role');
+    	if ($role=='Pimpinan Fakultas'|| $role=='Admin'){
 			Pegawai::addTimAkreditasi($username);
 			$pegawai = Pegawai::getPegawaiByUsername($username);
 			$kodeFakultas = Pegawai::getFakultasPegawai($username);
@@ -51,7 +54,8 @@ class PegawaiController extends Controller
     public function deleteTimAkreditasi($username, Request $request){
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
-    	if ($request->session()->get('role')=='Pimpinan Fakultas'){    	
+    	$role = $request->session()->get('role');
+    	if ($role=='Pimpinan Fakultas'|| $role=='Admin'){   	
 	    	Pegawai::deleteTimAkreditasi($username);
 	    	$pegawai = Pegawai::getPegawaiByUsername($username);
 	    	$kodeFakultas = Pegawai::getFakultasPegawai($username);
@@ -81,7 +85,8 @@ class PegawaiController extends Controller
     	//validasi jika kode fakultas yang ingin diakses tidak sesuai dengan kode fakultas pengguna
     	$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
-    	if ($request->session()->get('role')=='Pimpinan Fakultas'){
+    	$role = $request->session()->get('role');
+    	if ($role=='Pimpinan Fakultas'||$role=='Admin'){
 	    		if ($kodeFakultasPengguna==$kode_fakultas) {
 			    	$pegawai = Pegawai::getAllPegawaiIsNotTimAkreditasi($kode_fakultas);
 			    	return view('tambahuser', [
@@ -135,7 +140,8 @@ class PegawaiController extends Controller
     	//validasi jika kode fakultas yang ingin diakses tidak sesuai dengan kode fakultas pengguna
     	$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
-    	if ($request->session()->get('role')=='Pimpinan Fakultas'){
+    	$role = $request->session()->get('role');
+    	if ($role=='Pimpinan Fakultas'||$role=='Admin'){
 	    		if ($kodeFakultasPengguna==$kode_fakultas) {
 		    	$timAkreditasi = Pegawai::getTimAkreditasiByFakultas($kode_fakultas);
 				return view('kelola', [
@@ -170,7 +176,7 @@ class PegawaiController extends Controller
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kodeFakultasPengguna,
 					'user' => $username,
-					'pengguna' =>$pengguna[0]
+					'pengguna' =>$pengguna
 					]);
 		}
 			
@@ -309,5 +315,60 @@ class PegawaiController extends Controller
 					'user' => $request->session()->get('user')
 		]);	
 	}
+
+	public function pilihProdi(Request $request) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$prodi = program_studi::getAllProdi();
+		return view('pilihprodi',[
+			'role' => $request->session()->get('role'),
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pimpinan,      
+            'kode_fakultas' => $kodeFakultasPengguna,  
+            'prodi' => $prodi,  
+            'username' => $username
+		]);
+	}	
+
+	public function pilihFakultas(Request $request) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+		$fakultas = fakultas::getAllFakultas();
+		return view('pilihfakultas',[
+			'role' => $request->session()->get('role'),
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pimpinan,      
+            'kode_fakultas' => $kodeFakultasPengguna,  
+            'fakultas' => $fakultas,  
+            'username' => $username
+		]);
+	}
+
+	public function profilUpdateTimAkreditasi($username, Request $request) {
+		$pegawai = Pegawai::lihatProfilPengguna($username);
+		$QKodeFakultasPegawai = Pegawai::getFakultasPegawai($username);
+		$kodeFakultasPegawai=$QKodeFakultasPegawai[0]->kode_fakultas;
+		$prodi = program_studi::getAllProdiByKodeFakultas($kodeFakultasPegawai);
+		if($username != null){
+			return view('updatetimakreditasi', [
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPegawai,
+					'user' => $username,
+					'pegawai' =>$pegawai,
+					'prodi' => $prodi
+			]);
+		}
+			
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $request->session()->get('user')
+			]);	 
+	}
+
 
 }

@@ -51,6 +51,48 @@ class Pegawai extends Model
     }
 
     /**
+     * Method getPegawaiIsTimAkreditasi untuk mengetahui apakah pegawai merupakan tim akreditasi
+     * 
+     * @param string $username username pegawai yang ingin dicari
+     * @return true jika tim akreditasi
+     */
+    public static function getPegawaiIsReviewerProdi($username) {
+        $pegawai = Pegawai::getPegawaiByUsername($username);
+        if($pegawai->is_reviewer_prodi == 1){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Method getPegawaiIsTimAkreditasi untuk mengetahui apakah pegawai merupakan tim akreditasi
+     * 
+     * @param string $username username pegawai yang ingin dicari
+     * @return true jika tim akreditasi
+     */
+    public static function getPegawaiIsReviewerUniv($username) {
+        $pegawai = Pegawai::getPegawaiByUsername($username);
+        if($pegawai->is_reviewer_univ == 1){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Method getPegawaiIsTimAkreditasi untuk mengetahui apakah pegawai merupakan tim akreditasi
+     * 
+     * @param string $username username pegawai yang ingin dicari
+     * @return true jika tim akreditasi
+     */
+    public static function getPegawaiIsAdmin($username) {
+        $pegawai = Pegawai::getPegawaiByUsername($username);
+        if($pegawai->isAdmin == 1){
+            return true;
+        }
+        return false;
+    }    
+
+    /**
      * Method getTimAkreditasiByProdi untuk mendapatkan list tim akreditasi dari suatu prodi
      * 
      * @param string $kode_prodi kode prodi dari tim akreditasi yang dicari
@@ -124,7 +166,7 @@ class Pegawai extends Model
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
-            ->select('pegawai.username', 'pegawai.nama', 'pegawai.no_pegawai')
+            ->select('pegawai.username', 'pegawai.nama', 'pegawai.no_pegawai', 'program_studi.nama_prodi')
             ->where('pegawai.isTimAkreditasi',0)
             ->where('pegawai.isPimpinan', 0)
             ->where('program_studi.kode_fakultas',$kode_fakultas)

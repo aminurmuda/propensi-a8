@@ -21,6 +21,12 @@ Route::group(['middleware'=>['home']], function() {
 Route::get('home', 'MainController@home')->name('home');
 Route::get('logout', 'MainController@logout')->name('logout');
 
+Route::get('timakreditasi/kelola', 'PegawaiController@pilihFakultas')->name('timakreditasi/kelola'); //Admin kelola Tim Akreditasi
+
+Route::get('timakreditasi/tambah', 'PegawaiController@pilihFakultas')->name('timakreditasi/tambah'); //Admin kelola Tim Akreditasi
+
+Route::get('timakreditasi/tambah/update/{username}', 'PegawaiController@profilUpdateTimAkreditasi')->name('timakreditasi/tambah/{username}'); //Update pegawai menjadi tim Akreditasi
+
 Route::get('timakreditasi/kelola/{kode_fakultas}', 'PegawaiController@lihatPengguna')->name('timakreditasi/kelola/{kode_fakultas}'); //pimpinan fakultas only
 
 Route::get('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPegawaiIsNotTimAkreditasi')->name('timakreditasi/tambah/{kode_fakultas}'); //pimpinan fakultas only
@@ -42,6 +48,8 @@ Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')-
 
 
 Route::get('pimpinan', 'PegawaiController@kelolapimpinan')->name('pimpinan'); //admin only
+
+Route::get('3a/standar2', 'PegawaiController@pilihProdi')->name('3a/standar2'); //pimpinan univ only
 });
 
 //kalau udah login, ngakses route dibawah ini akan diarahkan ke home
