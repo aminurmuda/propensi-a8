@@ -28,6 +28,7 @@
                         <tr>
                             <th>Nama</th>
                             <th>NIP</th>
+                            <th>Dosen Program Studi</th>
                             <th>Edit</th>
                     
                         </tr>
@@ -38,8 +39,10 @@
                         <tr>
                             <td>{{$pegawai->nama}}</td>
                             <td>{{$pegawai->no_pegawai}}</td>
+                            <td>{{$pegawai->nama_prodi}}</td>
                             <td>
-                                <center><button class="glyphicon glyphicon-plus" type="submit" data-toggle="modal" data-target="#confirmationModal" data-username="{{$pegawai->username}}"></button></center>
+                                <center><a class="" href="{{url('timakreditasi/tambah/update/'.$pegawai->username)}}">Update</a></center>
+                               <!--  <center><button class="" type="submit" data-toggle="modal" data-target="#confirmationModal" data-username="{{$pegawai->username}}">Update</button></center> -->
                             </td>
                            
                         </tr>

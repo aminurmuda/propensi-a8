@@ -25,6 +25,11 @@ Route::get('timakreditasi/kelola', 'PegawaiController@pilihFakultas')->name('tim
 
 Route::get('timakreditasi/tambah', 'PegawaiController@pilihFakultas')->name('timakreditasi/tambah'); //Admin kelola Tim Akreditasi
 
+
+Route::get('timakreditasi/tambah/update/{username}', 'PegawaiController@profilUpdateTimAkreditasi')->name('timakreditasi/tambah/{username}'); //Update pegawai menjadi tim Akreditasi
+
+
+
 Route::get('timakreditasi/kelola/{kode_fakultas}', 'PegawaiController@lihatPengguna')->name('timakreditasi/kelola/{kode_fakultas}'); //pimpinan fakultas only
 
 Route::get('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPegawaiIsNotTimAkreditasi')->name('timakreditasi/tambah/{kode_fakultas}'); //pimpinan fakultas only
@@ -46,6 +51,7 @@ Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')-
 
 
 Route::get('pimpinan', 'PegawaiController@kelolapimpinan')->name('pimpinan'); //admin only
+
 
 Route::get('3a/standar4', 'PegawaiController@pilihProdi')->name('3a/standar4'); //pimpinan univ only
 Route::get('3a/standar4/submit', 'PegawaiController@lihat3a4')->name('3a/standar4/submit'); //pimpinan univ only

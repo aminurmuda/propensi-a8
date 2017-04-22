@@ -15,6 +15,7 @@
                         <p> Pilih Program Studi </p>
                         
                     </div>
+
                     <form action="{{url(Route::current()->getName().'/submit')}}">
                     {{csrf_field()}}
                     <div class="plan-div">
@@ -25,7 +26,6 @@
                               @endforeach
                             </select>
                           </div>
-
                     </div>
                     <div class="pricing-footer">
 

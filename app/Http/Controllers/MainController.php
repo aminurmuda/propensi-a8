@@ -99,7 +99,11 @@ class MainController extends Controller
 					]
 					);
 			} elseif($userIsReviewerProdi) { //reviewer prodi
+
+				$request->session()->put('role', 'Admin');;
+
 				$request->session()->put('role', 'Reviewer Prodi');;
+
 				return view ('home', [
 					'user' => $username,
 					'role' => 'Reviewer Prodi',
@@ -107,7 +111,10 @@ class MainController extends Controller
 					]
 					);
 			} else { //reviewer univ
+
+				$request->session()->put('role', 'Admin');;
 				$request->session()->put('role', 'Reviewer Universitas');;
+
 				return view ('home', [
 					'user' => $username,
 					'role' => 'Reviewer Universitas',

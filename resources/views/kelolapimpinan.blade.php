@@ -98,12 +98,6 @@
                             <td>
                                 <button class="glyphicon glyphicon-trash" type="submit"></button>
                             </td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Cedric Kelly</td>
-                            <td>18249834</td>
-                            <td>
                                 <button class="glyphicon glyphicon-trash" type="submit"></button>
                             </td>
                         
@@ -113,6 +107,12 @@
                             <td>122222</td>
                             <td>
                                 <button class="glyphicon glyphicon-trash" type="submit"></button>
+                            
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td>18249834</td>
+                            <td>
                             </td>
                            
                         </tr>

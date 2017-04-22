@@ -166,7 +166,7 @@ class Pegawai extends Model
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
-            ->select('pegawai.username', 'pegawai.nama', 'pegawai.no_pegawai')
+            ->select('pegawai.username', 'pegawai.nama', 'pegawai.no_pegawai', 'program_studi.nama_prodi')
             ->where('pegawai.isTimAkreditasi',0)
             ->where('pegawai.isPimpinan', 0)
             ->where('program_studi.kode_fakultas',$kode_fakultas)

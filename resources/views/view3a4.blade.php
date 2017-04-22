@@ -8,7 +8,9 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3A, Standar 4</h3>
             <span> Sumber Daya Manusia </span>
+
             <a href="{{ url('3a/standar4edit/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -23,7 +25,9 @@
                     </div>
                     <div id="one" class="panel-collapse collapse">
                         <div class="panel-body">
+
                         Sistem seleksi/perekrutan, penempatan, pengembangan, retensi, dan pemberhentian dosen dan tenaga kependidikan untuk menjamin mutu penyelenggaraan program akademik.  <br><br>                          
+
                             <div class="form-group">
                               <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
 
@@ -46,7 +50,9 @@
                     <div id="two" class="panel-collapse collapse">
                         <div class="panel-body">
 
+
                               Jelaskan sistem monitoring dan evaluasi, serta rekam jejak kinerja akademik dosen dan kinerja tenaga kependidikan (termasuk informasi tentang ketersediaan pedoman tertulis, dan monitoring dan evaluasi kinerja dosen dalam tridarma serta dokumentasinya). <br><br>
+
                               
                              <div class="form-group">
                               <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
@@ -65,12 +71,15 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#three">
+
           4.3 Dosen Tetap
+
         </a>
       </h4>
                     </div>
                     <div id="three" class="panel-collapse collapse">
                         <div class="panel-body">
+
                             Dosen tetap dalam borang akreditasi BAN-PT adalah dosen yang diangkat dan ditempatkan sebagai tenaga tetap pada Perguruan Tinggi yang bersangkutan; termasuk dosen penugasan Kopertis, dan dosen yayasan pada Perguruan Tinggi Swasta dalam bidang yang relevan dengan keahlian bidang studinya. Seorang dosen hanya dapat menjadi dosen tetap pada satu perguruan tinggi, dan mempunyai penugasan kerja minimum 20 jam/minggu.
                             <br><br>
 
@@ -378,6 +387,7 @@
                               </table>
                             </div>                             
                            
+
                         </div>
                     </div>
                 </div>
@@ -387,7 +397,9 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#four">
+
          4.4 Dosen Tidak Tetap
+
         </a>
       </h4>
                     </div>
@@ -500,7 +512,9 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#five">
+
           4.5 Upaya Peningkatan Sumber Daya Manusia (SDM) dalam tiga tahun terakhir
+
         </a>
       </h4>
                     </div>
@@ -700,6 +714,7 @@
                       </tbody>
                     </table>                    
                     </div>                      
+
                         </div>
                     </div>
                 </div>
@@ -709,12 +724,15 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#six">
+
           4.6 Tenaga Kependidikan
+
         </a>
       </h4>
                     </div>
                     <div id="six" class="panel-collapse collapse">
                         <div class="panel-body">
+
                     4.6.1 Tenaga kependidikan
                     <br>Tuliskan data tenaga kependidikan yang ada di Program Studi, Jurusan, Fakultas atau Perguruan Tinggi yang melayani mahasiswa Program Studi dengan mengikuti format tabel berikut:<br><br>
                     <div class="table-responsive">
