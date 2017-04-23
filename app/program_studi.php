@@ -29,4 +29,6 @@ class program_studi extends Model
         ->get();
     }
 
+    
+
 }

@@ -10,6 +10,8 @@ use App\fakultas;
 use App\dosen;
 use App\tendik;
 use App\Borang;
+use App\proyek;
+use App\kerja_sama;
 use DB;
 
 class PegawaiController extends Controller
@@ -401,10 +403,6 @@ class PegawaiController extends Controller
 		$standar4_3_2 = Dosen::getDosenTetapTidakSesuai($selectedProdi);
 
 		//poin 4.3.4
-		$standar4_3_3 = Dosen::getDosenSKSAktivitasTetapSesuai($selectedProdi,$tahun);
-		// dd($standar4_3_3);
-
-		//poin 4.3.4
 		$standar4_3_4 = Dosen::getDosenTetapPSAktivitas($selectedProdi,$tahun);
 		//poin 4.3.5
 		$standar4_3_5 = Dosen::getDosenTetapTidakPSAktivitas($selectedProdi,$tahun);
@@ -442,17 +440,17 @@ class PegawaiController extends Controller
 			$arrA[8] = $standar4_6_1_a -> unit_kerja;
 			if ($riwayat_pendidikan=='D1') {
 				$arrA[0]+=1;
-			} else if ($riwayat_pendidikan=='D2') {
+			} else if ($riwayat_pendidikan=='D1') {
 				$arrA[1]+=1;
-			} else if ($riwayat_pendidikan=='D3') {
+			} else if ($riwayat_pendidikan=='D2') {
 				$arrA[2]+=1;
-			} else if ($riwayat_pendidikan=='D4') {
+			} else if ($riwayat_pendidikan=='D3') {
 				$arrA[3]+=1;
-			} else if ($riwayat_pendidikan=='S1') {
+			} else if ($riwayat_pendidikan=='D4') {
 				$arrA[4]+=1;
-			} else if ($riwayat_pendidikan=='S2') {
+			} else if ($riwayat_pendidikan=='S1') {
 				$arrA[5]+=1;
-			} else if ($riwayat_pendidikan=='S3') {
+			} else if ($riwayat_pendidikan=='S2') {
 				$arrA[6]+=1;
 			} else {
 				$arrA[7]+=1;
@@ -469,17 +467,17 @@ class PegawaiController extends Controller
 			$arrB[8] = $standar4_6_1_b -> unit_kerja;
 			if ($riwayat_pendidikan=='D1') {
 				$arrB[0]+=1;
-			} else if ($riwayat_pendidikan=='D2') {
+			} else if ($riwayat_pendidikan=='D1') {
 				$arrB[1]+=1;
-			} else if ($riwayat_pendidikan=='D3') {
+			} else if ($riwayat_pendidikan=='D2') {
 				$arrB[2]+=1;
-			} else if ($riwayat_pendidikan=='D4') {
+			} else if ($riwayat_pendidikan=='D3') {
 				$arrB[3]+=1;
-			} else if ($riwayat_pendidikan=='S1') {
+			} else if ($riwayat_pendidikan=='D4') {
 				$arrB[4]+=1;
-			} else if ($riwayat_pendidikan=='S2') {
+			} else if ($riwayat_pendidikan=='S1') {
 				$arrB[5]+=1;
-			} else if ($riwayat_pendidikan=='S3') {
+			} else if ($riwayat_pendidikan=='S2') {
 				$arrB[6]+=1;
 			} else {
 				$arrB[7]+=1;
@@ -497,17 +495,17 @@ class PegawaiController extends Controller
 			$arrC[8] = $standar4_6_1_c -> unit_kerja;
 			if ($riwayat_pendidikan=='D1') {
 				$arrC[0]+=1;
-			} else if ($riwayat_pendidikan=='D2') {
+			} else if ($riwayat_pendidikan=='D1') {
 				$arrC[1]+=1;
-			} else if ($riwayat_pendidikan=='D3') {
+			} else if ($riwayat_pendidikan=='D2') {
 				$arrC[2]+=1;
-			} else if ($riwayat_pendidikan=='D4') {
+			} else if ($riwayat_pendidikan=='D3') {
 				$arrC[3]+=1;
-			} else if ($riwayat_pendidikan=='S1') {
+			} else if ($riwayat_pendidikan=='D4') {
 				$arrC[4]+=1;
-			} else if ($riwayat_pendidikan=='S2') {
+			} else if ($riwayat_pendidikan=='S1') {
 				$arrC[5]+=1;
-			} else if ($riwayat_pendidikan=='S3') {
+			} else if ($riwayat_pendidikan=='S2') {
 				$arrC[6]+=1;
 			} else {
 				$arrC[7]+=1;
@@ -525,7 +523,6 @@ class PegawaiController extends Controller
 	            'standar4' => $standar4,
 	            'standar4_3_1' => $standar4_3_1,
 	            'standar4_3_2' => $standar4_3_2,
-				'standar4_3_3' => $standar4_3_3,
 	            'standar4_3_4' => $standar4_3_4,
 	            'standar4_3_5' => $standar4_3_5,
 	            'standar4_4_1' => $standar4_4_1,
@@ -689,17 +686,34 @@ class PegawaiController extends Controller
 	}
 
 	public function edit3a7(Request $request) {
+
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-			return view('update3a7',[
+
+		$QKodeProdiPengguna = Pegawai::getProdiPegawai($request->session()->get('user'));		
+		$kodeProdiPengguna=$QKodeProdiPengguna[0]->kode_prodi_pengajaran;	 //belum disesuain sama kode prodi tim akreditasi
+		if ($request->get('selectProdi')){
+			$selectedProdi = $request->get('selectProdi'); 	
+		} else {
+			$selectedProdi=$kodeProdiPengguna;
+		}
+
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		return view('update3b4',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username
 			]);
+
 	}
 
 	public function edit3b4(Request $request) {
@@ -730,16 +744,39 @@ class PegawaiController extends Controller
 			]);
 	}
 
-	public function lihat3a7(Request $request) {
+	public function lihat3a7(Request $request, $kode_prodi) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-			return view('view3a7',[
+
+		$QKodeProdiPengguna = Pegawai::getProdiPegawai($request->session()->get('user'));		
+		$kodeProdiPengguna=$QKodeProdiPengguna[0]->kode_prodi_pengajaran;	 //belum disesuain sama kode prodi tim akreditasi
+		if ($request->get('selectProdi')){
+			$selectedProdi = $request->get('selectProdi'); 	
+		} else {
+			$selectedProdi=$kodeProdiPengguna;
+		}
+
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		$standar7_1_3 = Proyek::getHasilPublikasiDosen($kode_prodi, $tahun);
+		$standar7_2_3 = Proyek::getKaryaHAKI($kode_prodi, $tahun);
+		$standar7_3_1 = kerja_sama::getKerjaSamaDalamNegeri($kode_prodi, $tahun);
+		$standar7_3_2 = kerja_sama::getKerjaSamaLuarNegeri($kode_prodi, $tahun);
+		return view('view3a7',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
-	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'kode_fakultas' => $kodeFakultasPengguna, 
+	            'standar7_1_3'=> $standar7_1_3,
+	            'standar7_2_3'=> $standar7_2_3,
+	            'standar7_3_1'=> $standar7_3_1,
+	           	'standar7_3_2'=> $standar7_3_2,
 	            'username' => $username
 			]);
 	}
