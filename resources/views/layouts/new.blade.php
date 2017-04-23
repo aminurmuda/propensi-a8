@@ -140,9 +140,16 @@
     <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"> </script>
 
     <script>
-      $(document).ready(function() {
-        $('#example').DataTable();
-    } );
+          $(document).ready(function() {
+            $('#example').DataTable();
+     
+            // TODO===================
+            $('#username').on('change', function() {
+                $('#sel1').on('change', function() {
+                    $('#form-cari').attr('action', 'tambah/'+ $('#username').val() + '/' + $('#sel1').val());
+                })
+            });
+        } );
     </script>
 
     <!-- script untuk navigation -->

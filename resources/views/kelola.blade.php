@@ -42,6 +42,7 @@
                             <td>
                                 <center>
                                 <!-- <a href="hapus/{{$pegawai->username}}"> -->
+                                <button class="glyphicon glyphicon-pencil" onclick='location.href="{{url('timakreditasi/tambah/update/'.$pegawai->username)}}"'></button>
                                 <button class="glyphicon glyphicon-trash" type="submit" data-toggle="modal" data-target="#confirmationModal" data-username="{{$pegawai->username}}"></button>
                                 <!-- </a> -->
                                 </center>

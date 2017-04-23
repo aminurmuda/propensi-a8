@@ -155,10 +155,49 @@
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"> </script>
     <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"> </script>
 
+    <!-- Script DataTable -->
+
     <script>
-      $(document).ready(function() {
-        $('#example').DataTable();
-    } );
+          $(document).ready(function() {
+            $('#example').DataTable();
+     
+            // TODO===================
+            $('#username').on('change', function() {
+                $('#sel1').on('change', function() {
+                    $('#form-cari').attr('action', 'tambah/'+ $('#username').val() + '/' + $('#sel1').val());
+                })
+            });
+
+            $('#selectFakultas').on('change', function() {
+                $('#form-fakultas').attr('action', 'tambah/'+ $('#selectFakultas').val());
+
+            });
+
+            $('#selectFakultas1').on('change', function() {
+                $('#form-fakultas1').attr('action', 'kelola/'+ $('#selectFakultas1').val());
+
+            });
+        } );
+    </script>
+
+    <!-- Script Modal -->
+    <script>
+            $('#confirmationModal').on('show.bs.modal', function(e) {
+          var username = e.relatedTarget.dataset.username;
+          document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+username+ " dari tim akreditasi?";
+          var link = document.getElementById("link");
+          var linkHapus = "hapus/"+username;
+        link.setAttribute("href", linkHapus);
+      });
+
+        $('#confirmationModal1').on('show.bs.modal', function(e) {
+              var name = e.relatedTarget.dataset.name;
+              var username = e.relatedTarget.dataset.username;
+              document.getElementById("isi1").innerHTML="Anda yakin ingin menghapus "+name+ " dari pimpinan?";
+              var link = document.getElementById("link1");
+              var linkHapus = "hapus/"+username;
+            link.setAttribute("href", linkHapus);
+          });
     </script>
 
     <!-- script untuk navigation -->

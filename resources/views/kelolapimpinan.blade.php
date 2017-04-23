@@ -78,7 +78,7 @@
                             <td>
                                 <center>
                                <!--  <a href="hapus/{{$pimpinan->username}}"> -->
-                                <button class="glyphicon glyphicon-trash" type="submit" data-toggle="modal" data-target="#confirmationModal" data-name="{{$pimpinan->nama}}" data-username="{{$pimpinan->username}}"></button>
+                                <button class="glyphicon glyphicon-trash" type="submit" data-toggle="modal" data-target="#confirmationModal1" data-name="{{$pimpinan->nama}}" data-username="{{$pimpinan->username}}"></button>
                                 <!-- </a> --> 
                                 </center>
                             </td>
@@ -140,27 +140,6 @@
     <!-- /.container -->
 
     <!-- Modal -->
-  <div class="modal fade" id="confirmationModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Hapus Pimpinan</h4>
-        </div>
-        <div class="modal-body">
-          <p id='isi'>isinya</p>
-        </div>
-        <div class="modal-footer">
-          <a href="#" id="link" ><button type="button" class="btn btn-default">Yakin</button></a>
-         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-
   <div class="modal fade" id="confirmationModal1" role="dialog">
     <div class="modal-dialog">
     
@@ -168,7 +147,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Menambah Pimpinan</h4>
+          <h4 class="modal-title">Hapus Pimpinan</h4>
         </div>
         <div class="modal-body">
           <p id='isi1'>isinya</p>
@@ -183,11 +162,10 @@
   </div>
 
 
-
     <script> 
             
 
-        $('#confirmationModal').on('show.bs.modal', function(e) {
+        $('#confirmationModal1').on('show.bs.modal', function(e) {
           var name = e.relatedTarget.dataset.name;
           var username = e.relatedTarget.dataset.username;
           document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+name+ " dari pimpinan?";

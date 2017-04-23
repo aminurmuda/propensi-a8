@@ -41,7 +41,7 @@
                             <td>{{$pegawai->no_pegawai}}</td>
                             <td>{{$pegawai->nama_prodi}}</td>
                             <td>
-                                <center><a class="" href="{{url('timakreditasi/tambah/update/'.$pegawai->username)}}">Update</a></center>
+                                <center><button class="glyphicon glyphicon-pencil" onclick='location.href="{{url('timakreditasi/tambah/update/'.$pegawai->username)}}"'></button></center>
                                <!--  <center><button class="" type="submit" data-toggle="modal" data-target="#confirmationModal" data-username="{{$pegawai->username}}">Update</button></center> -->
                             </td>
                            
