@@ -100,9 +100,34 @@
                                 <th>Tgl. Lahir</th>
                                 <th>Jabatan Akademik</th>
                                 <th>Gelar Akademik</th>
-                                <th>Pendidikan S1, S2, S3, Asal Universitas</th>
+                                <th colspan="2">Pendidikan S1, S2, S3, Asal Universitas</th>
                                 <th>Bidang Keahlian untuk Setiap Jenjang Pendidikan</th>
                               </tr>
+                              <tr>
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td colspan="2">(7)</td> 
+                                <td>(8)</td>                         
+                              </tr>
+                              <?php $i=1 ?>
+                            @foreach($standar4_3_1 as $standar4_3_1 )
+                              <tr>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_3_1 -> namaPegawai}}</td>
+                                <td>{{$standar4_3_1 -> NIDN}}</td>
+                                <td>{{$standar4_3_1 -> tanggal_lahir}}</td>
+                                <td>{{$standar4_3_1 -> nama}}</td>
+                                <td>{{$standar4_3_1 -> riwayat_pendidikan}}</td>
+                                <td>{{$standar4_3_1 -> gelar_pendidikan}}</td>                          
+                                <td>{{$standar4_3_1 -> instansi_pendidikan}}</td>
+                                <td>{{$standar4_3_1 -> bidang_keahlian}}</td>
+                              </tr>
+                              <?php $i++?>
+                              @endforeach                              
                               <tr>
                                 <td rowspan="2">1</td>
                                 <td rowspan="2">January</td>
@@ -117,22 +142,7 @@
                                 <td>February</td>
                                 <td>$80</td>
                                 <td>$80</td>
-                              </tr>  
-                              <tr>
-                                <td rowspan="2">2</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">$100</td>
-                                <td rowspan="2">$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>
-                              <tr>
-                                <td>February</td>
-                                <td>$80</td>
-                                <td>$80</td>
-                              </tr>                                                            
+                              </tr>                                                              
                               </table>
                             </div>
                             * Fotokopi ijazah agar disiapkan saat visitasi. <br>
@@ -154,24 +164,34 @@
                                 <th>Tgl. Lahir</th>
                                 <th>Jabatan Akademik</th>
                                 <th>Gelar Akademik</th>
-                                <th>Pendidikan S1, S2, S3, Asal Universitas</th>
+                                <th colspan="2">Pendidikan S1, S2, S3, Asal Universitas</th>
                                 <th>Bidang Keahlian untuk Setiap Jenjang Pendidikan</th>
                               </tr>
                               <tr>
-                                <td rowspan="2">1</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">$100</td>
-                                <td rowspan="2">$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td colspan="2">(7)</td> 
+                                <td>(8)</td>                         
                               </tr>
+                              <?php $i=1 ?>
+                            @foreach($standar4_3_2 as $standar4_3_2 )
                               <tr>
-                                <td>February</td>
-                                <td>$80</td>
-                                <td>$80</td>
-                              </tr>  
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_3_2 -> namaPegawai}}</td>
+                                <td>{{$standar4_3_2 -> NIDN}}</td>
+                                <td>{{$standar4_3_2 -> tanggal_lahir}}</td>
+                                <td>{{$standar4_3_2 -> nama}}</td>
+                                <td>{{$standar4_3_2 -> riwayat_pendidikan}}</td>
+                                <td>{{$standar4_3_2 -> gelar_pendidikan}}</td>                          
+                                <td>{{$standar4_3_2 -> instansi_pendidikan}}</td>
+                                <td>{{$standar4_3_2 -> bidang_keahlian}}</td>
+                              </tr>
+                              <?php $i++?>
+                              @endforeach    
                               <tr>
                                 <td rowspan="2">2</td>
                                 <td rowspan="2">January</td>
@@ -298,22 +318,29 @@
                                 <th>Jml Pertemuan yang Dilaksanakan</th>
                               </tr>                              
                               <tr>
-                                <td rowspan="2">1</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td >(7)</td> 
+                                <td>(8)</td>                         
                               </tr>
+                              <?php $i=1 ?>
+                            @foreach($standar4_3_4 as $standar4_3_4 )
                               <tr>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>  
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_3_4 -> namaPegawai}}</td>
+                                <td>{{$standar4_3_4 -> bidang_keahlian}}</td>
+                                <td>{{$standar4_3_4 -> kode_mata_kuliah}}</td>
+                                <td>{{$standar4_3_4 -> nama}}</td>
+                                <td>{{$standar4_3_4 -> jumlah_kelas}}</td>
+                                <td>{{$standar4_3_4 -> rencana_pengajaran}}</td>                          
+                                <td>{{$standar4_3_4 -> realisasi_pengajaran}}</td>
+                              </tr>
+                              <?php $i++?>
+                              @endforeach   
                               <tr>
                                 <td rowspan="2">1</td>
                                 <td rowspan="2">January</td>
@@ -351,22 +378,29 @@
                                 <th>Jml Pertemuan yang Dilaksanakan</th>
                               </tr>                              
                               <tr>
-                                <td rowspan="2">1</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td >(7)</td> 
+                                <td>(8)</td>                         
                               </tr>
+                              <?php $i=1 ?>
+                            @foreach($standar4_3_5 as $standar4_3_5 )
                               <tr>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>  
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_3_5 -> namaPegawai}}</td>
+                                <td>{{$standar4_3_5 -> bidang_keahlian}}</td>
+                                <td>{{$standar4_3_5 -> kode_mata_kuliah}}</td>
+                                <td>{{$standar4_3_5 -> nama}}</td>
+                                <td>{{$standar4_3_5 -> jumlah_kelas}}</td>
+                                <td>{{$standar4_3_5 -> rencana_pengajaran}}</td>                          
+                                <td>{{$standar4_3_5 -> realisasi_pengajaran}}</td>
+                              </tr>
+                              <?php $i++?>
+                              @endforeach    
                               <tr>
                                 <td rowspan="2">1</td>
                                 <td rowspan="2">January</td>
@@ -416,8 +450,31 @@
                                 <th>Tgl. Lahir</th>
                                 <th>Jabatan Akademik***</th>
                                 <th>Gelar Akademik</th>
-                                <th>Pendidikan S1, S2, S3, Asal Universitas</th>
+                                <th colspan="2">Pendidikan S1, S2, S3, Asal Universitas</th>
                               </tr>
+                              <tr>
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td colspan="2">(7)</td>                          
+                              </tr>
+                              <?php $i=1 ?>
+                            @foreach($standar4_4_1 as $standar4_4_1 )
+                              <tr>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_4_1 -> namaPegawai}}</td>
+                                <td>{{$standar4_4_1 -> NIDN}}</td>
+                                <td>{{$standar4_4_1 -> tanggal_lahir}}</td>
+                                <td>{{$standar4_4_1 -> nama}}</td>
+                                <td>{{$standar4_4_1 -> riwayat_pendidikan}}</td>
+                                <td>{{$standar4_4_1 -> gelar_pendidikan}}</td>                          
+                                <td>{{$standar4_4_1 -> instansi_pendidikan}}</td>
+                              </tr>
+                              <?php $i++?>
+                              @endforeach
                               <tr>
                                 <td rowspan="2">1</td>
                                 <td rowspan="2">January</td>
@@ -430,20 +487,7 @@
                               <tr>
                                 <td>February</td>
                                 <td>$80</td>
-                              </tr>  
-                              <tr>
-                                <td rowspan="2">2</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">$100</td>
-                                <td rowspan="2">$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>
-                              <tr>
-                                <td>February</td>
-                                <td>$80</td>
-                              </tr>                                                            
+                              </tr>                                                              
                               </table>
                             </div>           
                             <br>                
@@ -464,22 +508,29 @@
                                 <th>Jml Pertemuan yang Dilaksanakan</th>
                               </tr>                              
                               <tr>
-                                <td rowspan="2">1</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td >(7)</td> 
+                                <td>(8)</td>                         
                               </tr>
+                              <?php $i=1 ?>
+                            @foreach($standar4_4_2 as $standar4_4_2 )
                               <tr>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>  
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_4_2 -> namaPegawai}}</td>
+                                <td>{{$standar4_4_2 -> bidang_keahlian}}</td>
+                                <td>{{$standar4_4_2 -> kode_mata_kuliah}}</td>
+                                <td>{{$standar4_4_2 -> nama}}</td>
+                                <td>{{$standar4_4_2 -> jumlah_kelas}}</td>
+                                <td>{{$standar4_4_2 -> rencana_pengajaran}}</td>                  
+                                <td>{{$standar4_4_2 -> realisasi_pengajaran}}</td>
+                              </tr>
+                              <?php $i++?>
+                              @endforeach 
                               <tr>
                                 <td rowspan="2">1</td>
                                 <td rowspan="2">January</td>
@@ -533,23 +584,21 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
+                          <th >(1)</th>
+                          <td >(2)</td>
+                          <td>(3)</td>
+                          <td>(4)</td>
                         </tr>
+                        <?php $i=1 ?>
+                        @foreach($standar4_5_1 as $standar4_5_1)                     
                         <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
+                          <th scope="row">{{$i}}</th>
+                          <td>{{$standar4_5_1 -> namaPegawai}}</td>
+                          <td>{{$standar4_5_1 -> nama_kegiatan}}</td>
+                          <td>{{$standar4_5_1 -> waktu}}</td>
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
+                        <?php $i++ ?>
+                        @endforeach
                       </tbody>
                     </table>                    
                     </div>
@@ -569,33 +618,28 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>                          
+                      <tr>
+                          <th scope="row">(1)</th>
+                          <td>(2)</td>
+                          <td>(3)</td>
+                          <td>(4)</td>
+                          <td>(5)</td>
+                          <td>(6)</td>
+                          <td>(7)</td>                          
                         </tr>
+                        <?php $i=1 ?>
+                      @foreach($standar4_5_2 as$standar4_5_2 )
                         <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>                          
+                          <th scope="row">{{$i}}</th>
+                          <td>{{$standar4_5_2 -> namaPegawai}}</td>
+                          <td>{{$standar4_5_2 -> jenjang_lanjut}}</td>
+                          <td>{{$standar4_5_2 -> bidang_studi}}</td>
+                          <td>{{$standar4_5_2 -> perguruan_tinggi}}</td>
+                          <td>{{$standar4_5_2 -> negara}}</td>
+                          <td>{{$standar4_5_2 -> tahun_mulai}}</td>                          
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>                          
-                        </tr>
+                        <?php $i++?>
+                        @endforeach
                       </tbody>
                     </table>                    
                     </div>            
@@ -607,7 +651,7 @@
                         <tr>
                           <th rowspan="2">#</th>
                           <th rowspan="2">Nama Dosen</th>
-                          <th rowspan="2">Jenis Kegiatan*</th>
+                          <th rowspan="2" colspan="2">Jenis Kegiatan*</th>
                           <th rowspan="2">Tempat</th>
                           <th rowspan="2">Waktu</th>
                           <th colspan="2">Sebagai</th>
@@ -619,9 +663,42 @@
                       </thead>
                       <tbody>
                         <tr>
+                          <th >(1)</th>
+                          <td >(2)</td>
+                          <td colspan="2">(3)</td>
+                          <td>(4)</td>
+                          <td>(5)</td>
+                          <td>(6)</td>                          
+                          <td>(7)</td>
+                        </tr>
+                        <?php $i=1 ?>
+                        @foreach($standar4_5_3 as $standar4_5_3)                     
+                        <tr>
+                          <th scope="row">{{$i}}</th>
+                          <td>{{$standar4_5_3 -> namaPegawai}}</td>
+                          <td>{{$standar4_5_3 -> jenis}}</td>
+                          <td>{{$standar4_5_3 -> nama_kegiatan}}</td>
+                          <td>{{$standar4_5_3 -> tempat}}</td>                          
+                            <td>{{$standar4_5_3 -> waktu}}</td>
+                            @if($standar4_5_3 ->peran=='Penyaji') 
+                                <td>V</td>
+                                @else
+                                <td></td>
+                            @endif
+                            @if($standar4_5_3 ->peran=='Peserta') 
+                                <td>V</td>
+                                @else
+                                <td></td>
+                            @endif
+                        </tr>
+                        <?php $i++ ?>
+                        @endforeach
+
+                        <tr>
                           <th scope="row" rowspan="2">1</th>
                           <td rowspan="2">Mark</td>
                           <td>Otto</td>
+                          <td>@mdo</td>
                           <td>@mdo</td>
                           <td>Mark</td>                          
                           <td>Mark</td>
@@ -630,12 +707,13 @@
                         <tr>
                           <td>Otto</td>
                           <td>@mdo</td>
+                          <td>@mdo</td>
                           <td>Mark</td>                          
                           <td>Mark</td>
                           <td>Otto</td>                                                  
                         </tr>                        
                         <tr>
-                          <th scope="row" colspan="5">TOTAL</th>                         
+                          <th scope="row" colspan="6">TOTAL</th>                         
                           <td>@mdo</td>
                           <td>Mark</td>                                                    
                         </tr>
@@ -657,26 +735,23 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>
-                        </tr>
+                          <th scope="row">(1)</th>
+                          <td>(2)</td>
+                          <td>(3)</td>
+                          <td>(4)</td>
+                          <td>(5)</td>                          
+                        </tr> 
+                        <?php $i=1 ?>
+                        @foreach($standar4_5_4 as $standar4_5_4)                     
                         <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                          <td>Mark</td>                         
+                          <th scope="row">{{$i}}</th>
+                          <td>{{$standar4_5_4 -> namaPegawai}}</td>
+                          <td>{{$standar4_5_4 -> nama}}</td>
+                          <td>{{$standar4_5_4 -> waktu}}</td>
+                          <td>{{$standar4_5_4 -> tingkat}}</td>                          
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                          <td>Mark</td>
-                        </tr>
+                        <?php $i++ ?>
+                        @endforeach
                       </tbody>
                     </table>                    
                     </div>              
@@ -695,26 +770,29 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>                          
-                        </tr>
+                          <th scope="row">(1)</th>
+                          <td>(2)</td>
+                          <td>(3)</td>
+                          <td>(4)</td>
+                          <td>(5)</td>                          
+                        </tr> 
+                        <?php $i=0 ?>
+                        @foreach($standar4_5_5 as $standar4_5_5)                     
                         <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                          <td>Mark</td>
+                          <th scope="row">{{$i}}</th>
+                          <td>{{$standar4_5_5 -> namaPegawai}}</td>
+                          <td>{{$standar4_5_5 -> nama}}</td>
+                          <?php
+                          if (is_null($standar4_5_5 -> tahun_selesai)) {
+                          $kurun_waktu= date('Y') - $standar4_5_5 -> tahun_mulai . " tahun";  
+                          } else {
+                                                    $kurun_waktu= $standar4_5_5 -> tahun_selesai - $standar4_5_5 -> tahun_mulai. " tahun";}
+                          ?>
+                          <td>{{$kurun_waktu}}</td>
+                          <td>{{$standar4_5_5 -> tingkat}}</td>
                         </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                          <td>Mark</td>                          
-                        </tr>             
+                        <?php $i++ ?>
+                        @endforeach
                       </tbody>
                     </table>                    
                     </div>                      
@@ -762,41 +840,30 @@
                       <tbody>
                         <tr>
                           <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>                          
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>                          
-                          <td>@mdo</td>
-                          <td>Mark</td>                                                    
+                          <td>Pustakawan*</td>
+                          @foreach($arrA as $arrA_value)
+                          <td>{{$arrA_value}}</td>     
+                          @endforeach
                         </tr>
                         <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>                          
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>                          
-                          <td>@mdo</td>
-                          <td>Mark</td>                                                    
+                          <th scope="row">2</th>
+                          <td>Laboran/teknisi/analis/operator/programmer</td>
+                          @foreach($arrB as $arrB_value)
+                          <td>{{$arrB_value}}</td>     
+                          @endforeach                                                    
                         </tr>   
                         <tr>
+                          <th scope="row">3</th>
+                          <td>Administrasi</td>
+                          @foreach($arrC as $arrC_value)
+                          <td>{{$arrC_value}}</td>     
+                          @endforeach                                                    
+                        </tr>                           
+                        <tr>
                           <th scope="row" colspan="2">Jumlah</th>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>                          
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                          <td>Mark</td>                          
-                          <td>@mdo</td>
-                          <td>Mark</td>                                                    
+                          @foreach($arrD as $arrD_value)
+                          <td>{{$arrD_value}}</td>     
+                          @endforeach                                                   
                         </tr>
                       </tbody>
                     </table>                    

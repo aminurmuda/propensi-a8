@@ -1,0 +1,1019 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta http-equiv=Content-Type content="application/msword; charset=UTF-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Universal Post Manager by">
+<meta name=Originator content="ProfProjects.com">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:TrackMoves>false</w:TrackMoves>
+  <w:TrackFormatting/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>RU</w:LidThemeOther>
+  <w:LidThemeAsian>X-NONE</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:DontVertAlignCellWithSp/>
+   <w:DontBreakConstrainedForcedTables/>
+   <w:DontVertAlignInTxbx/>
+   <w:Word11KerningPairs/>
+   <w:CachedColBalance/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="--"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:LsdException Locked="true" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<title>Contoh Judul Karya Tulis Ilmiah : Karya Tulis Ilmiah : http://karyatulisilmiah.com</title>
+<style>
+
+<!--
+
+div.Section1
+
+	{page:Section1;}
+
+
+
+-->
+</style>
+</head>
+<body link=blue vlink=purple style='tab-interval:35.4pt;text-align:left'>
+<div class=Section1 style="text-align:left">
+
+	
+		<p style="background:#F9F9F9">
+		<span style='font-size:9.0pt;color:#000000;'>
+		This page was exported from Karya Tulis Ilmiah 
+		[ </span>
+		<span style='font-size:9.0pt;color:#000000'>
+			<a href="http://karyatulisilmiah.com" target="_blank">
+				http://karyatulisilmiah.com
+			</a>
+		</span>
+		<span style='font-size:9.0pt;color:#000000;'> ]
+		<br>
+		Export date: Fri May 13 9:03:40 2016 / +0000  GMT 
+		<o:p></o:p>
+		</span>
+		</p>
+		
+		<h2 style="color:#000000;text-align:left">Contoh Judul Karya Tulis Ilmiah</h2><br>
+	
+	  <p>
+	  <span style='font-size:10.5pt;color:#000000;'>
+		<br>
+		Berikut kami bagikan Contoh Judul Karya Tulis Ilmiah semoga bermanfaat bagi anda yang sedang mencari judul judul KTI untuk tugas anda.</p> <p>
+<table width="693"></p> <p>
+<tbody></p> <p>
+<tr></p> <p>
+<td width="33">NO</td></p> <p>
+<td width="168"></td></p> <p>
+<td width="31"></td></p> <p>
+<td width="461">JUDUL</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td></td></p> <p>
+<td></td></p> <p>
+<td></td></p> <p>
+<td width="461"></td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">1</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Asal-usul ilmu fisika</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">2</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Bencana alam di Indonesia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">3</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Biogeografi</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">4</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budaya Dan  Bisnis Sarang Walet</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">5</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budidaya burung walet</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">6</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budidaya gelombang cinta</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">7</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budidaya Jamur Merang</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">8</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budidaya Jamur Tiram</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">9</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budidaya Kelinci</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">10</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budidaya Tanaman Bonsai</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>11</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budidaya tanaman jahe</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">12</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budidaya tanaman Jahe + gambar</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">13</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budidaya Tanaman Jahe Beserta Manfaatnya</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">14</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Budidaya tanaman jenis Anthurium</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">15</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Cara / Proses Pembuatan Sablon</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">16</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Cara Pembuatan Cetakan Tegel dan Paving</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">17</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Ciri Masyarakat Desa</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">18</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Dampak dari gempa</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">19</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Emosi dan spiritual manusia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">20</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Fisika atom-Fisika Inti Radioaktif</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">21</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Gempa bumi dan dampak yang ditimbulkannya</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>22</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Gizi buruk di Indonesia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">23</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Hewan Ternak Ayam Petelur Dan Hasilnya Di Watutebok</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">24</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Hukum Newton</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">25</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Iman Kepada hari kiamat</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">26</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Induksi Elektromagnetik</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">27</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Islamic Economic As A Best Solution Toward Indonesian Proverty</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">28</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Istana Mangkunegara</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">29</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Jambu Mede (mete) dan Manfaatnya</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">30</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kadar protein susu kental manis</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">31</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kebudayaan Indonesia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">32</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kemiskinan yang Melanda Negara Kesatuan Republik Indonesia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>33</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kemolaran dan laju reaksi</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">34</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kenakalan Remaja</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">35</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kerajaan Islam di Demak</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">36</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kerajinan Kaca Tulis</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">37</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kerjasama Ekonomi International</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">38</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kisah Nabi Adam AS</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">39</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kisah Walisongo penyebar agama islam di jawa</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">40</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Koperasi sebagai solusi globalisasi</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">41</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Kraton Yogyakarta</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">42</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Laporan Hasil Praktek Gambar Bko</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">43</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Masalah Kesehatan di Indonesia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>44</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Masuknya Islam Di Nusantara dan Perkembangannya</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">45</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Medan Magnet</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">46</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Menghindari Dan Menjauhi Sikap Egois Dan Pemarah Dalam Kehidupan Sehari - Hari</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">47</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Menghindari dan menjauhi sikap egois dan pemarah dalam kehidupan sehari-hari</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">48</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Modernisasi terhadap perubahan sosial budaya di masyarakat</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">49</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Monumen Indonesia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">50</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Museum Kereta Api Ambarawa</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">51</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Museum Kereta Api Ambarawa</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">52</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pasar gemblegan</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">53</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pelestarian hutan bakau</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">54</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pelestarian Lingkungan Hidup</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>55</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pelestarian lingkungan untuk kehidupan manusia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">56</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pemanfaatan dan persebaran sumberdaya alam di Indonesia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">57</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pemilu</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">58</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pemupukan sebagai upaya pemanis buah</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">59</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Penelitian HIV / AIDS</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">60</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Penerapan Siklus Akuntansi Pada Perusahaan Jasa CV. Central Laundry</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">61</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pengaruh kadar detergen pada lingkungan</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">62</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pengaruh kadar detergen terhadap kehidupan</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">63</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pengaruh kerusakan alam terhadap kehidupan manusia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">64</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pengaruh vitamin dan pencahayaan terhadap pertumbuhan ayam kampung</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">65</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Penggunaan Kata Ulang dalam Karya Sastra</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">66</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Peng-Integrasi-an</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">67</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pentingnya Hukum di Indonesia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">68</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pentingnya peran ASI bagi bayi</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">69</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Penyalahgunaan Narkoba</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">70</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Peranan Keluarga dalam mencegah kenakalan remaja</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">71</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Perang Pangeran Diponegoro (1825 – 1830)</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">72</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pergaulan remaja secara islami</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">73</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Perkembangan bahasa Indonesia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">74</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Permasalahan Air dan banjir</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">75</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Produksi kerajinan perak di Kota Gede Jogjakarta</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">76</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Proses Pembuatan Shutlecock</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">77</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Proses Produksi dan pemasaran Kipas batik di Laweyan Surakarta</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">78</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Proses Produksi dan pembuatan kipas batik di laweyan</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">79</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Proses Produksi tenun lurik keong mas</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">80</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">PT. Nyonya Meneer - Semarang - Indonesia</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td width="33">81</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Pt. Sebagai Alternatif Usaha Mencari Laba Diperusahaan Jamu Jago</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>82</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Roman, Cerpen, dan Novel terhadap tinjauan komperatif</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>83</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Sejarah Keraton Solo (Surakarta)</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>84</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Sejarah Konferensi Asia Afrika</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>85</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Seks Bebas di Kalangan Remaja</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>86</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td>Seluk Beluk Madu</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>87</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Senyawa asam basa dan garam</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>88</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Sistem ekologi daerah aliran sungai</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>89</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Sistem Persamaan Linear dan Metode penyelesaiannya</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>90</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Sistem Reproduksi Vegetatif Tumbuhan Dan Reproduksi Generatif Pada Tumbuhan Gymnospermae Dan Angiospermae Beserta Penyerbukan Dan Pemencarannya</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>91</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">struktur atom hidrogen - sinar laser dan teknologi nuklir</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>92</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Teknik pembuatan biogas</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>93</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Teori terjadinya tatasurya</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>94</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Ternak ayam pedaging</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>95</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Ternak ayam petelur</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>96</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Terorisme Musuh Negara</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>97</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Upaya Penanggulangan bencana tanah longsor</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>98</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Upaya Penanggulangan pencemaran tanah</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>99</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Usaha Budidaya Kelapa Sawit dan pemanfaatan hasil serta aspek pemasarannya</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>100</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Usaha dan Energi</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>101</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Usaha Kecil dan Menengah di tengah Pasar Modern Surakarta</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>102</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Valentineday sebuah tragedi moral</td></p> <p>
+</tr></p> <p>
+<tr></p> <p>
+<td>103</td></p> <p>
+<td width="168">Karya Tulis Ilmiah</td></p> <p>
+<td width="31">:</td></p> <p>
+<td width="461">Zakat Perdagangan dan Hasil Pertanian</td></p> <p>
+</tr></p> <p>
+</tbody></p> <p>
+</table>
+	  </span>
+	  </p>
+
+<p><o:p>&nbsp;</o:p></p>
+<p><o:p>&nbsp;</o:p></p>
+		  <p>
+		  <span style='font-size:10.0pt;color:#000000'> 
+		  
+		  </span>
+		  </p>
+<br/>
+		
+			  <p style="background:#F9F9F9">
+				  <span style='font-size:10.0pt;color:#000000;'>
+					Post date: 2015-03-20 04:52:03<br>Post date GMT: 2015-03-20 04:52:03<br>
+					Post modified date: 2015-03-20 05:02:25<br>
+		Post modified date GMT: 2015-03-20 05:02:25 
+					<o:p></o:p>
+				   </span>
+			  </p>
+		
+		<p style="background:#F9F9F9">
+			<span style='font-size:9.0pt;color:#000000;'>
+			Powered by [ Universal Post Manager ] plugin. MS Word saving format developed by gVectors Team
+			</span>
+			<span style='font-size:9.0pt;color:#000000'>
+			<a href="http://www.gvectors.com" target="_blank">
+			www.gVectors.com
+			</a>
+			</span>
+		</p>
+
+
+<p><o:p>&nbsp;</o:p></p>
+</div>
+</body>
+</html>

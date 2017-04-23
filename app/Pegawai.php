@@ -293,4 +293,19 @@ class Pegawai extends Model
                   -> update(['id_pimpinan'=> $idPimpinan]);
     }
 
+        /**
+         * Method getFakultasPegawai untuk mendapatkan kode fakultas dari pegawai
+         * 
+         * @param string $username username pegawai yang akan diambil kode fakultasnya
+         * @return kode fakultas dari pegawai
+         */ 
+        public static function getProdiPegawai($username)
+    {
+        return DB::table('pegawai')
+            ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->select('dosen.kode_prodi_pengajaran')
+            ->where('pegawai.username',$username)
+            ->get();
+    }    
+
 }
