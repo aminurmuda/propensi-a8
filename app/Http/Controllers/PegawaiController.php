@@ -9,6 +9,7 @@ use App\program_studi;
 use App\fakultas;
 use App\dosen;
 use App\tendik;
+use App\Borang;
 use DB;
 
 class PegawaiController extends Controller
@@ -386,6 +387,13 @@ class PegawaiController extends Controller
 			$tahun = date('Y');
 		}
 
+		//poin 4.1
+		$standar4_json = Borang::getBorang(4,$selectedProdi,$tahun);
+		$isi = $standar4_json[0]->isi;
+		$standar4 = json_decode(stripslashes($isi),true);
+		// dd($standar4);
+		// var_dump($standar4_1);
+
 		//poin 4.3.1
 		$standar4_3_1 = Dosen::getDosenTetapSesuai($selectedProdi);
 
@@ -510,6 +518,7 @@ class PegawaiController extends Controller
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
+	            'standar4' => $standar4,
 	            'standar4_3_1' => $standar4_3_1,
 	            'standar4_3_2' => $standar4_3_2,
 	            'standar4_3_4' => $standar4_3_4,
@@ -648,7 +657,19 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		echo $kodeProdi;
+		// echo $kodeProdi;
+		$kodeStandarStr= str_replace("-",".",$kodeStandar);
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		//poin 4.1
+		$standar4_json = Borang::getBorang(4,$kodeProdi,$tahun);
+		$isi = $standar4_json[0]->isi;
+		$standar4 = json_decode(stripslashes($isi),true);
+
 			return view('update3a4-new',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
@@ -656,7 +677,9 @@ class PegawaiController extends Controller
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
 	            'kodeProdi' => $kodeProdi,
-	            'kodeStandar' => $kodeStandar
+	            'kodeStandar' => $kodeStandar,
+	            'standar4' => $standar4,
+	            'kodeStandarStr' => $kodeStandarStr
 			]);
 	}
 
@@ -744,9 +767,26 @@ class PegawaiController extends Controller
 			]);
 	}
 
-	public function submitKualitatif(Request $request) {
+	public function submitKualitatif(Request $request,$kodeStandar,$kodeProdi) {
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
 		$textarea=$request->get('textarea');
-		echo $textarea;
+
+		$nomorStandar = explode("_", $kodeStandar)[0];
+		$kodeStandarStr = str_replace("_",".", $kodeStandar);
+
+		$standar_json = Borang::getBorang($nomorStandar,$kodeProdi,2017);
+		$isi = $standar_json[0]->isi;
+		$standar = json_decode(stripslashes($isi),true);
+		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']=$textarea;
+		$encoded_json = json_encode($standar);
+		//masukin ke database
+		Borang::updateBorang($nomorStandar,$kodeProdi,2017,$encoded_json);
+		echo $standar['standar'.$nomorStandar][$kodeStandarStr]['isian'];
 		// $pimpinan = Pegawai::getPegawaiByUsername($username);
 		// $QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		// $kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login

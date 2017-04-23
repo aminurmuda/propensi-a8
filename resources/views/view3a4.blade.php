@@ -9,8 +9,6 @@
             <h3>Borang 3A, Standar 4</h3>
             <span> Sumber Daya Manusia </span>
 
-            <a href="{{ url('3a/standar4edit/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -28,7 +26,9 @@
 
                         Sistem seleksi/perekrutan, penempatan, pengembangan, retensi, dan pemberhentian dosen dan tenaga kependidikan untuk menjamin mutu penyelenggaraan program akademik.  <br><br>                          
 
+                        {!!$standar4['standar4']['4.1']['isian']!!}
                           <a href="{{ url('3a/standar4edit/4-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                        
 
                         </div>
                     </div>
@@ -51,11 +51,8 @@
                               Jelaskan sistem monitoring dan evaluasi, serta rekam jejak kinerja akademik dosen dan kinerja tenaga kependidikan (termasuk informasi tentang ketersediaan pedoman tertulis, dan monitoring dan evaluasi kinerja dosen dalam tridarma serta dokumentasinya). <br><br>
 
                               
-                             <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
-
-                              </textarea>
-                            </div>
+                             {!!$standar4['standar4']['4.2']['isian']!!}
+                          <a href="{{ url('3a/standar4edit/4-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
 
                         </div>
 
@@ -868,11 +865,8 @@
                     <br>                 
                     4.6.2 Jelaskan upaya yang telah dilakukan Program Studi dalam meningkatkan kualifikasi dan kompetensi tenaga kependidikan. <br><br>
 
-                            <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
-
-                              </textarea>
-                            </div>
+                            {!!$standar4['standar4']['4.6']['4.6.2']['isian']!!}
+                          <a href="{{ url('3a/standar4edit/4-6-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                         </div>
                     </div>
                 </div>
