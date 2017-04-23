@@ -127,15 +127,6 @@
   </div>
 
 
-  <script>
-
-            $('#confirmationModal').on('show.bs.modal', function(e) {
-          var username = e.relatedTarget.dataset.username;
-          document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+username+ " dari tim akreditasi?";
-          var link = document.getElementById("link");
-          var linkHapus = "hapus/"+username;
-        link.setAttribute("href", linkHapus);
-      });
-    </script>
+  
 
 @endsection
