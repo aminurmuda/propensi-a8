@@ -524,7 +524,8 @@ class PegawaiController extends Controller
 	            'arrA' => $arrA,
 	            'arrB' => $arrB,
 	            'arrC' => $arrC,
-	            'arrD' => $arrD
+	            'arrD' => $arrD,
+	            'kodeProdi' => $selectedProdi
 			]);
 	}		
 
@@ -642,17 +643,20 @@ class PegawaiController extends Controller
 			]);
 	}
 
-	public function edit3a4(Request $request) {
+	public function edit3a4(Request $request,$kodeStandar,$kodeProdi) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-			return view('update3a4',[
+		echo $kodeProdi;
+			return view('update3a4-new',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username
+	            'username' => $username,
+	            'kodeProdi' => $kodeProdi,
+	            'kodeStandar' => $kodeStandar
 			]);
 	}
 
@@ -738,6 +742,21 @@ class PegawaiController extends Controller
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username
 			]);
+	}
+
+	public function submitKualitatif(Request $request) {
+		$textarea=$request->get('textarea');
+		echo $textarea;
+		// $pimpinan = Pegawai::getPegawaiByUsername($username);
+		// $QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		// $kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		// 	return view('update3b7',[
+		// 		'role' => $request->session()->get('role'),
+	 //            'user' => $request->session()->get('user'),
+	 //            'pegawai' => $pimpinan,      
+	 //            'kode_fakultas' => $kodeFakultasPengguna,  
+	 //            'username' => $username
+		// 	]);
 	}
 
 }
