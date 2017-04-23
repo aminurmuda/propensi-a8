@@ -209,4 +209,21 @@ class dosen extends Model
             ->where(DB::raw("year('kegiatan_dosen.waktu')"),">=",$tahun_min)
             ->get();
     } 
+
+            public static function getDosenSKSAktivitasTetapSesuai($kode_prodi,$tahun)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->leftjoin('dosen_mata_kuliah', 'dosen.id_dosen', '=', 'dosen_mata_kuliah.id_dosen')
+            ->leftjoin('mata_kuliah', 'mata_kuliah.kode_mata_kuliah', '=', 'dosen_mata_kuliah.kode_mata_kuliah')
+            ->leftjoin('pengmas_dosen', 'pengmas_dosen.id_dosen', '=', 'dosen.id_dosen')
+            ->leftjoin('proyek', 'proyek.id_dosen', '=', 'dosen.id_dosen')
+            ->leftjoin('manajemen_dosen', 'manajemen_dosen.id_dosen', '=', 'dosen.id_dosen')
+            ->select('pegawai.nama as namaPegawai','pengmas_dosen.sks as sks_pengmas','proyek.sks_penelitian','mata_kuliah.sesi','mata_kuliah.isProdiSendiri','mata_kuliah.isPT','manajemen_dosen.sks as sks_manajemen','manajemen_dosen.isPTSendiri')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.flag_kesesuaian',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->get();
+    }    
 }

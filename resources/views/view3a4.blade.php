@@ -227,54 +227,105 @@
                                 <th>PS sendiri</th>
                                 <th>PS lain PT sendiri</th>
                                 <th>PT lain</th>
-                                <th>PT sendiri</th>
-                                <th>PT lain</th>
+                                <th>PT Sendiri</th>
+                                <th>PT Lain</th>
                               </tr>                              
                               <tr>
-                                <td >1</td>
-                                <td >January</td>
-                                <td >January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                                <td >$50</td>
-                                <td >$50</td>                                
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td>(7)</td> 
+                                <td>(8)</td>                         
+                                <td>(9)</td>                         
+                                <td>(10)</td>                         
                               </tr>
+                              <?php $i=1; 
+                              $sksPengajaranPSSendiri=0;
+                              $sksPengajaranPSLain=0;
+                              $sksPengajaranPTLain=0;
+                              $sksPenelitian=0;
+                              $sksPengmas=0;
+                              $sksManajemenPTSendiri=0;
+                              $sksManajemenPTLain=0;
+                              ?>
+                            @foreach($standar4_3_3 as $standar4_3_3 )
+                              <?php $jumlahSKS=0 ?>
                               <tr>
-                                <td >1</td>
-                                <td >January</td>
-                                <td >January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                                <td >$50</td>
-                                <td >$50</td>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_3_3 -> namaPegawai}}</td>
+                                @if($standar4_3_3 -> isProdiSendiri ==1)
+                                <td>{{$standar4_3_3 -> sesi}}</td>
+                                <?php $jumlahSKS+=$standar4_3_3 -> sesi;
+                                $sksPengajaranPSSendiri+=$standar4_3_3 -> sesi;
+                                ?>
+                                @else
+                                    <td></td>
+                                @endif
+                                @if($standar4_3_3 -> isProdiSendiri ==0)
+                                  <td>{{$standar4_3_3 -> sesi}}</td>
+                                  <?php $jumlahSKS+=$standar4_3_3 -> sesi;
+                                  $sksPengajaranPSLain+=$standar4_3_3 -> sesi;
+                                  ?>
+                                @else 
+                                  <td></td>
+                                @endif
+                                @if($standar4_3_3 -> isPT == 0)
+                                  <td>{{$standar4_3_3 -> sesi}}</td>
+                                  <?php $jumlahSKS+=$standar4_3_3 -> sesi;
+                                  $sksPengajaranPTLain+=$standar4_3_3 -> sesi;?>
+                                @else
+                                  <td></td>
+                                @endif
+                                <td>{{$standar4_3_3 -> sks_penelitian}}</td>
+                                <?php $jumlahSKS+=$standar4_3_3 -> sks_penelitian;
+                                $sksPenelitian+=$standar4_3_3 -> sks_penelitian;
+                                ?>
+
+                                <td>{{$standar4_3_3 -> sks_pengmas}}</td>
+                                <?php $jumlahSKS+=$standar4_3_3 -> sks_pengmas;
+                                $sksPengmas+=$standar4_3_3 -> sks_pengmas?>
+                                @if($standar4_3_3 -> isPTSendiri == 1)
+                                  <td>{{$standar4_3_3 -> sks_manajemen}}</td>
+                                  <?php $jumlahSKS+=$standar4_3_3 -> sks_manajemen;
+                                  $sksManajemenPTSendiri+=$standar4_3_3 -> sks_manajemen;?>
+                                @else
+                                  <td></td>
+                                @endif
+                                @if($standar4_3_3 -> isPTSendiri == 0)
+                                  <td>{{$standar4_3_3 -> sks_manajemen}}</td>
+                                  <?php $jumlahSKS+=$standar4_3_3 -> sks_manajemen;
+                                  $sksManajemenPTLain+=$standar4_3_3 -> sks_manajemen;?>
+                                @else
+                                  <td></td>
+                                @endif
+                                <td>{{$jumlahSKS}}</td>
                               </tr>
+                              <?php $i++?>
+                              @endforeach    
                               <tr>
                                 <td colspan="2">Jumlah</td>
-                                <td >January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                                <td >$50</td>
-                                <td >$50</td>                                
+                                <td >{{ $sksPengajaranPSSendiri }}</td>
+                                <td >{{ $sksPengajaranPSLain }}</td>
+                                <td >{{ $sksPengajaranPTLain }}</td>
+                                <td >{{ $sksPenelitian }}</td>
+                                <td >{{ $sksPengmas }}</td>
+                                <td >{{ $sksManajemenPTSendiri }}</td>                                
+                                <td >{{ $sksManajemenPTLain }}</td>
+                                <td >{{ $sksTotal = $sksPengajaranPSSendiri+$sksPengajaranPSLain+$sksPengajaranPTLain+$sksPenelitian+$sksPengmas+$sksManajemenPTSendiri+$sksManajemenPTLain }}</td>                                
                               </tr> 
                               <tr>
                                 <td colspan="2">Rata-rata*</td>
-                                <td >January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                                <td >$50</td>
-                                <td >$50</td>                                
+                                <td >{{ $sksPengajaranPSSendiri/$i }}</td>
+                                <td >{{ $sksPengajaranPSLain/$i }}</td>
+                                <td >{{ $sksPengajaranPTLain/$i }}</td>
+                                <td >{{ $sksPenelitian/$i }}</td>
+                                <td >{{ $sksPengmas/$i }}</td>
+                                <td >{{ $sksManajemenPTSendiri/$i }}</td>                                
+                                <td >{{ $sksManajemenPTLain/$i }}</td>
+                                <td >{{ $sksTotal/$i }}</td>
                               </tr>                                                                                            
                               </table>
                             </div>                             
@@ -770,7 +821,7 @@
                           <td>(4)</td>
                           <td>(5)</td>                          
                         </tr> 
-                        <?php $i=0 ?>
+                        <?php $i=1 ?>
                         @foreach($standar4_5_5 as $standar4_5_5)                     
                         <tr>
                           <th scope="row">{{$i}}</th>

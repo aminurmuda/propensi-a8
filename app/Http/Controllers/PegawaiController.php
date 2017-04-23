@@ -401,6 +401,10 @@ class PegawaiController extends Controller
 		$standar4_3_2 = Dosen::getDosenTetapTidakSesuai($selectedProdi);
 
 		//poin 4.3.4
+		$standar4_3_3 = Dosen::getDosenSKSAktivitasTetapSesuai($selectedProdi,$tahun);
+		// dd($standar4_3_3);
+
+		//poin 4.3.4
 		$standar4_3_4 = Dosen::getDosenTetapPSAktivitas($selectedProdi,$tahun);
 		//poin 4.3.5
 		$standar4_3_5 = Dosen::getDosenTetapTidakPSAktivitas($selectedProdi,$tahun);
@@ -438,17 +442,17 @@ class PegawaiController extends Controller
 			$arrA[8] = $standar4_6_1_a -> unit_kerja;
 			if ($riwayat_pendidikan=='D1') {
 				$arrA[0]+=1;
-			} else if ($riwayat_pendidikan=='D1') {
-				$arrA[1]+=1;
 			} else if ($riwayat_pendidikan=='D2') {
-				$arrA[2]+=1;
+				$arrA[1]+=1;
 			} else if ($riwayat_pendidikan=='D3') {
-				$arrA[3]+=1;
+				$arrA[2]+=1;
 			} else if ($riwayat_pendidikan=='D4') {
-				$arrA[4]+=1;
+				$arrA[3]+=1;
 			} else if ($riwayat_pendidikan=='S1') {
-				$arrA[5]+=1;
+				$arrA[4]+=1;
 			} else if ($riwayat_pendidikan=='S2') {
+				$arrA[5]+=1;
+			} else if ($riwayat_pendidikan=='S3') {
 				$arrA[6]+=1;
 			} else {
 				$arrA[7]+=1;
@@ -465,17 +469,17 @@ class PegawaiController extends Controller
 			$arrB[8] = $standar4_6_1_b -> unit_kerja;
 			if ($riwayat_pendidikan=='D1') {
 				$arrB[0]+=1;
-			} else if ($riwayat_pendidikan=='D1') {
-				$arrB[1]+=1;
 			} else if ($riwayat_pendidikan=='D2') {
-				$arrB[2]+=1;
+				$arrB[1]+=1;
 			} else if ($riwayat_pendidikan=='D3') {
-				$arrB[3]+=1;
+				$arrB[2]+=1;
 			} else if ($riwayat_pendidikan=='D4') {
-				$arrB[4]+=1;
+				$arrB[3]+=1;
 			} else if ($riwayat_pendidikan=='S1') {
-				$arrB[5]+=1;
+				$arrB[4]+=1;
 			} else if ($riwayat_pendidikan=='S2') {
+				$arrB[5]+=1;
+			} else if ($riwayat_pendidikan=='S3') {
 				$arrB[6]+=1;
 			} else {
 				$arrB[7]+=1;
@@ -493,17 +497,17 @@ class PegawaiController extends Controller
 			$arrC[8] = $standar4_6_1_c -> unit_kerja;
 			if ($riwayat_pendidikan=='D1') {
 				$arrC[0]+=1;
-			} else if ($riwayat_pendidikan=='D1') {
-				$arrC[1]+=1;
 			} else if ($riwayat_pendidikan=='D2') {
-				$arrC[2]+=1;
+				$arrC[1]+=1;
 			} else if ($riwayat_pendidikan=='D3') {
-				$arrC[3]+=1;
+				$arrC[2]+=1;
 			} else if ($riwayat_pendidikan=='D4') {
-				$arrC[4]+=1;
+				$arrC[3]+=1;
 			} else if ($riwayat_pendidikan=='S1') {
-				$arrC[5]+=1;
+				$arrC[4]+=1;
 			} else if ($riwayat_pendidikan=='S2') {
+				$arrC[5]+=1;
+			} else if ($riwayat_pendidikan=='S3') {
 				$arrC[6]+=1;
 			} else {
 				$arrC[7]+=1;
@@ -521,6 +525,7 @@ class PegawaiController extends Controller
 	            'standar4' => $standar4,
 	            'standar4_3_1' => $standar4_3_1,
 	            'standar4_3_2' => $standar4_3_2,
+				'standar4_3_3' => $standar4_3_3,
 	            'standar4_3_4' => $standar4_3_4,
 	            'standar4_3_5' => $standar4_3_5,
 	            'standar4_4_1' => $standar4_4_1,
