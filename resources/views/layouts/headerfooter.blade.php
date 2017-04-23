@@ -57,12 +57,11 @@
                         @if($role!='Admin')
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3A <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                @if($role!='Pimpinan Universitas' && $role!='Reviewer Universitas' && $role!='Admin')
+                                @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi')
                                 <li><a href="{{ url('3a/standar2/'.$kode_fakultas) }}">Standar 2</a></li>
                                 <li><a href="{{ url('3a/standar4/'.$kode_fakultas) }}">Standar 4</a></li>
                                 <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">Standar 7</a></li>
-                                @endif
-                                @if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas')
+                                @else
                                 <li><a href="{{ url('3a/standar2') }}">Standar 2</a></li>
                                 <li><a href="{{ url('3a/standar4') }}">Standar 4</a></li>
                                 <li><a href="{{ url('3a/standar7') }}">Standar 7</a></li>
@@ -74,12 +73,11 @@
                         @if($role!='Admin')
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3B <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                               @if($role!='Pimpinan Universitas' && $role!='Reviewer Universitas' && $role!='Admin')
+                               @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi')
                                 <li><a href="{{ url('3b/standar2/'.$kode_fakultas) }}">Standar 2</a></li>
                                 <li><a href="{{ url('3b/standar4/'.$kode_fakultas) }}">Standar 4</a></li>
                                 <li><a href="{{ url('3b/standar7/'.$kode_fakultas) }}">Standar 7</a></li>
-                                @endif
-                                @if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas')
+                                @else 
                                 <li><a href="{{ url('3b/standar2') }}">Standar 2</a></li>
                                 <li><a href="{{ url('3b/standar4') }}">Standar 4</a></li>
                                 <li><a href="{{ url('3b/standar7') }}">Standar 7</a></li>
@@ -111,9 +109,9 @@
                         
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ url('3b/standar2') }}">3A, Standar 2</a></li>
-                                <li><a href="{{ url('3b/standar4') }}">3A, Standar 4</a></li>
-                                <li><a href="{{ url('3b/standar7') }}">3A, Standar 7</a></li>
+                                <li><a href="{{ url('3a/standar2') }}">3A, Standar 2</a></li>
+                                <li><a href="{{ url('3a/standar4') }}">3A, Standar 4</a></li>
+                                <li><a href="{{ url('3a/standar7') }}">3A, Standar 7</a></li>
 
                                 <li><a href="{{ url('3b/standar2') }}">3B, Standar 2</a></li>
                                 <li><a href="{{ url('3b/standar4') }}">3B, Standar 4</a></li>

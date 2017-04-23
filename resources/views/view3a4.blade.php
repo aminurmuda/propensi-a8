@@ -7,8 +7,9 @@
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3A, Standar 4</h3>
-            <span> Sumber Daya Manusia </span>
-
+            <span> Sumber Daya Manusia </span><br>
+            <span> Program Studi {{$prodiBorang->nama_prodi}} </span><br>
+            <span> Tahun {{$tahun}} </span>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -27,8 +28,9 @@
                         Sistem seleksi/perekrutan, penempatan, pengembangan, retensi, dan pemberhentian dosen dan tenaga kependidikan untuk menjamin mutu penyelenggaraan program akademik.  <br><br>                          
 
                         {!!$standar4['standar4']['4.1']['isian']!!}
+                        @if($role=='Tim Akreditasi' || $role=='Admin' )
                           <a href="{{ url('3a/standar4edit/4-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                        
+                        @endif
 
                         </div>
                     </div>
@@ -52,7 +54,9 @@
 
                               
                              {!!$standar4['standar4']['4.2']['isian']!!}
+                          @if($role=='Tim Akreditasi' || $role=='Admin' )
                           <a href="{{ url('3a/standar4edit/4-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                          @endif
 
                         </div>
 
@@ -353,7 +357,7 @@
                                 <th rowspan="2">#</th>
                                 <th rowspan="2">Nama Dosen Tetap</th>
                                 <th rowspan="2">Bidang Keahlian</th>
-                                <th colspan="5">Tahun Akademik 2016/2017</th>
+                                <th colspan="5">Tahun Akademik {{$tahun-1}}/{{$tahun}}</th>
                               </tr>
                               <tr>
                                 <th>Kode Mata Kuliah</th>
@@ -543,7 +547,7 @@
                                 <th rowspan="2">#</th>
                                 <th rowspan="2">Nama Dosen Tetap</th>
                                 <th rowspan="2">Bidang Keahlian</th>
-                                <th colspan="5">Tahun Akademik 2016/2017</th>
+                                <th colspan="5">Tahun Akademik {{$tahun-1}}/{{$tahun}}</th>
                               </tr>
                               <tr>
                                 <th>Kode Mata Kuliah</th>
@@ -917,7 +921,9 @@
                     4.6.2 Jelaskan upaya yang telah dilakukan Program Studi dalam meningkatkan kualifikasi dan kompetensi tenaga kependidikan. <br><br>
 
                             {!!$standar4['standar4']['4.6']['4.6.2']['isian']!!}
+                            @if($role=='Tim Akreditasi' || $role=='Admin' )
                           <a href="{{ url('3a/standar4edit/4-6-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                          @endif
                         </div>
                     </div>
                 </div>

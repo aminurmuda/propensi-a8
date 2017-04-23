@@ -17,6 +17,7 @@
                     </div>
 
                     <form action="{{url(Route::current()->getName().'/submit')}}">
+                    <!-- <form action="" onsubmit="submitProdi()"> -->
                     {{csrf_field()}}
                     <div class="plan-div">
                           <div class="form-group">
@@ -32,7 +33,7 @@
                         <!-- <a href="#" class="btn db-button-color-square btn-m round">Pilih</a> -->
                         <button class="btn db-button-color-square btn-m round" type="submit"> Pilih </button>                        
                     </div>
-                    </form>                    
+                    </form> 
                 </div>
             </div>
         </div>

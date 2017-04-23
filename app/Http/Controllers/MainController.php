@@ -99,9 +99,6 @@ class MainController extends Controller
 					]
 					);
 			} elseif($userIsReviewerProdi) { //reviewer prodi
-
-				$request->session()->put('role', 'Admin');;
-
 				$request->session()->put('role', 'Reviewer Prodi');;
 
 				return view ('home', [
@@ -110,14 +107,21 @@ class MainController extends Controller
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]
 					);
-			} else { //reviewer univ
-
-				$request->session()->put('role', 'Admin');;
+			} elseif($userIsReviewerUniv) { //reviewer univ
 				$request->session()->put('role', 'Reviewer Universitas');;
 
 				return view ('home', [
 					'user' => $username,
 					'role' => 'Reviewer Universitas',
+					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
+					]
+					);
+			} else { //UPMAF
+				$request->session()->put('role', 'UPMAF');;
+
+				return view ('home', [
+					'user' => $username,
+					'role' => 'UPMAF',
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
 					]
 					);
