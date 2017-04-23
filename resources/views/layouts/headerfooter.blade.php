@@ -51,7 +51,10 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('home') }}" class="">Home</a></li>
 
-                        <!-- role tim akreditasi --> 
+                        
+                        
+                        
+                        @if($role!='Admin')
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3A <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 @if($role!='Pimpinan Universitas' && $role!='Reviewer Universitas' && $role!='Admin')
@@ -59,14 +62,16 @@
                                 <li><a href="{{ url('3a/standar4/'.$kode_fakultas) }}">Standar 4</a></li>
                                 <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">Standar 7</a></li>
                                 @endif
-                                @if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas' || $role=='Admin')
+                                @if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas')
                                 <li><a href="{{ url('3a/standar2') }}">Standar 2</a></li>
                                 <li><a href="{{ url('3a/standar4') }}">Standar 4</a></li>
                                 <li><a href="{{ url('3a/standar7') }}">Standar 7</a></li>
                                 @endif
                             </ul>
                         </li>
+                        @endif
 
+                        @if($role!='Admin')
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3B <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                @if($role!='Pimpinan Universitas' && $role!='Reviewer Universitas' && $role!='Admin')
@@ -74,13 +79,14 @@
                                 <li><a href="{{ url('3b/standar4/'.$kode_fakultas) }}">Standar 4</a></li>
                                 <li><a href="{{ url('3b/standar7/'.$kode_fakultas) }}">Standar 7</a></li>
                                 @endif
-                                @if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas' || $role=='Admin')
+                                @if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas')
                                 <li><a href="{{ url('3b/standar2') }}">Standar 2</a></li>
                                 <li><a href="{{ url('3b/standar4') }}">Standar 4</a></li>
                                 <li><a href="{{ url('3b/standar7') }}">Standar 7</a></li>
                                 @endif
                             </ul>
                         </li>
+                        @endif
 
                         <li><a href="#">Evaluasi Diri</a></li>
 
@@ -102,12 +108,26 @@
 
                         <!-- role super admin -->
                         @if ($role=='Admin')
-                        <li><a href="{{ url('kelolapimpinan/'.$user) }}">Kelola Pimpinan</a></li>
+                        
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ url('3b/standar2') }}">3A, Standar 2</a></li>
+                                <li><a href="{{ url('3b/standar4') }}">3A, Standar 4</a></li>
+                                <li><a href="{{ url('3b/standar7') }}">3A, Standar 7</a></li>
 
-                        <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola Tim Akreditasi <span class="caret"></span></a>
+                                <li><a href="{{ url('3b/standar2') }}">3B, Standar 2</a></li>
+                                <li><a href="{{ url('3b/standar4') }}">3B, Standar 4</a></li>
+                                <li><a href="{{ url('3b/standar7') }}">3B, Standar 7</a></li>
+
+                            </ul>
+
+                        </li>
+
+                        <li class="dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola<span class="caret"></span></a>
                            <ul class="dropdown-menu">
-                                <li><a href="{{ url('/timakreditasi/tambah/') }}">Tambah Pengguna</a></li>
-                                <li><a href="{{ url('/timakreditasi/kelola/') }}">Lihat dan Hapus Pengguna</a></li>
+                                <li><a href="{{ url('/timakreditasi/tambah/') }}">Tambah Tim Akreditasi</a></li>
+                                <li><a href="{{ url('/timakreditasi/kelola/') }}">Lihat dan Hapus Tim Akreditasi</a></li>
+                                <li><a href="{{ url('kelolapimpinan/'.$user) }}">Kelola Pimpinan</a></li>
     
                             </ul>
                         </li>

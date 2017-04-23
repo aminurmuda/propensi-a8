@@ -9,7 +9,7 @@
         <div class="col-md-4 col-md-offset-0" >
             
            
-
+           <h2>Modul Akreditasi </h2>
             <div class="db-wrapper">
                 <div class="db-pricing-eleven db-bk-color-one">
                     <div class="price">

@@ -12,6 +12,7 @@ body {
 
 
 
+
 .dropdownstandar li a:hover{
     background-color: #1875c5;
     color: white !important;
@@ -381,7 +382,7 @@ h3 {
         /* #bs-collapse icon scale option */
         
         .panel-heading a:before {
-            content: '\e146';
+            
             position: absolute;
             font-family: 'Material Icons';
             right: 5px;
