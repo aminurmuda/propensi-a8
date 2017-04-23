@@ -117,7 +117,7 @@ class Pegawai extends Model
     public static function deleteTimAkreditasi($username) {
         return DB::table('pegawai')
                     ->where('username', $username)
-                    ->update(['isTimAkreditasi'=> 0]);
+                    ->update(['isTimAkreditasi'=> 0, 'id_prodi_tim_akreditasi' => null]);
     }
 
     /**
@@ -126,10 +126,10 @@ class Pegawai extends Model
      * @param string $username username pegawai yang akan menjadi anggota tim akreditasi
      * @return pegawai dengan $username  menjadi anggota tim akreditasi
      */      
-    public static function addTimAkreditasi($username) {
+    public static function addTimAkreditasi($username, $kode_prodi) {
         return DB::table('pegawai')
                     ->where('username', $username)
-                    ->update(['isPimpinan'=> 0, 'isTimAkreditasi'=> 1, 'id_pimpinan'=> null]);
+                    ->update(['isPimpinan'=> 0, 'isTimAkreditasi'=> 1, 'id_pimpinan'=> null, 'id_prodi_tim_akreditasi' => $kode_prodi]);
     }
 
     /**
@@ -206,7 +206,7 @@ class Pegawai extends Model
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
-            ->select('pegawai.nama', 'pegawai.no_pegawai','pegawai.username')
+            ->select('pegawai.nama', 'pegawai.no_pegawai','pegawai.username', 'program_studi.nama_prodi')
             ->where('pegawai.isTimAkreditasi',1)
             ->where('program_studi.kode_fakultas',$kode_fakultas)
             ->get();
@@ -241,6 +241,15 @@ class Pegawai extends Model
         ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
         ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
         ->select('pegawai.nama', 'pegawai.no_pegawai','pegawai.username','program_studi.nama_prodi')
+        ->where('pegawai.username',$username)
+        ->get();
+    }
+
+    public static function lihatProdiTimAkreditasi($username) {
+        return DB::table('pegawai')
+        ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+        ->join('program_studi', 'program_studi.kode_prodi', '=', 'pegawai.id_prodi_tim_akreditasi')
+        ->select('program_studi.nama_prodi')
         ->where('pegawai.username',$username)
         ->get();
     }
