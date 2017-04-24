@@ -750,7 +750,7 @@ class PegawaiController extends Controller
 		
 		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
 		$role=$request->session()->get('role');
-		if($role!='Tim Akreditasi' || $role!='Admin') {
+		if($role!='Tim Akreditasi' && $role!='Admin') {
 			return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
 					'role' => $role,
@@ -1039,9 +1039,13 @@ class PegawaiController extends Controller
 	}
 
 	public function submitKualitatif(Request $request,$kodeStandar,$kodeProdi) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
 		$role=$request->session()->get('role');
-		if($role!='Tim Akreditasi' || $role!='Admin') {
+		if($role!='Tim Akreditasi' && $role!='Admin') {
 			return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
 					'role' => $role,
@@ -1058,20 +1062,20 @@ class PegawaiController extends Controller
 
 		$textarea=$request->get('textarea');
 
-		$nomorStandar = explode("_", $kodeStandar)[0];
-		$kodeStandarStr = str_replace("_",".", $kodeStandar);
+		$nomorStandar = explode("-", $kodeStandar)[0];
+		$kodeStandarStr = str_replace("-",".", $kodeStandar);
 
-		$standar_json = Borang::getBorang($nomorStandar,$kodeProdi,2017);
+		$standar_json = Borang::getBorang($nomorStandar,$kodeProdi,$tahun);
 		$isi = $standar_json[0]->isi;
 		$standar = json_decode(stripslashes($isi),true);
 		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']=$textarea;
 		$encoded_json = json_encode($standar);
 		//masukin ke database
-		Borang::updateBorang($nomorStandar,$kodeProdi,2017,$encoded_json);
-		echo $standar['standar'.$nomorStandar][$kodeStandarStr]['isian'];
-		// $pimpinan = Pegawai::getPegawaiByUsername($username);
-		// $QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
-		// $kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		Borang::updateBorang($nomorStandar,$kodeProdi,$tahun,$encoded_json);
+		// echo $standar['standar'.$nomorStandar][$kodeStandarStr]['isian'];
+		
+		// PegawaiController::lihat3a4( $request, $kodeProdi);
+		return redirect('3a/standar'.$nomorStandar.'/'.$kodeProdi);
 		// 	return view('update3b7',[
 		// 		'role' => $request->session()->get('role'),
 	 //            'user' => $request->session()->get('user'),
