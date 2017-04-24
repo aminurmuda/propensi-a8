@@ -8,9 +8,9 @@
     <div class="row">
         <div class="col-md-12" >
             <div class="db-wrapper">
-            <h1>Update Borang 3B Standar {{$kodeStandarStr}}</h1>
+            <h1>Update Borang 3B Standar {{$kodeStandarStr}}</h1><br>
             
-            <p>{{$standar2['standar2'][$kodeStandarStr]['perintah'] }}</p>
+            <p>{{$standar2['standar2'][$kodeStandarStr]['perintah'] }}</p><br>
             
                           <form action="{{url('3b/standar2edit/'.$kodeStandar.'/'.$kodeProdi.'/submit')}}">
                           {{csrf_field()}}

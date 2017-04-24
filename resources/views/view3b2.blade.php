@@ -18,32 +18,28 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#one">
-         
-         2.1 Tata Pamong
+         {!!$standar2['standar2']['2.1']['judul']!!}
         </a>
       </h4>
                     </div>
                     <div id="one" class="panel-collapse collapse">
                         <div class="panel-body">
-                            Tata pamong adalah suatu sistem yang dapat menjadikan kepemimpinan, 
-                            sistem pengelolaan dan penjaminan mutu berjalan secara efektif di 
-                            dalam universitas/institusi yang mengelola program studi.  Hal-hal 
-                            yang menjadi fokus di dalam tata pamong termasuk bagaimana kebijakan 
-                            dan strategi disusun sedemikian rupa sehingga memungkinkan terpilihnya
-                            pemimpin dan pengelola yang kredibel dan sistem penyelenggaraan program
-                             studi secara kredibel, transparan, akuntabel, bertanggung jawab dan 
-                             menerapkan prinsip-prinsip keadilan.
-                            Organisasi dan sistem tata pamong yang baik <i>(good governance)</i> mencerminkan
-                             kredibilitas, transparansi, akuntabilitas, tanggungjawab dan keadilan 
-                             Fakultas/Sekolah Tinggi dalam mengelola program studi. 
+                            {!!$standar2['standar2']['2.1']['narasi']!!}
                              <br><br>
 
 
-                             Uraikan secara ringkas sistem dan pelaksanaan tata pamong di Fakultas/Sekolah Tinggi untuk memilih pemimpin dan membangun sistem tata pamong yang kredibel, akuntabel, transparan, bertanggung jawab dan adil. <br><br>
+                              {!!$standar2['standar2']['2.1']['perintah']!!}<br><br>
 
 
-                            
-                            <a href="{{ url('3b/standar4edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <textarea class="form-control" rows="5" readonly>
+
+                              {!!$standar2['standar2']['2.1']['isian']!!}
+
+                              </textarea><br>
+
+                            @if($role=='Admin' || $role=='Tim Akreditasi')
+                            <a href="{{ url('3b/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                            @endif
                         </div>
                     </div>
 
@@ -54,7 +50,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#two">
-       2.2  Struktur Organisasi, Kordinasi, dan Cara Kerja Fakultas/Sekolah Tinggi
+       {!!$standar2['standar2']['2.2']['judul']!!}
         </a>
       </h4>
                     </div>
@@ -62,12 +58,18 @@
                         <div class="panel-body">
 
 
-                             Gambarkan struktur organisasi  Fakultas/Sekolah Tinggi serta tugas/fungsi dari tiap unit yang ada. <br><br>
+                             {!!$standar2['standar2']['2.2']['perintah']!!} <br><br>
 
                              <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
+                              <textarea class="form-control" rows="5" readonly>
+                              {!!$standar2['standar2']['2.2']['isian']!!}
 
-                              </textarea>
+                              </textarea><br>
+
+                               @if($role=='Admin' || $role=='Tim Akreditasi')
+                              <a href="{{ url('3b/standar2edit/2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              @endif
+
                             </div>
 
                         </div>
@@ -81,40 +83,28 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#three">
-          2.3 Kepemimpinan
+          {!!$standar2['standar2']['2.3']['judul']!!}
         </a>
       </h4>
                     </div>
                     <div id="three" class="panel-collapse collapse">
                         <div class="panel-body">
-                            Kepemimpinan efektif mengarahkan dan mempengaruhi perilaku
-                            semua unsur dalam program studi, mengikuti nilai, norma, etika,
-                            dan budaya organisasi yang disepakati bersama, serta mampu 
-                            membuat keputusan yang tepat dan cepat.
-                            Kepemimpinan mampu memprediksi masa depan, merumuskan dan 
-                            mengartikulasi visi yang realistis, kredibel, 
-                            serta mengkomunikasikan visi ke depan, yang menekankan pada 
-                            keharmonisan hubungan manusia dan mampu menstimulasi secara 
-                            intelektual dan arif bagi anggota untuk mewujudkan visi organisasi, 
-                            serta mampu memberikan arahan, tujuan, peran, dan tugas kepada 
-                            seluruh unsur dalam perguruan tinggi. Dalam menjalankan fungsi 
-                            kepemimpinan dikenal kepemimpinan operasional, kepemimpinan 
-                            organisasi, dan kepemimpinan publik.  Kepemimpinan operasional 
-                            berkaitan dengan kemampuan menjabarkan visi, misi ke dalam 
-                            kegiatan operasional program studi.  Kepemimpinan organisasi 
-                            berkaitan dengan pemahaman tata kerja antar unit dalam organisasi 
-                            perguruan tinggi.  Kepemimpinan publik berkaitan dengan kemampuan 
-                            menjalin kerjasama dan menjadi rujukan bagi publik.
+                            {!!$standar2['standar2']['2.3']['narasi']!!}
                             <br><br>
 
 
-                            Jelaskan pola kepemimpinan dalam Fakultas/Sekolah Tinggi. <br><br>
+                            {!!$standar2['standar2']['2.3']['perintah']!!} <br><br>
 
 
                             <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
+                              <textarea class="form-control" rows="5" readonly>
+                              {!!$standar2['standar2']['2.3']['isian']!!}
+                              </textarea><br>
 
-                              </textarea>
+                               @if($role=='Admin' || $role=='Tim Akreditasi')
+                              <a href="{{ url('3b/standar2edit/2-3/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              @endif
+
                             </div>
                         </div>
                     </div>
@@ -125,23 +115,28 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#four">
-         2.4 Sistem Pengelolaan
+         {!!$standar2['standar2']['2.4']['judul']!!}
         </a>
       </h4>
                     </div>
                     <div id="four" class="panel-collapse collapse ">
                         <div class="panel-body">
 
-                            Sistem pengelolaan fungsional dan operasional program studi mencakup <i>planning, organizing, staffing, leading, controlling,</i> serta operasi internal dan eksternal
+                            {!!$standar2['standar2']['2.4']['narasi']!!}
                             <br><br>
 
-                            Jelaskan sistem pengelolaan Fakultas/Sekolah Tinggi serta ketersediaan Renstra dan Renop. <br><br>
+                             {!!$standar2['standar2']['2.4']['perintah']!!}<br><br>
 
 
                             <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
+                              <textarea class="form-control" rows="5" readonly>
+                              {!!$standar2['standar2']['2.4']['isian']!!}
+                              </textarea><br>
 
-                              </textarea>
+                               @if($role=='Admin' || $role=='Tim Akreditasi')
+                              <a href="{{ url('3b/standar2edit/2-4/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              @endif
+
                             </div>
 
                         </div>
@@ -154,20 +149,26 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#five">
-          2.5 Sistem Penjaminan Mutu Fakultas/Sekolah Tinggi
+         {!!$standar2['standar2']['2.5']['judul']!!}
         </a>
       </h4>
                     </div>
                     <div id="five" class="panel-collapse collapse">
                         <div class="panel-body">
 
-                            Jelaskan sistem penjaminan mutu dalam Fakultas/Sekolah Tinggi.  Jelaskan pula standar mutu yang digunakan. <br> <br>
+                            {!!$standar2['standar2']['2.5']['perintah']!!} <br> <br>
 
 
                             <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
+                              <textarea class="form-control" rows="5" readonly>
+                              {!!$standar2['standar2']['2.5']['isian']!!}
 
-                              </textarea>
+                              </textarea><br>
+
+                               @if($role=='Admin' || $role=='Tim Akreditasi')
+                              <a href="{{ url('3b/standar2edit/2-5/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              @endif
+
                             </div>
                             
                         </div>
