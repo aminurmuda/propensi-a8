@@ -124,40 +124,36 @@
                             <tr>
                                 <td>1</td>
                                 <td>S1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arr1 as $d)
+                                <td>{{$d['S1']}}</td>
+                                @endforeach
                                 <td></td>
                             </tr>
 
                             <tr>
                                 <td>2</td>
                                 <td>S2/Profesi/Sp-1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arr1 as $d)
+                                <td>{{$d['S2']}}</td>
+                                @endforeach
                                 <td></td>
                             </tr>
 
                             <tr>
                                 <td>3</td>
                                 <td>S3/Sp-2</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arr1 as $d)
+                                <td>{{$d['S3']}}</td>
+                                @endforeach
                                 <td></td>
                             </tr>
 
                             <tr>
                                 <td colspan="2"><b>Total</b></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arr1 as $d)
+                                <td><b>{{$d['totalPendidikan']}}</b></td>
+                                @endforeach
+                                <td><b>{{$totalPendidikanFakultas}}</b></td>
                             </tr>
 
                             </table>
@@ -189,33 +185,37 @@
                             <tr>
                                 <td>1</td>
                                 <td>Banyaknya dosen pensiun/berhenti</td>
-                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
-                                <td></td>
-                                @endfor
+                                @foreach($arr2 as $e)
+                                <td>{{$e['pensiun']}}</td>
+                                @endforeach
+                                <td><b>{{$totalPensiun}}</b></td>
                             </tr>
 
                             <tr>
                                 <td>2</td>
                                 <td>Banyaknya perekrutan dosen baru</td>
-                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
-                                <td></td>
-                                @endfor
+                                @foreach($arr2 as $e)
+                                <td>{{$e['dosenBaru']}}</td>
+                                @endforeach
+                                <td><b>{{$totalDosenBaru}}</b></td>
                             </tr>
 
                             <tr>
                                 <td>3</td>
                                 <td>Banyaknya dosen tugas belajar S2/Sp-1</td>
-                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
-                                <td></td>
-                                @endfor
+                                @foreach($arr2 as $e)
+                                <td>{{$e['tugasBelajarS2']}}</td>
+                                @endforeach
+                                <td><b>{{$totalTugasBelajarS2}}</b></td>
                             </tr>
 
                             <tr>
                                 <td>4</td>
                                 <td>Banyaknya dosen tugas belajar S3/Sp-2</td>
-                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
-                                <td></td>
-                                @endfor
+                                @foreach($arr2 as $e)
+                                <td>{{$e['tugasBelajarS3']}}</td>
+                                @endforeach
+                                <td><b>{{$totalTugasBelajarS3}}</b></td>
                             </tr>
 
                             </table>
