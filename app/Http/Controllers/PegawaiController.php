@@ -1057,7 +1057,7 @@ class PegawaiController extends Controller
 			]);
 	}
 
-	public function submitKualitatif(Request $request,$kodeStandar,$kodeProdi) {
+	public function submitKualitatif(Request $request,$kodeStandar,$kodeProdi,$jenisBorang) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -1095,7 +1095,7 @@ class PegawaiController extends Controller
 		// echo $standar['standar'.$nomorStandar][$kodeStandarStr]['isian'];
 		
 		// PegawaiController::lihat3a4( $request, $kodeProdi);
-		return redirect('3a/standar'.$nomorStandar.'/'.$kodeProdi);
+		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kodeProdi);
 
 		// 	return view('update3b7',[
 		// 		'role' => $request->session()->get('role'),
