@@ -114,36 +114,32 @@
                                 <td colspan="2">(7)</td> 
                                 <td>(8)</td>                         
                               </tr>
-                              <?php $i=1 ?>
+
+                          <?php $i=1; $lastrow=''; ?>
                             @foreach($standar4_3_1 as $standar4_3_1 )
                               <tr>
-                                <th scope="row">{{$i}}</th>
-                                <td>{{$standar4_3_1 -> namaPegawai}}</td>
-                                <td>{{$standar4_3_1 -> NIDN}}</td>
-                                <td>{{$standar4_3_1 -> tanggal_lahir}}</td>
-                                <td>{{$standar4_3_1 -> nama}}</td>
+                              <?php
+                              $jumlahrow = $standar4_3_1_occurences[$standar4_3_1 -> namaPegawai];
+
+                              if($standar4_3_1 -> namaPegawai!=$lastrow) {
+                                $belumdiprint=true;
+                              }
+                              ?>
+                              @if($belumdiprint)
+                                <th scope="row" rowspan="{{$jumlahrow}}">{{$i}}</th>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_3_1 -> namaPegawai}}</td>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_3_1 -> NIDN}}</td>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_3_1 -> tanggal_lahir}}</td>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_3_1 -> nama}}</td>
+                                <?php $belumdiprint=false;?>
+                              @endif
                                 <td>{{$standar4_3_1 -> riwayat_pendidikan}}</td>
                                 <td>{{$standar4_3_1 -> gelar_pendidikan}}</td>                          
                                 <td>{{$standar4_3_1 -> instansi_pendidikan}}</td>
-                                <td>{{$standar4_3_1 -> bidang_keahlian}}</td>
+                                <td>{{$standar4_3_1 ->bidang_keahlian}}</td>
                               </tr>
-                              <?php $i++?>
-                              @endforeach                              
-                              <tr>
-                                <td rowspan="2">1</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">$100</td>
-                                <td rowspan="2">$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>
-                              <tr>
-                                <td>February</td>
-                                <td>$80</td>
-                                <td>$80</td>
-                              </tr>                                                              
+                              <?php $i++; $lastrow=$standar4_3_1 -> namaPegawai;?>
+                              @endforeach                                                                                       
                               </table>
                             </div>
                             * Fotokopi ijazah agar disiapkan saat visitasi. <br>
@@ -179,21 +175,32 @@
                                 <td>(8)</td>                         
                               </tr>
                               <?php $i=1 ?>
+                           <?php $i=1; $lastrow=''; ?>
                             @foreach($standar4_3_2 as $standar4_3_2 )
                               <tr>
-                                <th scope="row">{{$i}}</th>
-                                <td>{{$standar4_3_2 -> namaPegawai}}</td>
-                                <td>{{$standar4_3_2 -> NIDN}}</td>
-                                <td>{{$standar4_3_2 -> tanggal_lahir}}</td>
-                                <td>{{$standar4_3_2 -> nama}}</td>
+                              <?php
+                              $jumlahrow = $standar4_3_2_occurences[$standar4_3_2 -> namaPegawai];
+
+                              if($standar4_3_2 -> namaPegawai!=$lastrow) {
+                                $belumdiprint=true;
+                              }
+                              ?>
+                              @if($belumdiprint)
+                                <th scope="row" rowspan="{{$jumlahrow}}">{{$i}}</th>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_3_2 -> namaPegawai}}</td>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_3_2 -> NIDN}}</td>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_3_2 -> tanggal_lahir}}</td>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_3_2 -> nama}}</td>
+                                <?php $belumdiprint=false;?>
+                              @endif
                                 <td>{{$standar4_3_2 -> riwayat_pendidikan}}</td>
                                 <td>{{$standar4_3_2 -> gelar_pendidikan}}</td>                          
                                 <td>{{$standar4_3_2 -> instansi_pendidikan}}</td>
-                                <td>{{$standar4_3_2 -> bidang_keahlian}}</td>
+                                <td>{{$standar4_3_2 ->bidang_keahlian}}</td>
                               </tr>
-                              <?php $i++?>
-                              @endforeach    
-                              <tr>
+                              <?php $i++; $lastrow=$standar4_3_2 -> namaPegawai;?>
+                              @endforeach   
+                              <!-- <tr>
                                 <td rowspan="2">2</td>
                                 <td rowspan="2">January</td>
                                 <td rowspan="2">January</td>
@@ -207,7 +214,7 @@
                                 <td>February</td>
                                 <td>$80</td>
                                 <td>$80</td>
-                              </tr>                                                            
+                              </tr> -->                                                            
                               </table>
                             </div>  
                             * Fotokopi ijazah agar disiapkan saat visitasi. <br>
@@ -392,24 +399,7 @@
                                 <td>{{$standar4_3_4 -> realisasi_pengajaran}}</td>
                               </tr>
                               <?php $i++?>
-                              @endforeach   
-                              <tr>
-                                <td rowspan="2">1</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                              </tr>
-                              <tr>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>                                                            
+                              @endforeach                                                              
                               </table>
                             </div>     
                             <br>                       
@@ -452,24 +442,7 @@
                                 <td>{{$standar4_3_5 -> realisasi_pengajaran}}</td>
                               </tr>
                               <?php $i++?>
-                              @endforeach    
-                              <tr>
-                                <td rowspan="2">1</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                              </tr>
-                              <tr>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>                                                            
+                              @endforeach                                                                
                               </table>
                             </div>                             
                            
@@ -513,33 +486,30 @@
                                 <td>(6)</td>
                                 <td colspan="2">(7)</td>                          
                               </tr>
-                              <?php $i=1 ?>
+                              <?php $i=1; $lastrow=''; ?>
                             @foreach($standar4_4_1 as $standar4_4_1 )
                               <tr>
-                                <th scope="row">{{$i}}</th>
-                                <td>{{$standar4_4_1 -> namaPegawai}}</td>
-                                <td>{{$standar4_4_1 -> NIDN}}</td>
-                                <td>{{$standar4_4_1 -> tanggal_lahir}}</td>
-                                <td>{{$standar4_4_1 -> nama}}</td>
+                              <?php
+                              $jumlahrow = $standar4_4_1_occurences[$standar4_4_1 -> namaPegawai];
+
+                              if($standar4_4_1 -> namaPegawai!=$lastrow) {
+                                $belumdiprint=true;
+                              }
+                              ?>
+                              @if($belumdiprint)
+                                <th scope="row" rowspan="{{$jumlahrow}}">{{$i}}</th>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_4_1 -> namaPegawai}}</td>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_4_1 -> NIDN}}</td>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_4_1 -> tanggal_lahir}}</td>
+                                <td rowspan="{{$jumlahrow}}">{{$standar4_4_1 -> nama}}</td>
+                                <?php $belumdiprint=false;?>
+                              @endif
                                 <td>{{$standar4_4_1 -> riwayat_pendidikan}}</td>
                                 <td>{{$standar4_4_1 -> gelar_pendidikan}}</td>                          
                                 <td>{{$standar4_4_1 -> instansi_pendidikan}}</td>
                               </tr>
-                              <?php $i++?>
-                              @endforeach
-                              <tr>
-                                <td rowspan="2">1</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">$100</td>
-                                <td rowspan="2">$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>
-                              <tr>
-                                <td>February</td>
-                                <td>$80</td>
-                              </tr>                                                              
+                              <?php $i++; $lastrow=$standar4_4_1 -> namaPegawai;?>
+                              @endforeach                                                             
                               </table>
                             </div>           
                             <br>                
@@ -582,24 +552,7 @@
                                 <td>{{$standar4_4_2 -> realisasi_pengajaran}}</td>
                               </tr>
                               <?php $i++?>
-                              @endforeach 
-                              <tr>
-                                <td rowspan="2">1</td>
-                                <td rowspan="2">January</td>
-                                <td rowspan="2">January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                              </tr>
-                              <tr>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                              </tr>                                                            
+                              @endforeach                                                             
                               </table>
                             </div>                             
 
@@ -746,7 +699,7 @@
                         <?php $i++ ?>
                         @endforeach
 
-                        <tr>
+                        <!-- <tr>
                           <th scope="row" rowspan="2">1</th>
                           <td rowspan="2">Mark</td>
                           <td>Otto</td>
@@ -768,7 +721,7 @@
                           <th scope="row" colspan="6">TOTAL</th>                         
                           <td>@mdo</td>
                           <td>Mark</td>                                                    
-                        </tr>
+                        </tr> -->
                       </tbody>
                     </table>                    
                     </div>  

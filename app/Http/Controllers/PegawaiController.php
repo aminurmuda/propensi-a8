@@ -413,9 +413,29 @@ class PegawaiController extends Controller
 
 		//poin 4.3.1
 		$standar4_3_1 = Dosen::getDosenTetapSesuai($selectedProdi);
+		$standar4_3_1_occurences = array();
+		foreach($standar4_3_1 as $standar4_3_1_count){
+		  $nama_pegawai = $standar4_3_1_count-> namaPegawai;
+
+		  if(!isset($standar4_3_1_occurences[$nama_pegawai])){
+		    $standar4_3_1_occurences[$nama_pegawai] = 0;
+		  }
+
+		  $standar4_3_1_occurences[$nama_pegawai]++;
+		}
 
 		//poin 4.3.2
 		$standar4_3_2 = Dosen::getDosenTetapTidakSesuai($selectedProdi);
+		$standar4_3_2_occurences = array();
+		foreach($standar4_3_2 as $standar4_3_2_count){
+		  $nama_pegawai = $standar4_3_2_count-> namaPegawai;
+
+		  if(!isset($standar4_3_2_occurences[$nama_pegawai])){
+		    $standar4_3_2_occurences[$nama_pegawai] = 0;
+		  }
+
+		  $standar4_3_2_occurences[$nama_pegawai]++;
+		}
 
 		//poin 4.3.3
 		$standar4_3_3 = Dosen::getDosenSKSAktivitasTetapSesuai($selectedProdi,$tahun);
@@ -427,13 +447,22 @@ class PegawaiController extends Controller
 		// dd($standar4_3_4);
 		//poin 4.4.1
 		$standar4_4_1 = Dosen::getDosenTidakTetap($selectedProdi);
+		$standar4_4_1_occurences = array();
+		foreach($standar4_4_1 as $standar4_4_1_count){
+		  $nama_pegawai = $standar4_4_1_count-> namaPegawai;
 
+		  if(!isset($standar4_4_1_occurences[$nama_pegawai])){
+		    $standar4_4_1_occurences[$nama_pegawai] = 0;
+		  }
+
+		  $standar4_4_1_occurences[$nama_pegawai]++;
+		}
 		//poin 4.4.2
 		$standar4_4_2 = Dosen::getDosenTidakTetapAktivitas($selectedProdi,$tahun);
 
 		//poin 4.5.1
 		$standar4_5_1 = Dosen::getTenagaAhliDosen($selectedProdi,$tahun);
-
+		// dd($standar4_5_1);
 		//poin 4.5.2
 		$standar4_5_2 = Dosen::getProgramDosen($selectedProdi,$tahun);
 
@@ -541,11 +570,14 @@ class PegawaiController extends Controller
 	            'prodiBorang' => $prodiBorang,
 	            'standar4' => $standar4,
 	            'standar4_3_1' => $standar4_3_1,
+	            'standar4_3_1_occurences' => $standar4_3_1_occurences,
 	            'standar4_3_2' => $standar4_3_2,
+	            'standar4_3_2_occurences' => $standar4_3_2_occurences,
 	            'standar4_3_3' => $standar4_3_3,
 	            'standar4_3_4' => $standar4_3_4,
 	            'standar4_3_5' => $standar4_3_5,
 	            'standar4_4_1' => $standar4_4_1,
+	            'standar4_4_1_occurences' => $standar4_4_1_occurences,
 	            'standar4_4_2' => $standar4_4_2,
 	            'standar4_5_1' => $standar4_5_1,
 	            'standar4_5_2' => $standar4_5_2,
