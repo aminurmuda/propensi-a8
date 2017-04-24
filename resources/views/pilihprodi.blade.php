@@ -16,11 +16,13 @@
                         
                     </div>
 
-                    <form action="{{url(Route::current()->getName().'/submit')}}">
+                    <form action="" method="post" id='formProdi'>
+                    <!-- <form action="" onsubmit="submitProdi()"> -->
                     {{csrf_field()}}
                     <div class="plan-div">
                           <div class="form-group">
                             <select class="form-control" id="selectProdi" name='selectProdi'>
+                            <option>--Pilih Prodi--</option>
                             @foreach($prodi as $prodi)
                               <option value='{{$prodi->kode_prodi}}'>{{$prodi->nama_prodi}}</option>
                               @endforeach
@@ -32,7 +34,7 @@
                         <!-- <a href="#" class="btn db-button-color-square btn-m round">Pilih</a> -->
                         <button class="btn db-button-color-square btn-m round" type="submit"> Pilih </button>                        
                     </div>
-                    </form>                    
+                    </form> 
                 </div>
             </div>
         </div>
