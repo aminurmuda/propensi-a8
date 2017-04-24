@@ -1217,26 +1217,67 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
+		$isi = $standar7_json[0]->isi;
+		$standar7 = json_decode(stripslashes($isi),true);
+
 			return view('view3b7',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username
+	            'username' => $username,
+	            'standar7' => $standar7
 			]);
 	}
 
-	public function edit3b7(Request $request) {
+	public function edit3b7(Request $request,$kodeStandar,$kodeFakultas) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-			return view('update3b7',[
+		
+		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
+		$role=$request->session()->get('role');
+		if($role!='Tim Akreditasi' && $role!='Admin') {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);				
+		}
+
+		$kodeStandarStr= str_replace("-",".",$kodeStandar);
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		//poin 4.1
+		$standar7_json = Borang::getBorang('3b',7,$kodeFakultas,$tahun);
+		$isi = $standar7_json[0]->isi;
+		$standar7 = json_decode(stripslashes($isi),true);
+		// dd($standar4);
+
+			return view('update3b7-new',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username
+	            'username' => $username,
+	            'kodeFakultas' => $kodeFakultas,
+	            'kodeStandar' => $kodeStandar,
+	            'standar7' => $standar7,
+	            'kodeStandarStr' => $kodeStandarStr
 			]);
 	}
 

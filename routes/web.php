@@ -102,6 +102,9 @@ Route::get('3b/standar7/{kodeProdi}', 'PegawaiController@lihat3b7')->name('3b/st
 
 Route::get('3b/standar7edit/{kodeProdi}', 'PegawaiController@edit3b7')->name('3b/standar7edit/{kodeProdi}');
 
+Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}', 'PegawaiController@edit3b7')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}'); 
+Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit'); //pimpinan 
+
 });
 
 
