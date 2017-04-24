@@ -408,6 +408,7 @@ class PegawaiController extends Controller
 		$standar4_json = Borang::getBorang('3a',4,$selectedProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
+		// dd($standar4);
 
 		//poin 4.3.1
 		$standar4_3_1 = Dosen::getDosenTetapSesuai($selectedProdi);
@@ -836,7 +837,7 @@ class PegawaiController extends Controller
 
 	}
 
-	public function edit3b4(Request $request, $kodeStandar, $kodeFakultas) {
+	public function edit3b4(Request $request,$kodeStandar,$kodeFakultas) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -860,9 +861,11 @@ class PegawaiController extends Controller
 			$tahun = date('Y');
 		}
 
-		$standar4_json = Borang::getBorang(4,$kodeProdi,$tahun);
+		//poin 4.1
+		$standar4_json = Borang::getBorang('3b',4,$kodeFakultas,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
+		// dd($standar4);
 
 			return view('update3b4-new',[
 				'role' => $request->session()->get('role'),
@@ -870,7 +873,7 @@ class PegawaiController extends Controller
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
-	            'kodeProdi' => $kodeProdi,
+	            'kodeFakultas' => $kodeFakultas,
 	            'kodeStandar' => $kodeStandar,
 	            'standar4' => $standar4,
 	            'kodeStandarStr' => $kodeStandarStr
@@ -889,6 +892,15 @@ class PegawaiController extends Controller
 		$totalDosenBaru = 0;
 		$totalTugasBelajarS2 = 0;
 		$totalTugasBelajarS3 = 0;
+
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+		$standar4_json = Borang::getBorang('3b',4,$kodeFakultasPengguna,$tahun);
+		$isi = $standar4_json[0]->isi;
+		$standar4 = json_decode(stripslashes($isi),true);
 
 		if ($request->get('selectFakultasGeneral')){
 			$selectedFakultas = $request->get('selectFakultasGeneral');
@@ -1062,7 +1074,8 @@ class PegawaiController extends Controller
 	            'totalTugasBelajarS3' => $totalTugasBelajarS3,
 	            'jumlahProdi' => $jumlahProdi,
 	            'totalFakultas' => $totalFakultas,
-	            'totalPendidikanFakultas' => $totalPendidikanFakultas
+	            'totalPendidikanFakultas' => $totalPendidikanFakultas,
+	            'standar4' => $standar4
 			]);
 
 	}
@@ -1235,7 +1248,7 @@ class PegawaiController extends Controller
 			]);
 	}
 
-	public function submitKualitatif(Request $request,$kodeStandar,$kodeProdi,$jenisBorang) {
+	public function submitKualitatif(Request $request,$kodeStandar,$kode,$jenisBorang) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -1262,18 +1275,26 @@ class PegawaiController extends Controller
 		$nomorStandar = explode("-", $kodeStandar)[0];
 		$kodeStandarStr = str_replace("-",".", $kodeStandar);
 
-		$standar_json = Borang::getBorang($jenisBorang,$nomorStandar,$kodeProdi,$tahun);
+		$standar_json = Borang::getBorang($jenisBorang,$nomorStandar,$kode,$tahun);
 		$isi = $standar_json[0]->isi;
 		$standar = json_decode(stripslashes($isi),true);
-		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']=$textarea;
+
+		$arrkodeStandar = explode('-', $kodeStandar);
+		if(count($arrkodeStandar) ==3) {
+			$standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian']=$textarea;	
+			echo $standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian'];
+		} else {
+		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']=$textarea;	
+		}
 		$encoded_json = json_encode($standar);
 		//masukin ke database
-		Borang::updateBorang($jenisBorang,$nomorStandar,$kodeProdi,$tahun,$encoded_json);
+		Borang::updateBorang($jenisBorang,$nomorStandar,$kode,$tahun,$encoded_json);
 
-		// echo $standar['standar'.$nomorStandar][$kodeStandarStr]['isian'];
+		
 		
 		// PegawaiController::lihat3a4( $request, $kodeProdi);
-		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kodeProdi);
+
+		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kode);
 
 		// 	return view('update3b7',[
 		// 		'role' => $request->session()->get('role'),
