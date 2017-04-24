@@ -289,4 +289,106 @@ class dosen extends Model
             ->get();
     }    
 
+    public static function getDosenTetapSesuaiStatusPensiun($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('status_dosen', 'dosen.id_status_dosen', '=', 'status_dosen.id')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir', 'dosen.bidang_keahlian', 'status_dosen.nama_status_dosen')
+            ->where('status_dosen.id',1)
+            ->orwhere('status_dosen.id',2)
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->get();
+    }
+
+    public static function getDosenTetapSesuaiStatusDosenBaru($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('status_dosen', 'dosen.id_status_dosen', '=', 'status_dosen.id')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir', 'dosen.bidang_keahlian', 'status_dosen.nama_status_dosen')
+            ->where('status_dosen.id', 3)
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->get();
+    }
+
+    public static function getDosenTetapSesuaiStatusTugasBelajarS2($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('status_dosen', 'dosen.id_status_dosen', '=', 'status_dosen.id')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir', 'dosen.bidang_keahlian', 'status_dosen.nama_status_dosen')
+            ->where('status_dosen.id', 4)
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->get();
+    }
+
+    public static function getDosenTetapSesuaiStatusTugasBelajarS3($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('status_dosen', 'dosen.id_status_dosen', '=', 'status_dosen.id')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir', 'dosen.bidang_keahlian', 'status_dosen.nama_status_dosen')
+            ->where('status_dosen.id', 5)
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->get();
+    }
+
+    public static function getDosenTetapSesuaiPendidikanS1($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('riwayat_pendidikan', 'pegawai.id_pegawai', '=', 'riwayat_pendidikan.id_pegawai')
+            ->join('jabatan_struktural', 'jabatan_struktural.id', '=', 'pegawai.id_jabatan_struktural')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir','jabatan_struktural.nama','riwayat_pendidikan.riwayat_pendidikan','riwayat_pendidikan.gelar_pendidikan','riwayat_pendidikan.instansi_pendidikan','dosen.bidang_keahlian')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->where('riwayat_pendidikan.riwayat_pendidikan', 'S1')
+            ->get();
+    }  
+
+    public static function getDosenTetapSesuaiPendidikanS2($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('riwayat_pendidikan', 'pegawai.id_pegawai', '=', 'riwayat_pendidikan.id_pegawai')
+            ->join('jabatan_struktural', 'jabatan_struktural.id', '=', 'pegawai.id_jabatan_struktural')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir','jabatan_struktural.nama','riwayat_pendidikan.riwayat_pendidikan','riwayat_pendidikan.gelar_pendidikan','riwayat_pendidikan.instansi_pendidikan','dosen.bidang_keahlian')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->where('riwayat_pendidikan.riwayat_pendidikan', 'S2')
+            ->get();
+    }  
+
+    public static function getDosenTetapSesuaiPendidikanS3($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('riwayat_pendidikan', 'pegawai.id_pegawai', '=', 'riwayat_pendidikan.id_pegawai')
+            ->join('jabatan_struktural', 'jabatan_struktural.id', '=', 'pegawai.id_jabatan_struktural')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir','jabatan_struktural.nama','riwayat_pendidikan.riwayat_pendidikan','riwayat_pendidikan.gelar_pendidikan','riwayat_pendidikan.instansi_pendidikan','dosen.bidang_keahlian')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->where('riwayat_pendidikan.riwayat_pendidikan', 'S3')
+            ->get();
+    }  
+
 }

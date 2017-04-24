@@ -22,10 +22,10 @@ class kerja_sama extends Model
         ->select('kerja_sama.nama_instansi', 'kerja_sama.jenis_kegiatan', 'kerja_sama.tgl_mulai', 'kerja_sama.tgl_akhir', 'kerja_sama.manfaat')
         ->where('kerja_sama.kode_prodi',$kode_prodi)
         ->where('kerja_sama.isDalamNegeri',1)
+        ->get();
         //->where('kerja_sama.tgl_akhir',"<=",$tahun)
         //->where('kerja_sama.tgl_akhir',">=",$tahun_min)
         //belum diambil 3 tahun terakhir
-        ->get();
     }
     public static function getKerjaSamaLuarNegeri($kode_prodi, $tahun)
     {
