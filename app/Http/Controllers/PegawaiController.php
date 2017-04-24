@@ -641,7 +641,7 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		$standar2_json = Borang::getBorang(2,$kodeProdi,2017);
+		$standar2_json = Borang::getBorang('3a',2,$kodeProdi,2017);
 		$isi = $standar2_json[0]->isi;
 		$standar2 = json_decode(stripslashes($isi),true);
 			return view('view3a2',[
@@ -704,7 +704,7 @@ class PegawaiController extends Controller
 		$kodeStandarStr= str_replace("-",".",$kodeStandar);
 		$nomorStandar = explode("-", $kodeStandar)[0];
 		
-		$standar2_json = Borang::getBorang($nomorStandar,$kodeProdi,2017);
+		$standar2_json = Borang::getBorang('3a', $nomorStandar,$kodeProdi,2017);
 		$isi = $standar2_json[0]->isi;
 		$standar2 = json_decode(stripslashes($isi),true);
 
@@ -720,6 +720,34 @@ class PegawaiController extends Controller
 	            'kodeStandarStr' => $kodeStandarStr
 			]);
 	}
+
+	public function edit3a25(Request $request,$kodeStandar,$kodeProdi, $dari, $jenisIsian) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$kodeStandarStr= str_replace("-",".",$kodeStandar);
+		$nomorStandar = explode("-", $kodeStandar)[0];
+		
+		$standar2_json = Borang::getBorang('3a', $nomorStandar,$kodeProdi,2017);
+		$isi = $standar2_json[0]->isi;
+		$standar2 = json_decode(stripslashes($isi),true);
+
+			return view('update3a2-new',[
+				'role' => $request->session()->get('role'),
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pimpinan,      
+	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'username' => $username,
+	            'standar2' => $standar2,
+	            'kodeProdi' => $kodeProdi,
+	            'kodeStandar' => $kodeStandar,
+	            'kodeStandarStr' => $kodeStandarStr,
+	            '$dari' => $dari,
+	            'jenisIsian' => $jenisIsian
+			]);
+	}
+
 
 	public function edit3b2(Request $request,$kodeStandar,$kodeProdi) {
 		$username=$request->session()->get('user');

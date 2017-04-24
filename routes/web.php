@@ -73,6 +73,7 @@ Route::get('3b/standar2edit/{kodeStandar}/{kodeProdi}/submit', 'PegawaiControlle
 Route::get('3a/standar2/{kodeProdi}', 'PegawaiController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}');
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit');
+Route::get('3a/standar2edit/{kodeStandar}/{dari}/{jenisIsian}/{kodeProdi}', 'PegawaiController@edit3a25')->name('3a/standar2edit/{kodeStandar}/{dari}/{jenisIsian}/{kodeProdi}');
 
 Route::get('3b/standar2/{kodeProdi}', 'PegawaiController@lihat3b2')->name('3b/standar2/{kodeProdi}'); 
 
