@@ -919,6 +919,7 @@ class PegawaiController extends Controller
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
 	            'listProdi' => $listProdi,
+	            'listProdi1' => $listProdi,
 	            'arrA' => $arrA,
 	            'arrB' => $arrB,
 	            'arrC' => $arrC,

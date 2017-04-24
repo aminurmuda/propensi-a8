@@ -172,61 +172,50 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Hal</th>
-                                <th>PS-1</th>
-                                <th>PS-2</th>
-                                <th>PS-3</th>
-                                <th>dst</th>
+                                @foreach($listProdi1 as $listProdi1)
+                                <th>{{$listProdi1->nama_prodi}}</th>
+                                @endforeach
                                 <th>Total di Fakultas</th>
                             </tr>
 
                             <tr>
                                 <td>(1)</td>
                                 <td>(2)</td>
-                                <td>(3)</td>
-                                <td>(4)</td>
-                                <td>(5)</td>
-                                <td>(6)</td>
-                                <td>(7)</td>
+                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
+                                <td>({{$i}})</td>
+                                @endfor
                             </tr>
 
                             <tr>
                                 <td>1</td>
                                 <td>Banyaknya dosen pensiun/berhenti</td>
+                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @endfor
                             </tr>
 
                             <tr>
                                 <td>2</td>
                                 <td>Banyaknya perekrutan dosen baru</td>
+                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @endfor
                             </tr>
 
                             <tr>
                                 <td>3</td>
                                 <td>Banyaknya dosen tugas belajar S2/Sp-1</td>
+                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @endfor
                             </tr>
 
                             <tr>
                                 <td>4</td>
                                 <td>Banyaknya dosen tugas belajar S3/Sp-2</td>
+                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @endfor
                             </tr>
 
                             </table>
