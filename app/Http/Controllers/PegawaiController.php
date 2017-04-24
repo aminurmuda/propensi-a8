@@ -620,13 +620,37 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+
+		$QKodeProdiPengguna = Pegawai::getProdiPegawai($request->session()->get('user'));		
+		$kodeProdiPengguna=$QKodeProdiPengguna[0]->kode_prodi_pengajaran;
+
+		if ($request->get('selectProdi')){
+			$selectedProdi = $request->get('selectProdi'); 	
+		} else {
+			$selectedProdi=$kodeProdiPengguna;
+		}
+
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		$standar2_json = Borang::getBorang(2,$selectedProdi,$tahun);
+		$isi = $standar2_json[0]->isi;
+		$standar2 = json_decode(stripslashes($isi),true);
+		dd($isi);
+
 			return view('view3b2',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username
+	            'username' => $username,
+	            'standar2' => $standar2
 			]);
+
+		
 	}
 
 	public function edit3a2(Request $request) {
@@ -648,12 +672,29 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-			return view('update3b2',[
+
+		$kodeStandarStr= str_replace("-",".",$kodeStandar);
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+		
+		
+		$standar2_json = Borang::getBorang(2,$kodeProdi,$tahun);
+		$isi = $standar2_json[0]->isi;
+		$standar2 = json_decode(stripslashes($isi),true);
+
+			return view('update3b2-new',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username
+	            'username' => $username,
+	            'kodeProdi' => $kodeProdi,
+	            'kodeStandar' => $kodeStandar,
+	            'standar2' => $standar2,
+	            'kodeStandarStr' => $kodeStandarStr
 			]);
 	}
 

@@ -70,7 +70,7 @@ Route::get('3b/standar2/{kodeProdi}', 'PegawaiController@lihat3b2')->name('3b/st
 
 Route::get('3a/standar2edit/{kodeProdi}', 'PegawaiController@edit3a2')->name('3a/standar2edit/{kodeProdi}');
 
-Route::get('3b/standar2edit/{kodeProdi}', 'PegawaiController@edit3b2')->name('3b/standar2edit/{kodeProdi}'); 
+Route::get('3b/standar2edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3b2')->name('3b/standar2edit/{kodeStandar}/{kodeProdi}'); 
 
 Route::get('3a/standar7', 'PegawaiController@pilihProdi')->name('3a/standar7'); //pimpinan univ only
 Route::get('3a/standar7/submit', 'PegawaiController@lihat3a7')->name('3a/standar7/submit'); //pimpinan univ only
