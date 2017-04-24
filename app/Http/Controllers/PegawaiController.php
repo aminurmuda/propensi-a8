@@ -672,6 +672,9 @@ class PegawaiController extends Controller
 			$selectedProdi = $kodeProdiPengguna;
 		}
 
+		$prodiBorang = program_studi::getProdi($selectedProdi);
+		
+
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
 		} else {
@@ -690,7 +693,9 @@ class PegawaiController extends Controller
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
 	            'standar2' => $standar2,
-	            'kodeProdi' => $kodeProdi
+	            'kodeProdi' => $kodeProdi,
+	            'prodiBorang' => $prodiBorang,
+	            'tahun' => $tahun
 			]);
 
 		
@@ -1105,11 +1110,85 @@ class PegawaiController extends Controller
 		$standar7_3_1 = kerja_sama::getKerjaSamaDalamNegeri($kode_prodi, $tahun);
 		$standar7_3_2 = kerja_sama::getKerjaSamaLuarNegeri($kode_prodi, $tahun);
 		$standar7_2_1_a = danaPengmas::getDanaBiayaSendiri($kode_prodi,$tahun);
+		//array biaya sendiri
+		$arr1 = array(0,0,0); //ts-2,ts-1,ts
+		foreach ($standar7_2_1_a as $standar7_2_1_a ) {
+			$tahun_min = $standar7_2_1_a->tahun;
+			if($tahun_min==($tahun-2)){
+				$arr1[0]=$standar7_2_1_a->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arr1[1]=$standar7_2_1_a->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arr1[2]=$standar7_2_1_a->dana_count;
+			}
+
+		}
 		$standar7_2_1_b = danaPengmas::getDanaPT($kode_prodi,$tahun);
+		//array biaya dana PT
+		$arr2 = array(0,0,0); //ts-2,ts-1,ts
+		foreach ($standar7_2_1_b as $standar7_2_1_b ) {
+			$tahun_min = $standar7_2_1_b->tahun;
+			if($tahun_min==($tahun-2)){
+				$arr2[0]=$standar7_2_1_b->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arr2[1]=$standar7_2_1_b->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arr2[2]=$standar7_2_1_b->dana_count;
+			}
+
+		}
 		$standar7_2_1_c = danaPengmas::getDanaDepdiknasDalamNegeri($kode_prodi,$tahun);
+		//array biaya depdiknas
+		$arr3 = array(0,0,0); //ts-2,ts-1,ts
+		foreach ($standar7_2_1_c as $standar7_2_1_c ) {
+			$tahun_min = $standar7_2_1_c->tahun;
+			if($tahun_min==($tahun-2)){
+				$arr3[0]=$standar7_2_1_c->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arr3[1]=$standar7_2_1_c->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arr3[2]=$standar7_2_1_c->dana_count;
+			}
+
+		}
 		$standar7_2_1_d = danaPengmas::getDanaInstitusiDalamNegeri($kode_prodi,$tahun);
+		//array biaya institusi dalam negeri
+		$arr4 = array(0,0,0); //ts-2,ts-1,ts
+		foreach ($standar7_2_1_d as $standar7_2_1_d ) {
+			$tahun_min = $standar7_2_1_d->tahun;
+			if($tahun_min==($tahun-2)){
+				$arr4[0]=$standar7_2_1_d->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arr4[1]=$standar7_2_1_d->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arr4[2]=$standar7_2_1_d->dana_count;
+			}
+
+		}
 		$standar7_2_1_e = danaPengmas::getDanaInstitusiLuarNegeri($kode_prodi,$tahun);
-		 //dana dari depdiknas
+		 //array biaya institusi luar negeri
+		$arr5 = array(0,0,0); //ts-2,ts-1,ts
+		foreach ($standar7_2_1_e as $standar7_2_1_e ) {
+			$tahun_min = $standar7_2_1_e->tahun;
+			if($tahun_min==($tahun-2)){
+				$arr5[0]=$standar7_2_1_e->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arr5[1]=$standar7_2_1_e->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arr5[2]=$standar7_2_1_e->dana_count;
+			}
+
+		}
 		return view('view3a7',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
@@ -1119,7 +1198,11 @@ class PegawaiController extends Controller
 	            'standar7_2_3'=> $standar7_2_3,
 	            'standar7_3_1'=> $standar7_3_1,
 	           	'standar7_3_2'=> $standar7_3_2,
-	           	'standar7_2_1_a'=> $standar7_2_1_a,
+	           	'arr1'=>$arr1,
+	           	'arr2'=>$arr2,
+	           	'arr3'=>$arr3,
+	           	'arr4'=>$arr4,
+	           	'arr5'=>$arr5,
 	           	'standar7_2_1_b'=> $standar7_2_1_b,
 	           	'standar7_2_1_c'=> $standar7_2_1_c,
 	           	'standar7_2_1_d'=> $standar7_2_1_d,

@@ -249,42 +249,39 @@
 
                             <tr>
                                 <td>Pembiayaan sendiri oleh dosen</td>
-                                 @foreach($standar7_2_1_a as $standar7_2_1_a)
-                                 @if($standar7_2_1_a->dana_count==0)
-                                 <td>0</td>
-                                 @else
-                                 <td>{{$standar7_2_1_a->dana_count}}</td>
+                                 @foreach($arr1 as $arr1_value)
+                                 <td>{{$arr1_value}}</td>
                                 @endforeach
                 
                             </tr>
 
                             <tr>
                                 <td>PT yang bersangkutan</td>
-                                 @foreach($standar7_2_1_b as $standar7_2_1_b)
-                                <td>{{$standar7_2_1_b->dana_count}}</td>
+                                @foreach($arr2 as $arr2_value)
+                                 <td>{{$arr2_value}}</td>
                                 @endforeach
                                
                             </tr>
 
                             <tr>
                                 <td>Depdiknas</td>
-                                @foreach($standar7_2_1_c as $standar7_2_1_c)
-                                <td>{{$standar7_2_1_c->dana_count}}</td>
+                                @foreach($arr3 as $arr3_value)
+                                 <td>{{$arr3_value}}</td>
                                 @endforeach
                             </tr>
 
                             <tr>
                                 <td>Institusi dalam negeri di luar Depdiknas</td>
-                                 @foreach($standar7_2_1_d as $standar7_2_1_d)
-                                <td>{{$standar7_2_1_d->dana_count}}</td>
+                                @foreach($arr4 as $arr4_value)
+                                 <td>{{$arr4_value}}</td>
                                 @endforeach
                                
                             </tr>
 
                             <tr>
                                 <td>Institusi luar negeri</td>
-                                 @foreach($standar7_2_1_e as $standar7_2_1_e)
-                                <td>{{$standar7_2_1_e->dana_count}}</td>
+                                 @foreach($arr5 as $arr5_value)
+                                 <td>{{$arr5_value}}</td>
                                 @endforeach
                                
                             </tr>

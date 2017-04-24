@@ -186,10 +186,10 @@ border: none;
 }
 .plan-text{
   font-family: montserrat;
-  font-size: 13px;
+  font-size: 15px;
  text-align: left;
  color:black;
- font-size:13px;
+ 
 }
 .plan-div{
     padding:2%;
@@ -262,7 +262,7 @@ border: none;
     }
 
     .db-pricing-eleven .pricing-footer {
-        padding: 20px;
+        padding: 2px;
     }
 
 .db-attached > .col-lg-4,
