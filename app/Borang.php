@@ -26,12 +26,13 @@ class borang extends Model
             ->get();
     }  
 
-      public static function updateBorang($nomorStandar,$kode_prodi,$tahun,$isi)
+      public static function updateBorang($jenisBorang,$nomorStandar,$kode_prodi,$tahun,$isi)
     {
         return DB::table('borang')
             ->where('kode_prodi', $kode_prodi)
           ->where('tahun', $tahun)
           ->where('standar',$nomorStandar)
+          ->where('jenis',$jenisBorang)
           ->update(['isi' => $isi]);
     } 
 

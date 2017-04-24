@@ -1131,7 +1131,7 @@ class PegawaiController extends Controller
 		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']=$textarea;
 		$encoded_json = json_encode($standar);
 		//masukin ke database
-		Borang::updateBorang($nomorStandar,$kodeProdi,$tahun,$encoded_json);
+		Borang::updateBorang($jenisBorang,$nomorStandar,$kodeProdi,$tahun,$encoded_json);
 
 		// echo $standar['standar'.$nomorStandar][$kodeStandarStr]['isian'];
 		
