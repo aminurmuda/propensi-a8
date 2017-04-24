@@ -234,9 +234,9 @@
                             <table class="table table-striped table-bordered">
                             <tr>
                                 <th>Sumber Dana Kegiatan Pelayanan/Pengabdian kepada Masyarakat</th>
-                                <th>TS-2</th>
-                                <th>TS-1 </th>
-                                <th>TS</th>
+                                @for($i = $tahun-2; $i<=$tahun; $i++)
+                                <th>{{$i}}</th>
+                                @endfor
                             </tr>
 
                             <tr>
@@ -249,41 +249,40 @@
 
                             <tr>
                                 <td>Pembiayaan sendiri oleh dosen</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                               
+                                 @foreach($standar7_2_1_a as $standar7_2_1_a)
+                                <td>{{$standar7_2_1_a->dana_count}}</td>
+                                @endforeach
+                
                             </tr>
 
                             <tr>
                                 <td>PT yang bersangkutan</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                 @foreach($standar7_2_1_b as $standar7_2_1_b)
+                                <td>{{$standar7_2_1_b->dana_count}}</td>
+                                @endforeach
                                
                             </tr>
 
                             <tr>
                                 <td>Depdiknas</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                               
+                                @foreach($standar7_2_1_c as $standar7_2_1_c)
+                                <td>{{$standar7_2_1_c->dana_count}}</td>
+                                @endforeach
                             </tr>
 
                             <tr>
                                 <td>Institusi dalam negeri di luar Depdiknas</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                 @foreach($standar7_2_1_d as $standar7_2_1_d)
+                                <td>{{$standar7_2_1_d->dana_count}}</td>
+                                @endforeach
                                
                             </tr>
 
                             <tr>
                                 <td>Institusi luar negeri</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                 @foreach($standar7_2_1_e as $standar7_2_1_e)
+                                <td>{{$standar7_2_1_e->dana_count}}</td>
+                                @endforeach
                                
                             </tr>
 
