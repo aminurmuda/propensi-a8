@@ -8,9 +8,6 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-0" >
             
-           <br><br>
-           <h2>Welcome </h2>
-           
             
             <div class="db-wrapper">
                 <div class="db-pricing-eleven db-bk-color-one">
@@ -24,13 +21,17 @@
                         <p class="plan-text">
                             <br>
                             Borang Akreditasi yang diisi oleh program studi
-                        </p>
+                        </p><br>
+
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 4</a><br><br>
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 7</a>
+
+                            
                     </div>
                     <div class="pricing-footer">
 
-                        <a href="#" class="btn db-button-color-square btn-m round">Standar 2</a>
-                        <a href="#" class="btn db-button-color-square btn-m round">Standar 4</a>
-                        <a href="#" class="btn db-button-color-square btn-m round">Standar 7</a>
+                        <br><br><br><br><br><br>
                     </div>
                 </div>
             </div>
@@ -47,14 +48,16 @@
                     <div class="plan-div">
                         <p class="plan-text">
                             <br>Borang Institusi yang diisi oleh fakultas
-                        </p>
+                        </p><br>
+
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 4</a><br><br>
+                        <a href="#" class="btn db-button-color-square btn-m round">Standar 7</a>
                     </div>
                     <div class="pricing-footer">
 
+                        <br><br><br><br><br><br>
                         
-                        <a href="#" class="btn db-button-color-square btn-m round">Standar 2</a>
-                        <a href="#" class="btn db-button-color-square btn-m round">Standar 4</a>
-                        <a href="#" class="btn db-button-color-square btn-m round">Standar 7</a>
                     </div>
                 </div>
             </div>
@@ -72,11 +75,13 @@
                     <div class="plan-div">
                         <p class="plan-text">
                             <br>Evaluasi Diri Program Studi
-                        </p>
+                        </p> <br> <br> <br> <br>
+                        <a href="#" class="btn db-button-color-square btn-m round">Pilih</a>
                     </div>
                     <div class="pricing-footer">
+                        <br><br><br><br><br><br>
 
-                        <a href="#" class="btn db-button-color-square btn-m round">Pilih</a>
+                        
                     </div>
                 </div>
             </div>
