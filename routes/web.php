@@ -68,13 +68,19 @@ Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'Pe
 
 Route::get('3b/standar2edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3b2')->name('3b/standar2edit/{kodeStandar}/{kodeProdi}'); 
 
-Route::get('3b/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3b/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit');
+Route::get('3b/standar2edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3b/standar2edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit');
+
 
 Route::get('3a/standar2/{kodeProdi}', 'PegawaiController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}');
-Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}/submit', 'PegawaiController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}/submit');
+Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit');
+Route::get('3a/standar2edit/{kodeStandar}/{dari}/{jenisIsian}/{kodeProdi}', 'PegawaiController@edit3a25')->name('3a/standar2edit/{kodeStandar}/{dari}/{jenisIsian}/{kodeProdi}');
+Route::get('3a/standar2edit/{kodeStandar}/{dari}/{jenisIsian}/{kodeProdi}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3a/standar2edit/{kodeStandar}/{dari}/{jenisIsian}/{kodeProdi}/{jenisBorang}/submit');
 
-Route::get('3b/standar2/{kodeProdi}', 'PegawaiController@lihat3b2')->name('3b/standar2/{kodeProdi}'); 
+
+Route::get('3b/standar2/{kodeFakultas}', 'PegawaiController@lihat3b2')->name('3b/standar2/{kodeFakultas}'); 
+
+Route::get('3b/standar2', 'PegawaiController@pilihFakultasGeneral')->name('3b/standar2'); //pimpinan univ only
 
 
 
@@ -86,9 +92,13 @@ Route::get('3a/standar7/{kodeProdi}', 'PegawaiController@lihat3a7')->name('3a/st
 
 Route::get('3a/standar7edit/{kodeProdi}', 'PegawaiController@edit3a7')->name('3a/standar7edit/{kodeProdi}'); 
 
+Route::get('3a/standar7edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3a7')->name('3a/standar7edit/{kodeStandar}/{kodeProdi}'); 
+
+Route::get('3a/standar7edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3a/standar7edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit'); //pimpinan 
+
 Route::get('3b/standar4/', 'PegawaiController@pilihFakultasGeneral')->name('3b/standar4'); //pimpinan univ, reviewer univ, admin only
 
-Route::get('3b/standar4/submit', 'PegawaiController@lihat3b4')->name('3b/standar4/submit');
+Route::get('3b/standar4/submit', 'PegawaiController@lihat3b4')->name('3b/standar4/submit'); //pimpinan univ, reviewer univ, admin only
 
 Route::get('3b/standar4/{kodeFakultas}', 'PegawaiController@lihat3b4')->name('3b/standar4/{kodeFakultas}');
 
@@ -98,9 +108,13 @@ Route::get('3b/standar4edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 
 
 Route::get('3b/standar4edit/{kodeFakultas}', 'PegawaiController@edit3b4')->name('3b/standar4edit/{kodeProdi}');
 
-Route::get('3b/standar7/{kodeProdi}', 'PegawaiController@lihat3b7')->name('3b/standar7/{kodeProdi}');
+Route::get('3b/standar7', 'PegawaiController@pilihFakultasGeneral')->name('3b/standar7'); //pimpinan univ, reviewer univ, admin only
 
-Route::get('3b/standar7edit/{kodeProdi}', 'PegawaiController@edit3b7')->name('3b/standar7edit/{kodeProdi}');
+Route::get('3b/standar7/submit', 'PegawaiController@lihat3b7')->name('3b/standar7/submit'); //pimpinan univ, reviewer univ, admin only
+
+Route::get('3b/standar7/{kodeFakultas}', 'PegawaiController@lihat3b7')->name('3b/standar7/{kodeFakultas}');
+
+Route::get('3b/standar7edit/{kodeFakultas}', 'PegawaiController@edit3b7')->name('3b/standar7edit/{kodeFakultas}');
 
 Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}', 'PegawaiController@edit3b7')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}'); 
 Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit'); //pimpinan 

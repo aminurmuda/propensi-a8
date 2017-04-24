@@ -9,9 +9,8 @@
       },
       "7.1.2": {
         "perintah": "Adakah mahasiswa tugas akhir yang dilibatkan dalam penelitian dosen dalam tiga tahun terakhir?",
-        "Tidak ada": "",
-        "Ada": "",
-        "perintah2": "Jika ada, banyaknya mahasiswa PS yang ikut serta dalam penelitian dosen adalah  ... orang, dari ... mahasiswa yang melakukan tugas akhir melalui skripsi."
+        "perintah2": "Jika ada, banyaknya mahasiswa PS yang ikut serta dalam penelitian dosen adalah  ... orang, dari ... mahasiswa yang melakukan tugas akhir melalui skripsi.",
+        "isian": ""
       },
       "7.1.3": {
         "perintah": "Tuliskan judul artikel ilmiah/karya ilmiah/karya seni/buku yang dihasilkan selama tiga tahun terakhir oleh dosen tetap yang bidang keahliannya sesuai dengan PS dengan mengikuti format tabel berikut:",
@@ -30,8 +29,6 @@
       },
       "7.2.2": {
         "perintah": "Adakah mahasiswa yang dilibatkan dalam kegiatan pelayanan/pengabdian kepada masyarakat dalam tiga tahun terakhir?",
-        "Tidak": "",
-        "Ya": "",
         "perintah2": "Jika Ya, jelaskan tingkat partisipasi dan bentuk keterlibatan mahasiswa dalam kegiatan pelayanan/pengabdian kepada masyarakat",
         "isian": ""
       }
