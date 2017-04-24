@@ -404,7 +404,7 @@ class PegawaiController extends Controller
 		}
 
 		//poin 4.1,4.2,4.6.1
-		$standar4_json = Borang::getBorang(4,$selectedProdi,$tahun);
+		$standar4_json = Borang::getBorang('3a',4,$selectedProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
 
@@ -782,7 +782,7 @@ class PegawaiController extends Controller
 		}
 
 		//poin 4.1
-		$standar4_json = Borang::getBorang(4,$kodeProdi,$tahun);
+		$standar4_json = Borang::getBorang('3a',4,$kodeProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
 
@@ -1138,7 +1138,7 @@ class PegawaiController extends Controller
 		$nomorStandar = explode("-", $kodeStandar)[0];
 		$kodeStandarStr = str_replace("-",".", $kodeStandar);
 
-		$standar_json = Borang::getBorang($nomorStandar,$kodeProdi,$tahun);
+		$standar_json = Borang::getBorang($jenisBorang,$nomorStandar,$kodeProdi,$tahun);
 		$isi = $standar_json[0]->isi;
 		$standar = json_decode(stripslashes($isi),true);
 		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']=$textarea;
