@@ -1,0 +1,60 @@
+{
+  "standar4": {
+    "judul": "4. SUMBER DAYA MANUSIA",
+    "4.1": {
+      "judul": "4.1 Sistem Seleksi dan Pengembangan",
+      "perintah": "Jelaskan sistem seleksi/perekrutan, penempatan, pengembangan, retensi, dan pemberhentian dosen dan tenaga kependidikan untuk menjamin mutu penyelenggaraan program akademik (termasuk informasi tentang ketersediaan pedoman tertulis dan konsistensi pelaksanaannya).",
+      "isian": ""
+    },
+    "4.2": {
+      "judul": "4.2 Monitoring dan Evaluasi",
+      "perintah": "Jelaskan sistem monitoring dan evaluasi, serta rekam jejak kinerja akademik dosen dan kinerja tenaga kependidikan (termasuk informasi tentang ketersediaan pedoman tertulis, dan monitoring dan evaluasi kinerja dosen dalam tridarma serta dokumentasinya).",
+      "isian": ""
+    },
+    "4.3": {
+      "judul": "4.3 Dosen Tetap",
+      "narasi": "Dosen tetap dalam borang akreditasi BAN-PT adalah dosen yang diangkat dan ditempatkan sebagai tenaga tetap pada PT yang bersangkutan termasuk dosen penugasan Kopertis, dan dosen yayasan pada PTS dalam bidang yang relevan dengan keahlian bidang studinya. Seorang dosen hanya dapat menjadi dosen tetap pada satu perguruan tinggi, dan mempunyai penugasan kerja minimum 36 jam/minggu.\nDosen tetap dipilah dalam 2 kelompok, yaitu:\n1. dosen tetap yang bidang keahliannya sesuai dengan PS\n2. dosen tetap yang bidang keahliannya di luar PS"
+    },
+    "4.4": {
+      "judul": "4.4 Dosen Tidak Tetap",
+      "4.4.1": {
+        "perintah": "Tuliskan data dosen tidak tetap pada PS dengan mengikuti format tabel berikut:",
+        "keterangan": "* Lampirkan fotokopi ijazah.\n** NIDN : Nomor Induk Dosen Nasional\n*** Dosen yang telah memperoleh sertifikat dosen agar diberi tanda (***)dan fotokopi sertifikatnya agar dilampirkan."
+      },
+      "4.4.2": {
+        "perintah": "Tuliskan data aktivitas mengajar dosen tidak tetap pada satu tahun terakhir di PS ini dengan mengikuti format tabel berikut:"
+      }
+    },
+    "4.5": {
+      "judul": "4.5 Upaya Peningkatan Sumber Daya Manusia (SDM) dalam tiga tahun terakhir",
+      "4.5.1": {
+        "perintah": "Kegiatan tenaga ahli/pakar sebagai pembicara dalam seminar/pelatihan, pembicara tamu, dsb, dari luar PT sendiri (tidak termasuk dosen tidak tetap)"
+      },
+      "4.5.2": {
+        "perintah": "Peningkatan kemampuan dosen tetap melalui program tugas belajar dalam bidang yang sesuai dengan bidang PS"
+      },
+      "4.5.3": {
+        "perintah": "Kegiatan dosen tetap yang bidang keahliannya sesuai dengan PS dalam seminar ilmiah/lokakarya/penataran/workshop/ pagelaran/ pameran/peragaan yang tidak hanya melibatkan dosen PT sendiri",
+        "keterangan": "* Jenis kegiatan : Seminar ilmiah, Lokakarya, Penataran/Pelatihan, Workshop, Pagelaran, Pameran, Peragaan dll"
+      },
+      "4.5.4": {
+        "perintah": "Sebutkan pencapaian prestasi/reputasi dosen (misalnya prestasi dalam pendidikan, penelitian dan pelayanan/pengabdian kepada masyarakat).",
+        "keterangan": "* Sediakan dokumen pendukung pada saat asesmen lapangan."
+      },
+      "4.5.5": {
+        "perintah": "Sebutkan keikutsertaan dosen tetap dalam organisasi keilmuan atau organisasi profesi."
+      }
+    },
+    "4.6": {
+      "judul": "4.6 Tenaga Kependidikan",
+      "4.6.1": {
+        "perintah": "Tuliskan data tenaga kependidikan  yang ada di PS, Jurusan, Fakultas atau PT yang melayani mahasiswa PS dengan mengikuti format tabel berikut:",
+        "keterangan": "* Hanya yang memiliki pendidikan formal dalam bidang perpustakaan"
+      },
+      "4.6.2": {
+        "perintah": "Jelaskan upaya yang telah dilakukan PS dalam meningkatkan kualifikasi dan kompetensi tenaga kependidikan, dalam hal pemberian kesempatan belajar/pelatihan, pemberian fasilitas termasuk dana, dan jenjang karir.",
+        "isian": ""
+      }
+    }
+  }
+}
