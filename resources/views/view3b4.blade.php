@@ -9,8 +9,6 @@
             <h3>Borang 3B, Standar 4</h3>
             <span> Sumber Daya Manusia</span>
 
-             <a href="{{ url('3b/standar4edit/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -224,11 +222,9 @@
 
                             4.1.3    Uraikan pandangan Fakultas/Sekolah Tinggi tentang data pada butir 4.1.1 dan 4.1.2, yang mencakup aspek: kecukupan, kualifikasi, dan pengembangan karir. Jelaskan kendala yang ada dalam pengembangan tenaga dosen tetap<br><br>
 
-                            <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
-
-                              </textarea>
-                            </div>
+                            @if($role=='Tim Akreditasi' || $role=='Admin' )
+                           <a href="{{ url('3b/standar4edit/4-1/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                           @endif
                         </div>
                     </div>
 
@@ -335,14 +331,12 @@
 
                              Uraikan pandangan Fakultas tentang data di atas yang mencakup aspek: kecukupan, dan kualifikasi. Jelaskan kendala yang ada dalam pengembangan tenaga kependidikan.<br><br>
 
-                             <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
-
-                              </textarea>
-                            </div>
+                            @if($role=='Tim Akreditasi' || $role=='Admin' )
+                            <a href="{{ url('3b/standar4edit/4-2/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                            @endif
 
                         </div>
-
+4-2
 
                     </div>
                 </div>
