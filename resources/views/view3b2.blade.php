@@ -8,10 +8,13 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3B, Standar 2</h3>
             <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span>
+            <br><br>
+            <span> Program Studi {{$prodiBorang->nama_prodi}} </span><br>
+            <span> Tahun {{$tahun}} </span>
 
              
 
-            <br><br><br>
+            <br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
                 <div class="panel">

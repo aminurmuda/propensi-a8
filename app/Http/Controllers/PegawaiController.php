@@ -670,6 +670,9 @@ class PegawaiController extends Controller
 			$selectedProdi = $kodeProdiPengguna;
 		}
 
+		$prodiBorang = program_studi::getProdi($selectedProdi);
+		
+
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
 		} else {
@@ -688,7 +691,9 @@ class PegawaiController extends Controller
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
 	            'standar2' => $standar2,
-	            'kodeProdi' => $kodeProdi
+	            'kodeProdi' => $kodeProdi,
+	            'prodiBorang' => $prodiBorang,
+	            'tahun' => $tahun
 			]);
 
 		
