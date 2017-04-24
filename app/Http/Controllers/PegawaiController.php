@@ -12,6 +12,7 @@ use App\tendik;
 use App\Borang;
 use App\proyek;
 use App\kerja_sama;
+use App\danaPengmas;
 use DB;
 
 class PegawaiController extends Controller
@@ -1057,6 +1058,12 @@ class PegawaiController extends Controller
 		$standar7_2_3 = Proyek::getKaryaHAKI($kode_prodi, $tahun);
 		$standar7_3_1 = kerja_sama::getKerjaSamaDalamNegeri($kode_prodi, $tahun);
 		$standar7_3_2 = kerja_sama::getKerjaSamaLuarNegeri($kode_prodi, $tahun);
+		$standar7_2_1_a = danaPengmas::getDanaBiayaSendiri($kode_prodi,$tahun);
+		$standar7_2_1_b = danaPengmas::getDanaPT($kode_prodi,$tahun);
+		$standar7_2_1_c = danaPengmas::getDanaDepdiknasDalamNegeri($kode_prodi,$tahun);
+		$standar7_2_1_d = danaPengmas::getDanaInstitusiDalamNegeri($kode_prodi,$tahun);
+		$standar7_2_1_e = danaPengmas::getDanaInstitusiLuarNegeri($kode_prodi,$tahun);
+		 //dana dari depdiknas
 		return view('view3a7',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
@@ -1066,7 +1073,13 @@ class PegawaiController extends Controller
 	            'standar7_2_3'=> $standar7_2_3,
 	            'standar7_3_1'=> $standar7_3_1,
 	           	'standar7_3_2'=> $standar7_3_2,
-	            'username' => $username
+	           	'standar7_2_1_a'=> $standar7_2_1_a,
+	           	'standar7_2_1_b'=> $standar7_2_1_b,
+	           	'standar7_2_1_c'=> $standar7_2_1_c,
+	           	'standar7_2_1_d'=> $standar7_2_1_d,
+	           	'standar7_2_1_e'=> $standar7_2_1_e,
+	            'username' => $username,
+	            'tahun' => $tahun
 			]);
 	}
 
