@@ -13,6 +13,7 @@ use App\Borang;
 use App\proyek;
 use App\kerja_sama;
 use App\danaPengmas;
+use App\danaProyek;
 use DB;
 
 class PegawaiController extends Controller
@@ -1092,6 +1093,11 @@ class PegawaiController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
+
+		$standar7_json = Borang::getBorang('3a',7,$selectedProdi,$tahun);
+		$isi = $standar7_json[0]->isi;
+		$standar7 = json_decode(stripslashes($isi),true);
+
 		$standar7_1_3 = Proyek::getHasilPublikasiDosen($kode_prodi, $tahun);
 		$standar7_2_3 = Proyek::getKaryaHAKI($kode_prodi, $tahun);
 		$standar7_3_1 = kerja_sama::getKerjaSamaDalamNegeri($kode_prodi, $tahun);
@@ -1181,6 +1187,7 @@ class PegawaiController extends Controller
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna, 
+	            'standar7'=>$standar7,
 	            'standar7_1_3'=> $standar7_1_3,
 	            'standar7_2_3'=> $standar7_2_3,
 	            'standar7_3_1'=> $standar7_3_1,
@@ -1196,6 +1203,7 @@ class PegawaiController extends Controller
 	           	'standar7_2_1_e'=> $standar7_2_1_e,
 	            'username' => $username,
 	            'tahun' => $tahun
+	            
 			]);
 	}
 

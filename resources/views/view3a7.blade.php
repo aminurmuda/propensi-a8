@@ -9,8 +9,6 @@
             <h3>Borang 3A, Standar 7</h3>
             <span> Penelitian, Pelayanan/Pengabdian Kepada Masyarakat, dan Kerjasama</span>
 
-             <a href="{{ url('3a/standar7edit/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -87,14 +85,16 @@
                             7.1.2   Adakah mahasiswa tugas akhir yang dilibatkan dalam penelitian dosen dalam tiga tahun terakhir?
                             <br>
 
-                            <form action="">
-  								<input type="radio" name="answer" value="tidak"> Tidak ada<br>
-  								<input type="radio" name="answer" value="ada"> Ada<br><br>
-
-							</form>
 
 							Jika ada, banyaknya mahasiswa PS yang ikut serta dalam penelitian dosen adalah  ... orang, dari ... mahasiswa yang melakukan tugas akhir melalui skripsi<br><br>
 
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                            {!!$standar7['standar7']['7.1']['isian']!!}
+                            </div><br>
+
+                             @if($role=='Tim Akreditasi' || $role=='Admin' )
+                             <a href="{{ url('3a/standar7edit/7-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                            @endif
 							7.1.3  Tuliskan judul artikel ilmiah/karya ilmiah/karya seni/buku yang dihasilkan selama tiga tahun terakhir oleh dosen tetap yang bidang keahliannya sesuai dengan PS dengan mengikuti format tabel berikut:<br>
 
                             <div class="table-responsive">
