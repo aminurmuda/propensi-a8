@@ -242,10 +242,10 @@
                                   </tr>
                                 
                                 </table>
-                                <br><br>
-                                @if($role=='Tim Akreditasi' || $role=='Admin' )
+                                <br>
+                                <!-- @if($role=='Tim Akreditasi' || $role=='Admin' )
                                   <a href="{{ url('3a/standar2edit/2-5/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                                @endif
+                                @endif -->
 
                                 <style>
                                     table {

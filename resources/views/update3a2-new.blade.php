@@ -24,7 +24,7 @@
                 {!!$standar2['standar2'][$kodeStandarStr]['isian']!!}
               </textarea>
             </div>
-            <button type="submit" class="btn-primary btn-lg pull-left">Simpan</button>
+            <button type="submit" class="btn-primary btn-lg pull-right">Simpan</button>
             </form>
             <script>
              // Replace the <textarea id="editor1"> with a CKEditor
