@@ -12,8 +12,10 @@ use App\tendik;
 use App\Borang;
 use App\proyek;
 use App\kerja_sama;
+
 use App\danaPengmas;
 use App\danaProyek;
+
 use DB;
 
 class PegawaiController extends Controller
@@ -405,7 +407,7 @@ class PegawaiController extends Controller
 		}
 
 		//poin 4.1,4.2,4.6.1
-		$standar4_json = Borang::getBorang('3a',4,$selectedProdi,$tahun);
+		$standar4_json = Borang::getBorang(4,$selectedProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
 		// dd($standar4);
@@ -638,12 +640,12 @@ class PegawaiController extends Controller
 	}
 
 
-	public function lihat3a2(Request $request) {
+	public function lihat3a2(Request $request, $kodeProdi) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		$standar2_json = Borang::getBorang(2,1,2010);
+		$standar2_json = Borang::getBorang('3a',2,$kodeProdi,2017);
 		$isi = $standar2_json[0]->isi;
 		$standar2 = json_decode(stripslashes($isi),true);
 			return view('view3a2',[
@@ -652,28 +654,19 @@ class PegawaiController extends Controller
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
-	            'standar2' => $standar2
+	            'standar2' => $standar2,
+	            'kodeProdi' => $kodeProdi
 			]);
 	}
 
-	public function lihat3b2(Request $request, $kodeProdi) {
+	public function lihat3b2(Request $request) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 
-		$QKodeProdiPengguna = Pegawai::getProdiPegawai($request->session()->get('user'));		
-		$kodeProdiPengguna=$QKodeProdiPengguna[0]->kode_prodi_pengajaran;
-
-		if ($kodeProdi){
-			// echo $kodeProdi;
-			$selectedProdi = $kodeProdi;
-		}
-		else{
-			$selectedProdi = $kodeProdiPengguna;
-		}
-
-		$prodiBorang = program_studi::getProdi($selectedProdi);
+		
+		
 		
 
 		if ($request->get('tahun')){
@@ -682,7 +675,7 @@ class PegawaiController extends Controller
 			$tahun = date('Y');
 		}
 
-		$standar2_json = Borang::getBorang(2,$selectedProdi,$tahun);
+		$standar2_json = Borang::getBorang("3b",2,$kodeFakultasPengguna,$tahun);
 		$isi = $standar2_json[0]->isi;
 		$standar2 = json_decode(stripslashes($isi),true);
 		// dd($isi);
@@ -694,22 +687,25 @@ class PegawaiController extends Controller
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
 	            'standar2' => $standar2,
-	            'kodeProdi' => $kodeProdi,
-	            'prodiBorang' => $prodiBorang,
+	 
 	            'tahun' => $tahun
 			]);
 
 		
 	}
 
-	public function edit3a2($kodeStandar, $kodeProdi, Request $request) {
+	public function edit3a2(Request $request,$kodeStandar,$kodeProdi) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		$standar2_json = Borang::getBorang(2,1,2010);
+		$kodeStandarStr= str_replace("-",".",$kodeStandar);
+		$nomorStandar = explode("-", $kodeStandar)[0];
+		
+		$standar2_json = Borang::getBorang('3a', $nomorStandar,$kodeProdi,2017);
 		$isi = $standar2_json[0]->isi;
 		$standar2 = json_decode(stripslashes($isi),true);
+
 			return view('update3a2-new',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
@@ -717,10 +713,39 @@ class PegawaiController extends Controller
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
 	            'standar2' => $standar2,
+	            'kodeProdi' => $kodeProdi,
 	            'kodeStandar' => $kodeStandar,
-	            'kodeProdi' => $kodeProdi
+	            'kodeStandarStr' => $kodeStandarStr
 			]);
 	}
+
+	public function edit3a25(Request $request,$kodeStandar,$kodeProdi, $dari, $jenisIsian) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$kodeStandarStr= str_replace("-",".",$kodeStandar);
+		$nomorStandar = explode("-", $kodeStandar)[0];
+		
+		$standar2_json = Borang::getBorang('3a', $nomorStandar,$kodeProdi,2017);
+		$isi = $standar2_json[0]->isi;
+		$standar2 = json_decode(stripslashes($isi),true);
+
+			return view('update3a2-new',[
+				'role' => $request->session()->get('role'),
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pimpinan,      
+	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'username' => $username,
+	            'standar2' => $standar2,
+	            'kodeProdi' => $kodeProdi,
+	            'kodeStandar' => $kodeStandar,
+	            'kodeStandarStr' => $kodeStandarStr,
+	            '$dari' => $dari,
+	            'jenisIsian' => $jenisIsian
+			]);
+	}
+
 
 	public function edit3b2(Request $request,$kodeStandar,$kodeProdi) {
 		$username=$request->session()->get('user');
@@ -789,7 +814,7 @@ class PegawaiController extends Controller
 		}
 
 		//poin 4.1
-		$standar4_json = Borang::getBorang('3a',4,$kodeProdi,$tahun);
+		$standar4_json = Borang::getBorang(4,$kodeProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
 
@@ -851,11 +876,14 @@ class PegawaiController extends Controller
 
 	}
 
+
 	public function edit3b4(Request $request,$kodeStandar,$kodeFakultas) {
+
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+
 		
 		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
 		$role=$request->session()->get('role');
@@ -882,15 +910,18 @@ class PegawaiController extends Controller
 		// dd($standar4);
 
 			return view('update3b4-new',[
+
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
+
 	            'username' => $username,
 	            'kodeFakultas' => $kodeFakultas,
 	            'kodeStandar' => $kodeStandar,
 	            'standar4' => $standar4,
 	            'kodeStandarStr' => $kodeStandarStr
+
 			]);
 	}
 
@@ -901,11 +932,6 @@ class PegawaiController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$listProdi;
 		$totalFakultas = 0;
-		$totalPendidikanFakultas = 0;
-		$totalPensiun = 0;
-		$totalDosenBaru = 0;
-		$totalTugasBelajarS2 = 0;
-		$totalTugasBelajarS3 = 0;
 
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
@@ -927,8 +953,6 @@ class PegawaiController extends Controller
 		}
 		
 		$arr = [];
-		$arr1 = [];
-		$arr2 = [];
 		
 
 		foreach ($listProdi as $l)
@@ -946,37 +970,6 @@ class PegawaiController extends Controller
 			$arr[$l->nama_prodi]['total'] = $total;
 			$totalFakultas += $total;
 		}
-
-		foreach ($listProdi as $l2) {
-			$kode_prodi = $l2->kode_prodi;
-			$pendidikanS1 = count(dosen::getDosenTetapSesuaiPendidikanS1($kode_prodi));
-			$pendidikanS2 = count(dosen::getDosenTetapSesuaiPendidikanS2($kode_prodi));
-			$pendidikanS3 = count(dosen::getDosenTetapSesuaiPendidikanS3($kode_prodi));
-			$totalPendidikan = $pendidikanS1+$pendidikanS2+$pendidikanS3;
-			$arr1[$l2->nama_prodi]['S1'] = $pendidikanS1;
-			$arr1[$l2->nama_prodi]['S2'] = $pendidikanS2;
-			$arr1[$l2->nama_prodi]['S3'] = $pendidikanS3;
-			$arr1[$l2->nama_prodi]['totalPendidikan'] = $totalPendidikan;
-			$totalPendidikanFakultas += $totalPendidikan;
-		}
-
-		foreach ($listProdi as $l1) {
-			$kode_prodi = $l1->kode_prodi;
-			$pensiun = count(dosen::getDosenTetapSesuaiStatusPensiun($kode_prodi));
-			$dosenBaru = count(dosen::getDosenTetapSesuaiStatusDosenBaru($kode_prodi));
-			$tugasBelajarS2 = count(dosen::getDosenTetapSesuaiStatusTugasBelajarS2($kode_prodi));
-			$tugasBelajarS3 = count(dosen::getDosenTetapSesuaiStatusTugasBelajarS3($kode_prodi));
-			$arr2[$l1->nama_prodi]['pensiun'] = $pensiun;
-			$arr2[$l1->nama_prodi]['dosenBaru'] = $dosenBaru;
-			$arr2[$l1->nama_prodi]['tugasBelajarS2'] = $tugasBelajarS2;
-			$arr2[$l1->nama_prodi]['tugasBelajarS3'] = $tugasBelajarS3;
-			$totalPensiun += $pensiun;
-			$totalDosenBaru += $dosenBaru;
-			$totalTugasBelajarS2 += $tugasBelajarS2;
-			$totalTugasBelajarS3 += $tugasBelajarS3;
-		}
-
-		
 
 
 
@@ -1073,62 +1066,48 @@ class PegawaiController extends Controller
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
 	            'listProdi' => $listProdi,
-	            'listProdi1' => $listProdi,
 	            'arrA' => $arrA,
 	            'arrB' => $arrB,
 	            'arrC' => $arrC,
 	            'arrD' => $arrD,
 	            'kodeFakultasSelected' => $selectedFakultas,
 	            'arr' => $arr,
-	            'arr1' => $arr1,
-	            'arr2' => $arr2,
-	            'totalPensiun' => $totalPensiun,
-	            'totalDosenBaru' => $totalDosenBaru,
-	            'totalTugasBelajarS2' => $totalTugasBelajarS2,
-	            'totalTugasBelajarS3' => $totalTugasBelajarS3,
 	            'jumlahProdi' => $jumlahProdi,
+
 	            'totalFakultas' => $totalFakultas,
 	            'totalPendidikanFakultas' => $totalPendidikanFakultas,
 	            'standar4' => $standar4
+
 			]);
 
 	}
 
 	public function lihat3a7(Request $request, $kode_prodi) {
-		$role= $request->session()->get('role');
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+
 		$QKodeProdiPengguna = Pegawai::getProdiPegawai($request->session()->get('user'));		
 		$kodeProdiPengguna=$QKodeProdiPengguna[0]->kode_prodi_pengajaran;	 //belum disesuain sama kode prodi tim akreditasi
-		// end of wajib ada
-			if ($role=='Tim Akreditasi') {
-				$timAkreditasi = Pegawai::getTimAkreditasi($username);		
-				$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
-			} else {
-			if ($kodeProdi){
-				$selectedProdi = $kodeProdi; 	
-				} else {
-					$selectedProdi=$kodeProdiPengguna;
-				}	
-			}
-			
-		$prodiBorang = program_studi::getProdi($selectedProdi);
+		if ($request->get('selectProdi')){
+			$selectedProdi = $request->get('selectProdi'); 	
+		} else {
+			$selectedProdi=$kodeProdiPengguna;
+		}
+
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
 		} else {
 			$tahun = date('Y');
 		}
 
-		$standar7_json = Borang::getBorang('3a',7,$selectedProdi,$tahun);
-		$isi = $standar7_json[0]->isi;
-		$standar7 = json_decode(stripslashes($isi),true);
-		//dd($standar7);
+
 		$standar7_1_3 = Proyek::getHasilPublikasiDosen($kode_prodi, $tahun);
 		$standar7_2_3 = Proyek::getKaryaHAKI($kode_prodi, $tahun);
 		$standar7_3_1 = kerja_sama::getKerjaSamaDalamNegeri($kode_prodi, $tahun);
 		$standar7_3_2 = kerja_sama::getKerjaSamaLuarNegeri($kode_prodi, $tahun);
+
 		$standar7_2_1_a = danaPengmas::getDanaBiayaSendiri($kode_prodi,$tahun);
 		//array biaya sendiri
 		$arr1 = array(0,0,0); //ts-2,ts-1,ts
@@ -1209,6 +1188,7 @@ class PegawaiController extends Controller
 			}
 
 		}
+
 		return view('view3a7',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
@@ -1220,6 +1200,7 @@ class PegawaiController extends Controller
 	            'standar7_2_3'=> $standar7_2_3,
 	            'standar7_3_1'=> $standar7_3_1,
 	           	'standar7_3_2'=> $standar7_3_2,
+
 	           	'arr1'=>$arr1,
 	           	'arr2'=>$arr2,
 	           	'arr3'=>$arr3,
@@ -1231,7 +1212,7 @@ class PegawaiController extends Controller
 	           	'standar7_2_1_e'=> $standar7_2_1_e,
 	            'username' => $username,
 	            'tahun' => $tahun
-	            
+
 			]);
 	}
 
@@ -1240,26 +1221,67 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
+		$isi = $standar7_json[0]->isi;
+		$standar7 = json_decode(stripslashes($isi),true);
+
 			return view('view3b7',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username
+	            'username' => $username,
+	            'standar7' => $standar7
 			]);
 	}
 
-	public function edit3b7(Request $request) {
+	public function edit3b7(Request $request,$kodeStandar,$kodeFakultas) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-			return view('update3b7',[
+		
+		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
+		$role=$request->session()->get('role');
+		if($role!='Tim Akreditasi' && $role!='Admin') {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);				
+		}
+
+		$kodeStandarStr= str_replace("-",".",$kodeStandar);
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		//poin 4.1
+		$standar7_json = Borang::getBorang('3b',7,$kodeFakultas,$tahun);
+		$isi = $standar7_json[0]->isi;
+		$standar7 = json_decode(stripslashes($isi),true);
+		// dd($standar4);
+
+			return view('update3b7-new',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username
+	            'username' => $username,
+	            'kodeFakultas' => $kodeFakultas,
+	            'kodeStandar' => $kodeStandar,
+	            'standar7' => $standar7,
+	            'kodeStandarStr' => $kodeStandarStr
 			]);
 	}
 
@@ -1291,6 +1313,7 @@ class PegawaiController extends Controller
 		$kodeStandarStr = str_replace("-",".", $kodeStandar);
 
 		$standar_json = Borang::getBorang($jenisBorang,$nomorStandar,$kode,$tahun);
+
 		$isi = $standar_json[0]->isi;
 		$standar = json_decode(stripslashes($isi),true);
 
@@ -1303,7 +1326,9 @@ class PegawaiController extends Controller
 		}
 		$encoded_json = json_encode($standar);
 		//masukin ke database
+
 		Borang::updateBorang($jenisBorang,$nomorStandar,$kode,$tahun,$encoded_json);
+
 
 		
 		
