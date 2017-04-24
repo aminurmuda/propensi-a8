@@ -8,10 +8,11 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3B, Standar 2</h3>
             <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span>
+            <br>
 
              
 
-            <br><br><br>
+            <br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
                 <div class="panel">
@@ -31,11 +32,15 @@
                               {!!$standar2['standar2']['2.1']['perintah']!!}<br><br>
 
 
-                              <textarea class="form-control" rows="5" readonly>
-
+                           
+                          
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                               {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div>
 
-                              </textarea><br>
+
+                            <br>
+
 
                             @if($role=='Admin' || $role=='Tim Akreditasi')
                             <a href="{{ url('3b/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
@@ -60,17 +65,17 @@
 
                              {!!$standar2['standar2']['2.2']['perintah']!!} <br><br>
 
-                             <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                               {!!$standar2['standar2']['2.2']['isian']!!}
 
-                              </textarea><br>
+                             </div>
+                             <br>
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                               <a href="{{ url('3b/standar2edit/2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
-                            </div>
+                            
 
                         </div>
 
@@ -96,16 +101,16 @@
                             {!!$standar2['standar2']['2.3']['perintah']!!} <br><br>
 
 
-                            <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                               {!!$standar2['standar2']['2.3']['isian']!!}
-                              </textarea><br>
+                            </div>
+                            <br>
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                               <a href="{{ url('3b/standar2edit/2-3/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -128,16 +133,16 @@
                              {!!$standar2['standar2']['2.4']['perintah']!!}<br><br>
 
 
-                            <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                               {!!$standar2['standar2']['2.4']['isian']!!}
-                              </textarea><br>
+                            </div><br>
+                              
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                               <a href="{{ url('3b/standar2edit/2-4/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
-                            </div>
+                            
 
                         </div>
                     </div>
@@ -159,17 +164,18 @@
                             {!!$standar2['standar2']['2.5']['perintah']!!} <br> <br>
 
 
-                            <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>
-                              {!!$standar2['standar2']['2.5']['isian']!!}
+                            
+                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.5']['isian']!!}
+                               </div><br>
 
-                              </textarea><br>
+                              
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                               <a href="{{ url('3b/standar2edit/2-5/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
-                            </div>
+                          
                             
                         </div>
                     </div>
