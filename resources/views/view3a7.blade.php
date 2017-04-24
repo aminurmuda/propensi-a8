@@ -109,6 +109,12 @@
                             </tr>
 
                             <tr>
+                                    <th>Lokal</th>
+                                    <th>Nasional</th>
+                                    <th>Internasional</th>
+                            </tr>
+
+                            <tr>
                                 <td>(1)</td>
                                 <td>(2)</td>
                                 <td>(3)</td>
@@ -119,44 +125,50 @@
                                 <td>(8)</td>
                             </tr>
 
+                            <?php 
+                            $i=1;
+                            $jumlahLokal=0;
+                            $jumlahNasional=0;
+                            $jumlahInternasional=0;
+                            ?>
+                            @foreach($standar7_1_3 as $standar7_1_3)
                             <tr>
+                                <td>{{$i}}</td>
+                                <td>{{$standar7_1_3->nama}}</td>
+                                <td>{{$standar7_1_3->Pengaju}}</td>
+                                <td>{{$standar7_1_3->lokasi}}</td>
+                                <td>{{$standar7_1_3->tanggal_selesai}}</td>
+                                @if($standar7_1_3->tingkat=='Lokal')
+                                <td>V</td>
+                                 <?php
+                                $jumlahLokal+=1?>
+                                @else
                                 <td></td>
+                                @endif
+                                @if($standar7_1_3->tingkat=='Nasional')
+                                <td>V</td>
+                                <?php
+                                $jumlahNasional+=1?> 
+                                @else
                                 <td></td>
+                                @endif
+                                 @if($standar7_1_3->tingkat=='Internasional')
+                                <td>V</td> 
+                                <?php
+                                $jumlahInternasional+=1?>
+                                @else
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @endif  
                             </tr>
-
+                            <?php
+                            $i++;
+                            ?>
+                            @endforeach
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                           
-                           <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td rowspan="5">Jumlah</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td colspan="5">Jumlah</td>
+                                <td>{{$jumlahLokal}}</td>
+                                <td>{{$jumlahNasional}}</td>
+                                <td>{{$jumlahInternasional}}</td>
                             </tr>
 
                             </table>
@@ -179,24 +191,20 @@
                               
                             </tr>
 
+                            <?php 
+                            $i=1;
+                            ?>
+                            @foreach($standar7_2_3 as $standar7_2_3)
                             <tr>
-                                <td>1</td>
-                                <td></td>
+                                <td>{{$i}}</td>
+                                <td>{{$standar7_2_3->nama}}</td>
                                
                             </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td></td>
-                             
-                            </tr>
+                             <?php
+                            $i++;
+                            ?>
+                            @endforeach
                            
-                           <tr>
-                                <td>Dst.</td>
-                                <td></td>
-                              
-                            </tr>
-
                             </table>
                             </div>
                             * Lampirkan surat paten HaKI atau keterangan sejenis.<br>
@@ -344,44 +352,22 @@
                                 <td>(5)</td>
                                 <td>(6)</td>  
                             </tr>
-
+                             <?php 
+                            $i=1;
+                            ?>
+                            @foreach($standar7_3_1 as $standar7_3_1)
                             <tr>
-                                <td>1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$i}}</td>
+                                <td>{{$standar7_3_1->nama_instansi}}</td>
+                                <td>{{$standar7_3_1->jenis_kegiatan}}</td>
+                                <td>{{$standar7_3_1->tgl_mulai}}</td>
+                                <td>{{$standar7_3_1->tgl_akhir}}</td>
+                                <td>{{$standar7_3_1->manfaat}}</td>
                             </tr>
-
-                             <tr>
-                                <td>2</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                             <tr>
-                                <td>3</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                             <tr>
-                                <td>dst.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            
-
+                            <?php
+                            $i++;
+                            ?>
+                            @endforeach
                             </table>
                             </div>
                            Catatan : (*) dokumen pendukung disediakan pada saat asesmen lapangan<br><br>
@@ -412,44 +398,22 @@
                                 <td>(5)</td>
                                 <td>(6)</td>  
                             </tr>
-
+                             <?php 
+                            $i=1;
+                            ?>
+                            @foreach($standar7_3_2 as $standar7_3_2)
                             <tr>
-                                <td>1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$i}}</td>
+                                <td>{{$standar7_3_2->nama_instansi}}</td>
+                                <td>{{$standar7_3_2->jenis_kegiatan}}</td>
+                                <td>{{$standar7_3_2->tgl_mulai}}</td>
+                                <td>{{$standar7_3_2->tgl_akhir}}</td>
+                                <td>{{$standar7_3_2->manfaat}}</td>
                             </tr>
-
-                             <tr>
-                                <td>2</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                             <tr>
-                                <td>3</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                             <tr>
-                                <td>dst.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            
-
+                            <?php
+                            $i++;
+                            ?>
+                            @endforeach
                             </table>
                             </div>
 

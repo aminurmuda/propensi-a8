@@ -37,7 +37,7 @@
                       </div>
                       
                     </form>
-                    <br>
+                    <br><br>
                     <div id="titledaftar"> 
                          <h2>Daftar Pimpinan</h2>
                      </div>

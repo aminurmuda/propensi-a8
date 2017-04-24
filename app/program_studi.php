@@ -29,4 +29,13 @@ class program_studi extends Model
         ->get();
     }
 
+        public static function getProdi($kode_prodi)
+    {
+        return DB::table('program_studi')
+        ->where('kode_prodi',$kode_prodi)
+        ->first();
+    }
+
+    
+
 }

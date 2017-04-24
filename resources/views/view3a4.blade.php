@@ -7,10 +7,9 @@
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3A, Standar 4</h3>
-            <span> Sumber Daya Manusia </span>
-
-            <a href="{{ url('3a/standar4edit/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-
+            <span> Sumber Daya Manusia </span><br>
+            <span> Program Studi {{$prodiBorang->nama_prodi}} </span><br>
+            <span> Tahun {{$tahun}} </span>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -28,7 +27,10 @@
 
                         Sistem seleksi/perekrutan, penempatan, pengembangan, retensi, dan pemberhentian dosen dan tenaga kependidikan untuk menjamin mutu penyelenggaraan program akademik.  <br><br>                          
 
+                        {!!$standar4['standar4']['4.1']['isian']!!}
+                        @if($role=='Tim Akreditasi' || $role=='Admin' )
                           <a href="{{ url('3a/standar4edit/4-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                        @endif
 
                         </div>
                     </div>
@@ -51,11 +53,10 @@
                               Jelaskan sistem monitoring dan evaluasi, serta rekam jejak kinerja akademik dosen dan kinerja tenaga kependidikan (termasuk informasi tentang ketersediaan pedoman tertulis, dan monitoring dan evaluasi kinerja dosen dalam tridarma serta dokumentasinya). <br><br>
 
                               
-                             <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
-
-                              </textarea>
-                            </div>
+                             {!!$standar4['standar4']['4.2']['isian']!!}
+                          @if($role=='Tim Akreditasi' || $role=='Admin' )
+                          <a href="{{ url('3a/standar4edit/4-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                          @endif
 
                         </div>
 
@@ -230,54 +231,105 @@
                                 <th>PS sendiri</th>
                                 <th>PS lain PT sendiri</th>
                                 <th>PT lain</th>
-                                <th>PT sendiri</th>
-                                <th>PT lain</th>
+                                <th>PT Sendiri</th>
+                                <th>PT Lain</th>
                               </tr>                              
                               <tr>
-                                <td >1</td>
-                                <td >January</td>
-                                <td >January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                                <td >$50</td>
-                                <td >$50</td>                                
+                                <th scope="row">(1)</th>
+                                <td>(2)</td>
+                                <td>(3)</td>
+                                <td>(4)</td>
+                                <td>(5)</td>
+                                <td>(6)</td>
+                                <td>(7)</td> 
+                                <td>(8)</td>                         
+                                <td>(9)</td>                         
+                                <td>(10)</td>                         
                               </tr>
+                              <?php $i=1; 
+                              $sksPengajaranPSSendiri=0;
+                              $sksPengajaranPSLain=0;
+                              $sksPengajaranPTLain=0;
+                              $sksPenelitian=0;
+                              $sksPengmas=0;
+                              $sksManajemenPTSendiri=0;
+                              $sksManajemenPTLain=0;
+                              ?>
+                            @foreach($standar4_3_3 as $standar4_3_3 )
+                              <?php $jumlahSKS=0 ?>
                               <tr>
-                                <td >1</td>
-                                <td >January</td>
-                                <td >January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                                <td >$50</td>
-                                <td >$50</td>
+                                <th scope="row">{{$i}}</th>
+                                <td>{{$standar4_3_3 -> namaPegawai}}</td>
+                                @if($standar4_3_3 -> isProdiSendiri ==1)
+                                <td>{{$standar4_3_3 -> sesi}}</td>
+                                <?php $jumlahSKS+=$standar4_3_3 -> sesi;
+                                $sksPengajaranPSSendiri+=$standar4_3_3 -> sesi;
+                                ?>
+                                @else
+                                    <td></td>
+                                @endif
+                                @if($standar4_3_3 -> isProdiSendiri ==0)
+                                  <td>{{$standar4_3_3 -> sesi}}</td>
+                                  <?php $jumlahSKS+=$standar4_3_3 -> sesi;
+                                  $sksPengajaranPSLain+=$standar4_3_3 -> sesi;
+                                  ?>
+                                @else 
+                                  <td></td>
+                                @endif
+                                @if($standar4_3_3 -> isPT == 0)
+                                  <td>{{$standar4_3_3 -> sesi}}</td>
+                                  <?php $jumlahSKS+=$standar4_3_3 -> sesi;
+                                  $sksPengajaranPTLain+=$standar4_3_3 -> sesi;?>
+                                @else
+                                  <td></td>
+                                @endif
+                                <td>{{$standar4_3_3 -> sks_penelitian}}</td>
+                                <?php $jumlahSKS+=$standar4_3_3 -> sks_penelitian;
+                                $sksPenelitian+=$standar4_3_3 -> sks_penelitian;
+                                ?>
+
+                                <td>{{$standar4_3_3 -> sks_pengmas}}</td>
+                                <?php $jumlahSKS+=$standar4_3_3 -> sks_pengmas;
+                                $sksPengmas+=$standar4_3_3 -> sks_pengmas?>
+                                @if($standar4_3_3 -> isPTSendiri == 1)
+                                  <td>{{$standar4_3_3 -> sks_manajemen}}</td>
+                                  <?php $jumlahSKS+=$standar4_3_3 -> sks_manajemen;
+                                  $sksManajemenPTSendiri+=$standar4_3_3 -> sks_manajemen;?>
+                                @else
+                                  <td></td>
+                                @endif
+                                @if($standar4_3_3 -> isPTSendiri == 0)
+                                  <td>{{$standar4_3_3 -> sks_manajemen}}</td>
+                                  <?php $jumlahSKS+=$standar4_3_3 -> sks_manajemen;
+                                  $sksManajemenPTLain+=$standar4_3_3 -> sks_manajemen;?>
+                                @else
+                                  <td></td>
+                                @endif
+                                <td>{{$jumlahSKS}}</td>
                               </tr>
+                              <?php $i++?>
+                              @endforeach    
                               <tr>
                                 <td colspan="2">Jumlah</td>
-                                <td >January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                                <td >$50</td>
-                                <td >$50</td>                                
+                                <td >{{ $sksPengajaranPSSendiri }}</td>
+                                <td >{{ $sksPengajaranPSLain }}</td>
+                                <td >{{ $sksPengajaranPTLain }}</td>
+                                <td >{{ $sksPenelitian }}</td>
+                                <td >{{ $sksPengmas }}</td>
+                                <td >{{ $sksManajemenPTSendiri }}</td>                                
+                                <td >{{ $sksManajemenPTLain }}</td>
+                                <td >{{ $sksTotal = $sksPengajaranPSSendiri+$sksPengajaranPSLain+$sksPengajaranPTLain+$sksPenelitian+$sksPengmas+$sksManajemenPTSendiri+$sksManajemenPTLain }}</td>                                
                               </tr> 
                               <tr>
                                 <td colspan="2">Rata-rata*</td>
-                                <td >January</td>
-                                <td >$100</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>
-                                <td >$50</td>                                
-                                <td >$50</td>
-                                <td >$50</td>                                
+                                <td >{{ $sksPengajaranPSSendiri/$i }}</td>
+                                <td >{{ $sksPengajaranPSLain/$i }}</td>
+                                <td >{{ $sksPengajaranPTLain/$i }}</td>
+                                <td >{{ $sksPenelitian/$i }}</td>
+                                <td >{{ $sksPengmas/$i }}</td>
+                                <td >{{ $sksManajemenPTSendiri/$i }}</td>                                
+                                <td >{{ $sksManajemenPTLain/$i }}</td>
+                                <td >{{ $sksTotal/$i }}</td>
                               </tr>                                                                                            
                               </table>
                             </div>                             
@@ -305,7 +357,7 @@
                                 <th rowspan="2">#</th>
                                 <th rowspan="2">Nama Dosen Tetap</th>
                                 <th rowspan="2">Bidang Keahlian</th>
-                                <th colspan="5">Tahun Akademik 2016/2017</th>
+                                <th colspan="5">Tahun Akademik {{$tahun-1}}/{{$tahun}}</th>
                               </tr>
                               <tr>
                                 <th>Kode Mata Kuliah</th>
@@ -495,7 +547,7 @@
                                 <th rowspan="2">#</th>
                                 <th rowspan="2">Nama Dosen Tetap</th>
                                 <th rowspan="2">Bidang Keahlian</th>
-                                <th colspan="5">Tahun Akademik 2016/2017</th>
+                                <th colspan="5">Tahun Akademik {{$tahun-1}}/{{$tahun}}</th>
                               </tr>
                               <tr>
                                 <th>Kode Mata Kuliah</th>
@@ -773,7 +825,7 @@
                           <td>(4)</td>
                           <td>(5)</td>                          
                         </tr> 
-                        <?php $i=0 ?>
+                        <?php $i=1 ?>
                         @foreach($standar4_5_5 as $standar4_5_5)                     
                         <tr>
                           <th scope="row">{{$i}}</th>
@@ -868,11 +920,10 @@
                     <br>                 
                     4.6.2 Jelaskan upaya yang telah dilakukan Program Studi dalam meningkatkan kualifikasi dan kompetensi tenaga kependidikan. <br><br>
 
-                            <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
-
-                              </textarea>
-                            </div>
+                            {!!$standar4['standar4']['4.6']['4.6.2']['isian']!!}
+                            @if($role=='Tim Akreditasi' || $role=='Admin' )
+                          <a href="{{ url('3a/standar4edit/4-6-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                          @endif
                         </div>
                     </div>
                 </div>

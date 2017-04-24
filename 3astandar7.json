@@ -1,0 +1,51 @@
+{
+  "standar7": {
+    "judul": "7. PENELITIAN, PELAYANAN/PENGABDIAN KEPADA MASYARAKAT, DAN KERJASAMA",
+    "7.1": {
+      "judul": "7.1 Penelitian Dosen Tetap yang Bidang Keahliannya Sesuai dengan PS",
+      "7.1.1": {
+        "perintah": "Tuliskan jumlah judul penelitian* yang sesuai dengan bidang keilmuan PS, yang dilakukan oleh dosen tetap yang bidang keahliannya sesuai dengan PS selama tiga tahun terakhir dengan mengikuti format tabel berikut:",
+        "keterangan": "Catatan: (*) sediakan data pendukung pada saat asesmen lapangan"
+      },
+      "7.1.2": {
+        "perintah": "Adakah mahasiswa tugas akhir yang dilibatkan dalam penelitian dosen dalam tiga tahun terakhir?",
+        "Tidak ada": "",
+        "Ada": "",
+        "perintah2": "Jika ada, banyaknya mahasiswa PS yang ikut serta dalam penelitian dosen adalah  ... orang, dari ... mahasiswa yang melakukan tugas akhir melalui skripsi."
+      },
+      "7.1.3": {
+        "perintah": "Tuliskan judul artikel ilmiah/karya ilmiah/karya seni/buku yang dihasilkan selama tiga tahun terakhir oleh dosen tetap yang bidang keahliannya sesuai dengan PS dengan mengikuti format tabel berikut:",
+        "keterangan": "Catatan: * = Tuliskan banyaknya dosen pada sel yang sesuai"
+      },
+      "7.1.4": {
+        "perintah": "Sebutkan karya dosen dan atau mahasiswa Program Studi yang telah memperoleh/sedang memproses perlindungan Hak atas Kekayaan Intelektual (HaKI) selama tiga tahun terakhir.",
+        "keterangan": "*Lampirkan surat paten HaKI atau keterangan sejenis."
+      }
+    },
+    "7.2": {
+      "judul": "7.2 Kegiatan Pelayanan/Pengabdian kepada Masyarakat (PKM)",
+      "7.2.1": {
+        "perintah": "Tuliskan jumlah kegiatan Pelayanan/Pengabdian kepada Masyarakat (*) yang sesuai dengan bidang keilmuan PS selama tiga tahun terakhir yang dilakukan oleh dosen tetap yang bidang keahliannya sesuai dengan PS dengan mengikuti format tabel berikut:",
+        "keterangan": "Catatan: (*) Pelayanan/Pengabdian kepada Masyarakat adalah penerapan bidang ilmu untuk menyelesaikan masalah di masyarakat (termasuk masyarakat industri, pemerintah, dsb.)"
+      },
+      "7.2.2": {
+        "perintah": "Adakah mahasiswa yang dilibatkan dalam kegiatan pelayanan/pengabdian kepada masyarakat dalam tiga tahun terakhir?",
+        "Tidak": "",
+        "Ya": "",
+        "perintah2": "Jika Ya, jelaskan tingkat partisipasi dan bentuk keterlibatan mahasiswa dalam kegiatan pelayanan/pengabdian kepada masyarakat",
+        "isian": ""
+      }
+    },
+    "7.3": {
+      "judul": "7.3 Kegiatan Kerjasama dengan Instansi Lain",
+      "7.3.1": {
+        "perintah": "Tuliskan instansi dalam negeri yang menjalin kerjasama* yang terkait dengan program studi/jurusan dalam tiga tahun terakhir.",
+        "keterangan": "Catatan : (*) dokumen pendukung disediakan pada saat asesmen lapangan"
+      },
+      "7.3.2": {
+        "perintah": "Tuliskan instansi luar negeri yang menjalin kerjasama* yang terkait dengan program studi/jurusan dalam tiga tahun terakhir.",
+        "keterangan": "Catatan : (*) dokumen pendukung disediakan pada saat asesmen lapangan"
+      }
+    }
+  }
+}
