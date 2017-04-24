@@ -221,9 +221,11 @@
                             <br>
 
                             4.1.3    Uraikan pandangan Fakultas/Sekolah Tinggi tentang data pada butir 4.1.1 dan 4.1.2, yang mencakup aspek: kecukupan, kualifikasi, dan pengembangan karir. Jelaskan kendala yang ada dalam pengembangan tenaga dosen tetap<br><br>
+                            
+                            <p>{!! $standar4['standar4']['4.1']['4.1.3']['isian'] !!}</p>
 
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
-                           <a href="{{ url('3b/standar4edit/4-1/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                           <a href="{{ url('3b/standar4edit/4-1-3/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                            @endif
                         </div>
                     </div>
@@ -331,12 +333,12 @@
 
                              Uraikan pandangan Fakultas tentang data di atas yang mencakup aspek: kecukupan, dan kualifikasi. Jelaskan kendala yang ada dalam pengembangan tenaga kependidikan.<br><br>
 
+                            <p>{!!$standar4['standar4']['4.2']['isian'] !!}</p>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                             <a href="{{ url('3b/standar4edit/4-2/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
 
                         </div>
-4-2
 
                     </div>
                 </div>

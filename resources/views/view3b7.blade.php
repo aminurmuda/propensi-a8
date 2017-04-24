@@ -9,8 +9,6 @@
             <h3>Borang 3B, Standar 7</h3>
             <span> Penelitian, Pelayanan/Pengabdian Kepada Masyarakat, dan Kerjasama</span>
 
-             <a href="{{ url('3b/standar7edit/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -88,12 +86,11 @@
                             7.1.2   Uraikan pandangan pimpinan  Fakultas/Sekolah Tinggi tentang data pada butir 7.1.1, dalam perspektif: kesesuaian dengan Visi dan Misi, kecukupan, kewajaran, upaya pengembangan dan peningkatan mutu. Uraikan pula kendala-kendala yang dihadapi. 
                             <br><br>
 
+                            <p>{!! $standar7['standar7']['7.1']['7.1.2']['isian'] !!}</p>
 
-                            <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
-
-                              </textarea>
-                            </div>
+                            @if($role=='Tim Akreditasi' || $role=='Admin' )
+                           <a href="{{ url('3b/standar7edit/7-1-2/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                           @endif
 
 
 
@@ -184,11 +181,11 @@
 							7.2.2  Uraikan pandangan Fakultas/Sekolah Tinggi tentang data pada butir 7.2.1 dalam perspektif: kesesuaian dengan Visi dan Misi, kecukupan, kewajaran, upaya pengembangan dan peningkatan mutu. Uraikan pula kendala-kendala yang dihadapi.<br><br>
 
                            
-                             <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
+                            <p>{!! $standar7['standar7']['7.2']['7.2.2']['isian'] !!}</p>
 
-                              </textarea>
-                            </div>
+                             @if($role=='Tim Akreditasi' || $role=='Admin' )
+                           <a href="{{ url('3b/standar7edit/7-2-2/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                           @endif
 
                         </div>
 

@@ -9,8 +9,6 @@
             <h3>Borang 3A, Standar 7</h3>
             <span> Penelitian, Pelayanan/Pengabdian Kepada Masyarakat, dan Kerjasama</span>
 
-             <a href="{{ url('3a/standar7edit/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -87,14 +85,18 @@
                             7.1.2   Adakah mahasiswa tugas akhir yang dilibatkan dalam penelitian dosen dalam tiga tahun terakhir?
                             <br>
 
-                            <form action="">
-  								<input type="radio" name="answer" value="tidak"> Tidak ada<br>
-  								<input type="radio" name="answer" value="ada"> Ada<br><br>
-
-							</form>
 
 							Jika ada, banyaknya mahasiswa PS yang ikut serta dalam penelitian dosen adalah  ... orang, dari ... mahasiswa yang melakukan tugas akhir melalui skripsi<br><br>
 
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                            {!!$standar7['standar7']['7.1']['7.1.2']['isian']!!}
+                    
+                            </div><br>
+
+                             @if($role=='Tim Akreditasi' || $role=='Admin' )
+                             <a href="{{ url('3a/standar7edit/7-1-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br><br><br>
+                           
+                            @endif
 							7.1.3  Tuliskan judul artikel ilmiah/karya ilmiah/karya seni/buku yang dihasilkan selama tiga tahun terakhir oleh dosen tetap yang bidang keahliannya sesuai dengan PS dengan mengikuti format tabel berikut:<br>
 
                             <div class="table-responsive">
@@ -249,42 +251,39 @@
 
                             <tr>
                                 <td>Pembiayaan sendiri oleh dosen</td>
-                                 @foreach($standar7_2_1_a as $standar7_2_1_a)
-                                 @if($standar7_2_1_a->dana_count==0)
-                                 <td>0</td>
-                                 @else
-                                 <td>{{$standar7_2_1_a->dana_count}}</td>
+                                 @foreach($arr1 as $arr1_value)
+                                 <td>{{$arr1_value}}</td>
                                 @endforeach
                 
                             </tr>
 
                             <tr>
                                 <td>PT yang bersangkutan</td>
-                                 @foreach($standar7_2_1_b as $standar7_2_1_b)
-                                <td>{{$standar7_2_1_b->dana_count}}</td>
+                                @foreach($arr2 as $arr2_value)
+                                 <td>{{$arr2_value}}</td>
                                 @endforeach
                                
                             </tr>
 
                             <tr>
                                 <td>Depdiknas</td>
-                                @foreach($standar7_2_1_c as $standar7_2_1_c)
-                                <td>{{$standar7_2_1_c->dana_count}}</td>
+                                @foreach($arr3 as $arr3_value)
+                                 <td>{{$arr3_value}}</td>
                                 @endforeach
                             </tr>
 
                             <tr>
                                 <td>Institusi dalam negeri di luar Depdiknas</td>
-                                 @foreach($standar7_2_1_d as $standar7_2_1_d)
-                                <td>{{$standar7_2_1_d->dana_count}}</td>
+                                @foreach($arr4 as $arr4_value)
+                                 <td>{{$arr4_value}}</td>
                                 @endforeach
                                
                             </tr>
 
                             <tr>
                                 <td>Institusi luar negeri</td>
-                                 @foreach($standar7_2_1_e as $standar7_2_1_e)
-                                <td>{{$standar7_2_1_e->dana_count}}</td>
+                                 @foreach($arr5 as $arr5_value)
+                                 <td>{{$arr5_value}}</td>
                                 @endforeach
                                
                             </tr>
@@ -295,20 +294,15 @@
 
                            7.2.2   Adakah mahasiswa yang dilibatkan dalam kegiatan pelayanan/pengabdian kepada masyarakat dalam tiga tahun terakhir?<br>
 
-                           <form action="">
-  								<input type="radio" name="answer" value="tidak"> Tidak ada<br>
-  								<input type="radio" name="answer" value="ada"> Ada<br><br>
+						  Jika Ya, jelaskan tingkat partisipasi dan bentuk keterlibatan mahasiswa dalam kegiatan pelayanan/pengabdian kepada masyarakat.
 
-							</form>
-
-							Jika Ya, jelaskan tingkat partisipasi dan bentuk keterlibatan mahasiswa dalam kegiatan pelayanan/pengabdian kepada masyarakat.
-
-                             <div class="form-group">
-                              <textarea class="form-control" rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut iaculis risus condimentum eros dapibus, elementum molestie purus bibendum. Vivamus malesuada vel urna vel dapibus. Nam et ligula varius, scelerisque urna eget, blandit quam. Aliquam ex elit, sollicitudin et laoreet sit amet, tristique ac odio. Aenean dignissim justo augue, sit amet consequat mi scelerisque ac. Nam lobortis tristique est eget aliquam. Sed sit amet vestibulum lectus, in congue magna.
-
-                              </textarea>
-                            </div>
-
+                        <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                        {!!$standar7['standar7']['7.2']['7.2.2']['isian']!!}
+                        </div><br>
+                             @if($role=='Tim Akreditasi' || $role=='Admin' )
+                             <a href="{{ url('3a/standar7edit/7-2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br><br><br>
+                
+                            @endif
                         </div>
 
 

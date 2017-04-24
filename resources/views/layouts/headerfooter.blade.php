@@ -35,12 +35,62 @@
         position: relative;
     }
 
-    .dropdown-submenu .dropdown-menu {
+    .dropdown-submenu> .dropdown-menu {
         top: 0;
         left: 100%;
-        margin-top: -1px;
+        margin-top: -6px;
+        margin-left:-1px;
+        -webkit-border-radius: 0 6px 6px 6px;
+        -moz-border-radius: 0 6px 6px 6px;
+        border-radius: 0 6px 6px 6px;
+
     }
+
+    .dropdown-submenu>a:after{
+        display: block;
+        content: " ";
+        float: right;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-left-color: black;
+        margin-top:5px;
+        margin-right: -10px;
+    }
+
+    .dropdown-submenu:hover>a:after{
+        border-left-color: #555;
+    }
+
+    .dropdown-submenu.pull-left{
+        float: none:
+    }
+
+    .dropdown-submenu.pull-left>.dropdown-menu{
+        left: 100%
+        margin-left:1-0px;
+        -webkit-border-radius: 6px 0 6px 6px;
+        -moz-border-radius: 6px 0 6px 6px;
+        border-radius: 6px 0 6px 6px;
+
+    }
+
     </style>
+
+    <script lang="javascript">
+        (function($){
+            $(document).ready(function(){
+                $('ul.dropdown-menu[data-toggle=dropdown]').on('click',function(event){
+                    event.preventDefault();
+                    event.stopPropagation();
+                    $(this).parent().siblings().removeClass('open');
+                    $(this).parent().toggleClass('open');
+                });
+            });
+        })(jQuery);
+    </script>
 
 
 </head>
@@ -104,14 +154,15 @@
                                 <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         
-                                        <li class="dropdown-submenu"><a class="test" href="#">Borang 3A<span class="caret"></span></a></li>
+                                        <li class="dropdown dropdown-submenu"><a class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Borang 3A</a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ url('3a/standar2') }}">Standar 2</a></li>
                                                 <li><a href="{{ url('3a/standar4') }}">Standar 4</a></li>
                                                 <li><a href="{{ url('3a/standar7') }}">Standar 7</a></li>
-                                                
                                             </ul>
-                                        <li><a href="{{ url('3a/standar4/'.$kode_fakultas) }}">Borang 3B</a></li>
+                                        </li>
+                                        <li class="dropdown dropdown-submenu"><a class="dropdown-toggle active" data-toggle="dropdown"  href="#">Borang 3B</a></li>
+
                                         <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">Evaluasi Diri</a></li>
                                     </ul>
                                 </li>
@@ -425,16 +476,6 @@
                 });
         });
     </script> <!-- untuk accordion -->
-
-    <script> <!-- script untuk multilevel navbar-->
-    $(document).ready(function(){
-      $('.dropdown-submenu a.test').on("click", function(e){
-        $(this).next('ul').toggle();
-        e.stopPropagation();
-        e.preventDefault();
-      });
-    });
-    </script>
 
 </body>
 
