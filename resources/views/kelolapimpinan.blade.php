@@ -29,6 +29,7 @@
                            <option name="isBPMA" value="1">BPMA</option>
                            <option name="isPimpinanFakultas" value="2">Pimpinan Fakultas</option>
                            <option name="isPimpinanUniv" value="3">Pimpinan Universitas</option>
+                           <option name="isUPMAF" value="4">UPMAF</option>
                         </select> 
                         <br>
                         <br>
@@ -74,6 +75,9 @@
                             @endif
                             @if ($pimpinan->isPimpinanUniv==1)
                                 <td>Pimpinan Universitas</td>
+                            @endif
+                            @if ($pimpinan->isUPMAF==1)
+                                <td>UPMAF</td>
                             @endif
                             <td>
                                 <center>
