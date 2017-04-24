@@ -376,6 +376,7 @@ class PegawaiController extends Controller
 
 	public function lihat3a4(Request $request, $kodeProdi) {
 		// wajib ada
+		$role= $request->session()->get('role');
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -383,17 +384,17 @@ class PegawaiController extends Controller
 		$QKodeProdiPengguna = Pegawai::getProdiPegawai($request->session()->get('user'));		
 		$kodeProdiPengguna=$QKodeProdiPengguna[0]->kode_prodi_pengajaran;	 //belum disesuain sama kode prodi tim akreditasi
 		// end of wajib ada
-
-		// if(!is_null($kodeProdi)){
-			// $selectedProdi = $kodeProdi; 	
-		// } else {
-			if ($kodeProdi){
-			$selectedProdi = $kodeProdi; 	
+			if ($role=='Tim Akreditasi') {
+				$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+				$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
 			} else {
-				$selectedProdi=$kodeProdiPengguna;
+			if ($kodeProdi){
+				$selectedProdi = $kodeProdi; 	
+				} else {
+					$selectedProdi=$kodeProdiPengguna;
+				}	
 			}
-		// }
-
+			
 		$prodiBorang = program_studi::getProdi($selectedProdi);
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
@@ -527,7 +528,7 @@ class PegawaiController extends Controller
 		$arrD = array($arrA[0]+$arrB[0]+$arrC[0],$arrA[1]+$arrB[1]+$arrC[1],$arrA[2]+$arrB[2]+$arrC[2],$arrA[3]+$arrB[3]+$arrC[3],$arrA[4]+$arrB[4]+$arrC[4],$arrA[5]+$arrB[5]+$arrC[5],$arrA[6]+$arrB[6]+$arrC[6],$arrA[7]+$arrB[7]+$arrC[7],'');
 
 			return view('view3a4',[
-				'role' => $request->session()->get('role'),
+				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
