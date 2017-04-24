@@ -29,32 +29,47 @@ class Pimpinan extends Model
                     ->update(['isBPMA'=> 0, 'isPimpinanFakultas' => 0, 'isPimpinanUniv' => 1, 'id_fakultas' => null]);
     }
 
+
+    public static function setAktifPimpinanIsUPMAF($id_pimpinan, $username) {
+        $kodeFakultas= Pegawai::getFakultasPegawai($username);
+        return DB::table('pimpinan')
+                    ->where('id_pimpinan', $id_pimpinan)
+                    ->update(['isBPMA'=> 0, 'isPimpinanFakultas' => 1, 'isPimpinanUniv' => 0, 'id_fakultas' => $kodeFakultas]);
+    }    
+
     public static function setGeneralPimpinan($id_pimpinan, $valuePimpinan, $username) {
     	if($valuePimpinan == 1) {
     		return Pimpinan::setAktifPimpinanIsBPMA($id_pimpinan);
     	} elseif($valuePimpinan == 2) {
     		return Pimpinan::setAktifPimpinanIsPimpinanFakultas($id_pimpinan, $username);
-    	} else {
-    		return Pimpinan::setAktifPimpinanIsPimpinanUniv($id_pimpinan);
+    	} elseif ($valuePimpinan == 3) {
+            return Pimpinan::setAktifPimpinanIsPimpinanUniv($id_pimpinan);
+        }else {
+    		return Pimpinan::setAktifPimpinanIsUPMAF($id_pimpinan);
     	}
     }
 
     public static function tambahPimpinanIsBPMA($username) {
     	$kodeFakultas = Pegawai::getFakultasPegawai($username);
     	return DB::table('pimpinan')
-                    ->insert(['isBPMA'=> 1, 'isPimpinanFakultas' => 0, 'id_fakultas' => $kodeFakultas[0]->kode_fakultas, 'isPimpinanUniv' => 0]);
+                    ->insert(['isBPMA'=> 1, 'isPimpinanFakultas' => 0, 'id_fakultas' => $kodeFakultas[0]->kode_fakultas, 'isPimpinanUniv' => 0, 'isUPMAF' => 0]);
     }
 
     public static function tambahPimpinanIsPimpinanFakultas($username) {
     	$kodeFakultas= Pegawai::getFakultasPegawai($username);
 
     	return DB::table('pimpinan')
-                    ->insert(['isBPMA'=> 0, 'isPimpinanFakultas' => 1, 'id_fakultas' => $kodeFakultas[0]->kode_fakultas, 'isPimpinanUniv' => 0]);
+                    ->insert(['isBPMA'=> 0, 'isPimpinanFakultas' => 1, 'id_fakultas' => $kodeFakultas[0]->kode_fakultas, 'isPimpinanUniv' => 0, 'isUPMAF' => 0]);
     }
 
     public static function tambahPimpinanIsPimpinanUniv() {
     	return DB::table('pimpinan')
-                   ->insert(['isBPMA'=> 0, 'isPimpinanFakultas' => 0, 'id_fakultas' => null, 'isPimpinanUniv' => 1]);
+                   ->insert(['isBPMA'=> 0, 'isPimpinanFakultas' => 0, 'id_fakultas' => null, 'isPimpinanUniv' => 1, 'isUPMAF' => 0]);
+    }
+
+    public static function tambahPimpinanIsUPMAF() {
+        return DB::table('pimpinan')
+                   ->insert(['isBPMA'=> 0, 'isPimpinanFakultas' => 0, 'id_fakultas' => null, 'isPimpinanUniv' => 0, 'isUPMAF' => 1]);
     }
 
     public static function addPimpinan($valuePimpinan, $username) {
@@ -62,8 +77,10 @@ class Pimpinan extends Model
     		return Pimpinan::tambahPimpinanIsBPMA($username);
     	} elseif($valuePimpinan == 2) {
     		return Pimpinan::tambahPimpinanIsPimpinanFakultas($username);
-    	} else {
-    		return Pimpinan::tambahPimpinanIsPimpinanUniv();
+    	} elseif ($valuePimpinan == 3) {
+            return Pimpinan::tambahPimpinanIsPimpinanUniv();
+        }else {
+    		return Pimpinan::tambahPimpinanIsUPMAF();
     	}
     }
 

@@ -12,6 +12,7 @@ use App\tendik;
 use App\Borang;
 use App\proyek;
 use App\kerja_sama;
+use App\danaPengmas;
 use DB;
 
 class PegawaiController extends Controller
@@ -403,7 +404,7 @@ class PegawaiController extends Controller
 		}
 
 		//poin 4.1,4.2,4.6.1
-		$standar4_json = Borang::getBorang(4,$selectedProdi,$tahun);
+		$standar4_json = Borang::getBorang('3a',4,$selectedProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
 
@@ -781,7 +782,7 @@ class PegawaiController extends Controller
 		}
 
 		//poin 4.1
-		$standar4_json = Borang::getBorang(4,$kodeProdi,$tahun);
+		$standar4_json = Borang::getBorang('3a',4,$kodeProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
 
@@ -1084,6 +1085,12 @@ class PegawaiController extends Controller
 		$standar7_2_3 = Proyek::getKaryaHAKI($kode_prodi, $tahun);
 		$standar7_3_1 = kerja_sama::getKerjaSamaDalamNegeri($kode_prodi, $tahun);
 		$standar7_3_2 = kerja_sama::getKerjaSamaLuarNegeri($kode_prodi, $tahun);
+		$standar7_2_1_a = danaPengmas::getDanaBiayaSendiri($kode_prodi,$tahun);
+		$standar7_2_1_b = danaPengmas::getDanaPT($kode_prodi,$tahun);
+		$standar7_2_1_c = danaPengmas::getDanaDepdiknasDalamNegeri($kode_prodi,$tahun);
+		$standar7_2_1_d = danaPengmas::getDanaInstitusiDalamNegeri($kode_prodi,$tahun);
+		$standar7_2_1_e = danaPengmas::getDanaInstitusiLuarNegeri($kode_prodi,$tahun);
+		 //dana dari depdiknas
 		return view('view3a7',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
@@ -1093,7 +1100,13 @@ class PegawaiController extends Controller
 	            'standar7_2_3'=> $standar7_2_3,
 	            'standar7_3_1'=> $standar7_3_1,
 	           	'standar7_3_2'=> $standar7_3_2,
-	            'username' => $username
+	           	'standar7_2_1_a'=> $standar7_2_1_a,
+	           	'standar7_2_1_b'=> $standar7_2_1_b,
+	           	'standar7_2_1_c'=> $standar7_2_1_c,
+	           	'standar7_2_1_d'=> $standar7_2_1_d,
+	           	'standar7_2_1_e'=> $standar7_2_1_e,
+	            'username' => $username,
+	            'tahun' => $tahun
 			]);
 	}
 
@@ -1152,13 +1165,13 @@ class PegawaiController extends Controller
 		$nomorStandar = explode("-", $kodeStandar)[0];
 		$kodeStandarStr = str_replace("-",".", $kodeStandar);
 
-		$standar_json = Borang::getBorang($nomorStandar,$kodeProdi,$tahun);
+		$standar_json = Borang::getBorang($jenisBorang,$nomorStandar,$kodeProdi,$tahun);
 		$isi = $standar_json[0]->isi;
 		$standar = json_decode(stripslashes($isi),true);
 		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']=$textarea;
 		$encoded_json = json_encode($standar);
 		//masukin ke database
-		Borang::updateBorang($nomorStandar,$kodeProdi,$tahun,$encoded_json);
+		Borang::updateBorang($jenisBorang,$nomorStandar,$kodeProdi,$tahun,$encoded_json);
 
 		// echo $standar['standar'.$nomorStandar][$kodeStandarStr]['isian'];
 		
