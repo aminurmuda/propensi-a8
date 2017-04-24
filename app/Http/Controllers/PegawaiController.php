@@ -715,6 +715,7 @@ class PegawaiController extends Controller
 			]);
 	}
 
+
 	public function edit3a25(Request $request,$kodeStandar,$kodeProdi, $dari, $jenisIsian) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
@@ -725,9 +726,10 @@ class PegawaiController extends Controller
 		
 		$standar2_json = Borang::getBorang('3a', $nomorStandar,$kodeProdi,2017);
 		$isi = $standar2_json[0]->isi;
+		dd($isi);
 		$standar2 = json_decode(stripslashes($isi),true);
-
-			return view('update3a2-new',[
+			dd($standar2['standar2'][$kodeStandarStr]['isian'][$dari][$jenisIsian]);
+			return view('update3a25-new',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      

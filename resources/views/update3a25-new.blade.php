@@ -17,11 +17,11 @@
             @endif
             <p>{!!$standar2['standar2'][$kodeStandarStr]['perintah']!!}</p><br>
 
-            <form action="{{url('3a/standar2edit/'.$kodeStandar.'/'.$kodeProdi.'/3a/submit')}}">
+            <form action="{{url('3a/standar2edit/'.$kodeStandar.'/'.$dari.'/'.$jenisIsian./'.$kodeProdi.'/3a/submit')}}">
             {{csrf_field()}}
             <div class="form-group">
               <textarea class="form-control" id='textarea' name='textarea'>
-                {!!$standar2['standar2'][$kodeStandarStr]['isian']!!}
+                {!!$standar2['standar2'][$kodeStandarStr]['isian'][$dari][$jenisIsian]!!}
               </textarea>
             </div>
             <button type="submit" class="btn-primary btn-lg pull-left">Simpan</button>

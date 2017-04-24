@@ -29,27 +29,27 @@
       "perintah": "Apakah program studi telah melakukan kajian tentang proses pembelajaran melalui umpan balik dari dosen, mahasiswa, alumni, dan pengguna lulusan mengenai harapan dan persepsi mereka?  Jika Ya, jelaskan isi umpan balik dan tindak lanjutnya.",
       "isian": {
           "Dosen": {
-            "Umpan Balik Dari": "",
-            "Isi Umpan Balik": "",
-            "Tindak Lanjut": ""
+            "Umpan_Balik_Dari": "Dosen",
+            "Isi_Umpan_Balik": "",
+            "Tindak_Lanjut": ""
           }
         ,
           "Mahasiswa": {
-            "Umpan Balik Dari": "",
-            "Isi Umpan Balik": "",
-            "Tindak Lanjut": ""
+            "Umpan_Balik_Dari": "Mahasiswa",
+            "Isi_Umpan_Balik": "",
+            "Tindak_Lanjut": ""
           }
         ,
           "Alumni": {
-            "Umpan Balik Dari": "",
-            "Isi Umpan Balik": "",
-            "Tindak Lanjut": ""
+            "Umpan_Balik_Dari": "Alumni",
+            "Isi_Umpan_Balik": "",
+            "Tindak_Lanjut": ""
           }
         ,
-          "Pengguna lulusan": {
-            "Umpan Balik Dari": "",
-            "Isi Umpan Balik": "",
-            "Tindak Lanjut": ""
+          "Pengguna_lulusan": {
+            "Umpan_Balik_Dari": "Pengguna_lulusan",
+            "Isi_Umpan_Balik": "",
+            "Tindak_Lanjut": ""
           }
       }
     },
