@@ -13,6 +13,7 @@ use App\Borang;
 use App\proyek;
 use App\kerja_sama;
 use App\danaPengmas;
+use App\pengmas_dosen;
 use DB;
 
 class PegawaiController extends Controller
@@ -1121,12 +1122,124 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$listProdi;
+		$totalts = 0;
+		$totalts1 = 0;
+		$totalts2 = 0;
+		$totalDana = 0;
+		$totalDana1 = 0;
+		$totalDana2 = 0;
+		$totalPengmas = 0;
+		$totalPengmas1 = 0;
+		$totalPengmas2 = 0;
+		$totalDanaPengmas = 0;
+		$totalDanaPengmas1 = 0;
+		$totalDanaPengmas2 = 0;
+
+		if ($request->get('selectFakultasGeneral')){
+			$selectedFakultas = $request->get('selectFakultasGeneral');
+			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
+			$jumlahProdi = count($listProdi); //menghitung jumlah prodi
+		} else {
+			$selectedFakultas = $kodeFakultasPengguna;
+			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
+			$jumlahProdi = count($listProdi); //menghtiung jumlah prodi
+		}
+
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		$tahun1 = $tahun-1;
+		$tahun2 = $tahun-2;
+		
+		$arr = [];
+		$arr1 = [];
+		$arr2 = [];
+		
+
+		foreach ($listProdi as $l)
+		{
+			$kode_prodi = $l->kode_prodi;
+			$nama_prodi = $l->nama_prodi;
+			$ts = count(proyek::getProyek($kode_prodi, $tahun));
+			$ts1 = count(proyek::getProyek($kode_prodi, $tahun1));
+			$ts2 = count(proyek::getProyek($kode_prodi, $tahun2));
+			$dana = proyek::getTotalDanaPenelitian($kode_prodi, $tahun);
+			$dana1 = proyek::getTotalDanaPenelitian($kode_prodi, $tahun1);
+			$dana2 = proyek::getTotalDanaPenelitian($kode_prodi, $tahun2);
+			$totalts += $ts;
+			$totalts1 += $ts1;
+			$totalts2 += $ts2;
+			$totalDana += $dana;
+			$totalDana1 += $dana1;
+			$totalDana2 += $dana2;
+			$arr[$l->nama_prodi]['namaProdi'] = $nama_prodi;
+			$arr[$l->nama_prodi]['ts'] = $ts;
+			$arr[$l->nama_prodi]['ts-1'] = $ts1;
+			$arr[$l->nama_prodi]['ts-2'] = $ts2;
+			$arr[$l->nama_prodi]['dana'] = $dana;
+			$arr[$l->nama_prodi]['dana1'] = $dana1;
+			$arr[$l->nama_prodi]['dana2'] = $dana2;
+
+		}
+
+		foreach ($listProdi as $l1) {
+			$kode_prodi = $l1->kode_prodi;
+			$nama_prodi = $l1->nama_prodi;
+			$pengmas = count(pengmas_dosen::getPengmas($kode_prodi, $tahun));
+			$pengmas1 = count(pengmas_dosen::getPengmas($kode_prodi, $tahun1));
+			$pengmas2 = count(pengmas_dosen::getPengmas($kode_prodi, $tahun2));
+			$danaPengmas = danaPengmas::getTotalDanaPengmas($kode_prodi, $tahun);
+			$danaPengmas1 = danaPengmas::getTotalDanaPengmas($kode_prodi, $tahun1);
+			$danaPengmas2 = danaPengmas::getTotalDanaPengmas($kode_prodi, $tahun2);
+			$totalPengmas += $pengmas;
+			$totalPengmas1+=  $pengmas1;
+			$totalPengmas2 += $pengmas2;
+			$totalDanaPengmas += $danaPengmas;
+			$totalDanaPengmas1 += $danaPengmas1;
+			$totalDanaPengmas2 += $danaPengmas2;
+			$arr1[$l1->nama_prodi]['namaProdi'] = $nama_prodi;
+			$arr1[$l1->nama_prodi]['pengmas'] = $pengmas;
+			$arr1[$l1->nama_prodi]['pengmas1'] = $pengmas1;
+			$arr1[$l1->nama_prodi]['pengmas2'] = $pengmas2;
+			$arr1[$l1->nama_prodi]['danaPengmas'] = $danaPengmas;
+			$arr1[$l1->nama_prodi]['danaPengmas1'] = $danaPengmas1;
+			$arr1[$l1->nama_prodi]['danaPengmas2'] = $danaPengmas2;
+		}
+
+		foreach ($listProdi as $l1) {
+			
+		}
+
+
 			return view('view3b7',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username
+	            'username' => $username,
+	            'listProdi' => $listProdi,
+	            'jumlahProdi'=> $jumlahProdi,
+	            'tahun' => $tahun,
+	            'tahun1' => $tahun1,
+	            'tahun2' => $tahun2,
+	            'totalts' => $totalts,
+	            'totalts1' => $totalts1,
+	            'totalts2' => $totalts2,
+	            'totalDana' => $totalDana,
+	            'totalDana1' => $totalDana1,
+	            'totalDana2' => $totalDana2,
+	            'totalPengmas' => $totalPengmas,
+				'totalPengmas1' => $totalPengmas1,
+				'totalPengmas2' => $totalPengmas2,
+				'totalDanaPengmas' => $totalDanaPengmas,
+				'totalDanaPengmas1' => $totalDanaPengmas1,
+				'totalDanaPengmas2' => $totalDanaPengmas2,
+	            'arr' => $arr,
+	            'arr1' => $arr1
 			]);
 	}
 

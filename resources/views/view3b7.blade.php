@@ -38,12 +38,12 @@
                             </tr>
 
                             <tr>
-                            	<th>TS-2</th>
-                            	<th>TS-1</th>
-                            	<th>TS</th>
-                            	<th>TS-2</th>
-                            	<th>TS-1</th>
-                            	<th>TS</th>
+                            	<th>{{$tahun2}}</th>
+                            	<th>{{$tahun1}}</th>
+                            	<th>{{$tahun}}</th>
+                            	<th>{{$tahun2}}</th>
+                                <th>{{$tahun1}}</th>
+                                <th>{{$tahun}}</th>
                             </tr>
 
                             <tr>
@@ -56,49 +56,29 @@
                                 <td>(7)</td>
                                 <td>(8)</td>
                             </tr>
-
+                            <?php $i=1 ?>
+                            @foreach($arr as $a)
                             <tr>
-                                <td>1</td>
-                                <td>PS 1: ...</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$i}}</td>
+                                <td>{{$a['namaProdi']}}</td>
+                                <td>{{$a['ts-2']}}</td>
+                                <td>{{$a['ts-1']}}</td>
+                                <td>{{$a['ts']}}</td>
+                                <td>{{$a['dana2']}}</td>
+                                <td>{{$a['dana1']}}</td>
+                                <td>{{$a['dana']}}</td>
                             </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>PS 2: ...</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td>..</td>
-                                <td>...</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
+                            <?php $i++?>
+                            @endforeach
                             <tr>
                                 <td></td>
                                 <td>Total</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$totalts2}}</td>
+                                <td>{{$totalts1}}</td>
+                                <td>{{$totalts}}</td>
+                                <td>{{$totalDana2}}</td>
+                                <td>{{$totalDana1}}</td>
+                                <td>{{$totalDana}}</td>
                             </tr>
 
                             </table>
@@ -149,12 +129,12 @@
                             </tr>
 
                             <tr>
-                            	<th>TS-2</th>
-                            	<th>TS-1</th>
-                            	<th>TS</th>
-                            	<th>TS-2</th>
-                            	<th>TS-1</th>
-                            	<th>TS</th>
+                            	<th>{{$tahun2}}</th>
+                                <th>{{$tahun1}}</th>
+                                <th>{{$tahun}}</th>
+                                <th>{{$tahun2}}</th>
+                                <th>{{$tahun1}}</th>
+                                <th>{{$tahun}}</th>
                             </tr>
 
                             <tr>
@@ -168,48 +148,30 @@
                                 <td>(8)</td>
                             </tr>
 
+                            <?php $i=1 ?>
+                            @foreach($arr1 as $b)
                             <tr>
-                                <td>1</td>
-                                <td>PS 1: ...</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$i}}</td>
+                                <td>{{$b['namaProdi']}}</td>
+                                <td>{{$b['pengmas2']}}</td>
+                                <td>{{$b['pengmas1']}}</td>
+                                <td>{{$b['pengmas']}}</td>
+                                <td>{{$b['danaPengmas2']}}</td>
+                                <td>{{$b['danaPengmas1']}}</td>
+                                <td>{{$b['danaPengmas']}}</td>
                             </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>PS 2: ...</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td>..</td>
-                                <td>...</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <?php $i++?>
+                            @endforeach
 
                             <tr>
                                 <td></td>
                                 <td>Total</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$totalPengmas2}}</td>
+                                <td>{{$totalPengmas1}}</td>
+                                <td>{{$totalPengmas}}</td>
+                                <td>{{$totalDanaPengmas2}}</td>
+                                <td>{{$totalDanaPengmas1}}</td>
+                                <td>{{$totalDanaPengmas}}</td>
                             </tr>
 
                             </table>
