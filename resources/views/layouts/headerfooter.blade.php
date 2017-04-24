@@ -195,6 +195,11 @@
                 $('#form-fakultas1').attr('action', 'kelola/'+ $('#selectFakultas1').val());
 
             });
+
+            $('#selectProdi').on('change', function() {
+                $('#formProdi').attr('action', 'standar4/'+ $('#selectProdi').val());
+
+            });
         } );
     </script>
 

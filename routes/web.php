@@ -59,6 +59,7 @@ Route::get('pimpinan', 'PegawaiController@kelolapimpinan')->name('pimpinan'); //
 Route::get('3a/standar4', 'PegawaiController@pilihProdi')->name('3a/standar4'); //pimpinan univ only
 Route::get('3a/standar4/submit', 'PegawaiController@lihat3a4')->name('3a/standar4/submit'); //pimpinan univ only
 Route::get('3a/standar4/{kodeProdi}', 'PegawaiController@lihat3a4')->name('3a/standar4/{kodeProdi}'); 
+Route::post('3a/standar4/{kodeProdi}', 'PegawaiController@lihat3a4')->name('3a/standar4/{kodeProdi}'); 
 
 Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3a4')->name('3a/standar4edit/{kodeStandar}/{kodeProdi}'); 
 

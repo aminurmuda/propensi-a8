@@ -375,7 +375,7 @@ class PegawaiController extends Controller
 			]);
 	}	
 
-	public function lihat3a4(Request $request) {
+	public function lihat3a4(Request $request, $kodeProdi) {
 		// wajib ada
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
@@ -388,8 +388,8 @@ class PegawaiController extends Controller
 		// if(!is_null($kodeProdi)){
 			// $selectedProdi = $kodeProdi; 	
 		// } else {
-			if ($request->get('selectProdi')){
-			$selectedProdi = $request->get('selectProdi'); 	
+			if ($kodeProdi){
+			$selectedProdi = $kodeProdi; 	
 			} else {
 				$selectedProdi=$kodeProdiPengguna;
 			}
