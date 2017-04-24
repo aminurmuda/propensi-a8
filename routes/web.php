@@ -86,6 +86,10 @@ Route::get('3a/standar7/{kodeProdi}', 'PegawaiController@lihat3a7')->name('3a/st
 
 Route::get('3a/standar7edit/{kodeProdi}', 'PegawaiController@edit3a7')->name('3a/standar7edit/{kodeProdi}'); 
 
+Route::get('3a/standar7edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3a7')->name('3a/standar7edit/{kodeStandar}/{kodeProdi}'); 
+
+Route::get('3a/standar7edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3a/standar7edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit'); //pimpinan 
+
 Route::get('3b/standar4/', 'PegawaiController@pilihFakultasGeneral')->name('3b/standar4'); //pimpinan univ, reviewer univ, admin only
 
 Route::get('3b/standar4/submit', 'PegawaiController@lihat3b4')->name('3b/standar4/submit');
