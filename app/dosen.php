@@ -208,5 +208,66 @@ class dosen extends Model
             ->where(DB::raw("year('kegiatan_dosen.waktu')"),"<=",$tahun)
             ->where(DB::raw("year('kegiatan_dosen.waktu')"),">=",$tahun_min)
             ->get();
+    }
+
+    public static function getDosenTetapSesuaiAsistenAhli($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('riwayat_pendidikan', 'pegawai.id_pegawai', '=', 'riwayat_pendidikan.id_pegawai')
+            ->join('jabatan_struktural', 'jabatan_struktural.id', '=', 'pegawai.id_jabatan_struktural')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir','jabatan_struktural.nama','riwayat_pendidikan.riwayat_pendidikan','riwayat_pendidikan.gelar_pendidikan','riwayat_pendidikan.instansi_pendidikan','dosen.bidang_keahlian')
+            ->where('jabatan_struktural.nama', 'Asisten Ahli')
+            ->orwhere('jabatan_struktural.nama', 'Tenaga Pengajar')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.flag_kesesuaian',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->get();
+    }
+
+    public static function getDosenTetapSesuaiLektor($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('riwayat_pendidikan', 'pegawai.id_pegawai', '=', 'riwayat_pendidikan.id_pegawai')
+            ->join('jabatan_struktural', 'jabatan_struktural.id', '=', 'pegawai.id_jabatan_struktural')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir','jabatan_struktural.nama','riwayat_pendidikan.riwayat_pendidikan','riwayat_pendidikan.gelar_pendidikan','riwayat_pendidikan.instansi_pendidikan','dosen.bidang_keahlian')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->where('jabatan_struktural.nama', 'Lektor')
+            ->get();
     } 
+
+    public static function getDosenTetapSesuaiLektorKepala($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('riwayat_pendidikan', 'pegawai.id_pegawai', '=', 'riwayat_pendidikan.id_pegawai')
+            ->join('jabatan_struktural', 'jabatan_struktural.id', '=', 'pegawai.id_jabatan_struktural')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir','jabatan_struktural.nama','riwayat_pendidikan.riwayat_pendidikan','riwayat_pendidikan.gelar_pendidikan','riwayat_pendidikan.instansi_pendidikan','dosen.bidang_keahlian')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->where('jabatan_struktural.nama', 'Lektor Kepala')
+            ->get();
+    }
+
+    public static function getDosenTetapSesuaiGuruBesarProfesor($kode_prodi)
+    {
+        return DB::table('dosen')
+            ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+            ->join('riwayat_pendidikan', 'pegawai.id_pegawai', '=', 'riwayat_pendidikan.id_pegawai')
+            ->join('jabatan_struktural', 'jabatan_struktural.id', '=', 'pegawai.id_jabatan_struktural')
+            ->select('pegawai.nama as namaPegawai','dosen.NIDN','pegawai.tanggal_lahir','jabatan_struktural.nama','riwayat_pendidikan.riwayat_pendidikan','riwayat_pendidikan.gelar_pendidikan','riwayat_pendidikan.instansi_pendidikan','dosen.bidang_keahlian')
+            ->where('dosen.isDosenTetap',1)
+            ->where('dosen.flag_aktif',1)
+            ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
+            ->where('dosen.flag_kesesuaian',1)
+            ->where('jabatan_struktural.nama', 'Guru Besar/Profesor')
+            ->get();
+    }
 }

@@ -40,94 +40,85 @@
                             <tr>
                                 <th rowspan="2">No.</th>
                                 <th rowspan="2">Hal </th>
-                                <th colspan="4">Jumlah Dosen Tetap yang Bertugas pada Program Studi:</th>
+                                <th colspan={{$jumlahProdi}}>Jumlah Dosen Tetap yang Bertugas pada Program Studi:</th>
                                 <th rowspan="2">Total di Fakultas</th>
                             </tr>
 
                             <tr>
-                                <th>PS-1</th>
-                                <th>PS-2</th>
-                                <th>PS-3</th>
-                                <th>dst</th>
+                                @foreach($listProdi as $listProdi)
+                                <th>{{$listProdi->nama_prodi}}</th>
+                                @endforeach
+                                
                             </tr>
 
                             <tr>
                                 <td>(1)</td>
                                 <td>(2)</td>
-                                <td>(3)</td>
-                                <td>(4)</td>
-                                <td>(5)</td>
-                                <td>(6)</td>
-                                <td>(7)</td>
+                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
+                                <td>({{$i}})</td>
+                                @endfor
                             </tr>
 
                              <tr>
                                 <td><b>A</b></td>
                                 <td><b>Jabatan Fungsional:</b></td>
+                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @endfor
+                            </tr>
+                            
+
+                            <tr>
+
+                                <td>1</td>
+                                <td>Asisten Ahli/Tenaga Pengajar</td>
+                                @foreach($arr as $b)
+                                <td>{{$b['asistenAhli']}}</td>
+                                @endforeach
                                 <td></td>
                             </tr>
 
                             <tr>
-                                <td>1</td>
-                                <td>Asisten Ahli</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                              <tr>
                                 <td>2</td>
                                 <td>Lektor</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arr as $c)
+                                <td>{{$c['lektor']}}</td>
+                                @endforeach
                                 <td></td>
                             </tr>
 
                               <tr>
                                 <td>3</td>
                                 <td>Lektor Kepala</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arr as $c)
+                                <td>{{$c['lektorKepala']}}</td>
+                                @endforeach
                                 <td></td>
                             </tr>
 
-                              <tr>
+                            <tr>
                                 <td>4</td>
                                 <td>Guru Besar/Profesor</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arr as $c)
+                                <td>{{$c['guruBesar']}}</td>
+                                @endforeach
                                 <td></td>
                             </tr>
 
                             <tr>
                                 <td colspan="2"><b>Total</b></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arr as $c)
+                                <td><b>{{$c['total']}}</b></td>
+                                @endforeach
+                                <td><b>{{$totalFakultas}}</b></td>
                             </tr>
 
                             <tr>
                                 <td><b>B</b></td>
                                 <td><b>Pendidikan Tertinggi</b></td>
+                                @for($i = 3; $i <= 3+$jumlahProdi; $i++)
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @endfor
                             </tr>
 
                             <tr>
@@ -306,43 +297,25 @@
                             <tr>
                                 <td>1</td>
                                 <td>Pustakawan *</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td bgcolor="black"></td>
-                                <td></td>
+                                @foreach($arrA as $arrA_value)
+                                <td>{{$arrA_value}}</td>     
+                                @endforeach
                             </tr>
 
                             <tr>
                                 <td>2</td>
                                 <td>Laboran/Teknisi/Analis/Operator/Programer</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arrB as $arrB_value)
+                                <td>{{$arrB_value}}</td>     
+                                @endforeach
                             </tr>
 
                             <tr>
                                 <td>3</td>
                                 <td>Administrasi</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arrC as $arrC_value)
+                                <td>{{$arrC_value}}</td>     
+                                @endforeach
                             </tr>
 
                             <tr>
@@ -361,16 +334,9 @@
 
                             <tr>
                                 <td colspan="2"><b>Total</b></td>
-                                
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arrD as $arrD_value)
+                                <td>{{$arrD_value}}</td>     
+                                @endforeach
                             </tr>
 
                             </table>
