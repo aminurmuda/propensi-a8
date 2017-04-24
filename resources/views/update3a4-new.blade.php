@@ -16,7 +16,7 @@
             @endif
 
             <br>
-                          <form action="{{url('3a/standar4edit/'.$kodeStandar.'/'.$kodeProdi.'/submit')}}">
+                          <form action="{{url('3a/standar4edit/'.$kodeStandar.'/'.$kodeProdi.'/3a/submit')}}">
                           {{csrf_field()}}
                           <div class="form-group">
                             <textarea class="form-control" id='textarea' name='textarea'>@if($kodeStandarStr!='4.6.2')
@@ -27,7 +27,7 @@
                             </textarea>
                           </div>
 
-                          <a class="btn-primary btn-lg pull-right" type="submit">Simpan</a>
+                          <button class="btn-primary btn-lg pull-right" type="submit">Simpan</button>
                           </form>
                           <script>
                            // Replace the <textarea id="editor1"> with a CKEditor
