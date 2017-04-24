@@ -250,7 +250,10 @@
                             <tr>
                                 <td>Pembiayaan sendiri oleh dosen</td>
                                  @foreach($standar7_2_1_a as $standar7_2_1_a)
-                                <td>{{$standar7_2_1_a->dana_count}}</td>
+                                 @if($standar7_2_1_a->dana_count==0)
+                                 <td>0</td>
+                                 @else
+                                 <td>{{$standar7_2_1_a->dana_count}}</td>
                                 @endforeach
                 
                             </tr>
