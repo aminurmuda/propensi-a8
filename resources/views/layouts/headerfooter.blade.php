@@ -150,17 +150,17 @@
 
                         @else
                                 <!-- role BPMA, UPMAF dan Pimpinan Univ (navbar Borang, Riwayat Akreditasi) -->
-                                @if($role!='Pimpinan Fakultas' && $role=='Admin') <!-- jgn lupa ganti jd != admin -->
+                                @if($role!='Pimpinan Fakultas' && $role!='Admin') <!-- jgn lupa ganti jd != admin -->
                                 <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         
-                                        <li class="dropdown dropdown-submenu"><a class="dropdown-toggle active" data-toggle="dropdown"  href="#">Borang 3A</a></li>
+                                        <li class="dropdown dropdown-submenu"><a class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Borang 3A</a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="{{ url('3a/standar2') }}">Standar 2</a></li>
                                                 <li><a href="{{ url('3a/standar4') }}">Standar 4</a></li>
                                                 <li><a href="{{ url('3a/standar7') }}">Standar 7</a></li>
-                                                
                                             </ul>
+                                        </li>
                                         <li class="dropdown dropdown-submenu"><a class="dropdown-toggle active" data-toggle="dropdown"  href="#">Borang 3B</a></li>
 
                                         <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">Evaluasi Diri</a></li>

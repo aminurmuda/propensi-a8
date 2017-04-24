@@ -68,13 +68,15 @@ Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'Pe
 
 Route::get('3b/standar2edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3b2')->name('3b/standar2edit/{kodeStandar}/{kodeProdi}'); 
 
-Route::get('3b/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3b/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit');
+Route::get('3b/standar2edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3b/standar2edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit');
 
 Route::get('3a/standar2/{kodeProdi}', 'PegawaiController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}');
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}/submit', 'PegawaiController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}/submit');
 
-Route::get('3b/standar2/{kodeProdi}', 'PegawaiController@lihat3b2')->name('3b/standar2/{kodeProdi}'); 
+Route::get('3b/standar2/{kodeFakultas}', 'PegawaiController@lihat3b2')->name('3b/standar2/{kodeFakultas}'); 
+
+Route::get('3b/standar2', 'PegawaiController@pilihFakultasGeneral')->name('3b/standar2'); //pimpinan univ only
 
 
 
