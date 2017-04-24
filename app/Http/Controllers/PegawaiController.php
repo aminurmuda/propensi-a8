@@ -636,12 +636,12 @@ class PegawaiController extends Controller
 	}
 
 
-	public function lihat3a2(Request $request) {
+	public function lihat3a2(Request $request, $kodeProdi) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		$standar2_json = Borang::getBorang(2,1,2010);
+		$standar2_json = Borang::getBorang(2,$kodeProdi,2017);
 		$isi = $standar2_json[0]->isi;
 		$standar2 = json_decode(stripslashes($isi),true);
 			return view('view3a2',[
@@ -650,7 +650,8 @@ class PegawaiController extends Controller
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
-	            'standar2' => $standar2
+	            'standar2' => $standar2,
+	            'kodeProdi' => $kodeProdi
 			]);
 	}
 
@@ -695,14 +696,18 @@ class PegawaiController extends Controller
 		
 	}
 
-	public function edit3a2($kodeStandar, $kodeProdi, Request $request) {
+	public function edit3a2(Request $request,$kodeStandar,$kodeProdi) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		$standar2_json = Borang::getBorang(2,1,2010);
+		$kodeStandarStr= str_replace("-",".",$kodeStandar);
+		$nomorStandar = explode("-", $kodeStandar)[0];
+		
+		$standar2_json = Borang::getBorang($nomorStandar,$kodeProdi,2017);
 		$isi = $standar2_json[0]->isi;
 		$standar2 = json_decode(stripslashes($isi),true);
+
 			return view('update3a2-new',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
@@ -710,8 +715,9 @@ class PegawaiController extends Controller
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
 	            'standar2' => $standar2,
+	            'kodeProdi' => $kodeProdi,
 	            'kodeStandar' => $kodeStandar,
-	            'kodeProdi' => $kodeProdi
+	            'kodeStandarStr' => $kodeStandarStr
 			]);
 	}
 
