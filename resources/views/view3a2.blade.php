@@ -197,11 +197,11 @@
                                   <tr>
                                   
                                     <td>Dosen</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian'][0]['Isi_Umpan_Balik']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['Dosen']['Isi_Umpan_Balik']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/Dosen/Isi_Umpan_Balik/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian'][0]['Tindak_Lanjut']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['Dosen']['Tindak_Lanjut']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/Dosen/Tindak_Lanjut/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
@@ -209,11 +209,11 @@
 
                                   <tr>
                                     <td>Mahasiswa</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian'][1]['Isi_Umpan_Balik']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['Mahasiswa']['Isi_Umpan_Balik']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/Mahasiswa/Isi_Umpan_Balik/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian'][1]['Tindak_Lanjut']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['Mahasiswa']['Tindak_Lanjut']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/Mahasiswa/Tindak_Lanjut/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
@@ -221,11 +221,11 @@
                                   <tr>
                                   
                                     <td>Alumni</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian'][2]['Isi_Umpan_Balik']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['Alumni']['Isi_Umpan_Balik']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/Alumni/Isi_Umpan_Balik/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian'][2]['Tindak_Lanjut']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['Alumni']['Tindak_Lanjut']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/Alumni/Tindak_Lanjut/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
@@ -233,11 +233,11 @@
                                   <tr>
                                   
                                     <td>Pengguna Lulusan</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian'][3]['Isi_Umpan_Balik']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['Pengguna_lulusan']['Isi_Umpan_Balik']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/Pengguna_lulusan/Isi_Umpan_Balik/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian'][3]['Tindak_Lanjut']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['Pengguna_lulusan']['Tindak_Lanjut']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/Pengguna_lulusan/Tindak_Lanjut/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
