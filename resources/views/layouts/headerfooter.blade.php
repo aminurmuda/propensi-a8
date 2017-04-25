@@ -377,7 +377,7 @@
             });
 
             $('#selectProdi').on('change', function() {
-                $('#formProdi').attr('action', 'standar4/'+ $('#selectProdi').val());
+                $('#formProdi').attr('action', $(location).attr('pathname')+'/'+ $('#selectProdi').val());
 
             });
         } );

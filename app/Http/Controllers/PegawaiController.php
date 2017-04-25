@@ -357,7 +357,7 @@ class PegawaiController extends Controller
 			if($role=='Tim Akreditasi' || $role=='Reviewer Prodi') {
 				$QKodeProdiPengguna = Pegawai::getProdiPegawai($request->session()->get('user'));		
 				$kodeProdiPengguna=$QKodeProdiPengguna[0]->kode_prodi_pengajaran;	 //belum disesuain sama kode tim akreditasinya
-				return redirect('3a/standar4/'.$kodeProdiPengguna);
+				return redirect($request->path().'/'.$kodeProdiPengguna);
 			}
 			//disini untuk role yang pimpinan, bpma, upmaf, admin, reviewer univ harus pilih prodi dulu baru bisa lihat borangnya
 			if($role=='Pimpinan Universitas' || $role=='BPMA' || $role=='Admin'|| $role=='Reviewer Universitas'){
@@ -1399,6 +1399,16 @@ class PegawaiController extends Controller
 		$totalDanaPengmas1 = 0;
 		$totalDanaPengmas2 = 0;
 
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
+		$isi = $standar7_json[0]->isi;
+		$standar7 = json_decode(stripslashes($isi),true);
+
 		if ($request->get('selectFakultasGeneral')){
 			$selectedFakultas = $request->get('selectFakultasGeneral');
 			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
@@ -1477,7 +1487,6 @@ class PegawaiController extends Controller
 		//Untuk 7.3 Kegiatan Kerjasama dengan Instansi Lain
 		$kerjasamaDalamNegeri = kerja_sama::getKerjaSamaDalamNegeriByFakultas($selectedFakultas, $tahun);
 		$kerjasamaLuarNegeri = kerja_sama::getKerjaSamaLuarNegeriByFakultas($selectedFakultas, $tahun);
-
 		
 		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
 		$isi = $standar7_json[0]->isi;
@@ -1511,7 +1520,7 @@ class PegawaiController extends Controller
             'arr1' => $arr1,
             'kerjasamaDalamNegeri' => $kerjasamaDalamNegeri,
             'kerjasamaLuarNegeri' => $kerjasamaLuarNegeri,
-            'standar7' => $standar7_json
+            'standar7' => $standar7
 		]);
 	}
 
