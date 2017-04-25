@@ -173,49 +173,49 @@
                                   <tr>
                                   
                                     <td>Dosen</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['Dosen']['Isi_Umpan_Balik']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['0']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      <a href="{{ url('3a/standar2edit/2-5/Dosen/Isi_Umpan_Balik/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      <a href="{{ url('3a/standar2edit/2-5/0/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['Dosen']['Tindak_Lanjut']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['1']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      <a href="{{ url('3a/standar2edit/2-5/Dosen/Tindak_Lanjut/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      <a href="{{ url('3a/standar2edit/2-5/1/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
                                   </tr>
 
                                   <tr>
                                     <td>Mahasiswa</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['Mahasiswa']['Isi_Umpan_Balik']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['2']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      <a href="{{ url('3a/standar2edit/2-5/Mahasiswa/Isi_Umpan_Balik/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      <a href="{{ url('3a/standar2edit/2-5/2/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['Mahasiswa']['Tindak_Lanjut']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['3']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      <a href="{{ url('3a/standar2edit/2-5/Mahasiswa/Tindak_Lanjut/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      <a href="{{ url('3a/standar2edit/2-5/3/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
                                   </tr>
                                   <tr>
                                   
                                     <td>Alumni</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['Alumni']['Isi_Umpan_Balik']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['4']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      <a href="{{ url('3a/standar2edit/2-5/Alumni/Isi_Umpan_Balik/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      <a href="{{ url('3a/standar2edit/2-5/4/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['Alumni']['Tindak_Lanjut']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['5']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      <a href="{{ url('3a/standar2edit/2-5/Alumni/Tindak_Lanjut/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      <a href="{{ url('3a/standar2edit/2-5/5/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
                                   </tr>
                                   <tr>
                                   
                                     <td>Pengguna Lulusan</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['Pengguna_lulusan']['Isi_Umpan_Balik']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['6']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      <a href="{{ url('3a/standar2edit/2-5/Pengguna_lulusan/Isi_Umpan_Balik/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      <a href="{{ url('3a/standar2edit/2-5/6/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['Pengguna_lulusan']['Tindak_Lanjut']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian']['7']!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      <a href="{{ url('3a/standar2edit/2-5/Pengguna_lulusan/Tindak_Lanjut/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      <a href="{{ url('3a/standar2edit/2-5/7/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
                                   </tr>
                                 

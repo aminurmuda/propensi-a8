@@ -17,11 +17,48 @@
             @endif
             <p>{!!$standar2['standar2'][$kodeStandarStr]['perintah']!!}</p><br>
 
-            <form action="{{url('3a/standar2edit/'.$kodeStandar.'/'.$dari.'/'.$jenisIsian./'.$kodeProdi.'/3a/submit')}}">
+            @if($nomorIsian=="0")
+              <h3>Isi Umpan Balik dari Dosen:</h3>
+            @elseif($nomorIsian=="1")
+              <h3>Tindak Lanjut dari Dosen:</h3>
+            @elseif($nomorIsian=="2")
+              <h3>Isi Umpan Balik dari Mahasiswa:</h3>
+            @elseif($nomorIsian=="3")
+              <h3>Tindak Lanjut dari Mahasiswa:</h3>
+            @elseif($nomorIsian=="4")
+              <h3>Isi Umpan Balik dari Alumni:</h3>
+            @elseif($nomorIsian=="5")
+              <h3>Tindak Lanjut dari Alumni:</h3>
+            @elseif($nomorIsian=="6")
+              <h3>Isi Umpan Balik dari Pengguna Lulusan:</h3>
+            @else($nomorIsian=="7")
+              <h3>Tindak Lanjut dari Pengguna Lulusan:</h3>
+            @endif
+            <form action="{{url('3a/standar2edit/'.$kodeStandar.'/'.$nomorIsian.'/'.$kodeProdi.'/3a/submit')}}">
             {{csrf_field()}}
             <div class="form-group">
               <textarea class="form-control" id='textarea' name='textarea'>
-                {!!$standar2['standar2'][$kodeStandarStr]['isian'][$dari][$jenisIsian]!!}
+                @if($nomorIsian=="0")
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['0']!!}
+                @elseif($nomorIsian=="1")
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['1']!!}
+                
+                @elseif($nomorIsian=="2")
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['2']!!}
+                @elseif($nomorIsian=="3")
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['3']!!}
+                
+                @elseif($nomorIsian=="4")
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['4']!!}
+                @elseif($nomorIsian=="5")
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['5']!!}
+                
+                @elseif($nomorIsian=="6")
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['6']!!}
+                @else($nomorIsian=="7")
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['7']!!}
+                  
+                @endif
               </textarea>
             </div>
             <button type="submit" class="btn-primary btn-lg pull-left">Simpan</button>
