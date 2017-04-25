@@ -7,8 +7,9 @@
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3A, Standar 7</h3>
-            <span> Penelitian, Pelayanan/Pengabdian Kepada Masyarakat, dan Kerjasama</span>
-
+            <span> Penelitian, Pelayanan/Pengabdian Kepada Masyarakat, dan Kerjasama</span><br>
+            <span> Program Studi {{$prodiBorang->nama_prodi}} </span><br>
+            <span> Tahun {{$tahun}} </span>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
