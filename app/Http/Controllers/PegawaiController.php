@@ -478,6 +478,7 @@ class PegawaiController extends Controller
 
 		  $standar4_5_3_occurences[$nama_pegawai]++;
 		}
+		// dd($standar4_5_3_occurences);
 		//poin 4.5.4
 		$standar4_5_4 = Dosen::getPrestasiDosen($selectedProdi,$tahun);
 
