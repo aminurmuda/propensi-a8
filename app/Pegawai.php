@@ -117,7 +117,7 @@ class Pegawai extends Model
     public static function deleteTimAkreditasi($username) {
         return DB::table('pegawai')
                     ->where('username', $username)
-                    ->update(['isTimAkreditasi'=> 0, 'id_prodi_tim_akreditasi' => null]);
+                    ->update(['isTimAkreditasi'=> 0, 'id_prodi_tim_akreditasi' => 0]);
     }
 
     /**

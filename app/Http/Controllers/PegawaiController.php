@@ -971,12 +971,18 @@ class PegawaiController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$listProdi;
 		$totalFakultas = 0;
+		$totalPendidikanFakultas = 0;
+		$totalPensiun = 0;
+		$totalDosenBaru = 0;
+		$totalTugasBelajarS2 = 0;
+		$totalTugasBelajarS3 = 0;
 
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
 		} else {
 			$tahun = date('Y');
 		}
+
 		$standar4_json = Borang::getBorang('3b',4,$kodeFakultasPengguna,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
@@ -992,6 +998,8 @@ class PegawaiController extends Controller
 		}
 		
 		$arr = [];
+		$arr1 = [];
+		$arr2 = [];
 		
 
 		foreach ($listProdi as $l)
@@ -1008,6 +1016,35 @@ class PegawaiController extends Controller
 			$arr[$l->nama_prodi]['guruBesar'] = $guruBesar;
 			$arr[$l->nama_prodi]['total'] = $total;
 			$totalFakultas += $total;
+		}
+
+		foreach ($listProdi as $l2) {
+			$kode_prodi = $l2->kode_prodi;
+			$pendidikanS1 = count(dosen::getDosenTetapSesuaiPendidikanS1($kode_prodi));
+			$pendidikanS2 = count(dosen::getDosenTetapSesuaiPendidikanS2($kode_prodi));
+			$pendidikanS3 = count(dosen::getDosenTetapSesuaiPendidikanS3($kode_prodi));
+			$totalPendidikan = $pendidikanS1+$pendidikanS2+$pendidikanS3;
+			$arr1[$l2->nama_prodi]['S1'] = $pendidikanS1;
+			$arr1[$l2->nama_prodi]['S2'] = $pendidikanS2;
+			$arr1[$l2->nama_prodi]['S3'] = $pendidikanS3;
+			$arr1[$l2->nama_prodi]['totalPendidikan'] = $totalPendidikan;
+			$totalPendidikanFakultas += $totalPendidikan;
+		}
+
+		foreach ($listProdi as $l1) {
+			$kode_prodi = $l1->kode_prodi;
+			$pensiun = count(dosen::getDosenTetapSesuaiStatusPensiun($kode_prodi));
+			$dosenBaru = count(dosen::getDosenTetapSesuaiStatusDosenBaru($kode_prodi));
+			$tugasBelajarS2 = count(dosen::getDosenTetapSesuaiStatusTugasBelajarS2($kode_prodi));
+			$tugasBelajarS3 = count(dosen::getDosenTetapSesuaiStatusTugasBelajarS3($kode_prodi));
+			$arr2[$l1->nama_prodi]['pensiun'] = $pensiun;
+			$arr2[$l1->nama_prodi]['dosenBaru'] = $dosenBaru;
+			$arr2[$l1->nama_prodi]['tugasBelajarS2'] = $tugasBelajarS2;
+			$arr2[$l1->nama_prodi]['tugasBelajarS3'] = $tugasBelajarS3;
+			$totalPensiun += $pensiun;
+			$totalDosenBaru += $dosenBaru;
+			$totalTugasBelajarS2 += $tugasBelajarS2;
+			$totalTugasBelajarS3 += $tugasBelajarS3;
 		}
 
 
@@ -1105,14 +1142,20 @@ class PegawaiController extends Controller
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
 	            'listProdi' => $listProdi,
+	            'listProdi1' => $listProdi,
 	            'arrA' => $arrA,
 	            'arrB' => $arrB,
 	            'arrC' => $arrC,
 	            'arrD' => $arrD,
 	            'kodeFakultasSelected' => $selectedFakultas,
 	            'arr' => $arr,
+	            'arr1' => $arr1,
+	            'arr2' => $arr2,
+	            'totalPensiun' => $totalPensiun,
+	            'totalDosenBaru' => $totalDosenBaru,
+	            'totalTugasBelajarS2' => $totalTugasBelajarS2,
+	            'totalTugasBelajarS3' => $totalTugasBelajarS3,
 	            'jumlahProdi' => $jumlahProdi,
-
 	            'totalFakultas' => $totalFakultas,
 	            'totalPendidikanFakultas' => $totalPendidikanFakultas,
 	            'standar4' => $standar4
