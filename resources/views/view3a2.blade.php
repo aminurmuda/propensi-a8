@@ -39,7 +39,7 @@
                             membangun sistem tata pamong yang kredibel, transparan, akuntabel, bertanggung
                             jawab dan adil. <br><br>
 
-                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                                 {!!$standar2['standar2']['2.1']['isian']!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
@@ -81,7 +81,7 @@
                             dan menjadi rujukan bagi publik. <br><br>
 
                              Jelaskan pola kepemimpinan dalam Program Studi. <br><br>
-                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                                 {!!$standar2['standar2']['2.2']['isian']!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
@@ -110,7 +110,7 @@
                             <br><br>
 
                             Jelaskan sistem pengelolaan Program Studi serta dokumen pendukungnya. <br><br>
-                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                                 {!!$standar2['standar2']['2.3']['isian']!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
@@ -133,7 +133,7 @@
                         <div class="panel-body">
 
                             Bagaimanakah pelaksanaan penjaminan mutu pada Program Studi? Jelaskan. <br><br>
-                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                                 {!!$standar2['standar2']['2.4']['isian']!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
@@ -173,11 +173,11 @@
                                   <tr>
                                   
                                     <td>Dosen</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['0']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian'][0]!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/0/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['1']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian'][1]!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/1/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
@@ -185,11 +185,11 @@
 
                                   <tr>
                                     <td>Mahasiswa</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['2']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian'][2]!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/2/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['3']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian'][3]!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/3/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
@@ -197,11 +197,11 @@
                                   <tr>
                                   
                                     <td>Alumni</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['4']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian'][4]!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/4/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['5']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian'][5]!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/5/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
@@ -209,11 +209,11 @@
                                   <tr>
                                   
                                     <td>Pengguna Lulusan</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['6']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian'][6]!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/6/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
-                                    <td>{!!$standar2['standar2']['2.5']['isian']['7']!!}
+                                    <td>{!!$standar2['standar2']['2.5']['isian'][7]!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
                                       <a href="{{ url('3a/standar2edit/2-5/7/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                     @endif</td>
@@ -268,7 +268,7 @@
                             e. Upaya dan prestasi memperoleh dana hibah kompetitif: <br>
                             <br>
 
-                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                                 {!!$standar2['standar2']['2.6']['isian']!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )

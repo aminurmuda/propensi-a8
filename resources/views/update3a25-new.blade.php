@@ -39,29 +39,25 @@
             <div class="form-group">
               <textarea class="form-control" id='textarea' name='textarea'>
                 @if($nomorIsian=="0")
-                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['0']!!}
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian'][0]!!}
                 @elseif($nomorIsian=="1")
-                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['1']!!}
-                
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian'][1]!!}
                 @elseif($nomorIsian=="2")
-                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['2']!!}
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian'][2]!!}
                 @elseif($nomorIsian=="3")
-                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['3']!!}
-                
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian'][3]!!}
                 @elseif($nomorIsian=="4")
-                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['4']!!}
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian'][4]!!}
                 @elseif($nomorIsian=="5")
-                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['5']!!}
-                
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian'][5]!!}
                 @elseif($nomorIsian=="6")
-                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['6']!!}
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian'][6]!!}
                 @else($nomorIsian=="7")
-                  {!!$standar2['standar2'][$kodeStandarStr]['isian']['7']!!}
-                  
+                  {!!$standar2['standar2'][$kodeStandarStr]['isian'][7]!!}
                 @endif
               </textarea>
             </div>
-            <button type="submit" class="btn-primary btn-lg pull-left">Simpan</button>
+            <button type="submit" class="btn-primary btn-lg pull-right">Simpan</button>
             </form>
             <script>
              // Replace the <textarea id="editor1"> with a CKEditor

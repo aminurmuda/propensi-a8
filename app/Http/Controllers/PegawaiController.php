@@ -1638,18 +1638,10 @@ class PegawaiController extends Controller
 		$nomorStandar = explode("-", $kodeStandar)[0];
 		$kodeStandarStr = str_replace("-",".", $kodeStandar);
 
-		$standar_json = Borang::getBorang($jenisBorang,$nomorStandar,$kodeProdi,$tahun);
-
+		$standar_json = Borang::getBorang($jenisBorang,$nomorStandar,$kodeProdi,2017);
 		$isi = $standar_json[0]->isi;
 		$standar = json_decode(stripslashes($isi),true);
-
-		$arrkodeStandar = explode('-', $kodeStandar);
-		if(count($arrkodeStandar) ==3) {
-			$standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian']=$textarea;	
-			echo $standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian'];
-		} else {
-		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']['nomorIsian']=$textarea;	
-		}
+		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian'][$nomorIsian]=$textarea;	
 		$encoded_json = json_encode($standar,JSON_UNESCAPED_SLASHES);
 		//masukin ke database
 		Borang::updateBorang($jenisBorang,$nomorStandar,$kodeProdi,$tahun,$encoded_json);
