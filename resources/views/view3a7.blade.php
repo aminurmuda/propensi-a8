@@ -30,9 +30,9 @@
                             <table class="table table-striped table-bordered">
                             <tr>
                                 <th>Sumber Pembiayaan</th>
-                                <th>TS-2 </th>
-                                <th>TS-1</th>
-                                <th>TS</th>
+                                @for($i = $tahun-2; $i<=$tahun; $i++)
+                                <th>{{$i}}</th>
+                                @endfor
                             </tr>
 
                             <tr>
@@ -44,37 +44,38 @@
 
                             <tr>
                                 <td>Pembiayaan sendiri oleh peneliti</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                 @foreach($arrA as $arrA_value)
+                                 <td>{{$arrA_value}}</td>
+                                @endforeach
                             </tr>
 
                             <tr>
                                 <td>PT yang bersangkutan</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                 @foreach($arrB as $arrB_value)
+                                 <td>{{$arrB_value}}</td>
+                                @endforeach
                             </tr>
 
                             <tr>
                                 <td>Depdiknas</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                @foreach($arrC as $arrC_value)
+                                 <td>{{$arrC_value}}</td>
+                                @endforeach
+                               
                             </tr>
 
                             <tr>
                                 <td>Institusi dalam negeri di luar Depdiknas</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                 @foreach($arrD as $arrD_value)
+                                 <td>{{$arrD_value}}</td>
+                                @endforeach
                             </tr>
 
                             <tr>
                                 <td>Institusi luar negri</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                 @foreach($arrE as $arrE_value)
+                                 <td>{{$arrE_value}}</td>
+                                @endforeach
                             </tr>
                              
 

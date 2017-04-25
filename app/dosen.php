@@ -18,7 +18,7 @@ class dosen extends Model
          */ 
         public static function getOrganisasiDosen($kode_prodi,$tahun)
     {
-        $tahun_min=$tahun-3;
+        $tahun_min=$tahun-2;
         return DB::table('dosen')
             ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('organisasi_dosen', 'organisasi_dosen.id_dosen', '=', 'dosen.id_dosen')
@@ -40,7 +40,7 @@ class dosen extends Model
          */ 
         public static function getPrestasiDosen($kode_prodi,$tahun)
     {
-        $tahun_min=$tahun-3;
+        $tahun_min=$tahun-2;
         return DB::table('dosen')
             ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('prestasi_dosen', 'prestasi_dosen.id_dosen', '=', 'dosen.id_dosen')
@@ -61,7 +61,10 @@ class dosen extends Model
          */ 
         public static function getKegiatanDosen($kode_prodi,$tahun)
     {
-        $tahun_min=$tahun-3;
+        $tahun_min=$tahun-2;
+        $start = date("Y-m-d",strtotime($tahun_min.'-01-01'));
+        $end = date("Y-m-d",strtotime($tahun.'-12-31'));
+        
         return DB::table('dosen')
             ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('kegiatan_dosen', 'kegiatan_dosen.id_dosen', '=', 'dosen.id_dosen')
@@ -70,14 +73,13 @@ class dosen extends Model
             ->where('dosen.flag_aktif',1)
             ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
             ->where('dosen.flag_kesesuaian',1)
-            ->where(DB::raw("year('kegiatan_dosen.waktu')"),"<=",$tahun)
-            ->where(DB::raw("year('kegiatan_dosen.waktu')"),">=",$tahun_min)
+            ->whereBetween('kegiatan_dosen.waktu',[$start,$end])
             ->get();
     }  
 
         public static function getProgramDosen($kode_prodi,$tahun)
     {
-        $tahun_min=$tahun-3;
+        $tahun_min=$tahun-2;
         return DB::table('dosen')
             ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('program_tugas_dosen', 'program_tugas_dosen.id_dosen', '=', 'dosen.id_dosen')
@@ -195,7 +197,10 @@ class dosen extends Model
 
             public static function getTenagaAhliDosen($kode_prodi,$tahun)
     {
-        $tahun_min = $tahun-3;
+        $tahun_min = $tahun-2;
+        $start = date("Y-m-d",strtotime($tahun_min.'-01-01'));
+        $end = date("Y-m-d",strtotime($tahun.'-12-31'));
+
         return DB::table('dosen')
             ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('kegiatan_dosen', 'kegiatan_dosen.id_dosen', '=', 'dosen.id_dosen')
@@ -205,8 +210,9 @@ class dosen extends Model
             ->where('dosen.flag_aktif',1)
             ->where('dosen.kode_prodi_pengajaran',$kode_prodi)
             ->where('kegiatan_dosen.peran',"Penyaji")
-            ->where(DB::raw("year('kegiatan_dosen.waktu')"),"<=",$tahun)
-            ->where(DB::raw("year('kegiatan_dosen.waktu')"),">=",$tahun_min)
+            ->whereBetween('kegiatan_dosen.waktu',[$start,$end])
+            // ->where(DB::raw("substring('kegiatan_dosen.tahun', 0, 3)"),"<=",$tahun)
+            // ->where(DB::raw("substring('kegiatan_dosen.tahun', 0, 3)"),">=",$tahun_min)
             ->get();
     }
 
