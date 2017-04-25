@@ -232,44 +232,18 @@
                                 <td>(5)</td>
                                 <td>(6)</td>  
                             </tr>
-
+                            <?php $i=1?>
+                            @foreach($kerjasamaDalamNegeri as $c)
                             <tr>
-                                <td>1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$i}}</td>
+                                <td>{{$c->nama_instansi}}</td>
+                                <td>{{$c->jenis_kegiatan}}</td>
+                                <td>{{$c->tgl_mulai}}</td>
+                                <td>{{$c->tgl_akhir}}</td>
+                               <td>{{$c->manfaat}}</td>
                             </tr>
-
-                             <tr>
-                                <td>2</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                             <tr>
-                                <td>3</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                             <tr>
-                                <td>dst.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            
-
+                            <?php $i++?>
+                            @endforeach
                             </table>
                             </div>
                            Catatan : (*) dokumen pendukung disediakan pada saat asesmen lapangan<br><br>
@@ -301,43 +275,18 @@
                                 <td>(6)</td>  
                             </tr>
 
+                            <?php $i=1?>
+                            @foreach($kerjasamaLuarNegeri as $d)
                             <tr>
-                                <td>1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>{{$i}}</td>
+                                <td>{{$d->nama_instansi}}</td>
+                                <td>{{$d->jenis_kegiatan}}</td>
+                                <td>{{$d->tgl_mulai}}</td>
+                                <td>{{$d->tgl_akhir}}</td>
+                               <td>{{$d->manfaat}}</td>
                             </tr>
-
-                             <tr>
-                                <td>2</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                             <tr>
-                                <td>3</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-
-                             <tr>
-                                <td>dst.</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            
-
+                            <?php $i++?>
+                            @endforeach
                             </table>
                             </div>
 
