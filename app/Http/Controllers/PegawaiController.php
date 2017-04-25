@@ -1200,7 +1200,7 @@ class PegawaiController extends Controller
 	            'jumlahProdi' => $jumlahProdi,
 	            'totalFakultas' => $totalFakultas,
 	            'totalPendidikanFakultas' => $totalPendidikanFakultas,
-	            'standar4' => $standar4
+	            'standar4' => $standar4,
 
 			]);
 
@@ -1671,7 +1671,9 @@ class PegawaiController extends Controller
 		}
 
 		$textarea=$request->get('textarea');
-
+		
+		// echo json_encode($textarea2);
+		$encoded_html= json_encode($textarea);
 		$nomorStandar = explode("-", $kodeStandar)[0];
 		$kodeStandarStr = str_replace("-",".", $kodeStandar);
 
@@ -1682,7 +1684,7 @@ class PegawaiController extends Controller
 
 		$arrkodeStandar = explode('-', $kodeStandar);
 		if(count($arrkodeStandar) ==3) {
-			$standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian']=$textarea;	
+			$standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian']=$encoded_html;	
 			echo $standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian'];
 		} else {
 		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']=$textarea;	

@@ -23,14 +23,14 @@
                             Borang Akreditasi yang diisi oleh program studi
                         </p><br>
 
-                        @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi' || $role=='UPMAF' || $role=='Pimpinan Fakultas')
-                        <a href="{{ url('3a/standar2/'.$kode_fakultas) }}" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>
-                        <a href="{{ url('3a/standar4/'.$kode_fakultas) }}" class="btn db-button-color-square btn-m round">Standar 4</a><br><br>
-                        <a href="{{ url('3a/standar7/'.$kode_fakultas) }}" class="btn db-button-color-square btn-m round">Standar 7</a>
+                        @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi')
+                                <a href="{{ url('3a/standar2/'.$selectedProdi) }}" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>
+                                <a href="{{ url('3a/standar4/'.$selectedProdi) }}" class="btn db-button-color-square btn-m round">Standar 4</a><br><br>
+                                <a href="{{ url('3a/standar7/'.$selectedProdi) }}" class="btn db-button-color-square btn-m round">Standar 7</a>
                         @else
-                         <a href="{{ url('3a/standar2') }}" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>
-                        <a href="{{ url('3a/standar4') }}" class="btn db-button-color-square btn-m round">Standar 4</a><br><br>
-                        <a href="{{ url('3a/standar7') }}" class="btn db-button-color-square btn-m round">Standar 7</a>
+                             <a href="{{ url('3a/standar2') }}" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>
+                            <a href="{{ url('3a/standar4') }}" class="btn db-button-color-square btn-m round">Standar 4</a><br><br>
+                            <a href="{{ url('3a/standar7') }}" class="btn db-button-color-square btn-m round">Standar 7</a>
                         @endif
 
 
@@ -58,9 +58,15 @@
                         </p><br>
 
                         @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi' || $role=='UPMAF' || $role=='Pimpinan Fakultas')
+                        @if($role=='Tim Akreditasi')
+                        <a href="{{ url('3b/standar2/'.$selectedProdi) }}" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>
+                        <a href="{{ url('3b/standar4/'.$selectedProdi) }}" class="btn db-button-color-square btn-m round">Standar 4</a><br><br>
+                        <a href="{{ url('3b/standar7/'.$selectedProdi) }}" class="btn db-button-color-square btn-m round">Standar 7</a>
+                        @else 
                         <a href="{{ url('3b/standar2/'.$kode_fakultas) }}" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>
                         <a href="{{ url('3b/standar4/'.$kode_fakultas) }}" class="btn db-button-color-square btn-m round">Standar 4</a><br><br>
                         <a href="{{ url('3b/standar7/'.$kode_fakultas) }}" class="btn db-button-color-square btn-m round">Standar 7</a>
+                        @endif
                         @else
                          <a href="{{ url('3b/standar2') }}" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>
                         <a href="{{ url('3b/standar4') }}" class="btn db-button-color-square btn-m round">Standar 4</a><br><br>

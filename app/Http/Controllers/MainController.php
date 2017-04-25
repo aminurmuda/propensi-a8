@@ -86,11 +86,14 @@ class MainController extends Controller
 
 			} elseif($userIsTimAkreditasi){	//Validasi jika yang login merupakan tim akreditasi
 
-				$request->session()->put('role', 'Tim Akreditasi');;
+				$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+				$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+				$request->session()->put('role', 'Tim Akreditasi');
 				return view ('home', [
 					'user' => $username,
 					'role' => 'Tim Akreditasi',
-					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
+					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas,
+					'selectedProdi' => $selectedProdi
 					]
 					);
 			} elseif($userIsAdmin) { //admin

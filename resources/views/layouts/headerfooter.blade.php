@@ -149,7 +149,7 @@
                         <li><a href="#">Evaluasi Diri</a></li>
 
                         @else
-                                <!-- role BPMA, UPMAF dan Pimpinan Univ (navbar Borang, Riwayat Akreditasi) -->
+                                <!-- role BPMA, UPMAF dan Pimpinan Univ, pimpinan fak (navbar Borang, Riwayat Akreditasi) -->
                                 @if($role!='Pimpinan Fakultas' && $role!='Admin') <!-- jgn lupa ganti jd != admin -->
                                 <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
