@@ -1257,7 +1257,7 @@ class PegawaiController extends Controller
 		$arr1 = [];
 		$arr2 = [];
 		
-
+		//Untuk 7.1 Penelitian
 		foreach ($listProdi as $l)
 		{
 			$kode_prodi = $l->kode_prodi;
@@ -1284,6 +1284,7 @@ class PegawaiController extends Controller
 
 		}
 
+		//Untuk 7.2 Pelayanan/Pengabdian kepada Masyarakat
 		foreach ($listProdi as $l1) {
 			$kode_prodi = $l1->kode_prodi;
 			$nama_prodi = $l1->nama_prodi;
@@ -1308,33 +1309,45 @@ class PegawaiController extends Controller
 			$arr1[$l1->nama_prodi]['danaPengmas2'] = $danaPengmas2;
 		}
 
+		//Untuk 7.3 Kegiatan Kerjasama dengan Instansi Lain
+		$kerjasamaDalamNegeri = kerja_sama::getKerjaSamaDalamNegeriByFakultas($selectedFakultas, $tahun);
+		$kerjasamaLuarNegeri = kerja_sama::getKerjaSamaLuarNegeriByFakultas($selectedFakultas, $tahun);
 
-			return view('view3b7',[
-				'role' => $request->session()->get('role'),
-	            'user' => $request->session()->get('user'),
-	            'pegawai' => $pimpinan,      
-	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username,
-	            'listProdi' => $listProdi,
-	            'jumlahProdi'=> $jumlahProdi,
-	            'tahun' => $tahun,
-	            'tahun1' => $tahun1,
-	            'tahun2' => $tahun2,
-	            'totalts' => $totalts,
-	            'totalts1' => $totalts1,
-	            'totalts2' => $totalts2,
-	            'totalDana' => $totalDana,
-	            'totalDana1' => $totalDana1,
-	            'totalDana2' => $totalDana2,
-	            'totalPengmas' => $totalPengmas,
-				'totalPengmas1' => $totalPengmas1,
-				'totalPengmas2' => $totalPengmas2,
-				'totalDanaPengmas' => $totalDanaPengmas,
-				'totalDanaPengmas1' => $totalDanaPengmas1,
-				'totalDanaPengmas2' => $totalDanaPengmas2,
-	            'arr' => $arr,
-	            'arr1' => $arr1
-			]);
+		
+		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
+		$isi = $standar7_json[0]->isi;
+		$standar7 = json_decode(stripslashes($isi),true);
+
+
+		return view('view3b7',[
+			'role' => $request->session()->get('role'),
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pimpinan,      
+            'kode_fakultas' => $kodeFakultasPengguna,  
+            'username' => $username,
+            'listProdi' => $listProdi,
+            'jumlahProdi'=> $jumlahProdi,
+            'tahun' => $tahun,
+            'tahun1' => $tahun1,
+            'tahun2' => $tahun2,
+            'totalts' => $totalts,
+            'totalts1' => $totalts1,
+            'totalts2' => $totalts2,
+            'totalDana' => $totalDana,
+            'totalDana1' => $totalDana1,
+            'totalDana2' => $totalDana2,
+            'totalPengmas' => $totalPengmas,
+			'totalPengmas1' => $totalPengmas1,
+			'totalPengmas2' => $totalPengmas2,
+			'totalDanaPengmas' => $totalDanaPengmas,
+			'totalDanaPengmas1' => $totalDanaPengmas1,
+			'totalDanaPengmas2' => $totalDanaPengmas2,
+            'arr' => $arr,
+            'arr1' => $arr1,
+            'kerjasamaDalamNegeri' => $kerjasamaDalamNegeri,
+            'kerjasamaLuarNegeri' => $kerjasamaLuarNegeri,
+            'standar7' => $standar7_json
+		]);
 	}
 
 	public function edit3b7(Request $request,$kodeStandar,$kodeFakultas) {
