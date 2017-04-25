@@ -39,15 +39,9 @@
                             membangun sistem tata pamong yang kredibel, transparan, akuntabel, bertanggung
                             jawab dan adil. <br><br>
 
-                            @if($standar2['standar2']['2.1']['isian'] != null)
-                            <style type="text/css">
-                                .isian {
-                                    background-color: #ecf0f1;
-                                    padding: 20px;
-                                }
-                            </style>
-                            <div class="isian">{!!$standar2['standar2']['2.1']['isian']!!}</div><br>
-                            @endif
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
@@ -87,15 +81,9 @@
                             dan menjadi rujukan bagi publik. <br><br>
 
                              Jelaskan pola kepemimpinan dalam Program Studi. <br><br>
-                            @if($standar2['standar2']['2.2']['isian'] != null)
-                            <style type="text/css">
-                                .isian {
-                                    background-color: #ecf0f1;
-                                    padding: 20px;
-                                }
-                            </style>
-                            <div class="isian">{!!$standar2['standar2']['2.2']['isian']!!}</div><br>
-                            @endif
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.2']['isian']!!}
+                            </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               <a href="{{ url('3a/standar2edit/2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
@@ -122,15 +110,9 @@
                             <br><br>
 
                             Jelaskan sistem pengelolaan Program Studi serta dokumen pendukungnya. <br><br>
-                            @if($standar2['standar2']['2.3']['isian'] != null)
-                            <style type="text/css">
-                                .isian {
-                                    background-color: #ecf0f1;
-                                    padding: 20px;
-                                }
-                            </style>
-                            <div class="isian">{!!$standar2['standar2']['2.3']['isian']!!}</div><br>
-                            @endif
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.3']['isian']!!}
+                            </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               <a href="{{ url('3a/standar2edit/2-3/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
@@ -151,15 +133,9 @@
                         <div class="panel-body">
 
                             Bagaimanakah pelaksanaan penjaminan mutu pada Program Studi? Jelaskan. <br><br>
-                            @if($standar2['standar2']['2.4']['isian'] != null)
-                            <style type="text/css">
-                                .isian {
-                                    background-color: #ecf0f1;
-                                    padding: 20px;
-                                }
-                            </style>
-                            <div class="isian">{!!$standar2['standar2']['2.4']['isian']!!}</div><br>
-                            @endif
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.4']['isian']!!}
+                            </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               <a href="{{ url('3a/standar2edit/2-4/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
@@ -292,15 +268,9 @@
                             e. Upaya dan prestasi memperoleh dana hibah kompetitif: <br>
                             <br>
 
-                            @if($standar2['standar2']['2.6']['isian'] != null)
-                            <style type="text/css">
-                                .isian {
-                                    background-color: #ecf0f1;
-                                    padding: 20px;
-                                }
-                            </style>
-                            <div class="isian">{!!$standar2['standar2']['2.6']['isian']!!}</div><br>
-                            @endif
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.6']['isian']!!}
+                            </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               <a href="{{ url('3a/standar2edit/2-6/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
