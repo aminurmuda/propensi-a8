@@ -676,6 +676,7 @@
                           <td>(6)</td>                          
                           <td>(7)</td>
                         </tr>
+
                         <?php $i=1 ?>
                         @foreach($standar4_5_3 as $standar4_5_3)                     
                         <tr>
