@@ -69,7 +69,4 @@ class kerja_sama extends Model
         ->get();
     }
 
-
-
-
 }

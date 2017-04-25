@@ -65,12 +65,15 @@ class MainController extends Controller
 				$pimpinan = Pegawai::getPimpinanPegawai($username);
 				$isBPMA = $pimpinan[0] -> isBPMA;
 				$isPimpinanFakultas = $pimpinan[0] -> isPimpinanFakultas;
+				$isUPMAF = $pimpinan[0] -> isUPMAF;
 				$role='';
 
 				if($isBPMA == 1) {
 					$role = 'BPMA';
 				} else if ($isPimpinanFakultas == 1) {
 					$role='Pimpinan Fakultas';
+				} else if ($isUPMAF == 1) {
+					$role = 'UPMAF';
 				} else {
 					$role='Pimpinan Universitas';
 				} 
