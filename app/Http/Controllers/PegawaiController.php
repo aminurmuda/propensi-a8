@@ -13,8 +13,8 @@ use App\Borang;
 use App\proyek;
 use App\kerja_sama;
 use App\danaPengmas;
+use App\pengmas_dosen;
 use App\danaProyek;
-
 use DB;
 
 class PegawaiController extends Controller
@@ -413,9 +413,29 @@ class PegawaiController extends Controller
 
 		//poin 4.3.1
 		$standar4_3_1 = Dosen::getDosenTetapSesuai($selectedProdi);
+		$standar4_3_1_occurences = array();
+		foreach($standar4_3_1 as $standar4_3_1_count){
+		  $nama_pegawai = $standar4_3_1_count-> namaPegawai;
+
+		  if(!isset($standar4_3_1_occurences[$nama_pegawai])){
+		    $standar4_3_1_occurences[$nama_pegawai] = 0;
+		  }
+
+		  $standar4_3_1_occurences[$nama_pegawai]++;
+		}
 
 		//poin 4.3.2
 		$standar4_3_2 = Dosen::getDosenTetapTidakSesuai($selectedProdi);
+		$standar4_3_2_occurences = array();
+		foreach($standar4_3_2 as $standar4_3_2_count){
+		  $nama_pegawai = $standar4_3_2_count-> namaPegawai;
+
+		  if(!isset($standar4_3_2_occurences[$nama_pegawai])){
+		    $standar4_3_2_occurences[$nama_pegawai] = 0;
+		  }
+
+		  $standar4_3_2_occurences[$nama_pegawai]++;
+		}
 
 		//poin 4.3.3
 		$standar4_3_3 = Dosen::getDosenSKSAktivitasTetapSesuai($selectedProdi,$tahun);
@@ -427,13 +447,22 @@ class PegawaiController extends Controller
 		// dd($standar4_3_4);
 		//poin 4.4.1
 		$standar4_4_1 = Dosen::getDosenTidakTetap($selectedProdi);
+		$standar4_4_1_occurences = array();
+		foreach($standar4_4_1 as $standar4_4_1_count){
+		  $nama_pegawai = $standar4_4_1_count-> namaPegawai;
 
+		  if(!isset($standar4_4_1_occurences[$nama_pegawai])){
+		    $standar4_4_1_occurences[$nama_pegawai] = 0;
+		  }
+
+		  $standar4_4_1_occurences[$nama_pegawai]++;
+		}
 		//poin 4.4.2
 		$standar4_4_2 = Dosen::getDosenTidakTetapAktivitas($selectedProdi,$tahun);
 
 		//poin 4.5.1
 		$standar4_5_1 = Dosen::getTenagaAhliDosen($selectedProdi,$tahun);
-
+		// dd($standar4_5_1);
 		//poin 4.5.2
 		$standar4_5_2 = Dosen::getProgramDosen($selectedProdi,$tahun);
 
@@ -541,11 +570,14 @@ class PegawaiController extends Controller
 	            'prodiBorang' => $prodiBorang,
 	            'standar4' => $standar4,
 	            'standar4_3_1' => $standar4_3_1,
+	            'standar4_3_1_occurences' => $standar4_3_1_occurences,
 	            'standar4_3_2' => $standar4_3_2,
+	            'standar4_3_2_occurences' => $standar4_3_2_occurences,
 	            'standar4_3_3' => $standar4_3_3,
 	            'standar4_3_4' => $standar4_3_4,
 	            'standar4_3_5' => $standar4_3_5,
 	            'standar4_4_1' => $standar4_4_1,
+	            'standar4_4_1_occurences' => $standar4_4_1_occurences,
 	            'standar4_4_2' => $standar4_4_2,
 	            'standar4_5_1' => $standar4_5_1,
 	            'standar4_5_2' => $standar4_5_2,
@@ -718,6 +750,7 @@ class PegawaiController extends Controller
 			]);
 	}
 
+
 	public function edit3a25(Request $request,$kodeStandar,$kodeProdi, $dari, $jenisIsian) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
@@ -729,8 +762,9 @@ class PegawaiController extends Controller
 		$standar2_json = Borang::getBorang('3a', $nomorStandar,$kodeProdi,2017);
 		$isi = $standar2_json[0]->isi;
 		$standar2 = json_decode(stripslashes($isi),true);
-
-			return view('update3a2-new',[
+		
+			dd($standar2['standar2'][$kodeStandarStr]['isian'][$dari][$jenisIsian]);
+			return view('update3a25-new',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
@@ -1302,6 +1336,29 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$listProdi;
+		$totalts = 0;
+		$totalts1 = 0;
+		$totalts2 = 0;
+		$totalDana = 0;
+		$totalDana1 = 0;
+		$totalDana2 = 0;
+		$totalPengmas = 0;
+		$totalPengmas1 = 0;
+		$totalPengmas2 = 0;
+		$totalDanaPengmas = 0;
+		$totalDanaPengmas1 = 0;
+		$totalDanaPengmas2 = 0;
+
+		if ($request->get('selectFakultasGeneral')){
+			$selectedFakultas = $request->get('selectFakultasGeneral');
+			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
+			$jumlahProdi = count($listProdi); //menghitung jumlah prodi
+		} else {
+			$selectedFakultas = $kodeFakultasPengguna;
+			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
+			$jumlahProdi = count($listProdi); //menghtiung jumlah prodi
+		}
 
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
@@ -1309,9 +1366,64 @@ class PegawaiController extends Controller
 			$tahun = date('Y');
 		}
 
-		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
-		$isi = $standar7_json[0]->isi;
-		$standar7 = json_decode(stripslashes($isi),true);
+		$tahun1 = $tahun-1;
+		$tahun2 = $tahun-2;
+		
+		$arr = [];
+		$arr1 = [];
+		$arr2 = [];
+		
+
+		foreach ($listProdi as $l)
+		{
+			$kode_prodi = $l->kode_prodi;
+			$nama_prodi = $l->nama_prodi;
+			$ts = count(proyek::getProyek($kode_prodi, $tahun));
+			$ts1 = count(proyek::getProyek($kode_prodi, $tahun1));
+			$ts2 = count(proyek::getProyek($kode_prodi, $tahun2));
+			$dana = proyek::getTotalDanaPenelitian($kode_prodi, $tahun);
+			$dana1 = proyek::getTotalDanaPenelitian($kode_prodi, $tahun1);
+			$dana2 = proyek::getTotalDanaPenelitian($kode_prodi, $tahun2);
+			$totalts += $ts;
+			$totalts1 += $ts1;
+			$totalts2 += $ts2;
+			$totalDana += $dana;
+			$totalDana1 += $dana1;
+			$totalDana2 += $dana2;
+			$arr[$l->nama_prodi]['namaProdi'] = $nama_prodi;
+			$arr[$l->nama_prodi]['ts'] = $ts;
+			$arr[$l->nama_prodi]['ts-1'] = $ts1;
+			$arr[$l->nama_prodi]['ts-2'] = $ts2;
+			$arr[$l->nama_prodi]['dana'] = $dana;
+			$arr[$l->nama_prodi]['dana1'] = $dana1;
+			$arr[$l->nama_prodi]['dana2'] = $dana2;
+
+		}
+
+		foreach ($listProdi as $l1) {
+			$kode_prodi = $l1->kode_prodi;
+			$nama_prodi = $l1->nama_prodi;
+			$pengmas = count(pengmas_dosen::getPengmas($kode_prodi, $tahun));
+			$pengmas1 = count(pengmas_dosen::getPengmas($kode_prodi, $tahun1));
+			$pengmas2 = count(pengmas_dosen::getPengmas($kode_prodi, $tahun2));
+			$danaPengmas = danaPengmas::getTotalDanaPengmas($kode_prodi, $tahun);
+			$danaPengmas1 = danaPengmas::getTotalDanaPengmas($kode_prodi, $tahun1);
+			$danaPengmas2 = danaPengmas::getTotalDanaPengmas($kode_prodi, $tahun2);
+			$totalPengmas += $pengmas;
+			$totalPengmas1+=  $pengmas1;
+			$totalPengmas2 += $pengmas2;
+			$totalDanaPengmas += $danaPengmas;
+			$totalDanaPengmas1 += $danaPengmas1;
+			$totalDanaPengmas2 += $danaPengmas2;
+			$arr1[$l1->nama_prodi]['namaProdi'] = $nama_prodi;
+			$arr1[$l1->nama_prodi]['pengmas'] = $pengmas;
+			$arr1[$l1->nama_prodi]['pengmas1'] = $pengmas1;
+			$arr1[$l1->nama_prodi]['pengmas2'] = $pengmas2;
+			$arr1[$l1->nama_prodi]['danaPengmas'] = $danaPengmas;
+			$arr1[$l1->nama_prodi]['danaPengmas1'] = $danaPengmas1;
+			$arr1[$l1->nama_prodi]['danaPengmas2'] = $danaPengmas2;
+		}
+
 
 			return view('view3b7',[
 				'role' => $request->session()->get('role'),
@@ -1319,7 +1431,25 @@ class PegawaiController extends Controller
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
-	            'standar7' => $standar7
+	            'listProdi' => $listProdi,
+	            'jumlahProdi'=> $jumlahProdi,
+	            'tahun' => $tahun,
+	            'tahun1' => $tahun1,
+	            'tahun2' => $tahun2,
+	            'totalts' => $totalts,
+	            'totalts1' => $totalts1,
+	            'totalts2' => $totalts2,
+	            'totalDana' => $totalDana,
+	            'totalDana1' => $totalDana1,
+	            'totalDana2' => $totalDana2,
+	            'totalPengmas' => $totalPengmas,
+				'totalPengmas1' => $totalPengmas1,
+				'totalPengmas2' => $totalPengmas2,
+				'totalDanaPengmas' => $totalDanaPengmas,
+				'totalDanaPengmas1' => $totalDanaPengmas1,
+				'totalDanaPengmas2' => $totalDanaPengmas2,
+	            'arr' => $arr,
+	            'arr1' => $arr1
 			]);
 	}
 

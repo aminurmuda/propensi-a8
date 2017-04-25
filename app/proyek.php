@@ -41,5 +41,70 @@ class proyek extends Model
         ->where('proyek.tanggal_selesai',">=",$tahun_min)
         ->get();
     }
+
+    public static function getProyek($kode_prodi, $tahun)
+    {
+        return DB::table('proyek')
+        ->join('dosen', 'proyek.id_dosen', '=', 'dosen.id_dosen')
+        ->join('pegawai', 'dosen.id_pegawai', '=', 'pegawai.id_pegawai')
+        ->select('proyek.id', 'proyek.nama', 'proyek.tanggal_selesai', 'dosen.id_dosen', 'pegawai.id_pegawai', 'pegawai.nama')
+        ->where('dosen.kode_prodi_pengajaran', $kode_prodi)
+        ->where('proyek.tanggal_selesai', '=', $tahun)
+        ->get();
+    }
+
+    public static function getTotalDanaPenelitian($kode_prodi, $tahun)
+    {
+        $totalDanaPenelitian = 0;
+        $danaDepdiknasDalamNegeri = DB::table('proyek')
+            ->join('dosen', 'proyek.id_dosen', '=', 'dosen.id_dosen')
+            ->join('pegawai', 'dosen.id_pegawai', '=', 'pegawai.id_pegawai')
+            ->join('evaluasi_dana_akhir', 'proyek.id','=', 'evaluasi_dana_akhir.id_proyek')
+            ->select(DB::raw('sum(evaluasi_dana_akhir.dana_depdiknas_dalam_negeri) as total'))
+            ->where('dosen.kode_prodi_pengajaran', $kode_prodi)
+            ->where('proyek.tanggal_selesai', '=', $tahun)
+            ->get();
+        $danaPT = DB::table('proyek')
+            ->join('dosen', 'proyek.id_dosen', '=', 'dosen.id_dosen')
+            ->join('pegawai', 'dosen.id_pegawai', '=', 'pegawai.id_pegawai')
+            ->join('evaluasi_dana_akhir', 'proyek.id','=', 'evaluasi_dana_akhir.id_proyek')
+            ->select(DB::raw('sum(evaluasi_dana_akhir.dana_pt) as total'))
+            ->where('dosen.kode_prodi_pengajaran', $kode_prodi)
+            ->where('proyek.tanggal_selesai', '=', $tahun)
+            ->get();
+        $danaPribadi = DB::table('proyek')
+            ->join('dosen', 'proyek.id_dosen', '=', 'dosen.id_dosen')
+            ->join('pegawai', 'dosen.id_pegawai', '=', 'pegawai.id_pegawai')
+            ->join('evaluasi_dana_akhir', 'proyek.id','=', 'evaluasi_dana_akhir.id_proyek')
+            ->select(DB::raw('sum(evaluasi_dana_akhir.dana_pribadi) as total'))
+            ->where('dosen.kode_prodi_pengajaran', $kode_prodi)
+            ->where('proyek.tanggal_selesai', '=', $tahun)
+            ->get();
+        $danaInstitusiDalamNegeri = DB::table('proyek')
+            ->join('dosen', 'proyek.id_dosen', '=', 'dosen.id_dosen')
+            ->join('pegawai', 'dosen.id_pegawai', '=', 'pegawai.id_pegawai')
+            ->join('evaluasi_dana_akhir', 'proyek.id','=', 'evaluasi_dana_akhir.id_proyek')
+            ->select(DB::raw('sum(evaluasi_dana_akhir.dana_institusi_dalam_negeri) as total'))
+            ->where('dosen.kode_prodi_pengajaran', $kode_prodi)
+            ->where('proyek.tanggal_selesai', '=', $tahun)
+            ->get();
+        $danaInstitusiLuarNegeri = DB::table('proyek')
+            ->join('dosen', 'proyek.id_dosen', '=', 'dosen.id_dosen')
+            ->join('pegawai', 'dosen.id_pegawai', '=', 'pegawai.id_pegawai')
+            ->join('evaluasi_dana_akhir', 'proyek.id','=', 'evaluasi_dana_akhir.id_proyek')
+            ->select(DB::raw('sum(evaluasi_dana_akhir.dana_institusi_luar_negeri) as total'))
+            ->where('dosen.kode_prodi_pengajaran', $kode_prodi)
+            ->where('proyek.tanggal_selesai', '=', $tahun)
+            ->get();
+        $totalDepdiknasDalamNegeri = $danaDepdiknasDalamNegeri[0]->total;
+        $totalDanaPT = $danaPT[0]->total;
+        $totalDanaPribadi = $danaPribadi[0]->total;
+        $totalDanaInstitusiDalamNegeri = $danaInstitusiDalamNegeri[0]->total;
+        $totalDanaInstitusiLuarNegeri = $danaInstitusiLuarNegeri[0]->total;
+        $totalDanaPenelitian = ($totalDepdiknasDalamNegeri+$totalDanaPT+$totalDanaPribadi+$totalDanaInstitusiDalamNegeri+$totalDanaInstitusiLuarNegeri)/1000000;
+
+        return $totalDanaPenelitian;
+
+    }
     
 }
