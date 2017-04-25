@@ -37,7 +37,7 @@ class PegawaiController extends Controller
 
     	$role = $request->session()->get('role');
 
-    	if ($role=='Pimpinan Fakultas'|| $role=='Admin'){
+    	if ($role=='Pimpinan Fakultas'|| $role=='Admin' || $role=='UPMAF'){
 			Pegawai::addTimAkreditasi($username, $kode_prodi);
 			$pegawai = Pegawai::getPegawaiByUsername($username);
 			$kodeFakultas = Pegawai::getFakultasPegawai($username);
@@ -69,7 +69,7 @@ class PegawaiController extends Controller
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
     	$role = $request->session()->get('role');
-    	if ($role=='Pimpinan Fakultas'|| $role=='Admin'){   	
+    	if ($role=='Pimpinan Fakultas'|| $role=='Admin' || $role=='UPMAF'){   	
 	    	Pegawai::deleteTimAkreditasi($username);
 	    	$pegawai = Pegawai::getPegawaiByUsername($username);
 	    	$kodeFakultas = Pegawai::getFakultasPegawai($username);
@@ -100,7 +100,7 @@ class PegawaiController extends Controller
     	$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
     	$role = $request->session()->get('role');
-    	if ($role=='Pimpinan Fakultas'){
+    	if ($role=='Pimpinan Fakultas' || $role=='UPMAF'){
 	    		if ($kodeFakultasPengguna==$kode_fakultas) {
 			    	$pegawai = Pegawai::getAllPegawaiIsNotTimAkreditasi($kode_fakultas);
 			    	return view('tambahuser', [
