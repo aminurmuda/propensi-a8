@@ -406,7 +406,7 @@ class PegawaiController extends Controller
 		}
 
 		//poin 4.1,4.2,4.6.1
-		$standar4_json = Borang::getBorang(4,$selectedProdi,$tahun);
+		$standar4_json = Borang::getBorang('3a',4,$selectedProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
 		// dd($standar4);
@@ -468,7 +468,16 @@ class PegawaiController extends Controller
 
 		//poin 4.5.3
 		$standar4_5_3 = Dosen::getKegiatanDosen($selectedProdi,$tahun);
+		$standar4_5_3_occurences = array();
+		foreach($standar4_5_3 as $standar4_5_3_count){
+		  $nama_pegawai = $standar4_5_3_count-> namaPegawai;
 
+		  if(!isset($standar4_5_3_occurences[$nama_pegawai])){
+		    $standar4_5_3_occurences[$nama_pegawai] = 0;
+		  }
+
+		  $standar4_5_3_occurences[$nama_pegawai]++;
+		}
 		//poin 4.5.4
 		$standar4_5_4 = Dosen::getPrestasiDosen($selectedProdi,$tahun);
 
@@ -582,6 +591,7 @@ class PegawaiController extends Controller
 	            'standar4_5_1' => $standar4_5_1,
 	            'standar4_5_2' => $standar4_5_2,
 	            'standar4_5_3' => $standar4_5_3,
+	            'standar4_5_3_occurences' => $standar4_5_3_occurences,
 	            'standar4_5_4' => $standar4_5_4,
 	            'standar4_5_5' => $standar4_5_5,
 	            'arrA' => $arrA,
@@ -695,10 +705,6 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-
-		
-		
-		
 
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
@@ -847,7 +853,7 @@ class PegawaiController extends Controller
 		}
 
 		//poin 4.1
-		$standar4_json = Borang::getBorang(4,$kodeProdi,$tahun);
+		$standar4_json = Borang::getBorang('3a',4,$kodeProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
 
@@ -1548,7 +1554,7 @@ class PegawaiController extends Controller
 		} else {
 		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']=$textarea;	
 		}
-		$encoded_json = json_encode($standar);
+		$encoded_json = json_encode($standar,JSON_UNESCAPED_SLASHES);
 		//masukin ke database
 
 		Borang::updateBorang($jenisBorang,$nomorStandar,$kode,$tahun,$encoded_json);
