@@ -12,7 +12,6 @@ use App\tendik;
 use App\Borang;
 use App\proyek;
 use App\kerja_sama;
-
 use App\danaPengmas;
 use App\danaProyek;
 
@@ -1102,7 +1101,85 @@ class PegawaiController extends Controller
 			$tahun = date('Y');
 		}
 
+		$standar7_json = Borang::getBorang('3a',7,$kodeFakultasPengguna,$tahun);
+		$isi = $standar7_json[0]->isi;
+		$standar7 = json_decode(stripslashes($isi),true);
 
+		$standar7_1_1_a = danaProyek::getDanaProyekBiayaSendiri($kode_prodi,$tahun);
+		$arrA = array(0,0,0);
+		foreach ($standar7_1_1_a as $standar7_1_1_a ) {
+			$tahun_min = $standar7_1_1_a->tanggal_selesai;
+			if($tahun_min==($tahun-2)){
+				$arrA[0]=$standar7_1_1_a->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arrA[1]=$standar7_1_1_a->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arrA[2]=$standar7_1_1_a->dana_count;
+			}
+
+		}
+		$standar7_1_1_b = danaProyek::getDanaProyekPT($kode_prodi,$tahun);
+		$arrB = array(0,0,0);
+		foreach ($standar7_1_1_b as $standar7_1_1_b ) {
+			$tahun_min = $standar7_1_1_b->tanggal_selesai;
+			if($tahun_min==($tahun-2)){
+				$arrB[0]=$standar7_1_1_b->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arrB[1]=$standar7_1_1_b->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arrB[2]=$standar7_1_1_b->dana_count;
+			}
+
+		}
+		$standar7_1_1_c = danaProyek::getProyekDepdiknasDalamNegeri($kode_prodi,$tahun);
+		$arrC = array(0,0,0);
+		foreach ($standar7_1_1_c as $standar7_1_1_c ) {
+			$tahun_min = $standar7_1_1_c->tanggal_selesai;
+			if($tahun_min==($tahun-2)){
+				$arrC[0]=$standar7_1_1_c->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arrC[1]=$standar7_1_1_c->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arrC[2]=$standar7_1_1_c->dana_count;
+			}
+
+		}
+		$standar7_1_1_d = danaProyek::getDanaProyekInstitusiDalamNegeri($kode_prodi,$tahun);
+		$arrD = array(0,0,0);
+		foreach ($standar7_1_1_d as $standar7_1_1_d ) {
+			$tahun_min = $standar7_1_1_d->tanggal_selesai;
+			if($tahun_min==($tahun-2)){
+				$arrD[0]=$standar7_1_1_d->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arrD[1]=$standar7_1_1_d->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arrD[2]=$standar7_1_1_d->dana_count;
+			}
+
+		}
+		$standar7_1_1_e = danaProyek::getDanaProyekInstitusiLuarNegeri($kode_prodi,$tahun);
+		$arrE = array(0,0,0);
+		foreach ($standar7_1_1_e as $standar7_1_1_e ) {
+			$tahun_min = $standar7_1_1_e->tanggal_selesai;
+			if($tahun_min==($tahun-2)){
+				$arrE[0]=$standar7_1_1_e->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arrE[1]=$standar7_1_1_e->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arrE[2]=$standar7_1_1_e->dana_count;
+			}
+
+		}
 		$standar7_1_3 = Proyek::getHasilPublikasiDosen($kode_prodi, $tahun);
 		$standar7_2_3 = Proyek::getKaryaHAKI($kode_prodi, $tahun);
 		$standar7_3_1 = kerja_sama::getKerjaSamaDalamNegeri($kode_prodi, $tahun);
@@ -1200,7 +1277,11 @@ class PegawaiController extends Controller
 	            'standar7_2_3'=> $standar7_2_3,
 	            'standar7_3_1'=> $standar7_3_1,
 	           	'standar7_3_2'=> $standar7_3_2,
-
+	           	'arrA'=>$arrA,
+	           	'arrB' => $arrB,
+	            'arrC' => $arrC,
+	            'arrD' => $arrD,
+	            'arrE' => $arrE,
 	           	'arr1'=>$arr1,
 	           	'arr2'=>$arr2,
 	           	'arr3'=>$arr3,
