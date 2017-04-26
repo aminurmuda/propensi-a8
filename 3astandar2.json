@@ -15,7 +15,7 @@
     },
     "2.3": {
       "judul": "2.3 Sistem Pengelolaan",
-      "narasi": "Sistem pengelolaan fungsional dan operasional program studi mencakup planning, organizing, staffing, leading, controlling dalam kegiatan  internal maupun eksternal.",
+      "narasi": "Sistem pengelolaan fungsional dan operasional program studi mencakup <i>planning</i>, <i>organizing</i>, <i>staffing</i>, <i>leading</i>, <i>controlling</i> dalam kegiatan  internal maupun eksternal.",
       "perintah": "Jelaskan sistem pengelolaan Program Studi serta dokumen pendukungnya.",
       "isian": ""
     },
@@ -27,31 +27,16 @@
     "2.5": {
       "judul": "2.5 Umpan Balik",
       "perintah": "Apakah program studi telah melakukan kajian tentang proses pembelajaran melalui umpan balik dari dosen, mahasiswa, alumni, dan pengguna lulusan mengenai harapan dan persepsi mereka?  Jika Ya, jelaskan isi umpan balik dan tindak lanjutnya.",
-      "isian": {
-          "Dosen": {
-            "Umpan_Balik_Dari": "Dosen",
-            "Isi_Umpan_Balik": "",
-            "Tindak_Lanjut": ""
-          }
-        ,
-          "Mahasiswa": {
-            "Umpan_Balik_Dari": "Mahasiswa",
-            "Isi_Umpan_Balik": "",
-            "Tindak_Lanjut": ""
-          }
-        ,
-          "Alumni": {
-            "Umpan_Balik_Dari": "Alumni",
-            "Isi_Umpan_Balik": "",
-            "Tindak_Lanjut": ""
-          }
-        ,
-          "Pengguna_lulusan": {
-            "Umpan_Balik_Dari": "Pengguna_lulusan",
-            "Isi_Umpan_Balik": "",
-            "Tindak_Lanjut": ""
-          }
-      }
+      "isian": [
+        "isi 1",
+        "isi 2",
+        "isi 3",
+        "isi 4",
+        "isi 5",
+        "isi 6",
+        "isi 7",
+        "isi 8"
+      ]
     },
     "2.6": {
       "judul": "2.6 Keberlanjutan",
