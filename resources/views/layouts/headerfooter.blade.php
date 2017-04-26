@@ -150,35 +150,56 @@
 
                         @else
                                 <!-- role BPMA, UPMAF dan Pimpinan Univ, pimpinan fak (navbar Borang, Riwayat Akreditasi) -->
-                                @if($role!='Pimpinan Fakultas' && $role!='Admin') <!-- jgn lupa ganti jd != admin -->
+                                @if($role!='Pimpinan Fakultas' && $role!='UPMAF') <!-- jgn lupa ganti jd != admin -->
                                 <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         
-                                        <li class="dropdown dropdown-submenu"><a class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Borang 3A</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="{{ url('3a/standar2') }}">Standar 2</a></li>
-                                                <li><a href="{{ url('3a/standar4') }}">Standar 4</a></li>
-                                                <li><a href="{{ url('3a/standar7') }}">Standar 7</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown dropdown-submenu"><a class="dropdown-toggle active" data-toggle="dropdown"  href="#">Borang 3B</a></li>
+                        
+                                                <li><a href="{{ url('3a/standar2') }}">3A: Standar 2</a></li>
+                                                <li><a href="{{ url('3a/standar4') }}">3A: Standar 4</a></li>
+                                                <li><a href="{{ url('3a/standar7') }}">3A: Standar 7</a></li>
+                                                <li><a href="{{ url('3b/standar2') }}">3B: Standar 2</a></li>
+                                                <li><a href="{{ url('3b/standar4') }}">3B: Standar 4</a></li>
+                                                <li><a href="{{ url('3b/standar7') }}">3B: Standar 7</a></li>
+                                                <li><a href="#">Evaluasi Diri</a></li>
+                                           
 
-                                        <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">Evaluasi Diri</a></li>
+
+                                    
                                     </ul>
+
+
+                                   
                                 </li>
                                 <li><a href="#">Riwayat Akreditasi</a></li>
+                                 @if($role=='Admin')
+                                    <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ url('/timakreditasi/tambah/') }}">Tambah Tim Akreditasi</a></li>
+                                        <li><a href="{{ url('/timakreditasi/kelola/') }}">Lihat dan Hapus Tim Akreditasi</a></li>
+                                        <li><a href="{{ url('kelolapimpinan/'.$user) }}">Kelola Pimpinan</a></li>
+                                        @endif
+                                    </ul>
+                                    </li>
 
                                 @else
                                     <!--Pimpinan Fakultas, Admin -->
                                     <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         
-                                        <li><a href="{{ url('3a/standar2/'.$kode_fakultas) }}">Borang 3A</a></li>
-                                        <li><a href="{{ url('3a/standar4/'.$kode_fakultas) }}">Borang 3B</a></li>
-                                        <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">Evaluasi Diri</a></li>
+                                        <li><a href="{{ url('3a/standar2/'.$kode_fakultas) }}">3A: Standar 2</a></li>
+                                        <li><a href="{{ url('3a/standar4/'.$kode_fakultas) }}">3A: Standar 4</a></li>
+                                        <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">3A: Standar 7</a></li>
+                                        <li><a href="{{ url('3b/standar2/'.$kode_fakultas) }}">3B: Standar 2</a></li>
+                                        <li><a href="{{ url('3b/standar4/'.$kode_fakultas) }}">3B: Standar 4</a></li>
+                                        <li><a href="{{ url('3b/standar7/'.$kode_fakultas) }}">3B: Standar 7</a></li>
+                                        <li><a href="#">Evaluasi Diri</a></li>
+
                                     </ul>
                                     </li>
                                     <li><a href="#">Riwayat Akreditasi</a></li>
+
+                                    @if($role=='Pimpinan Fakultas')
                                     <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         
@@ -192,13 +213,10 @@
                                         @endif
 
 
-                                        <!-- admin -->
-                                        @if($role=='Admin')
-                                        <li><a href="{{ url('/timakreditasi/tambah/') }}">Tambah Tim Akreditasi</a></li>
-                                        <li><a href="{{ url('/timakreditasi/kelola/') }}">Lihat dan Hapus Tim Akreditasi</a></li>
-                                        <li><a href="{{ url('kelolapimpinan/'.$user) }}">Kelola Pimpinan</a></li>
-                                        @endif
+                                       
                                     </ul>
+                                    </li>
+                                    @endif
 
                                 @endif
 
