@@ -409,7 +409,6 @@ class PegawaiController extends Controller
 		$standar4_json = Borang::getBorang('3a',4,$selectedProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
-		// dd($standar4);
 
 		//poin 4.3.1
 		$standar4_3_1 = Dosen::getDosenTetapSesuai($selectedProdi);
@@ -895,8 +894,8 @@ class PegawaiController extends Controller
 		//poin 4.1
 		$standar4_json = Borang::getBorang('3a',4,$kodeProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
-		$standar4 = json_decode(stripslashes($isi),true);
-
+		$standar4 = json_decode($isi,true);		
+		
 			return view('update3a4-new',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
@@ -1464,7 +1463,7 @@ class PegawaiController extends Controller
 			]);
 	}
 
-	public function lihat3b7(Request $request) {
+	public function lihat3b7(Request $request, $kodeFakultas) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -1581,7 +1580,7 @@ class PegawaiController extends Controller
 			'role' => $request->session()->get('role'),
             'user' => $request->session()->get('user'),
             'pegawai' => $pimpinan,      
-            'kode_fakultas' => $kodeFakultasPengguna,  
+            'kode_fakultas' => $kodeFakultasPengguna,
             'username' => $username,
             'listProdi' => $listProdi,
             'jumlahProdi'=> $jumlahProdi,
@@ -1713,7 +1712,7 @@ class PegawaiController extends Controller
 		$textarea=$request->get('textarea');
 		
 		// echo json_encode($textarea2);
-		$encoded_html= json_encode($textarea);
+		// $encoded_html= json_encode($textarea);
 		$nomorStandar = explode("-", $kodeStandar)[0];
 		$kodeStandarStr = str_replace("-",".", $kodeStandar);
 
@@ -1724,8 +1723,8 @@ class PegawaiController extends Controller
 
 		$arrkodeStandar = explode('-', $kodeStandar);
 		if(count($arrkodeStandar) ==3) {
-			$standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian']=$encoded_html;	
-			echo $standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian'];
+			$standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian']=$textarea;	
+			// echo $standar['standar'.$nomorStandar][$arrkodeStandar[0].'.'.$arrkodeStandar[1]][$kodeStandarStr]['isian'];
 		} else {
 		$standar['standar'.$nomorStandar][$kodeStandarStr]['isian']=$textarea;	
 		}
@@ -1734,20 +1733,7 @@ class PegawaiController extends Controller
 
 		Borang::updateBorang($jenisBorang,$nomorStandar,$kode,$tahun,$encoded_json);
 
-
-		
-		
-		// PegawaiController::lihat3a4( $request, $kodeProdi);
-
 		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kode);
-
-		// 	return view('update3b7',[
-		// 		'role' => $request->session()->get('role'),
-	 //            'user' => $request->session()->get('user'),
-	 //            'pegawai' => $pimpinan,      
-	 //            'kode_fakultas' => $kodeFakultasPengguna,  
-	 //            'username' => $username
-		// 	]);
 	}
 
 }
