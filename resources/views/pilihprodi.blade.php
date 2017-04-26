@@ -32,7 +32,8 @@
                     <div class="pricing-footer">
 
                         <!-- <a href="#" class="btn db-button-color-square btn-m round">Pilih</a> -->
-                        <button class="btn db-button-color-square btn-m round" type="submit"> Pilih </button>                        
+                        <button class="btn db-button-color-square btn-m round" type="submit"> Pilih </button>
+                        <br><br>                        
                     </div>
                     </form> 
                 </div>
