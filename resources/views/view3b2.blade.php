@@ -43,7 +43,7 @@
 
 
                             @if($role=='Admin' || $role=='Tim Akreditasi')
-                            <a href="{{ url('3b/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                            <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                              <br>
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
-                              <a href="{{ url('3b/standar2edit/2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3b/standar2edit/2-2/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
                             
@@ -107,7 +107,7 @@
                             <br>
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
-                              <a href="{{ url('3b/standar2edit/2-3/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3b/standar2edit/2-3/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
                             
@@ -139,7 +139,7 @@
                               
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
-                              <a href="{{ url('3b/standar2edit/2-4/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3b/standar2edit/2-4/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
                             
@@ -172,7 +172,7 @@
                               
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
-                              <a href="{{ url('3b/standar2edit/2-5/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3b/standar2edit/2-5/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
                           

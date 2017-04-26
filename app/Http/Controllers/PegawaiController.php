@@ -723,7 +723,7 @@ class PegawaiController extends Controller
 			]);
 	}
 
-	public function lihat3b2(Request $request) {
+	public function lihat3b2(Request $request, $kodeFakultas) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -744,10 +744,9 @@ class PegawaiController extends Controller
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
-	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'kodeFakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
 	            'standar2' => $standar2,
-	 
 	            'tahun' => $tahun
 			]);
 
@@ -852,8 +851,7 @@ class PegawaiController extends Controller
 			$tahun = date('Y');
 		}
 		
-		
-		$standar2_json = Borang::getBorang(2,$kodeProdi,$tahun);
+		$standar2_json = Borang::getBorang('3b',2,$kodeProdi,$tahun);
 		$isi = $standar2_json[0]->isi;
 		$standar2 = json_decode(stripslashes($isi),true);
 
@@ -913,47 +911,89 @@ class PegawaiController extends Controller
 	}
 
 	public function edit3a7(Request $request,$kodeStandar,$kodeProdi) {
-
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$kodeStandarStr= str_replace("-",".",$kodeStandar);
 		$nomorStandar = explode("-", $kodeStandar)[0];
-		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
+		
 		$role=$request->session()->get('role');
-		if($role!='Tim Akreditasi' && $role!='Admin') {
-			return view('error', [
-					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
-					'role' => $role,
-					'kode_fakultas' => $kodeFakultasPengguna,
-					'user' => $username
-			]);				
+		if ($role=='Tim Akreditasi') {
+			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+		} else {
+		if ($kodeProdi){
+			$selectedProdi = $kodeProdi; 	
+			} else {
+				$selectedProdi=$kodeProdiPengguna;
+			}	
 		}
 
-		$kodeStandarStr= str_replace("-",".",$kodeStandar);
+		$prodiBorang = program_studi::getProdi($selectedProdi);
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
 		} else {
 			$tahun = date('Y');
 		}
 
-		//poin 4.1
-		$standar7_json = Borang::getBorang('3a',$nomorStandar,$kodeProdi,2017);
+		$standar7_json = Borang::getBorang('3a', $nomorStandar,$kodeProdi,$tahun);
 		$isi = $standar7_json[0]->isi;
 		$standar7 = json_decode(stripslashes($isi),true);
-		// dd($standar7);
-		// dd($standar7['standar7']['7.1']);
+
 			return view('update3a7-new',[
-				'role' => $request->session()->get('role'),
+				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
+	            'standar7' => $standar7,
 	            'kodeProdi' => $kodeProdi,
 	            'kodeStandar' => $kodeStandar,
-	            'standar7' => $standar7,
-	            'kodeStandarStr' => $kodeStandarStr
+	            'kodeStandarStr' => $kodeStandarStr,
+	            'prodiBorang' => $prodiBorang,
+	            'tahun' => $tahun
 			]);
+		// $username=$request->session()->get('user');
+		// $pimpinan = Pegawai::getPegawaiByUsername($username);
+		// $QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		// $kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		// $nomorStandar = explode("-", $kodeStandar)[0];
+		// //yang boleh mengakses halaman ini adalah tim akreditasi dan admin
+		// $role=$request->session()->get('role');
+		// if($role!='Tim Akreditasi' && $role!='Admin') {
+		// 	return view('error', [
+		// 			'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+		// 			'role' => $role,
+		// 			'kode_fakultas' => $kodeFakultasPengguna,
+		// 			'user' => $username
+		// 	]);				
+		// }
+
+		// $kodeStandarStr= str_replace("-",".",$kodeStandar);
+		// if ($request->get('tahun')){
+		// 	$tahun = $request->get('tahun'); 	
+		// } else {
+		// 	$tahun = date('Y');
+		// }
+
+		// //poin 4.1
+		// $standar7_json = Borang::getBorang('3a',$nomorStandar,$kodeProdi,2017);
+		// $isi = $standar7_json[0]->isi;
+		// $standar7 = json_decode(stripslashes($isi),true);
+		// // dd($standar7);
+		// // dd($standar7['standar7']['7.1']);
+		// 	return view('update3a7-new',[
+		// 		'role' => $request->session()->get('role'),
+	 //            'user' => $request->session()->get('user'),
+	 //            'pegawai' => $pimpinan,      
+	 //            'kode_fakultas' => $kodeFakultasPengguna,  
+	 //            'username' => $username,
+	 //            'kodeProdi' => $kodeProdi,
+	 //            'kodeStandar' => $kodeStandar,
+	 //            'standar7' => $standar7,
+	 //            'kodeStandarStr' => $kodeStandarStr
+		// 	]);
 
 	}
 
