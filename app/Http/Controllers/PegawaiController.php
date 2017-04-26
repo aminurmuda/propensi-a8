@@ -918,7 +918,7 @@ class PegawaiController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		
+		$nomorStandar = explode("-", $kodeStandar)[0];
 		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
 		$role=$request->session()->get('role');
 		if($role!='Tim Akreditasi' && $role!='Admin') {
@@ -937,11 +937,11 @@ class PegawaiController extends Controller
 			$tahun = date('Y');
 		}
 
-
 		//poin 4.1
-		$standar7_json = Borang::getBorang('3a',7,$kodeProdi,$tahun);
+		$standar7_json = Borang::getBorang('3a',$nomorStandar,$kodeProdi,2017);
 		$isi = $standar7_json[0]->isi;
 		$standar7 = json_decode(stripslashes($isi),true);
+		// dd($standar7);
 		// dd($standar7['standar7']['7.1']);
 			return view('update3a7-new',[
 				'role' => $request->session()->get('role'),
