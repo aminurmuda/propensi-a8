@@ -125,6 +125,11 @@ Route::get('3b/standar7edit/{kodeFakultas}', 'PegawaiController@edit3b7')->name(
 Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}', 'PegawaiController@edit3b7')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}'); 
 Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit'); //pimpinan 
 
+Route::get('pilihborang/3a', 'BorangController@pilihBorang3A')->name('pilihborang/3a');
+
+Route::get('pilihborang/3b', 'BorangController@pilihBorang3B')->name('pilihborang/3b');
+
+
 });
 
 
