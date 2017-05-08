@@ -57,7 +57,7 @@ body {
 
         footer .footer {
             color: black;
-            background: #70cbe8;
+            background: #fad845;
             padding: 10px 0 8px 0;
             border-top: 0px solid #000;    
         }
@@ -110,7 +110,7 @@ body{
     background: #fff;
 }
 .navbar, .dropdown-menu{
-background:#70cbe8; /* background nav all */
+background:#fad845; /* background nav all */
 /* background-image: url("../images/navbar.png"); /* navbar image */
 border: none;
 
@@ -133,28 +133,28 @@ border: none;
 }
 
 .nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1){
-  border-bottom: #1875c5 4px solid;
+  border-bottom: #464646 4px solid;
 }
 .nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2){
-  border-bottom: #1875c5 4px solid;
+  border-bottom: #464646 4px solid;
 }
 .nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3){
-  border-bottom: #1875c5 4px solid;
+  border-bottom: #464646 4px solid;
 }
 .nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4){
-  border-bottom: #1875c5 4px solid;
+  border-bottom: #464646 4px solid;
 }
 .nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5){
-  border-bottom: #1875c5 4px solid;
+  border-bottom: #464646 4px solid;
 }
 .nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6){
-  border-bottom: #1875c5 4px solid;
+  border-bottom: #464646 4px solid;
 }
 .nav li:hover:nth-child(8n+7), .nav li.active:nth-child(8n+7){
-  border-bottom: #1875c5 4px solid;
+  border-bottom: #464646 4px solid;
 }
 .nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8){
-  border-bottom: #1875c5 4px solid;
+  border-bottom: #464646 4px solid;
 }
 
 .navbar-toggle .icon-bar{
@@ -239,7 +239,7 @@ border: none;
     
 
     .db-pricing-eleven .price {
-        background-color: #68ceee;
+        background-color: #464646;
         padding: 20px 20px 20px 20px;
         font-size: 30px;
         font-weight: 900;
@@ -328,7 +328,7 @@ h3 {
             box-shadow: none;
         }
         
-        .panel:last-child {
+        :last-child {
             border-bottom: none;
         }
         
@@ -345,7 +345,7 @@ h3 {
         }
         
         .panel-heading {
-            background-color: #0072AE;
+            background-color: #464646;
             border-radius: 0;
             border: none;
             color: #fff;

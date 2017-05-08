@@ -45,6 +45,10 @@
                             @if($role=='Admin' || $role=='Tim Akreditasi')
                             <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
+
+                            @if($role=='Reviwer')
+                            
+                            @endif
                         </div>
                     </div>
 
