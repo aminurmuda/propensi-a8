@@ -328,7 +328,7 @@ h3 {
             box-shadow: none;
         }
         
-        .panel:last-child {
+        :last-child {
             border-bottom: none;
         }
         
@@ -345,7 +345,7 @@ h3 {
         }
         
         .panel-heading {
-            background-color: #0072AE;
+            background-color: #464646;
             border-radius: 0;
             border: none;
             color: #fff;

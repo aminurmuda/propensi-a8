@@ -34,7 +34,8 @@ class BorangController extends Controller
 			return view('pilihborang3a',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
-	            'pegawai' => $pimpinan,       
+	            'pegawai' => $pimpinan,
+	            'kodeFakultas' => $kodeFakultasPengguna,       
 	           
 	            'username' => $username
 			]);
