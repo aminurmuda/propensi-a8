@@ -1474,7 +1474,7 @@ class PegawaiController extends Controller
 			]);
 	}
 
-	public function lihat3b7(Request $request, $kodeFakultas) {
+	public function lihat3b7(Request $request) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));

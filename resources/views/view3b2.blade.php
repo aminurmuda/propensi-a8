@@ -7,7 +7,8 @@
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3B, Standar 2</h3>
-            <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span>
+            <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span><br>
+            <span> Fakultas Ilmu Komputer, Universitas Indonesia </span>
             <br>
 
              
@@ -46,9 +47,15 @@
                             <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
 
-                            @if($role=='Reviwer')
-                            
+                             <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
                             @endif
+
                         </div>
                     </div>
 
@@ -78,6 +85,15 @@
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                               <a href="{{ url('3b/standar2edit/2-2/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
+
+                              <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
 
                             
 
@@ -114,6 +130,15 @@
                               <a href="{{ url('3b/standar2edit/2-3/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
+                              <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
+
                             
                         </div>
                     </div>
@@ -145,6 +170,15 @@
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                               <a href="{{ url('3b/standar2edit/2-4/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
+
+                              <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
 
                             
 
@@ -178,6 +212,15 @@
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                               <a href="{{ url('3b/standar2edit/2-5/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
+
+                              <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
 
                           
                             

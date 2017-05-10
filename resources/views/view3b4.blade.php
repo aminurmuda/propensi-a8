@@ -7,7 +7,8 @@
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3B, Standar 4</h3>
-            <span> Sumber Daya Manusia</span>
+            <span> Sumber Daya Manusia</span><br>
+            <span>Fakultas Ilmu Komputer, Universitas Indonesia</span>
 
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
@@ -222,11 +223,23 @@
 
                             4.1.3    Uraikan pandangan Fakultas/Sekolah Tinggi tentang data pada butir 4.1.1 dan 4.1.2, yang mencakup aspek: kecukupan, kualifikasi, dan pengembangan karir. Jelaskan kendala yang ada dalam pengembangan tenaga dosen tetap<br><br>
                             
-                            <p>{!! $standar4['standar4']['4.1']['4.1.3']['isian'] !!}</p>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                              {!! $standar4['standar4']['4.1']['4.1.3']['isian'] !!}
+
+                             </div>
 
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                            <a href="{{ url('3b/standar4edit/4-1-3/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                            @endif
+
+                            <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                               {!! $standar4['standar4']['4.1']['4.1.3']['isian'] !!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3b/standar4edit/4-1-3/'. $kode_fakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
                         </div>
                     </div>
 
@@ -333,10 +346,24 @@
 
                              Uraikan pandangan Fakultas tentang data di atas yang mencakup aspek: kecukupan, dan kualifikasi. Jelaskan kendala yang ada dalam pengembangan tenaga kependidikan.<br><br>
 
-                            <p>{!!$standar4['standar4']['4.2']['isian'] !!}</p>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                              {!!$standar4['standar4']['4.2']['isian'] !!}
+
+                             </div>
+                            
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                             <a href="{{ url('3b/standar4edit/4-2/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
+
+                            <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                               {!! $standar4['standar4']['4.1']['4.1.3']['isian'] !!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3b/standar4edit/4-1-3/'. $kode_fakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
+
 
                         </div>
 

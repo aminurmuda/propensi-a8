@@ -57,5 +57,22 @@ class BorangController extends Controller
 	            'username' => $username
 			]);
 	}
+
+	public function lihatEvaluasi(Request $request) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$role=$request->session()->get('role');
+			
+
+			return view('viewevaluasi',[
+				'role' => $role,
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pimpinan,       
+	           
+	            'username' => $username
+			]);
+	}
 }
 
