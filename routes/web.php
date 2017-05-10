@@ -133,6 +133,7 @@ Route::post('akreditasi/edit/{tahun}/{kodeProdi}', 'AkreditasiController@editAkr
 Route::get('pilihborang/3a', 'BorangController@pilihBorang3A')->name('pilihborang/3a');
 
 Route::get('pilihborang/3b', 'BorangController@pilihBorang3B')->name('pilihborang/3b');
+Route::get('test', 'TestController@index')->name('#');
 
 });
 

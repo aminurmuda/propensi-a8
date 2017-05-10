@@ -17,7 +17,7 @@
             @endif
 
             <br>
-                          <form action="{{url('3b/standar4edit/'.$kodeStandar.'/'.$kodeFakultas.'/3b/submit')}}">
+                          <form action="#">
                           {{csrf_field()}}
                           <div class="form-group">
                             <textarea class="form-control" id='textarea' name='textarea'>@if($kodeStandarStr!='4.1.3')
