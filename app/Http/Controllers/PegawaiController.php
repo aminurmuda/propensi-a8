@@ -1721,7 +1721,7 @@ class PegawaiController extends Controller
 			$tahun = date('Y');
 		}
 
-		$textarea=$request->get('textarea');
+		$textarea=rawurlencode($request->get('textarea'));
 		
 		// echo json_encode($textarea2);
 		// $encoded_html= json_encode($textarea);

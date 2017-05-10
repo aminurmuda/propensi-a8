@@ -19,8 +19,8 @@
                           <form action="{{url('3a/standar4edit/'.$kodeStandar.'/'.$kodeProdi.'/3a/submit')}}">
                           {{csrf_field()}}
                           <div class="form-group">
-                            <textarea class="form-control" id='textarea' name='textarea'>@if($kodeStandarStr!='4.6.2')
-                            <p>{{$standar4['standar4'][$kodeStandarStr]['isian'] }}</p>
+                            <textarea class="form-control" id='textarea' name='textarea' style='height: 600px;'>@if($kodeStandarStr!='4.6.2')
+                            <p>{{rawurldecode($standar4['standar4'][$kodeStandarStr]['isian'] )}}</p>
                             @else
                             <p>{{$standar4['standar4']['4.6'][$kodeStandarStr]['isian'] }}</p>
                             @endif
