@@ -62,9 +62,9 @@ class BorangController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		/*$evaluasiDiri_json = Borang::getBorang('EvaluasiDiri',null,$kodeProdi,2017);
+		$evaluasiDiri_json = Borang::getBorang('EvaluasiDiri',null,$kodeProdi,2017);
 		$isi = $evaluasiDiri_json[0]->isi;
-		$evaluasiDiri= json_decode(stripslashes($isi),true);*/
+		$evaluasiDiri= json_decode(stripslashes($isi),true);
 
 		$role=$request->session()->get('role');
 		if ($role=='Tim Akreditasi') {
@@ -85,13 +85,13 @@ class BorangController extends Controller
 			$tahun = date('Y');
 		}
 
-			return view('viewEvaluasiDiri',[
+			return view('viewevaluasi',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
-	            /*'evaluasiDiri' => $evaluasiDiri,*/
+	            'evaluasiDiri' => $evaluasiDiri,
 	            'kodeProdi' => $kodeProdi,
 	            'prodiBorang' => $prodiBorang,
 	            'tahun' => $tahun
