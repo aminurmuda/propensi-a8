@@ -408,8 +408,8 @@
 
             $('#selectProdi').on('change', function() {
                 $('#formProdi').attr('action', $(location).attr('pathname')+'/'+ $('#selectProdi').val());
-
             });
+
         } );
     </script>
 
@@ -506,6 +506,12 @@
                 });
         });
     </script> <!-- untuk accordion -->
+
+
+    <!-- Script untuk append form pemilihan role-->
+    <script>
+        
+    </script>
 
 </body>
 

@@ -40,7 +40,19 @@
 			                      <a href="#" >Standar 2</a>
 			                      </h3>
 			                      <small>TATA PAMONG, KEPEMIMPINAN, SISTEM PENGELOLAAN, DAN PENJAMINAN MUTU</small> 
-			                      <a href="#" class="btn btn-primary icon  pull-right">Select</a><br>
+			                       @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi')
+	                                
+
+	                                <a href="{{ url('3a/standar2/'.$selectedProdi) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+
+		                       		@else
+		                       		<a href="{{ url('3a/standar2') }}" class="btn btn-primary icon  pull-right">Select</a><br>
+
+		                
+                        			@endif
+
+
+			                      
 
 			                    </div>
 			                  </div>
@@ -70,7 +82,16 @@
 			                      <a href="#" >Standar 4</a>
 			                      </h3>
 			                      <small>SUMBER DAYA MANUSIA</small> 
-			                      <a href="#" class="btn btn-primary icon  pull-right">Select</a><br>
+			                       @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi')
+	                                
+
+	                                <a href="{{ url('3a/standar4/'.$selectedProdi) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+
+		                       		@else
+		                       		<a href="{{ url('3a/standar4') }}" class="btn btn-primary icon  pull-right">Select</a><br>
+
+		                
+                        			@endif
 
 			                    </div>
 			                  </div>
@@ -115,7 +136,16 @@
 			                      <a href="#" >Standar 7</a>
 			                      </h3>
 			                      <small>PENELITIAN, PELAYANAN/PENGABDIAN KEPADA MASYARAKAT, DAN KERJASAMA</small> 
-			                      <a href="#" class="btn btn-primary icon  pull-right">Select</a><br>
+			                       @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi')
+	                                
+
+	                                <a href="{{ url('3a/standar7/'.$selectedProdi) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+
+		                       		@else
+		                       		<a href="{{ url('3a/standar7') }}" class="btn btn-primary icon  pull-right">Select</a><br>
+
+		                
+                        			@endif
 
 			                    </div>
 			                  </div>

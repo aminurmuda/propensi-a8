@@ -14,7 +14,7 @@
                      <br>
                      <br>
                      <div class="alert alert-danger">
-                      <strong>{{ $pegawai -> nama }}</strong> berhasil dihapus dari Tim Akreditasi.
+                      <strong>{{ $pegawai -> nama }}</strong> berhasil dihapus dari Tim.
                     </div>
                      <br>
                     <p>Anda akan kembali ke <a href="{{ URL::previous() }}">halaman sebelumnya</a> dalam waktu <span id="seconds">5</span> detik.</p>

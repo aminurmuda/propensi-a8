@@ -114,10 +114,10 @@ class Pegawai extends Model
      * @param string $username username pegawai yang tidak lagi menjadi tim akreditasi
      * @return pegawai dengan $usernam tidak lagi menjadi tim akreditasi
      */      
-    public static function deleteTimAkreditasi($username) {
+    public static function deleteTim($username) {
         return DB::table('pegawai')
                     ->where('username', $username)
-                    ->update(['isTimAkreditasi'=> 0, 'id_prodi_tim_akreditasi' => 0]);
+                    ->update(['isTimAkreditasi'=> 0, 'id_prodi_tim_akreditasi' => 0, 'is_reviewer_prodi' => 0, 'id_prodi_reviewer' => 0, 'id_prodi_tim_akreditasi' => 0]);
     }
 
     /**
@@ -129,7 +129,7 @@ class Pegawai extends Model
     public static function addTimAkreditasi($username, $kode_prodi) {
         return DB::table('pegawai')
                     ->where('username', $username)
-                    ->update(['isPimpinan'=> 0, 'isTimAkreditasi'=> 1, 'id_pimpinan'=> null, 'id_prodi_tim_akreditasi' => $kode_prodi]);
+                    ->update(['isPimpinan'=> 0, 'isTimAkreditasi'=> 1, 'id_pimpinan'=> null, 'is_reviewer_prodi' => 0,'id_prodi_tim_akreditasi' => $kode_prodi, 'id_prodi_reviewer' => 0]);
     }
 
     /**
@@ -157,18 +157,19 @@ class Pegawai extends Model
     }
 
     /**
-     * Method getAllPegawaiIsNotTimAkreditasi untuk mendapatkan list pegawai yang bukan anggota tim akreditasi
+     * Method getAllPegawaiIsNotTim untuk mendapatkan list pegawai yang bukan anggota tim 
      * 
      * @param int $kode_fakultas id fakultas dari pegawai yang bukan anggota tim akreditasi
      * @return data pegawai yang terdapat di suatu fakultas 
      */
-    public static function getAllPegawaiIsNotTimAkreditasi($kode_fakultas){
+    public static function getAllPegawaiIsNotTim($kode_fakultas){
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
             ->select('pegawai.username', 'pegawai.nama', 'pegawai.no_pegawai', 'program_studi.nama_prodi')
             ->where('pegawai.isTimAkreditasi',0)
             ->where('pegawai.isPimpinan', 0)
+            ->where('pegawai.is_reviewer_prodi', 0)
             ->where('program_studi.kode_fakultas',$kode_fakultas)
             ->get();
     }
@@ -201,13 +202,14 @@ class Pegawai extends Model
      * @param int $kode_fakultas id fakultas dari suatu fakultas
      * @return list tim akreditasi dari suatu fakultas yang sesuai
      */      
-    public static function getTimAkreditasiByFakultas($kode_fakultas)
+    public static function getTimByFakultas($kode_fakultas)
     {
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
             ->select('pegawai.nama', 'pegawai.no_pegawai','pegawai.username', 'program_studi.nama_prodi')
             ->where('pegawai.isTimAkreditasi',1)
+            ->orWhere('pegawai.is_reviewer_prodi',1)
             ->where('program_studi.kode_fakultas',$kode_fakultas)
             ->get();
     }
@@ -249,6 +251,15 @@ class Pegawai extends Model
         return DB::table('pegawai')
         ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
         ->join('program_studi', 'program_studi.kode_prodi', '=', 'pegawai.id_prodi_tim_akreditasi')
+        ->select('program_studi.nama_prodi')
+        ->where('pegawai.username',$username)
+        ->get();
+    }
+
+    public static function lihatProdiTimReviewer($username) {
+        return DB::table('pegawai')
+        ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+        ->join('program_studi', 'program_studi.kode_prodi', '=', 'pegawai.id_prodi_reviewer')
         ->select('program_studi.nama_prodi')
         ->where('pegawai.username',$username)
         ->get();
@@ -308,12 +319,18 @@ class Pegawai extends Model
             ->get();
     }   
 
-            public static function getTimAkreditasi($username)
+        public static function getTimAkreditasi($username)
     {
         return DB::table('pegawai')
             ->where('pegawai.username',$username)
             ->where('isTimAkreditasi',1)
             ->get();
     }  
+
+    public static function addReviewerProdi($username, $kode_prodi) {
+        return DB::table('pegawai')
+                    ->where('username', $username)
+                    ->update(['isPimpinan'=> 0, 'isTimAkreditasi'=> 0, 'id_pimpinan'=> null, 'is_reviewer_prodi' => 1,'id_prodi_tim_akreditasi' => 0, 'id_prodi_reviewer' => $kode_prodi]);
+    }
 
 }

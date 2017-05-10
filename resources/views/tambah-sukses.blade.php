@@ -15,7 +15,7 @@
                      <br>
                      <br>
                      <div class="alert alert-success">
-                      <strong>{{ $pegawai -> nama }}</strong> berhasil ditambahkan menjadi Tim Akreditasi.
+                      <strong>{{ $pegawai -> nama }}</strong> berhasil ditambahkan menjadi Tim.
                     </div>
                      <br>
                     <p>Anda akan kembali ke <a href="{{ URL::previous() }}">halaman sebelumnya</a> dalam waktu <span id="seconds">5</span> detik.</p>
