@@ -128,11 +128,13 @@ Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 
 
 Route::get('akreditasi/lihat/{tahun}/{kodeProdi}', 'AkreditasiController@lihatAkreditasi')->name('akreditasi/lihat/{kodeProdi}');
 Route::get('akreditasi/edit/{tahun}/{kodeProdi}', 'AkreditasiController@editAkreditasi')->name('akreditasi/edit/{kodeProdi}');
-Route::post('akreditasi/edit/{tahun}/{kodeProdi}', 'AkreditasiController@editAkreditasi')->name('akreditasi/edit/{kodeProdi}');
+Route::get('akreditasi/edit/{tahun}/{kodeProdi}/submit', 'AkreditasiController@submitAkreditasi')->name('akreditasi/{tahun}/{kodeProdi}/submit');
 
 Route::get('pilihborang/3a', 'BorangController@pilihBorang3A')->name('pilihborang/3a');
 
 Route::get('pilihborang/3b', 'BorangController@pilihBorang3B')->name('pilihborang/3b');
+
+Route::get('tambahakreditasi', 'BorangController@tambahAkreditasi')->name('tambahakreditasi');
 
 });
 

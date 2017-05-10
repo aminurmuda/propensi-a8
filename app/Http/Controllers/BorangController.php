@@ -36,7 +36,7 @@ class BorangController extends Controller
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,
 	            'kodeFakultas' => $kodeFakultasPengguna,       
-	           
+	           'kode_fakultas' => $kodeFakultasPengguna,       
 	            'username' => $username
 			]);
 	}
@@ -53,7 +53,8 @@ class BorangController extends Controller
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,       
-	           
+	           'kodeFakultas' => $kodeFakultasPengguna,       
+	           'kode_fakultas' => $kodeFakultasPengguna,       
 	            'username' => $username
 			]);
 	}
