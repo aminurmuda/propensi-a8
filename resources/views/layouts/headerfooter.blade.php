@@ -155,13 +155,18 @@
                                     <ul class="dropdown-menu">
                                         
                         
-                                                <li><a href="{{ url('3a/standar2') }}">3A: Standar 2</a></li>
+                                                <li><a href="{{ url('pilihborang/3a') }}">Borang 3A</a></li>
+                                                <li><a href="{{ url('pilihborang/3b') }}">Borang 3B</a></li>
+                                                <li><a href="#">Evaluasi Diri</a></li>
+
+                                                <!--
                                                 <li><a href="{{ url('3a/standar4') }}">3A: Standar 4</a></li>
                                                 <li><a href="{{ url('3a/standar7') }}">3A: Standar 7</a></li>
                                                 <li><a href="{{ url('3b/standar2') }}">3B: Standar 2</a></li>
                                                 <li><a href="{{ url('3b/standar4') }}">3B: Standar 4</a></li>
                                                 <li><a href="{{ url('3b/standar7') }}">3B: Standar 7</a></li>
-                                                <li><a href="#">Evaluasi Diri</a></li>
+                                                -->
+                                                
                                            
 
 
@@ -186,7 +191,13 @@
                                     <!--Pimpinan Fakultas, Admin -->
                                     <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        
+
+                                        <li><a href="{{ url('pilihborang/3a') }}">Borang 3A</a></li>
+                                         <li><a href="{{ url('pilihborang/3b') }}">Borang 3B</a></li>
+                                         <li><a href="#">Evaluasi Diri</a></li>
+
+
+                                        <!--   
                                         <li><a href="{{ url('3a/standar2/'.$kode_fakultas) }}">3A: Standar 2</a></li>
                                         <li><a href="{{ url('3a/standar4/'.$kode_fakultas) }}">3A: Standar 4</a></li>
                                         <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">3A: Standar 7</a></li>
@@ -194,6 +205,7 @@
                                         <li><a href="{{ url('3b/standar4/'.$kode_fakultas) }}">3B: Standar 4</a></li>
                                         <li><a href="{{ url('3b/standar7/'.$kode_fakultas) }}">3B: Standar 7</a></li>
                                         <li><a href="#">Evaluasi Diri</a></li>
+                                        -->
 
                                     </ul>
                                     </li>

@@ -41,9 +41,18 @@
 
                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                                 {!!$standar2['standar2']['2.1']['isian']!!}
-                            </div><br><br>
+                            </div><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                            @endif
+
+                            <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
                             @endif
                         </div>
                     </div>
@@ -88,6 +97,15 @@
                               <a href="{{ url('3a/standar2edit/2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
 
+                            <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
+
                         </div>
 
 
@@ -116,6 +134,15 @@
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               <a href="{{ url('3a/standar2edit/2-3/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
+
+                            <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -138,6 +165,16 @@
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               <a href="{{ url('3a/standar2edit/2-4/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                            @endif
+
+
+                            <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
                             @endif
 
                         </div>
@@ -220,10 +257,20 @@
                                   </tr>
                                 
                                 </table>
+                            
                                 <br>
                                 <!-- @if($role=='Tim Akreditasi' || $role=='Admin' )
                                   <a href="{{ url('3a/standar2edit/2-5/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                                 @endif -->
+
+                                <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
 
                                 <style>
                                     table {
@@ -273,6 +320,15 @@
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               <a href="{{ url('3a/standar2edit/2-6/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                            @endif
+
+                            <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar2['standar2']['2.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
                             @endif
                         </div>
                     </div>
