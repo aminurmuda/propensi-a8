@@ -431,3 +431,7 @@ h3 {
             transform: rotate(0deg);
             transition: all 0.5s;
         }
+
+
+ul.thumbnails {list-style-type: none;}
+

@@ -135,6 +135,12 @@ Route::get('pilihborang/3a', 'BorangController@pilihBorang3A')->name('pilihboran
 Route::get('pilihborang/3b', 'BorangController@pilihBorang3B')->name('pilihborang/3b');
 Route::get('test', 'TestController@index')->name('#');
 
+<<<<<<< HEAD
+Route::get('evaluasidiri', 'BorangController@lihatEvaluasi')->name('evaluasidiri');
+=======
+Route::get('evaluasiDiri/{kodeFakultas}', 'BorangController@lihatEvaluasiDiri')->name('evaluasiDiri/{kodeFakultas}');
+>>>>>>> 09460304510fec1bbd46e4995deac0b11f93bec7
+
 });
 
 

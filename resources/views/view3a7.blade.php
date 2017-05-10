@@ -8,7 +8,8 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3A, Standar 7</h3>
             <span> Penelitian, Pelayanan/Pengabdian Kepada Masyarakat, dan Kerjasama</span><br>
-            <span> Program Studi {{$prodiBorang->nama_prodi}} </span><br>
+            <span> Program Studi {{$prodiBorang->nama_prodi}}, Universitas Indonesia </span><br>
+
             <span> Tahun {{$tahun}} </span>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
@@ -99,7 +100,18 @@
                              <a href="{{ url('3a/standar7edit/7-1-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br><br><br>
                            
                             @endif
-							7.1.3  Tuliskan judul artikel ilmiah/karya ilmiah/karya seni/buku yang dihasilkan selama tiga tahun terakhir oleh dosen tetap yang bidang keahliannya sesuai dengan PS dengan mengikuti format tabel berikut:<br>
+
+                            <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar7['standar7']['7.1']['7.1.2']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar7edit/7-1-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
+
+
+							<br><br><br><br>7.1.3  Tuliskan judul artikel ilmiah/karya ilmiah/karya seni/buku yang dihasilkan selama tiga tahun terakhir oleh dosen tetap yang bidang keahliannya sesuai dengan PS dengan mengikuti format tabel berikut:<br>
 
                             <div class="table-responsive">
                             <table class="table table-striped table-bordered">
@@ -302,10 +314,23 @@
                         {!!$standar7['standar7']['7.2']['7.2.2']['isian']!!}
                         </div><br>
                              @if($role=='Tim Akreditasi' || $role=='Admin' )
-                             <a href="{{ url('3a/standar7edit/7-2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br><br><br>
+                             <a href="{{ url('3a/standar7edit/7-2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
                 
                             @endif
+
+                            <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar7['standar7']['7.1']['7.1.2']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar7edit/7-1-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
                         </div>
+
+
+
+
 
 
                     </div>
