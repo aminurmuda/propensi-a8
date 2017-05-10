@@ -672,7 +672,7 @@ class PegawaiController extends Controller
 		$prodiTimReviewer = Pegawai::lihatProdiTimReviewer($username);
 
 		if($username != null){
-			return view('updatetimakreditasi', [
+			return view('updatetim', [
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kodeFakultasPegawai,
 					'user' => $username,
@@ -754,7 +754,8 @@ class PegawaiController extends Controller
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
-	            'kodeFakultas' => $kodeFakultasPengguna,  
+	            'kodeFakultas' => $kodeFakultasPengguna,
+	            'kode_fakultas' => $kodeFakultasPengguna,
 	            'username' => $username,
 	            'standar2' => $standar2,
 	            'tahun' => $tahun
