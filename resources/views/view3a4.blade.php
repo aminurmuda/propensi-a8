@@ -8,7 +8,8 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3A, Standar 4</h3>
             <span> Sumber Daya Manusia </span><br>
-            <span> Program Studi {{$prodiBorang->nama_prodi}} </span><br>
+            <span> Program Studi {{$prodiBorang->nama_prodi}}, Universitas Indonesia </span><br>
+
             <span> Tahun {{$tahun}} </span>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
@@ -33,6 +34,15 @@
                         @if($role=='Tim Akreditasi' || $role=='Admin' )
                           <a href="{{ url('3a/standar4edit/4-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                         @endif
+
+                        <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar4['standar4']['4.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar4edit/4-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
 
                         </div>
                     </div>
@@ -60,6 +70,15 @@
                           @if($role=='Tim Akreditasi' || $role=='Admin' )
                           <a href="{{ url('3a/standar4edit/4-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                           @endif
+
+                          <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar4['standar4']['4.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar4edit/4-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
 
                         </div>
 
@@ -884,6 +903,15 @@
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                           <a href="{{ url('3a/standar4edit/4-6-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                           @endif
+
+                          <br><br><h3>Komentar: </h3>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!$standar4['standar4']['4.1']['isian']!!}
+                            </div><br>
+
+                            @if($role=='Tim Reviewer' || $role=='Admin' )
+                              <a href="{{ url('3a/standar4edit/4-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            @endif
                         </div>
                     </div>
                 </div>

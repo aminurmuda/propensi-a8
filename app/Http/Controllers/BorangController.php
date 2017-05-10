@@ -58,5 +58,59 @@ class BorangController extends Controller
 	            'username' => $username
 			]);
 	}
+
+	public function lihatEvaluasi(Request $request) {
+
+
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+
+		$role=$request->session()->get('role');
+			
+
+		$evaluasiDiri_json = Borang::getBorang('EvaluasiDiri',null,$kodeProdi,2017);
+		$isi = $evaluasiDiri_json[0]->isi;
+		$evaluasiDiri= json_decode(stripslashes($isi),true);
+
+		$role=$request->session()->get('role');
+		if ($role=='Tim Akreditasi') {
+			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+		} else {
+		if ($kodeProdi){
+			$selectedProdi = $kodeProdi; 	
+			} else {
+				$selectedProdi=$kodeProdiPengguna;
+			}	
+		}
+
+		$prodiBorang = program_studi::getProdi($selectedProdi);
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+
+			return view('viewevaluasi',[
+				'role' => $role,
+	            'user' => $request->session()->get('user'),
+
+	            'pegawai' => $pimpinan,       
+	           
+	            'username' => $username
+
+	            'pegawai' => $pimpinan,      
+	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'username' => $username,
+	            'evaluasiDiri' => $evaluasiDiri,
+	            'kodeProdi' => $kodeProdi,
+	            'prodiBorang' => $prodiBorang,
+	            'tahun' => $tahun
+
+			]);
+	}
 }
 

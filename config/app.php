@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+        * ERIK.CAT
+        */
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
+
     ],
 
     /*
@@ -225,6 +230,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class, //ERIK.CAT
+
 
     ],
 

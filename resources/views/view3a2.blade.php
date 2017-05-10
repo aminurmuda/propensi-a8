@@ -8,7 +8,8 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h3>Borang 3A, Standar 2</h3>
             <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span><br>
-            <span> Program Studi {{$prodiBorang->nama_prodi}} </span><br>
+            <span> Program Studi {{$prodiBorang->nama_prodi}} , Universitas Indonesia </span><br>
+          
             <span> Tahun {{$tahun}} </span>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">

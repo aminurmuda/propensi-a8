@@ -146,7 +146,7 @@
                                 @endif
                             </ul>
                         </li>
-                        <li><a href="#">Evaluasi Diri</a></li>
+                        <li><a href="{{ url('evaluasidiri') }}">Evaluasi Diri</a></li>
 
                         @else
                                 <!-- role BPMA, UPMAF dan Pimpinan Univ, pimpinan fak (navbar Borang, Riwayat Akreditasi) -->
@@ -157,7 +157,7 @@
                         
                                                 <li><a href="{{ url('pilihborang/3a') }}">Borang 3A</a></li>
                                                 <li><a href="{{ url('pilihborang/3b') }}">Borang 3B</a></li>
-                                                <li><a href="#">Evaluasi Diri</a></li>
+                                                <li><a href="{{ url('evaluasidiri') }}">Evaluasi Diri</a></li>
 
                                                 <!--
                                                 <li><a href="{{ url('3a/standar4') }}">3A: Standar 4</a></li>
@@ -194,7 +194,7 @@
 
                                         <li><a href="{{ url('pilihborang/3a') }}">Borang 3A</a></li>
                                          <li><a href="{{ url('pilihborang/3b') }}">Borang 3B</a></li>
-                                         <li><a href="#">Evaluasi Diri</a></li>
+                                         <li><a href="{{ url('evaluasidiri') }}">Evaluasi Diri</a></li>
 
 
                                         <!--   
@@ -408,8 +408,8 @@
 
             $('#selectProdi').on('change', function() {
                 $('#formProdi').attr('action', $(location).attr('pathname')+'/'+ $('#selectProdi').val());
-
             });
+
         } );
     </script>
 
@@ -506,6 +506,12 @@
                 });
         });
     </script> <!-- untuk accordion -->
+
+
+    <!-- Script untuk append form pemilihan role-->
+    <script>
+        
+    </script>
 
 </body>
 

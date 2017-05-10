@@ -34,20 +34,33 @@
                             </tr>
 
                             <tr>
-                                <th>Sebagai Tim Akreditasi</th>
-                                @if (count($prodiTimAkreditasi)==0)
-                                <td>Belum menjadi tim akreditasi</td>
+                                <th>Sebagai</th>
+                                @if (count($prodiTimAkreditasi)==0 && $pegawaiIsReviewer ==0 )
+                                <td>Belum menjadi apa-apa</td>
                                 @endif
                                 @if (count($prodiTimAkreditasi)!=0)
-                                <td>{{$prodiTimAkreditasi[0]->nama_prodi}}</td>
+                                <td>Tim Akreditasi {{$prodiTimAkreditasi[0]->nama_prodi}}</td>
+                                @endif
+                                @if ($pegawaiIsReviewer != 0)
+                                <td>Tim Reviewer {{$prodiTimReviewer[0]->nama_prodi}}</td>
                                 @endif
 
                             </tr>
                         
                             <tr>
-                                <th>Pilih Program Studi Tim Akreditasi</th>
+                                <th>Pilih Role</th>
                                 <td>
-                                    <select class="form-control" id="selectProdi" name="selectProdi" required>
+                                    <select class="form-control" id="selectRole" name="selectRole" required>
+                                        <option value='' disabled selected>--Pilih Role--</option>
+                                        <option value='1'>Tim Reviewer</option>
+                                        <option value='2'>Tim Akreditasi</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Pilih Program Studi</th>
+                                <td>
+                                    <select class="form-control" id="selectRoleProdi" name="selectRoleProdi" required>
                                         <option value='' disabled selected>--Pilih Program Studi--</option>
                                         @foreach($prodi as $prodi)
                                         <option value='{{$prodi->kode_prodi}}'>{{$prodi->nama_prodi}}</option>
@@ -58,7 +71,7 @@
                         </table>
                     </div> 
                     <div class="pricing-footer">
-                        <button class="btn btn-primary col-md-offset-4" type="submit">Update</button>
+                        <button class="btn btn-success col-md-offset-4" type="submit">Update</button>
                     </div>
                 </form>
             </div>

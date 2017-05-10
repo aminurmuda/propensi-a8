@@ -27,7 +27,7 @@ Route::get('timakreditasi/kelola', 'PegawaiController@pilihFakultasKelola')->nam
 
 Route::get('timakreditasi/tambah', 'PegawaiController@pilihFakultasTambah')->name('timakreditasi/tambah'); //Admin kelola Tim Akreditasi
 
-Route::get('timakreditasi/tambah/update/{username}', 'PegawaiController@profilUpdateTimAkreditasi')->name('timakreditasi/tambah/{username}'); //Update pegawai menjadi tim Akreditasi
+Route::get('timakreditasi/tambah/update/{username}', 'PegawaiController@profilUpdateRolePegawai')->name('timakreditasi/tambah/{username}'); //Update pegawai menjadi tim Akreditasi
 
 Route::post('timakreditasi/tambah/update/{username}', 'PegawaiController@tambahTimAkreditasi')->name('timakreditasi/tambah/{username}/{kode_prodi}'); //Update pegawai menjadi tim Akreditasi
 
@@ -35,13 +35,13 @@ Route::get('timakreditasi/kelola/{kode_fakultas}', 'PegawaiController@lihatPengg
 
 Route::post('timakreditasi/kelola/{kode_fakultas}', 'PegawaiController@lihatPengguna')->name('timakreditasi/kelola/{kode_fakultas}'); //Untuk versi admin only
 
-Route::get('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPegawaiIsNotTimAkreditasi')->name('timakreditasi/tambah/{kode_fakultas}'); //pimpinan fakultas only
+Route::get('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPegawaiIsNotTim')->name('timakreditasi/tambah/{kode_fakultas}'); //pimpinan fakultas only
 
-Route::post('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPegawaiIsNotTimAkreditasi')->name('timakreditasi/tambah/{kode_fakultas}'); //Untuk versi admin only
+Route::post('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPegawaiIsNotTim')->name('timakreditasi/tambah/{kode_fakultas}'); //Untuk versi admin only
 
 //Route::get('timakreditasi/tambah/tambah/{username}', 'PegawaiController@tambahTimAkreditasi')->name('timakreditasi/tambah/tambah/{username}'); //pimpinan fakultas only
 
-Route::get('timakreditasi/kelola/hapus/{username}', 'PegawaiController@deleteTimAkreditasi')->name('timakreditasi/hapus/{username}'); //pimpinan fakultas only
+Route::get('timakreditasi/kelola/hapus/{username}', 'PegawaiController@deleteTim')->name('timakreditasi/hapus/{username}'); //pimpinan fakultas only
 
 Route::get('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
 
@@ -133,6 +133,13 @@ Route::get('akreditasi/edit/{tahun}/{kodeProdi}/submit', 'AkreditasiController@s
 Route::get('pilihborang/3a', 'BorangController@pilihBorang3A')->name('pilihborang/3a');
 
 Route::get('pilihborang/3b', 'BorangController@pilihBorang3B')->name('pilihborang/3b');
+Route::get('test', 'TestController@index')->name('#');
+
+<<<<<<< HEAD
+Route::get('evaluasidiri', 'BorangController@lihatEvaluasi')->name('evaluasidiri');
+=======
+Route::get('evaluasiDiri/{kodeFakultas}', 'BorangController@lihatEvaluasiDiri')->name('evaluasiDiri/{kodeFakultas}');
+>>>>>>> 09460304510fec1bbd46e4995deac0b11f93bec7
 
 Route::get('tambahakreditasi', 'BorangController@tambahAkreditasi')->name('tambahakreditasi');
 

@@ -6,10 +6,9 @@
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <h3>Evaluasi Diri</h3>
-            <span>  </span><br>
+            
            
-            <br><br><br>
+           
             <div class="panel-group wrap" id="bs-collapse">
 
                 <div class="panel">
@@ -17,11 +16,12 @@
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#one">
          
-         2.1  Sistem Tata Pamong
+         Evaluasi Diri<br>
+       
         </a>
       </h4>
                     </div>
-                    <div id="one" class="panel-collapse collapse">
+                    <div id="one" class="panel-collapse collapse in">
                         <div class="panel-body">
                             Sistem tata pamong berjalan secara efektif melalui mekanisme yang disepakati bersama,
                             serta dapat memelihara dan mengakomodasi semua unsur, fungsi, dan peran dalam
@@ -38,21 +38,23 @@
                             membangun sistem tata pamong yang kredibel, transparan, akuntabel, bertanggung
                             jawab dan adil. <br><br>
 
-                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!$standar2['standar2']['2.1']['isian']!!}
-                            </div><br>
+                            <br>
+
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
-                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                            @endif
+                           <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                           @endif
+                         
 
                             <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!$standar2['standar2']['2.1']['isian']!!}
+                              
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                              <a href="#}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
                             @endif
+
+                           
                         </div>
                     </div>
 
