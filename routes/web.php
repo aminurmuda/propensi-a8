@@ -129,7 +129,7 @@ Route::get('pilihborang/3a', 'BorangController@pilihBorang3A')->name('pilihboran
 
 Route::get('pilihborang/3b', 'BorangController@pilihBorang3B')->name('pilihborang/3b');
 
-
+Route::get('evaluasiDiri/{kodeFakultas}', 'BorangController@lihatEvaluasiDiri')->name('evaluasiDiri/{kodeFakultas}');
 });
 
 
