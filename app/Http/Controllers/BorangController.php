@@ -100,7 +100,7 @@ class BorangController extends Controller
 
 	            'pegawai' => $pimpinan,       
 	           
-	            'username' => $username
+	            'username' => $username,
 
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  

@@ -106,7 +106,7 @@ class AkreditasiController extends Controller
     	$kodeProdi = $request -> get('kodeProdi');
     	$tahun = $request -> get('tahun');
   		//validasi role. yang bisa edit akreditasi : BPMA dan admin
-  		if ($role=='UPMAF' || $role=='Pimpinan Fakultas') {
+  		if ($role=='UPMAF' || $role=='Pimpinan Fakultas' || $role=='Admin') {
   			//tambah ke database histori akreditasi, status = new
   			Akreditasi::tambahAkreditasi($kodeProdi,$tahun);
   			$idHistori = Akreditasi::getIDAkreditasi($kodeProdi,$tahun)->id;

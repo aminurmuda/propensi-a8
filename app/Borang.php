@@ -39,7 +39,7 @@ class borang extends Model
 
     public static function inisiasiBorang($kodeProdi,$tahun,$idHistori,$kodeBorang,$standar) {
         $isi='';
-        if ($kodeBorang=='3A' && $standar=='2') {
+        if ($kodeBorang=='3A' && $standar==2) {
           $isi = 'ini ceritanya json borang3A2';
         } else if ($kodeBorang=='3A' && $standar=='4') {
           $isi = 'ini ceritanya json borang3A4';
@@ -55,7 +55,7 @@ class borang extends Model
           $isi = 'ini ceritanya json borangED';
         }
 
-        if($kodeBorang=='ED') {
+        if($kodeBorang!='ED') {
           return DB::table('borang')
                     ->insert(['kode_prodi'=> $kodeProdi, 'tahun' => $tahun, 'id_histori' => $idHistori,'jenis'=>$kodeBorang,'standar'=>$standar,'isi'=>$isi]);
         }
