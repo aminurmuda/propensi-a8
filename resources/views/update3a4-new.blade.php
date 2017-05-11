@@ -8,6 +8,16 @@
     <div class="row">
         <div class="col-md-12" >
             <div class="db-wrapper">
+                        @if(session()->has('success'))
+            <div class="alert alert-success  alert-dismissable">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+              <strong>Berhasil Tersimpan!</strong>
+            </div>
+            @endif
+
+            <?php
+             Session::forget('success');
+            ?>
             <h1>Update Borang 3A Standar {{$kodeStandarStr}}</h1><a href="{{ URL::previous() }}" class="btn-primary btn-lg pull-right">Kembali</a><br><br><br>
             @if($kodeStandarStr!='4.6.2')
             <p>{{$standar4['standar4'][$kodeStandarStr]['perintah'] }}</p>

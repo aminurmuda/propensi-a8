@@ -133,18 +133,32 @@ Route::get('akreditasi/lihat/{tahun}/{kodeProdi}', 'AkreditasiController@lihatAk
 Route::get('akreditasi/edit/{tahun}/{kodeProdi}', 'AkreditasiController@editAkreditasi')->name('akreditasi/edit/{kodeProdi}');
 Route::get('akreditasi/edit/{tahun}/{kodeProdi}/submit', 'AkreditasiController@submitAkreditasi')->name('akreditasi/{tahun}/{kodeProdi}/submit');
 
-Route::get('pilihborang/3a', 'BorangController@pilihBorang3A')->name('pilihborang/3a');
+Route::get('3a', 'BorangController@pilihProdi')->name('3a');
+Route::post('3a/{kodeProdi}', 'BorangController@pilihBorang3A')->name('3a/{kodeProdi}');
+Route::get('3a/{kodeProdi}', 'BorangController@pilihBorang3A')->name('3a/{kodeProdi}');
+Route::get('3a/{kodeProdi}/standar2', 'BorangController@lihat3a2')->name('3a/{kodeProdi}/standar2');
+Route::get('3a/{kodeProdi}/standar4', 'BorangController@lihat3a4')->name('3a/{kodeProdi}/standar4');
+Route::get('3a/{kodeProdi}/standar7', 'BorangController@lihat3a7')->name('3a/{kodeProdi}/standar7');
 
-Route::get('pilihborang/3b', 'BorangController@pilihBorang3B')->name('pilihborang/3b');
+Route::get('3b', 'BorangController@pilihFakultasGeneral')->name('3b');
+Route::post('3b/{kodeFakultas}', 'BorangController@pilihBorang3B')->name('3b/{kodeFakultas}');
+Route::get('3b/{kodeFakultas}', 'BorangController@pilihBorang3B')->name('3b/{kodeFakultas}');
+Route::get('3b/{kodeFakultas}/standar2', 'BorangController@lihat3b2')->name('3b/{kodeFakultas}/standar2');
+Route::get('3b/{kodeFakultas}/standar4', 'BorangController@lihat3b4')->name('3b/{kodeFakultas}/standar4');
+Route::get('3b/{kodeFakultas}/standar7', 'BorangController@lihat3b7')->name('3b/{kodeFakultas}/standar7');
+
+
 Route::get('test', 'TestController@index')->name('#');
 
 
-Route::get('evaluasidiri', 'BorangController@lihatEvaluasi')->name('evaluasidiri');
-
-Route::get('evaluasiDiri/{kodeFakultas}', 'BorangController@lihatEvaluasiDiri')->name('evaluasiDiri/{kodeFakultas}');
-
+Route::get('evaluasidiri/{kodeProdi}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{kodeProdi}');
+Route::get('evaluasidiri/edit/{kodeProdi}', 'BorangController@editEvaluasi')->name('evaluasidiri/edit/{kodeProdi}');
+Route::get('evaluasidiri/edit/{kode}/{jenisBorang}/submit', 'BorangController@submitevaluasi')->name('evaluasidiri/edit/{kodeProdi}/{jenisBorang}/submit');
 
 Route::get('tambahakreditasi', 'AkreditasiController@tambahAkreditasi')->name('tambahakreditasi');
+
+
+Route::get('riwayatakreditasi', 'AkreditasiController@lihatRiwayat')->name('riwayatakreditasi');
 
 
 });

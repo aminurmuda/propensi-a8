@@ -6,6 +6,8 @@
 
     <div class="container">
     <div class="row">
+    <h3>Pilih Standar Borang 3A</h3>
+        <span>Borang Akreditasi yang diisi oleh program studi</span><br><br>
         <div class="col-md-12" >
             <div class="db-wrapper">
                 <div class="db-pricing-eleven db-bk-color-one">

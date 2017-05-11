@@ -6,6 +6,8 @@
 
     <div class="container">
     <div class="row">
+        <h3>Pilih Standar Borang 3B</h3>
+        <span>Borang Institusi yang diisi oleh fakultas</span><br><br>
         <div class="col-md-12" >
             <div class="db-wrapper">
                 <div class="db-pricing-eleven db-bk-color-one">
@@ -16,7 +18,7 @@
                         
                     </div>
                     <div class="plan-div">
-                      <form action="{{url(Route::current()->getName().'/submit')}}">
+                      <form action="" method="post" id='formFakultas'>
                       {{ csrf_field() }}
                             <div class="form-group" >
                               <select class="form-control" id="selectFakultasGeneral" name='selectFakultasGeneral' required>

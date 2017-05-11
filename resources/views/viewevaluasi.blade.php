@@ -41,7 +41,7 @@
                             <br>
 
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
-                           <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                           <a href="{{ url('evaluasidiri/edit/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                            @endif
                          
 
