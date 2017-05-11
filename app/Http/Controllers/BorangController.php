@@ -1398,7 +1398,8 @@ class BorangController extends Controller
 		//masukin ke database
 
 		Borang::updateBorang($jenisBorang,$nomorStandar,$kode,$tahun,$encoded_json);
+		$request->session()->put('success','1');
+		return redirect($jenisBorang.'/standar'.$nomorStandar.'edit/'.$kodeStandar.'/'.$kode);
 
-		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kode);
 	}
 }
