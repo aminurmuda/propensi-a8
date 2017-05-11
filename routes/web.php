@@ -55,75 +55,75 @@ Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')-
 
 Route::get('pimpinan', 'PegawaiController@kelolapimpinan')->name('pimpinan'); //admin only
 
-Route::get('3a/standar4', 'PegawaiController@pilihProdi')->name('3a/standar4'); //pimpinan univ only
+Route::get('3a/standar4', 'BorangController@pilihProdi')->name('3a/standar4'); //pimpinan univ only
 
-Route::get('3a/standar4/submit', 'PegawaiController@lihat3a4')->name('3a/standar4/submit'); //pimpinan univ only
+Route::get('3a/standar4/submit', 'BorangController@lihat3a4')->name('3a/standar4/submit'); //pimpinan univ only
 
-Route::get('3a/standar4/{kodeProdi}', 'PegawaiController@lihat3a4')->name('3a/standar4/{kodeProdi}'); 
-Route::post('3a/standar4/{kodeProdi}', 'PegawaiController@lihat3a4')->name('3a/standar4/{kodeProdi}'); 
+Route::get('3a/standar4/{kodeProdi}', 'BorangController@lihat3a4')->name('3a/standar4/{kodeProdi}'); 
+Route::post('3a/standar4/{kodeProdi}', 'BorangController@lihat3a4')->name('3a/standar4/{kodeProdi}'); 
 
-Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3a4')->name('3a/standar4edit/{kodeStandar}/{kodeProdi}'); 
+Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a4')->name('3a/standar4edit/{kodeStandar}/{kodeProdi}'); 
 
-Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3a/standar4edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit'); //pimpinan 
+Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar4edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit'); //pimpinan 
 
-Route::get('3b/standar2edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3b2')->name('3b/standar2edit/{kodeStandar}/{kodeProdi}'); 
+Route::get('3b/standar2edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3b2')->name('3b/standar2edit/{kodeStandar}/{kodeProdi}'); 
 
-Route::get('3b/standar2edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3b/standar2edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit');
+Route::get('3b/standar2edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3b/standar2edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit');
 
 
-Route::get('3a/standar2', 'PegawaiController@pilihProdi')->name('3a/standar2'); //pimpinan univ only
-Route::get('3a/standar2/{kodeProdi}', 'PegawaiController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
-Route::post('3a/standar2/{kodeProdi}', 'PegawaiController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
+Route::get('3a/standar2', 'BorangController@pilihProdi')->name('3a/standar2'); //pimpinan univ only
+Route::get('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
+Route::post('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
 
-Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}');
+Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}');
 Route::get('3a/standar2edit/{kodeStandar}/{kode}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit');
-Route::get('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}', 'PegawaiController@edit3a25')->name('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}');
-Route::get('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}/{jenisBorang}/submit', 'PegawaiController@submit3a25')->name('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}/{jenisBorang}/submit');
+Route::get('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}', 'BorangController@edit3a25')->name('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}');
+Route::get('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}/{jenisBorang}/submit', 'BorangController@submit3a25')->name('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}/{jenisBorang}/submit');
 
 
 
-Route::get('3b/standar2/{kodeFakultas}', 'PegawaiController@lihat3b2')->name('3b/standar2/{kodeFakultas}'); 
+Route::get('3b/standar2/{kodeFakultas}', 'BorangController@lihat3b2')->name('3b/standar2/{kodeFakultas}'); 
 
-Route::get('3b/standar2', 'PegawaiController@pilihFakultasGeneral')->name('3b/standar2'); //pimpinan univ only
+Route::get('3b/standar2', 'BorangController@pilihFakultasGeneral')->name('3b/standar2'); //pimpinan univ only
 
 
 
-Route::get('3a/standar7', 'PegawaiController@pilihProdi')->name('3a/standar7'); //pimpinan univ only
+Route::get('3a/standar7', 'BorangController@pilihProdi')->name('3a/standar7'); //pimpinan univ only
 
-Route::get('3a/standar7/submit', 'PegawaiController@lihat3a7')->name('3a/standar7/submit'); //pimpinan univ only
+Route::get('3a/standar7/submit', 'BorangController@lihat3a7')->name('3a/standar7/submit'); //pimpinan univ only
 
-Route::get('3a/standar7/{kodeProdi}', 'PegawaiController@lihat3a7')->name('3a/standar7/{kodeProdi}');
+Route::get('3a/standar7/{kodeProdi}', 'BorangController@lihat3a7')->name('3a/standar7/{kodeProdi}');
 
-Route::post('3a/standar7/{kodeProdi}', 'PegawaiController@lihat3a7')->name('3a/standar7/{kodeProdi}'); 
+Route::post('3a/standar7/{kodeProdi}', 'BorangController@lihat3a7')->name('3a/standar7/{kodeProdi}'); 
 
-Route::get('3a/standar7edit/{kodeProdi}', 'PegawaiController@edit3a7')->name('3a/standar7edit/{kodeProdi}'); 
+Route::get('3a/standar7edit/{kodeProdi}', 'BorangController@edit3a7')->name('3a/standar7edit/{kodeProdi}'); 
 
-Route::get('3a/standar7edit/{kodeStandar}/{kodeProdi}', 'PegawaiController@edit3a7')->name('3a/standar7edit/{kodeStandar}/{kodeProdi}'); 
+Route::get('3a/standar7edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a7')->name('3a/standar7edit/{kodeStandar}/{kodeProdi}'); 
 
-Route::get('3a/standar7edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3a/standar7edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit'); //pimpinan 
+Route::get('3a/standar7edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar7edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit'); //pimpinan 
 
-Route::get('3b/standar4/', 'PegawaiController@pilihFakultasGeneral')->name('3b/standar4'); //pimpinan univ, reviewer univ, admin only
+Route::get('3b/standar4/', 'BorangController@pilihFakultasGeneral')->name('3b/standar4'); //pimpinan univ, reviewer univ, admin only
 
-Route::get('3b/standar4/submit', 'PegawaiController@lihat3b4')->name('3b/standar4/submit'); //pimpinan univ, reviewer univ, admin only
+Route::get('3b/standar4/submit', 'BorangController@lihat3b4')->name('3b/standar4/submit'); //pimpinan univ, reviewer univ, admin only
 
-Route::get('3b/standar4/{kodeFakultas}', 'PegawaiController@lihat3b4')->name('3b/standar4/{kodeFakultas}');
+Route::get('3b/standar4/{kodeFakultas}', 'BorangController@lihat3b4')->name('3b/standar4/{kodeFakultas}');
 
-Route::get('3b/standar4edit/{kodeStandar}/{kodeFakultas}', 'PegawaiController@edit3b4')->name('3b/standar4edit/{kodeStandar}/{kodeFakultas}'); 
+Route::get('3b/standar4edit/{kodeStandar}/{kodeFakultas}', 'BorangController@edit3b4')->name('3b/standar4edit/{kodeStandar}/{kodeFakultas}'); 
 
-Route::get('3b/standar4edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3b/standar4edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit'); //pimpinan 
+Route::get('3b/standar4edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3b/standar4edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit'); //pimpinan 
 
-Route::get('3b/standar4edit/{kodeFakultas}', 'PegawaiController@edit3b4')->name('3b/standar4edit/{kodeProdi}');
+Route::get('3b/standar4edit/{kodeFakultas}', 'BorangController@edit3b4')->name('3b/standar4edit/{kodeProdi}');
 
-Route::get('3b/standar7', 'PegawaiController@pilihFakultasGeneral')->name('3b/standar7'); //pimpinan univ, reviewer univ, admin only
+Route::get('3b/standar7', 'BorangController@pilihFakultasGeneral')->name('3b/standar7'); //pimpinan univ, reviewer univ, admin only
 
-Route::get('3b/standar7/submit', 'PegawaiController@lihat3b7')->name('3b/standar7/submit'); //pimpinan univ, reviewer univ, admin only
+Route::get('3b/standar7/submit', 'BorangController@lihat3b7')->name('3b/standar7/submit'); //pimpinan univ, reviewer univ, admin only
 
-Route::get('3b/standar7/{kodeFakultas}', 'PegawaiController@lihat3b7')->name('3b/standar7/{kodeFakultas}');
+Route::get('3b/standar7/{kodeFakultas}', 'BorangController@lihat3b7')->name('3b/standar7/{kodeFakultas}');
 
-Route::get('3b/standar7edit/{kodeFakultas}', 'PegawaiController@edit3b7')->name('3b/standar7edit/{kodeFakultas}');
+Route::get('3b/standar7edit/{kodeFakultas}', 'BorangController@edit3b7')->name('3b/standar7edit/{kodeFakultas}');
 
-Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}', 'PegawaiController@edit3b7')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}'); 
-Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit'); //pimpinan 
+Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}', 'BorangController@edit3b7')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}'); 
+Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit'); //pimpinan 
 
 
 Route::get('akreditasi/lihat/{tahun}/{kodeProdi}', 'AkreditasiController@lihatAkreditasi')->name('akreditasi/lihat/{kodeProdi}');
@@ -135,12 +135,14 @@ Route::get('pilihborang/3a', 'BorangController@pilihBorang3A')->name('pilihboran
 Route::get('pilihborang/3b', 'BorangController@pilihBorang3B')->name('pilihborang/3b');
 Route::get('test', 'TestController@index')->name('#');
 
+
 Route::get('evaluasidiri', 'BorangController@lihatEvaluasi')->name('evaluasidiri');
 
 Route::get('evaluasiDiri/{kodeFakultas}', 'BorangController@lihatEvaluasiDiri')->name('evaluasiDiri/{kodeFakultas}');
 
 
 Route::get('tambahakreditasi', 'AkreditasiController@tambahAkreditasi')->name('tambahakreditasi');
+
 
 });
 
