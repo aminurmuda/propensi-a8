@@ -206,5 +206,5 @@ class AkreditasiController extends Controller
 	         
 			]);
 	}
-}
+
 }
