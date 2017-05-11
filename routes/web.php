@@ -138,6 +138,7 @@ Route::get('test', 'TestController@index')->name('#');
 Route::get('evaluasidiri', 'BorangController@lihatEvaluasi')->name('evaluasidiri');
 
 Route::get('evaluasiDiri/{kodeFakultas}', 'BorangController@lihatEvaluasiDiri')->name('evaluasiDiri/{kodeFakultas}');
+Route::get('evaluasidiri/edit', 'BorangController@editEvaluasi')->name('evaluasidiri/edit');
 
 
 Route::get('tambahakreditasi', 'AkreditasiController@tambahAkreditasi')->name('tambahakreditasi');
