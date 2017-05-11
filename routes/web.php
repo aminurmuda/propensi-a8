@@ -65,6 +65,7 @@ Route::post('3a/standar4/{kodeProdi}', 'BorangController@lihat3a4')->name('3a/st
 Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a4')->name('3a/standar4edit/{kodeStandar}/{kodeProdi}'); 
 
 Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar4edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit'); //pimpinan 
+Route::get('3a/standar4/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar4/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
 
 Route::get('3b/standar2edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3b2')->name('3b/standar2edit/{kodeStandar}/{kodeProdi}'); 
 
@@ -76,7 +77,8 @@ Route::get('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/sta
 Route::post('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
 
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}');
-Route::get('3a/standar2edit/{kodeStandar}/{kode}/{jenisBorang}/submit', 'PegawaiController@submitKualitatif')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit');
+Route::get('3a/standar2edit/{kodeStandar}/{kode}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit');
+Route::get('3a/standar2/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar2/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
 Route::get('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}', 'BorangController@edit3a25')->name('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}');
 Route::get('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}/{jenisBorang}/submit', 'BorangController@submit3a25')->name('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}/{jenisBorang}/submit');
 
@@ -101,6 +103,7 @@ Route::get('3a/standar7edit/{kodeProdi}', 'BorangController@edit3a7')->name('3a/
 Route::get('3a/standar7edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a7')->name('3a/standar7edit/{kodeStandar}/{kodeProdi}'); 
 
 Route::get('3a/standar7edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar7edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit'); //pimpinan 
+Route::get('3a/standar7/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar7/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
 
 Route::get('3b/standar4/', 'BorangController@pilihFakultasGeneral')->name('3b/standar4'); //pimpinan univ, reviewer univ, admin only
 

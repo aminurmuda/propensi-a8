@@ -48,12 +48,25 @@
                             @endif
 
                             <br><br><h3>Komentar: </h3>
-                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
-                            </div><br>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                @foreach($komentar2_1 as $komentar2_1)
+                                  <p>{{$komentar2_1->nama}} berkomentar :</p>
+                                  {!!$komentar2_1->isi!!} 
+                                @endforeach
+                            </div><br><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3a/standar2/2-1/'.$kodeProdi.'/3a/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
                         </div>
                     </div>
@@ -100,11 +113,24 @@
 
                             <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
+                                @foreach($komentar2_2 as $komentar2_2)
+                                  <p>{{$komentar2_2->nama}} berkomentar :</p>
+                                  {!!$komentar2_2->isi!!} 
+                                @endforeach
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3a/standar2/2-2/'.$kodeProdi.'/3a/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
 
                         </div>
@@ -138,11 +164,24 @@
 
                             <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
+                                @foreach($komentar2_3 as $komentar2_3)
+                                  <p>{{$komentar2_3->nama}} berkomentar :</p>
+                                  {!!$komentar2_3->isi!!} 
+                                @endforeach
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3a/standar2/2-3/'.$kodeProdi.'/3a/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
                         </div>
                     </div>
@@ -171,11 +210,24 @@
 
                             <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
+                                @foreach($komentar2_4 as $komentar2_4)
+                                  <p>{{$komentar2_4->nama}} berkomentar :</p>
+                                  {!!$komentar2_4->isi!!} 
+                                @endforeach
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3a/standar2/2-4/'.$kodeProdi.'/3a/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
 
                         </div>
@@ -266,11 +318,24 @@
 
                                 <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
+                                @foreach($komentar2_5 as $komentar2_5)
+                                  <p>{{$komentar2_5->nama}} berkomentar :</p>
+                                  {!!$komentar2_5->isi!!} 
+                                @endforeach
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3a/standar2/2-5/'.$kodeProdi.'/3a/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
 
                                 <style>
@@ -325,11 +390,24 @@
 
                             <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
+                                @foreach($komentar2_6 as $komentar2_6)
+                                  <p>{{$komentar2_6->nama}} berkomentar :</p>
+                                  {!!$komentar2_6->isi!!} 
+                                @endforeach
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3a/standar2/2-6/'.$kodeProdi.'/3a/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
                         </div>
                     </div>
