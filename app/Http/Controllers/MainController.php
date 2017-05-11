@@ -105,7 +105,7 @@ class MainController extends Controller
 					]
 					);
 			} elseif($userIsReviewerProdi) { //reviewer prodi
-				$request->session()->put('role', 'Reviewer Prodi');;
+				$request->session()->put('role', 'Tim Reviewer');;
 
 				return view ('home', [
 					'user' => $username,

@@ -103,11 +103,24 @@
 
                             <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar7['standar7']['7.1']['7.1.2']['isian'])!!}
+                                @foreach($komentar7_1 as $komentar7_1)
+                                  <p>{{$komentar7_1->nama}} berkomentar :</p>
+                                  {!!$komentar7_1->isi!!} 
+                                @endforeach
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3a/standar7edit/7-1-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3a/standar7/7-1/'.$kodeProdi.'/3a/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
 
 
@@ -320,11 +333,24 @@
 
                             <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar7['standar7']['7.1']['7.1.2']['isian'])!!}
+                                @foreach($komentar7_2 as $komentar7_2)
+                                  <p>{{$komentar7_2->nama}} berkomentar :</p>
+                                  {!!$komentar7_2->isi!!} 
+                                @endforeach
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3a/standar7edit/7-1-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3a/standar7/7-2/'.$kodeProdi.'/3a/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
                         </div>
 

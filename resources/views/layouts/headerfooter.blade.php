@@ -130,7 +130,7 @@
                         <li><a href="{{ url('home') }}" class="">Home</a></li>
 
                         <!--role tim akreditasi dan reviewer prodi (navbar borang 3a,3b,evaluasi diri) -->
-                        @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi' || $role=='Reviewer Universitas')
+                        @if($role=='Tim Akreditasi' || $role=='Tim Reviewer' || $role=='Reviewer Universitas')
                         <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3A <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 @if($role!='Reviewer Universitas')
