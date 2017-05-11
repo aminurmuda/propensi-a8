@@ -16,7 +16,7 @@
                           {{csrf_field()}}
                           <div class="form-group">
                             <textarea class="form-control" id='textarea' name='textarea'>
-                            <p>{{$standar2['standar2'][$kodeStandarStr]['isian'] }}</p>
+                            <p>{{rawurldecode($standar2['standar2'][$kodeStandarStr]['isian']) }}</p>
                             
                             </textarea>
                           </div>
