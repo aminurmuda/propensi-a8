@@ -27,9 +27,9 @@
             <div class="form-group">
               <textarea class="form-control" id='textarea' name='textarea'>
               @if($kodeStandarStr=='7.1.2')
-              <p>{!!$standar7['standar7']['7.1'][$kodeStandarStr]['isian']!!}</p>
+              <p>{!!rawurldecode($standar7['standar7']['7.1'][$kodeStandarStr]['isian'])!!}</p>
               @else
-              <p>{!!$standar7['standar7']['7.2'][$kodeStandarStr]['isian']!!}</p>
+              <p>{!!rawurldecode($standar7['standar7']['7.2'][$kodeStandarStr]['isian'])!!}</p>
               @endif
               </textarea>
             </div>

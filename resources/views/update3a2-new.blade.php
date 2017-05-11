@@ -21,7 +21,7 @@
             {{csrf_field()}}
             <div class="form-group">
               <textarea class="form-control" id='textarea' name='textarea'>
-                {!!$standar2['standar2'][$kodeStandarStr]['isian']!!}
+                {!!rawurldecode($standar2['standar2'][$kodeStandarStr]['isian'])!!}
               </textarea>
             </div>
             <button type="submit" class="btn-primary btn-lg pull-right">Simpan</button>
