@@ -228,4 +228,33 @@ class AkreditasiController extends Controller
 			]);
 	}
 
+	public function formTambahAkreditasi(Request $request) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$role=$request->session()->get('role');
+
+		if ($role=='UPMAF' || $role=='Pimpinan Fakultas' || $role=='Admin') {
+			$prodi = program_studi::getProdiByFakultas($kodeFakultasPengguna);				
+
+			return view('formtambahakreditasi',[
+				'role' => $role,
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pimpinan,      
+	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'prodi' => $prodi,  
+	            'username' => $username
+			]);
+		} else {
+		return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);
+		}
+
+	}
+
 }

@@ -156,6 +156,8 @@ Route::get('evaluasidiri/edit/{kodeProdi}', 'BorangController@editEvaluasi')->na
 Route::get('evaluasidiri/edit/{kode}/{jenisBorang}/submit', 'BorangController@submitevaluasi')->name('evaluasidiri/edit/{kodeProdi}/{jenisBorang}/submit');
 
 Route::get('tambahakreditasi', 'AkreditasiController@tambahAkreditasi')->name('tambahakreditasi');
+Route::get('akreditasi/tambah', 'AkreditasiController@formTambahAkreditasi')->name('akreditasi/tambah');
+Route::get('akreditasi/tambah/submit', 'AkreditasiController@tambahAkreditasi')->name('akreditasi/tambah/submit');
 
 
 Route::get('riwayatakreditasi', 'AkreditasiController@lihatRiwayat')->name('riwayatakreditasi');
