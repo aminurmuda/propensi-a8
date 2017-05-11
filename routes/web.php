@@ -143,6 +143,9 @@ Route::get('evaluasidiri/edit/{kode}/{jenisBorang}/submit', 'BorangController@su
 Route::get('tambahakreditasi', 'AkreditasiController@tambahAkreditasi')->name('tambahakreditasi');
 
 
+Route::get('riwayatakreditasi', 'AkreditasiController@lihatRiwayat')->name('riwayatakreditasi');
+
+
 });
 
 
