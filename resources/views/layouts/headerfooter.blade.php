@@ -132,7 +132,7 @@
                                 <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         
-                                                @if($role!='Tim Akreditasi' && $role!='Reviewer Prodi')
+                                                @if($role!='Tim Akreditasi' && $role!='Tim Reviewer')
                                                 <!-- bisa pilih fakultas dan pilih prodi -->
                                                     <li><a href="{{ url('3a') }}">Borang 3A</a></li>
                                                     @if($role!='UPMAF' && $role!='Pimpinan Fakultas')
