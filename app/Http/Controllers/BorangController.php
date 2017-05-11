@@ -96,11 +96,8 @@ class BorangController extends Controller
 			return view('viewevaluasi',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
-
 	            'pegawai' => $pimpinan,       
-	           
-	            'username' => $username
-
+	            'username' => $username,
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,

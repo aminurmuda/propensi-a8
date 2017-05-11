@@ -11,7 +11,7 @@ class TestController extends Controller
 {
     public function index()
     {
-        $chart = Charts::multi('line', 'fusioncharts')
+        $chart = Charts::multi('bar', 'fusioncharts')
             // Setup the chart settings
             ->title("My Cool Chart")
             // A dimension of 0 means it will take 100% of the space
