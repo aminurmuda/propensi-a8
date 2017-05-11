@@ -7,8 +7,9 @@
     <div class="container">
     	
 	    	<h3>Pilih Standar Borang 3A</h3>
-	    	<span>Borang Akreditasi yang diisi oleh program studi</span><br><br>
-
+	    	<span>Borang Akreditasi yang diisi oleh program studi</span><br>
+	    	<span>Program Studi {{$prodi->nama_prodi}}</span><br>
+	    	<span>{{ $nama_fakultas }}, Universitas Indonesia</span><br><br>
 	    	<!-- start content -->
 	    	<div class="container">
 	    	 <div class="col-md-12 col-md-offset-0" >
@@ -43,10 +44,10 @@
 			                       @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi')
 	                                
 
-	                                <a href="{{ url('3a/standar2/'.$selectedProdi) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+	                                <a href="{{ Request::url().'/standar2' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 
 		                       		@else
-		                       		<a href="{{ url('3a/standar2') }}" class="btn btn-primary icon  pull-right">Select</a><br>
+		                       		<a href="{{ Request::url().'/standar2' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 
 		                
                         			@endif
@@ -85,10 +86,10 @@
 			                       @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi')
 	                                
 
-	                                <a href="{{ url('3a/standar4/'.$selectedProdi) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+	                                <a href="{{ Request::url().'/standar4' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 
 		                       		@else
-		                       		<a href="{{ url('3a/standar4') }}" class="btn btn-primary icon  pull-right">Select</a><br>
+		                       		<a href="{{ Request::url().'/standar4' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 
 		                
                         			@endif
@@ -139,10 +140,10 @@
 			                       @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi')
 	                                
 
-	                                <a href="{{ url('3a/standar7/'.$selectedProdi) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+	                                <a href="{{ Request::url().'/standar7' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 
 		                       		@else
-		                       		<a href="{{ url('3a/standar7') }}" class="btn btn-primary icon  pull-right">Select</a><br>
+		                       		<a href="{{ Request::url().'/standar7' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 
 		                
                         			@endif
