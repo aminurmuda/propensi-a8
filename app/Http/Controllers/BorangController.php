@@ -95,6 +95,8 @@ class BorangController extends Controller
 		$evaluasiDiri = Borang::getBorang('ED',null,$kodeProdi,$tahun);
 		$isi = $evaluasiDiri[0]->isi;
 
+
+
 		$role=$request->session()->get('role');
 		if ($role=='Tim Akreditasi') {
 			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
@@ -117,7 +119,7 @@ class BorangController extends Controller
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
-	            'evaluasiDiri' => $evaluasiDiri,
+	            'isi' => $isi,
 	            'kodeProdi' => $kodeProdi,
 	            'prodiBorang' => $prodiBorang,
 	            'tahun' => $tahun
@@ -1466,7 +1468,7 @@ class BorangController extends Controller
 	            'username' => $username,
 	            'kodeProdi' => $kodeProdi,
 	            // 'kodeStandar' => $kodeStandar,
-	             'evaluasiDiri' => $evaluasiDiri,
+	             'isi' => $isi,
 	            // 'kodeStandarStr' => $kodeStandarStr
 			]);
 	}
@@ -1542,10 +1544,10 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-		$evaluasiDiri = Borang::getBorang($jenisBorang,null,$kode,$tahun);
-		$isi = $evaluasiDiri[0]->isi;
-		Borang::updateBorang($jenisBorang,null,$kode,$tahun,$isi);
-		return redirect('/evaluasidiri'.'/'.$kode);
+		$isi = $request->get('textarea');
+		Borang::updateBorang('ED',null,$kode,$tahun,$isi);
+		$request->session()->put('success','1');
+		return redirect('/evaluasidiri/edit'.'/'.$kode);
 	}
 
 	public function komenBorang(Request $request, $kodeStandar, $kodeProdi, $jenisBorang) {

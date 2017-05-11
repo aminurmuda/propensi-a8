@@ -138,12 +138,15 @@ class AkreditasiController extends Controller
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
+		$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
+	
+		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
 
 		$chart1 = Charts::multi('line', 'chartjs')
             // Setup the chart settings
             ->title("Grafik Akreditasi")
             // A dimension of 0 means it will take 100% of the space
-            ->dimensions(500, 300) // Width x Height
+            ->dimensions(600, 300) // Width x Height
             // This defines a preset of colors already done:)
             ->template("material")
             // You could always set them manually
@@ -159,9 +162,25 @@ class AkreditasiController extends Controller
 
             $chart2 = Charts::create('pie', 'chartjs')
             // Setup the chart settings
-            ->title("Grafik Akreditasi")
+            ->title("Chart 2")
             // A dimension of 0 means it will take 100% of the space
-            ->dimensions(500, 200) // Width x Height
+            ->dimensions(200, 300) // Width x Height
+            // This defines a preset of colors already done:)
+            ->template("material")
+            // You could always set them manually
+            // ->colors(['#2196F3', '#F44336', '#FFC107'])
+            // Setup the diferent datasets (this is a multi chart)
+            ->values([5,200,10])
+           
+            // Setup what the values mean
+            ->labels(['One', 'Two', 'Three']);
+
+
+            $chart3 = Charts::create('donut', 'chartjs')
+            // Setup the chart settings
+            ->title("Chart 3")
+            // A dimension of 0 means it will take 100% of the space
+            ->dimensions(200, 200) // Width x Height
             // This defines a preset of colors already done:)
             ->template("material")
             // You could always set them manually
@@ -173,17 +192,17 @@ class AkreditasiController extends Controller
             ->labels(['One', 'Two', 'Three']);
 
 
-            $chart3 = Charts::create('donut', 'chartjs')
+            $chart4 = Charts::create('donut', 'chartjs')
             // Setup the chart settings
-            ->title("Grafik Akreditasi")
+            ->title("Chart 4")
             // A dimension of 0 means it will take 100% of the space
-            ->dimensions(500, 200) // Width x Height
+            ->dimensions(200, 200) // Width x Height
             // This defines a preset of colors already done:)
             ->template("material")
             // You could always set them manually
             // ->colors(['#2196F3', '#F44336', '#FFC107'])
             // Setup the diferent datasets (this is a multi chart)
-            ->values([5,20,100])
+            ->values([100,50,10])
            
             // Setup what the values mean
             ->labels(['One', 'Two', 'Three']);
@@ -197,12 +216,15 @@ class AkreditasiController extends Controller
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,       
-	           'kodeFakultas' => $kodeFakultasPengguna,       
-	           'kode_fakultas' => $kodeFakultasPengguna,       
+	           // 'kodeFakultas' => $kodeFakultasPengguna,       
+	            'kode_fakultas' => $kodeFakultasPengguna,       
 	            'username' => $username,
 	            'chart1' => $chart1,
 	            'chart2' => $chart2,
-	            'chart3' => $chart3
+	            'chart3' => $chart3,
+	            'chart4' => $chart4,
+	            'getAllAkreditasi' => $getAllAkreditasi
+	          //  'akreditasi' => $akreditasi
 	         
 			]);
 	}
