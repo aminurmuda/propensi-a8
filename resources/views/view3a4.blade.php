@@ -28,7 +28,7 @@
 
                         Sistem seleksi/perekrutan, penempatan, pengembangan, retensi, dan pemberhentian dosen dan tenaga kependidikan untuk menjamin mutu penyelenggaraan program akademik.  <br><br>                          
                         <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                        {!! $standar4['standar4']['4.1']['isian']!!}
+                        {!! rawurldecode($standar4['standar4']['4.1']['isian'])!!}
                         </div><br>
 
                         @if($role=='Tim Akreditasi' || $role=='Admin' )

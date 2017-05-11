@@ -7,7 +7,7 @@ use App\Pegawai;
 use App\Pimpinan;
 use App\program_studi;
 use App\fakultas;
-use App\dosen;
+use App\Dosen;
 use App\tendik;
 use App\Borang;
 use App\proyek;
@@ -1098,10 +1098,10 @@ class PegawaiController extends Controller
 		foreach ($listProdi as $l)
 		{
 			$kode_prodi = $l->kode_prodi;
-			$asistenAhli = count(dosen::getDosenTetapSesuaiAsistenAhli($kode_prodi));
-			$lektor = count(dosen::getDosenTetapSesuaiLektor($kode_prodi));
-			$lektorKepala = count(dosen::getDosenTetapSesuaiLektorKepala($kode_prodi));
-			$guruBesar = count(dosen::getDosenTetapSesuaiGuruBesarProfesor($kode_prodi));
+			$asistenAhli = count(Dosen::getDosenTetapSesuaiAsistenAhli($kode_prodi));
+			$lektor = count(Dosen::getDosenTetapSesuaiLektor($kode_prodi));
+			$lektorKepala = count(Dosen::getDosenTetapSesuaiLektorKepala($kode_prodi));
+			$guruBesar = count(Dosen::getDosenTetapSesuaiGuruBesarProfesor($kode_prodi));
 			$total = $asistenAhli+$lektor+$lektorKepala+$guruBesar;
 			$arr[$l->nama_prodi]['asistenAhli'] = $asistenAhli;
 			$arr[$l->nama_prodi]['lektor'] = $lektor;
@@ -1113,9 +1113,9 @@ class PegawaiController extends Controller
 
 		foreach ($listProdi as $l2) {
 			$kode_prodi = $l2->kode_prodi;
-			$pendidikanS1 = count(dosen::getDosenTetapSesuaiPendidikanS1($kode_prodi));
-			$pendidikanS2 = count(dosen::getDosenTetapSesuaiPendidikanS2($kode_prodi));
-			$pendidikanS3 = count(dosen::getDosenTetapSesuaiPendidikanS3($kode_prodi));
+			$pendidikanS1 = count(Dosen::getDosenTetapSesuaiPendidikanS1($kode_prodi));
+			$pendidikanS2 = count(Dosen::getDosenTetapSesuaiPendidikanS2($kode_prodi));
+			$pendidikanS3 = count(Dosen::getDosenTetapSesuaiPendidikanS3($kode_prodi));
 			$totalPendidikan = $pendidikanS1+$pendidikanS2+$pendidikanS3;
 			$arr1[$l2->nama_prodi]['S1'] = $pendidikanS1;
 			$arr1[$l2->nama_prodi]['S2'] = $pendidikanS2;
@@ -1126,10 +1126,10 @@ class PegawaiController extends Controller
 
 		foreach ($listProdi as $l1) {
 			$kode_prodi = $l1->kode_prodi;
-			$pensiun = count(dosen::getDosenTetapSesuaiStatusPensiun($kode_prodi));
-			$dosenBaru = count(dosen::getDosenTetapSesuaiStatusDosenBaru($kode_prodi));
-			$tugasBelajarS2 = count(dosen::getDosenTetapSesuaiStatusTugasBelajarS2($kode_prodi));
-			$tugasBelajarS3 = count(dosen::getDosenTetapSesuaiStatusTugasBelajarS3($kode_prodi));
+			$pensiun = count(Dosen::getDosenTetapSesuaiStatusPensiun($kode_prodi));
+			$dosenBaru = count(Dosen::getDosenTetapSesuaiStatusDosenBaru($kode_prodi));
+			$tugasBelajarS2 = count(Dosen::getDosenTetapSesuaiStatusTugasBelajarS2($kode_prodi));
+			$tugasBelajarS3 = count(Dosen::getDosenTetapSesuaiStatusTugasBelajarS3($kode_prodi));
 			$arr2[$l1->nama_prodi]['pensiun'] = $pensiun;
 			$arr2[$l1->nama_prodi]['dosenBaru'] = $dosenBaru;
 			$arr2[$l1->nama_prodi]['tugasBelajarS2'] = $tugasBelajarS2;
@@ -1558,9 +1558,9 @@ class PegawaiController extends Controller
 		foreach ($listProdi as $l1) {
 			$kode_prodi = $l1->kode_prodi;
 			$nama_prodi = $l1->nama_prodi;
-			$pengmas = count(pengmas_dosen::getPengmas($kode_prodi, $tahun));
-			$pengmas1 = count(pengmas_dosen::getPengmas($kode_prodi, $tahun1));
-			$pengmas2 = count(pengmas_dosen::getPengmas($kode_prodi, $tahun2));
+			$pengmas = count(pengmas_Dosen::getPengmas($kode_prodi, $tahun));
+			$pengmas1 = count(pengmas_Dosen::getPengmas($kode_prodi, $tahun1));
+			$pengmas2 = count(pengmas_Dosen::getPengmas($kode_prodi, $tahun2));
 			$danaPengmas = danaPengmas::getTotalDanaPengmas($kode_prodi, $tahun);
 			$danaPengmas1 = danaPengmas::getTotalDanaPengmas($kode_prodi, $tahun1);
 			$danaPengmas2 = danaPengmas::getTotalDanaPengmas($kode_prodi, $tahun2);
@@ -1721,7 +1721,7 @@ class PegawaiController extends Controller
 			$tahun = date('Y');
 		}
 
-		$textarea=$request->get('textarea');
+		$textarea=rawurlencode($request->get('textarea'));
 		
 		// echo json_encode($textarea2);
 		// $encoded_html= json_encode($textarea);

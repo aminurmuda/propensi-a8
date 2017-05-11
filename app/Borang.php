@@ -37,4 +37,32 @@ class borang extends Model
           ->update(['isi' => $isi]);
     } 
 
+    public static function inisiasiBorang($kodeProdi,$tahun,$idHistori,$kodeBorang,$standar) {
+        $isi='';
+        if ($kodeBorang=='3A' && $standar==2) {
+          $isi = 'ini ceritanya json borang3A2';
+        } else if ($kodeBorang=='3A' && $standar=='4') {
+          $isi = 'ini ceritanya json borang3A4';
+        } else if ($kodeBorang=='3A' && $standar=='7') {
+          $isi = 'ini ceritanya json borang3A7';
+        } else if ($kodeBorang=='3B' && $standar=='2') {
+          $isi = 'ini ceritanya json borang3B2';
+        } else if ($kodeBorang=='3B' && $standar=='4') {
+          $isi = 'ini ceritanya json borang3B4';
+        } else if ($kodeBorang=='3B' && $standar=='7') {
+          $isi = 'ini ceritanya json borang3B7';
+        } else if ($kodeBorang=='ED') {
+          $isi = 'ini ceritanya json borangED';
+        }
+
+        if($kodeBorang!='ED') {
+          return DB::table('borang')
+                    ->insert(['kode_prodi'=> $kodeProdi, 'tahun' => $tahun, 'id_histori' => $idHistori,'jenis'=>$kodeBorang,'standar'=>$standar,'isi'=>$isi]);
+        }
+
+       return DB::table('borang')
+                    ->insert(['kode_prodi'=> $kodeProdi, 'tahun' => $tahun, 'id_histori' => $idHistori,'jenis'=>$kodeBorang,'isi'=>$isi]);
+    }
+
+
 }

@@ -7,7 +7,7 @@ use App\Pegawai;
 use App\Pimpinan;
 use DB;
 
-class Dosen extends Model
+class dosen extends Model
 {
     protected $table = 'dosen';
         /**
