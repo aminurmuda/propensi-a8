@@ -16,6 +16,8 @@ use App\danaPengmas;
 use App\pengmas_dosen;
 use App\danaProyek;
 use DB;
+use App\Http\Requests;
+use Charts;
 
 class BorangController extends Controller
 {
@@ -70,9 +72,7 @@ class BorangController extends Controller
 		$role=$request->session()->get('role');
 			
 
-		$evaluasiDiri_json = Borang::getBorang('EvaluasiDiri',null,$kodeProdi,2017);
-		$isi = $evaluasiDiri_json[0]->isi;
-		$evaluasiDiri= json_decode(stripslashes($isi),true);
+	
 
 		$role=$request->session()->get('role');
 		if ($role=='Tim Akreditasi') {
@@ -111,6 +111,8 @@ class BorangController extends Controller
 
 			]);
 	}
+
+
 
 	public function pilihProdi(Request $request) {
 		$username=$request->session()->get('user');
