@@ -92,7 +92,7 @@
 							Jika ada, banyaknya mahasiswa PS yang ikut serta dalam penelitian dosen adalah  ... orang, dari ... mahasiswa yang melakukan tugas akhir melalui skripsi<br><br>
 
                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                            {!!$standar7['standar7']['7.1']['7.1.2']['isian']!!}
+                            {!!rawurldecode($standar7['standar7']['7.1']['7.1.2']['isian'])!!}
                     
                             </div><br>
 
@@ -103,7 +103,7 @@
 
                             <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!$standar7['standar7']['7.1']['7.1.2']['isian']!!}
+                                {!!rawurldecode($standar7['standar7']['7.1']['7.1.2']['isian'])!!}
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
@@ -311,7 +311,7 @@
 						  Jika Ya, jelaskan tingkat partisipasi dan bentuk keterlibatan mahasiswa dalam kegiatan pelayanan/pengabdian kepada masyarakat.
 
                         <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                        {!!$standar7['standar7']['7.2']['7.2.2']['isian']!!}
+                        {!!rawurldecode($standar7['standar7']['7.2']['7.2.2']['isian'])!!}
                         </div><br>
                              @if($role=='Tim Akreditasi' || $role=='Admin' )
                              <a href="{{ url('3a/standar7edit/7-2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
@@ -320,7 +320,7 @@
 
                             <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!$standar7['standar7']['7.1']['7.1.2']['isian']!!}
+                                {!!rawurldecode($standar7['standar7']['7.1']['7.1.2']['isian'])!!}
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
