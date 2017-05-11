@@ -93,7 +93,8 @@ class MainController extends Controller
 					'user' => $username,
 					'role' => 'Tim Akreditasi',
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas,
-					'selectedProdi' => $selectedProdi
+					'selectedProdi' => $selectedProdi,
+					'kode_prodi' => $selectedProdi
 					]
 					);
 			} elseif($userIsAdmin) { //admin

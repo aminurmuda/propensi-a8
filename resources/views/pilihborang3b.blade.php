@@ -8,7 +8,7 @@
     	
 	    	<h3>Pilih Standar Borang 3B</h3>
 	    	<span>Borang Institusi yang diisi oleh fakultas</span><br><br>
-
+	    	<span>{{ $nama_fakultas }}, Universitas Indonesia</span><br><br>
 	    	<!-- start content -->
 	    	<div class="container">
 	    	 <div class="col-md-12 col-md-offset-0" >
@@ -43,14 +43,14 @@
 			                      <small>TATA PAMONG, KEPEMIMPINAN, SISTEM PENGELOLAAN, DAN PENJAMINAN MUTU</small> 
 			                       @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi' || $role=='UPMAF' || $role=='Pimpinan Fakultas')
                        				 @if($role=='Tim Akreditasi')
-                       				 		<a href="{{ url('3b/standar2/'.$selectedProdi) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+                       				 		<a href="{{Request::url().'/standar2' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 					                       
 					                        
 					                        @else 
-					                        <a href="{{ url('3b/standar2/'.$kode_fakultas) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+					                        <a href="{{ Request::url().'/standar2' }}" class="btn btn-primary icon  pull-right">Select</a><br>
                        				 @endif
                        			 @else
-                       			 		<a href="{{ url('3b/standar2') }}" class="btn btn-primary icon  pull-right">Select</a><br>
+                       			 		<a href="{{ Request::url().'/standar2' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 
 				                        
                        			 @endif
@@ -86,7 +86,7 @@
 			                      <small>SUMBER DAYA MANUSIA</small> 
 			                       @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi' || $role=='UPMAF' || $role=='Pimpinan Fakultas')
                        				 @if($role=='Tim Akreditasi')
-                       				 		<a href="{{ url('3b/standar4/'.$selectedProdi) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+                       				 		<a href="{{ url('3b/standar4/'.$kode_fakultas) }}" class="btn btn-primary icon  pull-right">Select</a><br>
 					                       
 					                        
 					                        @else 
@@ -144,7 +144,7 @@
 			                      <small>PENELITIAN, PELAYANAN/PENGABDIAN KEPADA MASYARAKAT, DAN KERJASAMA</small> 
 			                      @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi' || $role=='UPMAF' || $role=='Pimpinan Fakultas')
                        				 @if($role=='Tim Akreditasi')
-                       				 		<a href="{{ url('3b/standar7/'.$selectedProdi) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+                       				 		<a href="{{ url('3b/standar7/'.$kode_fakultas) }}" class="btn btn-primary icon  pull-right">Select</a><br>
 					                       
 					                        
 					                        @else 

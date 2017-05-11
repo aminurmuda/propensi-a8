@@ -25,39 +25,52 @@ class BorangController extends Controller
         
     }
 
-    public function pilihBorang3A(Request $request) {
+    public function pilihBorang3A(Request $request,$kodeProdi) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$namaFakultasPengguna=$QKodeFakultasPengguna[0]->nama_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
 			
-
+		$prodiBorang = program_studi::getProdi($kodeProdi);
 			return view('pilihborang3a',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,
 	            'kodeFakultas' => $kodeFakultasPengguna,       
 	           'kode_fakultas' => $kodeFakultasPengguna,       
-	            'username' => $username
+	           'kodeProdi' => $kodeProdi,
+	           'nama_fakultas' => $namaFakultasPengguna,
+	            'username' => $username,
+	            'prodi' => $prodiBorang
 			]);
 	}
 
-	public function pilihBorang3B(Request $request) {
+	public function pilihBorang3B(Request $request,$kodeFakultas) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$namaFakultasPengguna=$QKodeFakultasPengguna[0]->nama_fakultas;
 		$role=$request->session()->get('role');
-			
+		
+		$kode_prodi=0;
+		if($role=='Tim Akreditasi') {
+			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+			$kode_prodi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+		}
+		
 
 			return view('pilihborang3b',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,       
-	           'kodeFakultas' => $kodeFakultasPengguna,       
+	           'kodeFakultas' => $kodeFakultas,       
 	           'kode_fakultas' => $kodeFakultasPengguna,       
-	            'username' => $username
+	           'kodeProdi' => $kode_prodi,
+	          'nama_fakultas' => $namaFakultasPengguna,
+	            'username' => $username,
 			]);
 	}
 
@@ -152,7 +165,7 @@ class BorangController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
 			//untuk pimpinan univ, reviewer univ, admin
-			if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas' || $role=='Admin'){
+			if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas' || $role=='Admin'|| $role=='BPMA'){
 				$fakultas = fakultas::getAllFakultas();
 			} 
 			return view('pilihfakultas',[
@@ -655,6 +668,13 @@ class BorangController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$role = $request->session()->get('role');
+
+		$kodeProdi=0;
+		if($role=='Tim Akreditasi') {
+			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+			$kodeProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+		}
 
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
@@ -668,13 +688,14 @@ class BorangController extends Controller
 		// dd($isi);
 
 			return view('view3b2',[
-				'role' => $request->session()->get('role'),
+				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kodeFakultas' => $kodeFakultasPengguna,
 	            'kode_fakultas' => $kodeFakultasPengguna,
 	            'username' => $username,
 	            'standar2' => $standar2,
+	            'kodeProdi' => $kodeProdi,
 	            'tahun' => $tahun
 			]);
 
@@ -693,6 +714,12 @@ class BorangController extends Controller
 		$totalDosenBaru = 0;
 		$totalTugasBelajarS2 = 0;
 		$totalTugasBelajarS3 = 0;
+		$role = $request->session()->get('role');
+
+		if($role=='Tim Akreditasi') {
+			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+			$kodeProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+		}
 
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
@@ -876,6 +903,7 @@ class BorangController extends Controller
 	            'totalFakultas' => $totalFakultas,
 	            'totalPendidikanFakultas' => $totalPendidikanFakultas,
 	            'standar4' => $standar4,
+	            'kodeProdi' => $kodeProdi
 
 			]);
 
@@ -899,6 +927,12 @@ class BorangController extends Controller
 		$totalDanaPengmas = 0;
 		$totalDanaPengmas1 = 0;
 		$totalDanaPengmas2 = 0;
+		$role = $request->session()->get('role');
+
+		if($role=='Tim Akreditasi') {
+			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+			$kodeProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+		}
 
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
@@ -995,10 +1029,11 @@ class BorangController extends Controller
 
 
 		return view('view3b7',[
-			'role' => $request->session()->get('role'),
+			'role' => $role,
             'user' => $request->session()->get('user'),
             'pegawai' => $pimpinan,      
             'kode_fakultas' => $kodeFakultasPengguna,
+            'kodeProdi' => $kodeProdi,
             'username' => $username,
             'listProdi' => $listProdi,
             'jumlahProdi'=> $jumlahProdi,
@@ -1190,7 +1225,12 @@ class BorangController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-
+		$role = $request->session()->get('role');
+		$kodeProdi=0;
+		if($role=='Tim Akreditasi') {
+			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+			$kodeProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+		}
 		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
 		$role=$request->session()->get('role');
 		if($role!='Tim Akreditasi' && $role!='Admin') {
@@ -1222,7 +1262,8 @@ class BorangController extends Controller
 	            'kodeProdi' => $kodeProdi,
 	            'kodeStandar' => $kodeStandar,
 	            'standar2' => $standar2,
-	            'kodeStandarStr' => $kodeStandarStr
+	            'kodeStandarStr' => $kodeStandarStr,
+	            'kodeProdi' => $kodeProdi
 			]);
 	}
 
@@ -1233,9 +1274,13 @@ class BorangController extends Controller
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 
-		
+		$role = $request->session()->get('role');
+		$kodeProdi=0;
+		if($role=='Tim Akreditasi') {
+			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+			$kodeProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+		}
 		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
-		$role=$request->session()->get('role');
 		if($role!='Tim Akreditasi' && $role!='Admin') {
 			return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -1264,7 +1309,7 @@ class BorangController extends Controller
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
-
+	            'kodeProdi' => $kodeProdi,
 	            'username' => $username,
 	            'kodeFakultas' => $kodeFakultas,
 	            'kodeStandar' => $kodeStandar,
@@ -1280,9 +1325,14 @@ class BorangController extends Controller
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		
+		$role = $request->session()->get('role');
+		$kodeProdi=0;
+		if($role=='Tim Akreditasi') {
+			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+			$kodeProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+		}
+
 		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
-		$role=$request->session()->get('role');
 		if($role!='Tim Akreditasi' && $role!='Admin') {
 			return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -1314,7 +1364,8 @@ class BorangController extends Controller
 	            'kodeFakultas' => $kodeFakultas,
 	            'kodeStandar' => $kodeStandar,
 	            'standar7' => $standar7,
-	            'kodeStandarStr' => $kodeStandarStr
+	            'kodeStandarStr' => $kodeStandarStr,
+	            'kodeProdi' => $kodeProdi
 			]);
 	}
 
