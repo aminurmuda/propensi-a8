@@ -94,7 +94,8 @@ class MainController extends Controller
 					'role' => 'Tim Akreditasi',
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas,
 					'selectedProdi' => $selectedProdi,
-					'kode_prodi' => $selectedProdi
+					'kode_prodi' => $selectedProdi,
+					'kodeProdi' => $selectedProdi
 					]
 					);
 			} elseif($userIsAdmin) { //admin
