@@ -32,7 +32,7 @@ class borang extends Model
         return DB::table('borang')
             ->where('kode_prodi', $kode_prodi)
           ->where('tahun', $tahun)
-          ->where('standar',$nomorStandar)
+          //->where('standar',$nomorStandar)
           ->where('jenis',$jenisBorang)
           ->update(['isi' => $isi]);
     } 
@@ -64,5 +64,6 @@ class borang extends Model
                     ->insert(['kode_prodi'=> $kodeProdi, 'tahun' => $tahun, 'id_histori' => $idHistori,'jenis'=>$kodeBorang,'isi'=>$isi]);
     }
 
+     
 
 }
