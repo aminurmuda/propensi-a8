@@ -31,11 +31,7 @@
 
                           <button class="btn-primary btn-lg pull-right" type="submit">Simpan</button>
                           </form>
-                          <script>
-                           // Replace the <textarea id="editor1"> with a CKEditor
-                                // instance, using default configuration.
-                            CKEDITOR.replace( 'textarea' );
-                           </script>            
+                        
             </div>
         </div>
     </div>

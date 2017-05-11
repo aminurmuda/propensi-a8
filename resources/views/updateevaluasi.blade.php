@@ -8,13 +8,12 @@
   <div class="row">
       <div class="col-md-12" >
           <div class="db-wrapper">
-          <h1>Update Evaluasi Diri</h1><a href="{{ URL::previous() }}" class="btn-primary btn-lg pull-right">Kembali</a>
-            <h3>{!!$standar2['standar2'][$kodeStandarStr]['judul']!!}</h3>
-            <br>
-
-           
-
-            <form action="{{url('')}}">
+          <h1>Update Evaluasi Diri</h1><br>
+          <a href="{{ URL::previous() }}" class="btn-primary btn-lg pull-right">Kembali</a>
+           <br>
+           <br>
+           <br>
+            <form action="{{url('evaluasidiri/edit/'.$kodeProdi.'/ED/submit')}}">
             {{csrf_field()}}
             <div class="form-group">
               <textarea class="form-control" id='textarea' name='textarea'>s
@@ -23,11 +22,6 @@
             <button type="submit" class="btn-primary btn-lg pull-right">Simpan</button>
             </form>
             <br><br><br><br><br><br>
-            <script>
-             // Replace the <textarea id="editor1"> with a CKEditor
-                  // instance, using default configuration.
-              CKEDITOR.replace( 'textarea' );
-             </script>            
           </div>
       </div>
   </div>

@@ -59,7 +59,7 @@ class BorangController extends Controller
 			]);
 	}
 
-	public function lihatEvaluasi(Request $request) {
+	public function lihatEvaluasi(Request $request, $kodeProdi) {
 
 
 		$username=$request->session()->get('user');
@@ -68,11 +68,17 @@ class BorangController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 
 		$role=$request->session()->get('role');
-			
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+	
 
-		$evaluasiDiri_json = Borang::getBorang('EvaluasiDiri',null,$kodeProdi,2017);
-		$isi = $evaluasiDiri_json[0]->isi;
-		$evaluasiDiri= json_decode(stripslashes($isi),true);
+		
+		$evaluasiDiri = Borang::getBorang('ED',null,$kodeProdi,$tahun);
+		$isi = $evaluasiDiri[0]->isi;
+
 
 		$role=$request->session()->get('role');
 		if ($role=='Tim Akreditasi') {
@@ -87,20 +93,12 @@ class BorangController extends Controller
 		}
 
 		$prodiBorang = program_studi::getProdi($selectedProdi);
-		if ($request->get('tahun')){
-			$tahun = $request->get('tahun'); 	
-		} else {
-			$tahun = date('Y');
-		}
-
 
 			return view('viewevaluasi',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,       
-
 	            'username' => $username,
-
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
@@ -1353,6 +1351,46 @@ class BorangController extends Controller
 		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kodeProdi);
 	}
 
+	public function editevaluasi(Request $request,$kodeProdi) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		
+		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
+		$role=$request->session()->get('role');
+		if($role!='Tim Akreditasi' && $role!='Admin') {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);				
+		}
+
+		//$kodeStandarStr= str_replace("-",".",$kodeStandar);
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+		$evaluasiDiri = Borang::getBorang('ED',null,$kodeProdi,$tahun);
+		$isi = $evaluasiDiri[0]->isi;
+		
+			return view('updateevaluasi',[
+				'role' => $request->session()->get('role'),
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pimpinan,      
+	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'username' => $username,
+	            'kodeProdi' => $kodeProdi,
+	            // 'kodeStandar' => $kodeStandar,
+	             'evaluasiDiri' => $evaluasiDiri,
+	            // 'kodeStandarStr' => $kodeStandarStr
+			]);
+	}
+
 	public function submitKualitatif(Request $request,$kodeStandar,$kode,$jenisBorang) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
@@ -1400,5 +1438,32 @@ class BorangController extends Controller
 		Borang::updateBorang($jenisBorang,$nomorStandar,$kode,$tahun,$encoded_json);
 
 		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kode);
+	}
+
+	public function submitevaluasi(Request $request,$kode,$jenisBorang) {
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		//yang boleh mengakses halaman ini adalah tim akreditasi dan admin
+		$role=$request->session()->get('role');
+		if($role!='Tim Akreditasi' && $role!='Admin') {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);				
+		}
+
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+		$evaluasiDiri = Borang::getBorang($jenisBorang,null,$kode,$tahun);
+		$isi = $evaluasiDiri[0]->isi;
+		Borang::updateBorang($jenisBorang,null,$kode,$tahun,$isi);
+		return redirect('/evaluasidiri'.'/'.$kode);
 	}
 }
