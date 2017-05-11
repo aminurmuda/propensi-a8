@@ -142,6 +142,8 @@ Route::get('evaluasiDiri/{kodeFakultas}', 'BorangController@lihatEvaluasiDiri')-
 
 Route::get('tambahakreditasi', 'AkreditasiController@tambahAkreditasi')->name('tambahakreditasi');
 
+Route::get('riwayatakreditasi', 'BorangController@lihatRiwayat')->name('riwayatakreditasi');
+
 });
 
 
