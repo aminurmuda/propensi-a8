@@ -37,7 +37,7 @@
 
                         <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!$standar4['standar4']['4.1']['isian']!!}
+                                {!!rawurldecode($standar4['standar4']['4.1']['isian'])!!}
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
@@ -65,7 +65,7 @@
                               Jelaskan sistem monitoring dan evaluasi, serta rekam jejak kinerja akademik dosen dan kinerja tenaga kependidikan (termasuk informasi tentang ketersediaan pedoman tertulis, dan monitoring dan evaluasi kinerja dosen dalam tridarma serta dokumentasinya). <br><br>
 
                               <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                             {!!$standar4['standar4']['4.2']['isian']!!}
+                             {!!rawurldecode($standar4['standar4']['4.2']['isian'])!!}
                              </div><br>
                           @if($role=='Tim Akreditasi' || $role=='Admin' )
                           <a href="{{ url('3a/standar4edit/4-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
@@ -73,7 +73,7 @@
 
                           <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!$standar4['standar4']['4.1']['isian']!!}
+                                {!!rawurldecode($standar4['standar4']['4.1']['isian'])!!}
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
@@ -897,7 +897,7 @@
                     4.6.2 Jelaskan upaya yang telah dilakukan Program Studi dalam meningkatkan kualifikasi dan kompetensi tenaga kependidikan. <br><br>
                           
                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                            {!!$standar4['standar4']['4.6']['4.6.2']['isian']!!}
+                            {!!rawurldecode($standar4['standar4']['4.6']['4.6.2']['isian'])!!}
                             </div><br>
                             
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
@@ -906,7 +906,7 @@
 
                           <br><br><h3>Komentar: </h3>
                              <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!$standar4['standar4']['4.1']['isian']!!}
+                                {!!rawurldecode($standar4['standar4']['4.1']['isian'])!!}
                             </div><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )

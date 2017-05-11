@@ -17,13 +17,13 @@
             @endif
 
             <br>
-                          <form action="#">
+                          <form action="{{url('3b/standar4edit/'.$kodeStandar.'/'.$kodeFakultas.'/3b/submit')}}">
                           {{csrf_field()}}
                           <div class="form-group">
                             <textarea class="form-control" id='textarea' name='textarea'>@if($kodeStandarStr!='4.1.3')
-                            <p>{{$standar4['standar4'][$kodeStandarStr]['isian'] }}</p>
+                            <p>{{rawurldecode($standar4['standar4'][$kodeStandarStr]['isian']) }}</p>
                             @else
-                            <p>{{$standar4['standar4']['4.1'][$kodeStandarStr]['isian'] }}</p>
+                            <p>{{rawurldecode($standar4['standar4']['4.1'][$kodeStandarStr]['isian']) }}</p>
                             @endif
                             </textarea>
                           </div>
