@@ -93,7 +93,9 @@ class MainController extends Controller
 					'user' => $username,
 					'role' => 'Tim Akreditasi',
 					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas,
-					'selectedProdi' => $selectedProdi
+					'selectedProdi' => $selectedProdi,
+					'kode_prodi' => $selectedProdi,
+					'kodeProdi' => $selectedProdi
 					]
 					);
 			} elseif($userIsAdmin) { //admin
@@ -105,7 +107,7 @@ class MainController extends Controller
 					]
 					);
 			} elseif($userIsReviewerProdi) { //reviewer prodi
-				$request->session()->put('role', 'Reviewer Prodi');;
+				$request->session()->put('role', 'Tim Reviewer');;
 
 				return view ('home', [
 					'user' => $username,
