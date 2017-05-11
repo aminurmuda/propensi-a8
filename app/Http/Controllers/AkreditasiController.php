@@ -86,8 +86,7 @@ class AkreditasiController extends Controller
 	  			$peringkat='D';
 	  			$keterangan='Kurang';
 	  		}
-			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan);
-
+			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,8);
 			return 'akreditasi berhasil terupdate'; //ke halaman histori akreditasi
   		} else {
 	   			return view('error', [
