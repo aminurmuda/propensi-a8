@@ -129,43 +129,10 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{ url('home') }}" class="">Home</a></li>
                         <!--role tim akreditasi dan reviewer prodi (navbar borang 3a,3b,evaluasi diri) -->
-                        @if($role=='Tim Akreditasi' || $role=='Tim Reviewer' || $role=='Reviewer Universitas')
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3A <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                @if($role!='Reviewer Universitas')
-                                    <li><a href="{{ url('3a/standar2/'.$kode_fakultas) }}">Standar 2</a></li>
-                                    <li><a href="{{ url('3a/standar4/'.$kode_fakultas) }}">Standar 4</a></li>
-                                    <li><a href="{{ url('3a/standar7/'.$kode_fakultas) }}">Standar 7</a></li>
-                                @else
-                                    <li><a href="{{ url('3a/standar2') }}">Standar 2</a></li>
-                                    <li><a href="{{ url('3a/standar4') }}">Standar 4</a></li>
-                                    <li><a href="{{ url('3a/standar7') }}">Standar 7</a></li>
-
-                                @endif
-                            </ul>
-                        </li>
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang 3B <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                @if($role!='Reviewer Universitas')
-                                    <li><a href="{{ url('3b/standar2/'.$kode_fakultas) }}">Standar 2</a></li>
-                                    <li><a href="{{ url('3b/standar4/'.$kode_fakultas) }}">Standar 4</a></li>
-                                    <li><a href="{{ url('3b/standar7/'.$kode_fakultas) }}">Standar 7</a></li>
-                                @else
-                                    <li><a href="{{ url('3b/standar2') }}">3B, Standar 2</a></li>
-                                    <li><a href="{{ url('3b/standar4') }}">3B, Standar 4</a></li>
-                                    <li><a href="{{ url('3b/standar7') }}">3B, Standar 7</a></li>
-                                @endif
-                            </ul>
-                        </li>
-                        <li><a href="{{ url('evaluasidiri') }}">Evaluasi Diri</a></li>
-
-                        @else
-                                <!-- role BPMA, UPMAF dan Pimpinan Univ, pimpinan fak (navbar Borang, Riwayat Akreditasi) -->
-                                @if($role!='Pimpinan Fakultas' && $role!='UPMAF') <!-- jgn lupa ganti jd != admin -->
                                 <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Borang<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         
-                                                @if($role!='Tim Akreditasi' && $role!='Reviewer Prodi')
+                                                @if($role!='Tim Akreditasi' && $role!='Tim Reviewer')
                                                 <!-- bisa pilih fakultas dan pilih prodi -->
                                                     <li><a href="{{ url('3a') }}">Borang 3A</a></li>
                                                     @if($role!='UPMAF' && $role!='Pimpinan Fakultas')
