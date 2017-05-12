@@ -45,7 +45,7 @@ class Akreditasi extends Model
         return DB::table('histori_akreditasi')
             ->where('kode_prodi', $kode_prodi)
           ->where('tahun_keluar', $tahun)
-          ->update(['nilai' => $nilai,'peringkat_akreditasi' => $peringkat, 'masa_berlaku' => $masa_berlaku,'status' => 5,'keterangan' => $keterangan]);
+          ->update(['nilai' => $nilai,'peringkat_akreditasi' => $peringkat, 'masa_berlaku' => $masa_berlaku,'status' => 8,'keterangan' => $keterangan]);
     }    
 
     public static function tambahAkreditasi($kodeProdi,$tahun) {
