@@ -86,14 +86,14 @@
 			                      <small>SUMBER DAYA MANUSIA</small> 
 			                       @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi' || $role=='UPMAF' || $role=='Pimpinan Fakultas')
                        				 @if($role=='Tim Akreditasi')
-                       				 		<a href="{{ url('3b/standar4/'.$kode_fakultas) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+                       				 		<a href="{{ Request::url().'/standar4' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 					                       
 					                        
 					                        @else 
-					                        <a href="{{ url('3b/standar4/'.$kode_fakultas) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+					                        <a href="{{ Request::url().'/standar4' }}" class="btn btn-primary icon  pull-right">Select</a><br>
                        				 @endif
                        			 @else
-                       			 		<a href="{{ url('3b/standar4') }}" class="btn btn-primary icon  pull-right">Select</a><br>
+                       			 		<a href="{{ Request::url().'/standar4' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 
 				                        
                        			 @endif
@@ -144,14 +144,14 @@
 			                      <small>PENELITIAN, PELAYANAN/PENGABDIAN KEPADA MASYARAKAT, DAN KERJASAMA</small> 
 			                      @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi' || $role=='UPMAF' || $role=='Pimpinan Fakultas')
                        				 @if($role=='Tim Akreditasi')
-                       				 		<a href="{{ url('3b/standar7/'.$kode_fakultas) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+                       				 		<a href="{{ Request::url().'/standar7' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 					                       
 					                        
 					                        @else 
-					                        <a href="{{ url('3b/standar7/'.$kode_fakultas) }}" class="btn btn-primary icon  pull-right">Select</a><br>
+					                        <a href="{{ Request::url().'/standar7' }}" class="btn btn-primary icon  pull-right">Select</a><br>
                        				 @endif
                        			 @else
-                       			 		<a href="{{ url('3b/standar7') }}" class="btn btn-primary icon  pull-right">Select</a><br>
+                       			 		<a href="{{ Request::url().'/standar7' }}" class="btn btn-primary icon  pull-right">Select</a><br>
 
 				                        
                        			 @endif

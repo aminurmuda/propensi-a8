@@ -770,6 +770,7 @@ class BorangController extends Controller
 		$totalTugasBelajarS3 = 0;
 		$role = $request->session()->get('role');
 
+		// $kodeProdi=0;
 		if($role=='Tim Akreditasi') {
 			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
 			$kodeProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
@@ -957,8 +958,6 @@ class BorangController extends Controller
 	            'totalFakultas' => $totalFakultas,
 	            'totalPendidikanFakultas' => $totalPendidikanFakultas,
 	            'standar4' => $standar4,
-	            'kodeProdi' => $kodeProdi
-
 			]);
 
 	}
@@ -1087,7 +1086,6 @@ class BorangController extends Controller
             'user' => $request->session()->get('user'),
             'pegawai' => $pimpinan,      
             'kode_fakultas' => $kodeFakultasPengguna,
-            'kodeProdi' => $kodeProdi,
             'username' => $username,
             'listProdi' => $listProdi,
             'jumlahProdi'=> $jumlahProdi,
