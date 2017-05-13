@@ -782,6 +782,8 @@ class BorangController extends Controller
 			$tahun = date('Y');
 		}
 
+		
+
 		$standar4_json = Borang::getBorang('3b',4,$kodeFakultasPengguna,$tahun);
 		$isi = $standar4_json[0]->isi;
 		$standar4 = json_decode(stripslashes($isi),true);
@@ -796,6 +798,11 @@ class BorangController extends Controller
 			$jumlahProdi = count($listProdi); //menghtiung jumlah prodi
 		}
 		
+		//Lihat Komentar Borang
+		$idBorang = Borang::getIdBorang('3b',4, $selectedFakultas, $tahun)[0]->id;
+		$komentar4_1 = Komentar::lihatKomentar($idBorang, '4-1');
+		$komentar4_2 = Komentar::lihatKomentar($idBorang, '4-2');
+
 		$arr = [];
 		$arr1 = [];
 		$arr2 = [];
@@ -958,7 +965,9 @@ class BorangController extends Controller
 	            'totalFakultas' => $totalFakultas,
 	            'totalPendidikanFakultas' => $totalPendidikanFakultas,
 	            'standar4' => $standar4,
-			]);
+	            'komentar4_1' => $komentar4_1,
+	            'komentar4_2' => $komentar4_2
+ 			]);
 
 	}
 
@@ -1015,6 +1024,11 @@ class BorangController extends Controller
 
 		$tahun1 = $tahun-1;
 		$tahun2 = $tahun-2;
+
+		//Lihat Komentar Borang
+		$idBorang = Borang::getIdBorang('3b',7, $selectedFakultas, $tahun)[0]->id;
+		$komentar7_1 = Komentar::lihatKomentar($idBorang, '7-1');
+		$komentar7_2 = Komentar::lihatKomentar($idBorang, '7-2');
 		
 		$arr = [];
 		$arr1 = [];
@@ -1108,7 +1122,9 @@ class BorangController extends Controller
             'arr1' => $arr1,
             'kerjasamaDalamNegeri' => $kerjasamaDalamNegeri,
             'kerjasamaLuarNegeri' => $kerjasamaLuarNegeri,
-            'standar7' => $standar7
+            'standar7' => $standar7,
+            'komentar7_1' => $komentar7_1,
+            'komentar7_2' => $komentar7_2
 		]);
 	}
 
