@@ -47,13 +47,26 @@
                             <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
 
-                             <br><br><h3>Komentar: </h3>
-                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
-                            </div><br>
+                            <br><br><h3>Komentar: </h3>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                @foreach($komentar2_1 as $komentar2_1)
+                                  <p>{{$komentar2_1->nama}} berkomentar :</p>
+                                  {!!$komentar2_1->isi!!} 
+                                @endforeach
+                            </div><br><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3b/standar2/2-1/'.$kodeFakultas.'/3b/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
 
                         </div>
@@ -87,12 +100,25 @@
                               @endif
 
                               <br><br><h3>Komentar: </h3>
-                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
-                            </div><br>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                @foreach($komentar2_2 as $komentar2_2)
+                                  <p>{{$komentar2_2->nama}} berkomentar :</p>
+                                  {!!$komentar2_2->isi!!} 
+                                @endforeach
+                            </div><br><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3b/standar2/2-2/'.$kodeFakultas.'/3b/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
 
                             
@@ -130,13 +156,26 @@
                               <a href="{{ url('3b/standar2edit/2-3/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
-                              <br><br><h3>Komentar: </h3>
-                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
-                            </div><br>
+                             <br><br><h3>Komentar: </h3>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                @foreach($komentar2_3 as $komentar2_3)
+                                  <p>{{$komentar2_3->nama}} berkomentar :</p>
+                                  {!!$komentar2_3->isi!!} 
+                                @endforeach
+                            </div><br><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3b/standar2/2-3/'.$kodeFakultas.'/3b/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
 
                             
@@ -171,13 +210,26 @@
                               <a href="{{ url('3b/standar2edit/2-4/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
-                              <br><br><h3>Komentar: </h3>
-                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
-                            </div><br>
+                             <br><br><h3>Komentar: </h3>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                @foreach($komentar2_4 as $komentar2_4)
+                                  <p>{{$komentar2_4->nama}} berkomentar :</p>
+                                  {!!$komentar2_4->isi!!} 
+                                @endforeach
+                            </div><br><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3b/standar2/2-4/'.$kodeFakultas.'/3b/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
 
                             
@@ -213,13 +265,26 @@
                               <a href="{{ url('3b/standar2edit/2-5/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
 
-                              <br><br><h3>Komentar: </h3>
-                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
-                            </div><br>
+                            <br><br><h3>Komentar: </h3>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                @foreach($komentar2_5 as $komentar2_5)
+                                  <p>{{$komentar2_5->nama}} berkomentar :</p>
+                                  {!!$komentar2_5->isi!!} 
+                                @endforeach
+                            </div><br><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('3b/standar2/2-5/'.$kodeFakultas.'/3b/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
 
                           

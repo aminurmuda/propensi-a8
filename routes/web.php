@@ -84,7 +84,8 @@ Route::get('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}/{jenisBorang}
 
 
 
-Route::get('3b/standar2/{kodeFakultas}', 'BorangController@lihat3b2')->name('3b/standar2/{kodeFakultas}'); 
+Route::get('3b/standar2/{kodeFakultas}', 'BorangController@lihat3b2')->name('3b/standar2/{kodeFakultas}');
+Route::get('3b/standar2/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar2/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
 
 Route::get('3b/standar2', 'BorangController@pilihFakultasGeneral')->name('3b/standar2'); //pimpinan univ only
 
@@ -114,6 +115,7 @@ Route::get('3b/standar4/{kodeFakultas}', 'BorangController@lihat3b4')->name('3b/
 Route::get('3b/standar4edit/{kodeStandar}/{kodeFakultas}', 'BorangController@edit3b4')->name('3b/standar4edit/{kodeStandar}/{kodeFakultas}'); 
 
 Route::get('3b/standar4edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3b/standar4edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit'); //pimpinan 
+Route::get('3b/standar4/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar4/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
 
 Route::get('3b/standar4edit/{kodeFakultas}', 'BorangController@edit3b4')->name('3b/standar4edit/{kodeProdi}');
 
@@ -127,6 +129,7 @@ Route::get('3b/standar7edit/{kodeFakultas}', 'BorangController@edit3b7')->name('
 
 Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}', 'BorangController@edit3b7')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}'); 
 Route::get('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3b/standar7edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit'); //pimpinan 
+Route::get('3b/standar7/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar7/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
 
 
 Route::get('akreditasi/lihat/{tahun}/{kodeProdi}', 'AkreditasiController@lihatAkreditasi')->name('akreditasi/lihat/{kodeProdi}');

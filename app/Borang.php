@@ -25,6 +25,17 @@ class borang extends Model
             ->where('standar',$nomorStandar)
             ->where('jenis',$jenisBorang)
             ->get();
+    }
+
+    public static function getIdBorang($jenisBorang,$nomorStandar,$kode_prodi,$tahun)
+    {
+        return DB::table('borang')
+            ->select('borang.id')
+            ->where('kode_prodi',$kode_prodi)
+            ->where('tahun',$tahun)
+            ->where('standar',$nomorStandar)
+            ->where('jenis',$jenisBorang)
+            ->get();
     }  
 
       public static function updateBorang($jenisBorang,$nomorStandar,$kode_prodi,$tahun,$isi)
