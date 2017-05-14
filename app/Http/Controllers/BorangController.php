@@ -62,7 +62,6 @@ class BorangController extends Controller
 			$kode_prodi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
 		}
 		
-
 			return view('pilihborang3b',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
@@ -77,7 +76,6 @@ class BorangController extends Controller
 
 	public function lihatEvaluasi(Request $request, $kodeProdi) {
 
-
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -89,10 +87,8 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-	
-
 		
-		$evaluasiDiri = Borang::getBorang('ED',null,$kodeProdi,$tahun);
+		$evaluasiDiri = Borang::getBorang('ED',0,$kodeProdi,$tahun);
 		$isi = $evaluasiDiri[0]->isi;
 
 
@@ -109,6 +105,10 @@ class BorangController extends Controller
 			}	
 		}
 
+		//Lihat Komentar Borang
+		$idBorang = Borang::getIdBorang('ED',0, $kodeProdi, $tahun)[0]->id;
+		$komentarED = Komentar::lihatKomentar($idBorang, '0');
+
 		$prodiBorang = program_studi::getProdi($selectedProdi);
 
 			return view('viewevaluasi',[
@@ -122,12 +122,11 @@ class BorangController extends Controller
 	            'isi' => $isi,
 	            'kodeProdi' => $kodeProdi,
 	            'prodiBorang' => $prodiBorang,
-	            'tahun' => $tahun
+	            'tahun' => $tahun,
+	            'komentarED' => $komentarED
 
 			]);
 	}
-
-
 
 	public function pilihProdi(Request $request) {
 		$username=$request->session()->get('user');
@@ -1498,7 +1497,7 @@ class BorangController extends Controller
 			$tahun = date('Y');
 		}
 
-		$evaluasiDiri = Borang::getBorang('ED',null,$kodeProdi,$tahun);
+		$evaluasiDiri = Borang::getBorang('ED',0,$kodeProdi,$tahun);
 		$isi = $evaluasiDiri[0]->isi;
 		
 			return view('updateevaluasi',[
@@ -1597,21 +1596,26 @@ class BorangController extends Controller
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($username);
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$nomorStandar = explode("-", $kodeStandar)[0];
-
+		//dd($nomorStandar);
 
 		$role=$request->session()->get('role');
 		$idPegawai = $pegawai->id_pegawai;
 		$isi = $request->get('isi-komentar');
+		//dd($isi);
 
 		if ($request->get('tahun')){
-			$tahun = $request->get('tahun'); 	
+			$tahun = $request->get('tahun');
 		} else {
 			$tahun = date('Y');
 		}
 
-		$idBorang = Borang::getIdBorang($jenisBorang,$nomorStandar,$kodeProdi,$tahun); //Tahun masih hardcode belum menyesuaikan
 
+		$idBorang = Borang::getIdBorang($jenisBorang, $nomorStandar, $kodeProdi, $tahun); //Tahun masih hardcode belum menyesuaikan
 		Komentar::tambahKomentar($idBorang[0]->id, $kodeStandar, $isi, $idPegawai);
+
+		if($jenisBorang=='ed') {
+			return redirect('evaluasidiri/'.$kodeProdi);
+		}
 
 		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kodeProdi);
 
