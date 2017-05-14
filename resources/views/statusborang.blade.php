@@ -24,7 +24,8 @@
                     <thead>
                         <tr>
                             <th>Jenis Borang</th>
-                            <th>Standar</th>
+                            <th>Tahun</th>
+                            <th>Program Studi</th>
                             <th>Status</th>
                             <th>Menu</th>
                             
@@ -36,13 +37,17 @@
                        
                         <tr>
                             @foreach ($getBorang as $borang)
-                            <td> {{ $borang -> jenis}}</td>
-                            <td>{{ $borang -> standar}}</td>
+                            @if( $borang -> jenis == 'ED')
+                            <td> Borang Evaluasi Diri</td>
+                            @else
+                            <td> Borang {{ $borang -> jenis}}</td>
+                            @endif
+                            <td>{{ $borang -> tahun}}</td>
+                            <td>{{ $borang -> nama_prodi}}</td>
                             <td></td>
                            
                             <td> <center><button class="btn" onclick=''>Edit</button><button class="btn" onclick=''>Publish</button></center></td>
-
-                           
+                  
                         </tr>
                         @endforeach
 

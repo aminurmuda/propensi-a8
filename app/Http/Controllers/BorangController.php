@@ -92,13 +92,11 @@ class BorangController extends Controller
 		$evaluasiDiri = Borang::getBorang('ED',0,$kodeProdi,$tahun);
 		$isi = $evaluasiDiri[0]->isi;
 
-<<<<<<< HEAD
-=======
+
 		$id_histori=1;
 		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
 		$status = $Qstatus[0]->status;
 
->>>>>>> 035d2bf7a4e34f9f568735f559d8b68c7a047737
 		$role=$request->session()->get('role');
 		if ($role=='Tim Akreditasi') {
 			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
