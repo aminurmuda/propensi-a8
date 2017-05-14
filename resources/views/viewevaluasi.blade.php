@@ -35,12 +35,25 @@
                          
 
                             <br><br><h3>Komentar: </h3>
-                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                              
-                            </div><br>
+                            <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                @foreach($komentarED as $komentarED)
+                                  <p>{{$komentarED->nama}} berkomentar :</p>
+                                  {!!$komentarED->isi!!} 
+                                @endforeach
+                            </div><br><br>
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
-                              <a href="#}" class="btn-primary btn-lg pull-right"> Beri Komentar</a>
+                            <div>
+                             <form action="{{url('evaluasidiri/standarED/0/'.$kodeProdi.'/ed/submitkomentar')}}">
+                              {{csrf_field()}}
+                              <div class="form-group">
+                                <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
+                                  
+                                </textarea>
+                              </div>
+                              <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
+                              </form>
+                            </div>
                             @endif
 
                            

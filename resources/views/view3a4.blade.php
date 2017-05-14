@@ -36,12 +36,7 @@
                         @endif
 
                        <br><br><h3>Komentar: </h3>
-                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                @foreach($komentar4_1 as $komentar4_1)
-                                  <p>{{$komentar4_1->nama}} berkomentar :</p>
-                                  {!!$komentar4_1->isi!!} 
-                                @endforeach
-                            </div><br>
+                            
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
@@ -55,7 +50,33 @@
                               <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
                               </form>
                             </div>
-                            @endif
+                            @endif 
+
+                            <!-- komentar -->
+                            <br><br><br>@foreach($komentar4_1 as $komentar4_1)
+                            <div class="row">
+                              <div class="col-sm-2">
+                              <div class="thumbnail">
+                              <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                              </div><!-- /thumbnail -->
+                              </div><!-- /col-sm-1 -->
+
+                              <div class="col-sm-10">
+                              <div class="panel panel-default">
+                              <div class="panel-heading">
+                              <strong>{{$komentar4_1->nama}}</strong> <span class="text-muted">commented:</span><br>
+                              <strong>{{$komentar4_1->date}}</strong>
+                              </div>
+                              
+
+                              <div class="panel-body">
+                             {!!$komentar4_1->isi!!}
+                              </div><!-- /panel-body -->
+                              </div><!-- /panel panel-default -->
+                              </div><!-- /col-sm-5 -->
+                            </div><br>
+                            @endforeach
+
 
                         </div>
                     </div>
@@ -85,12 +106,7 @@
                           @endif
 
                           <<br><br><h3>Komentar: </h3>
-                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                @foreach($komentar4_2 as $komentar4_2)
-                                  <p>{{$komentar4_2->nama}} berkomentar :</p>
-                                  {!!$komentar4_2->isi!!} 
-                                @endforeach
-                            </div><br>
+                             
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
@@ -105,6 +121,33 @@
                               </form>
                             </div>
                             @endif
+
+                              <!-- komentar -->
+                            <br><br><br>@foreach($komentar4_2 as $komentar4_2)
+                            <div class="row">
+                              <div class="col-sm-2">
+                              <div class="thumbnail">
+                              <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                              </div><!-- /thumbnail -->
+                              </div><!-- /col-sm-1 -->
+
+                              <div class="col-sm-10">
+                              <div class="panel panel-default">
+                              <div class="panel-heading">
+                              <strong>{{$komentar4_2->nama}}</strong> <span class="text-muted">commented:</span><br>
+                              <strong>{{$komentar4_2->date}}</strong>
+                              </div>
+                              
+
+                              <div class="panel-body">
+                             {!!$komentar4_2->isi!!}
+                              </div><!-- /panel-body -->
+                              </div><!-- /panel panel-default -->
+                              </div><!-- /col-sm-5 -->
+                            </div><br>
+                            @endforeach
+
+
 
                         </div>
 
@@ -931,12 +974,7 @@
                           @endif
 
                           <br><br><h3>Komentar: </h3>
-                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
-                                @foreach($komentar4_6 as $komentar4_6)
-                                  <p>{{$komentar4_6->nama}} berkomentar :</p>
-                                  {!!$komentar4_6->isi!!} 
-                                @endforeach
-                            </div><br>
+                             
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
@@ -951,6 +989,32 @@
                               </form>
                             </div>
                             @endif
+
+                              <!-- komentar -->
+                            <br><br><br>@foreach($komentar4_6 as $komentar4_6)
+                            <div class="row">
+                              <div class="col-sm-2">
+                              <div class="thumbnail">
+                              <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+                              </div><!-- /thumbnail -->
+                              </div><!-- /col-sm-1 -->
+
+                              <div class="col-sm-10">
+                              <div class="panel panel-default">
+                              <div class="panel-heading">
+                              <strong>{{$komentar4_6->nama}}</strong> <span class="text-muted">commented:</span><br>
+                              <strong>{{$komentar4_6->date}}</strong>
+                              </div>
+                              
+
+                              <div class="panel-body">
+                             {!!$komentar4_6->isi!!}
+                              </div><!-- /panel-body -->
+                              </div><!-- /panel panel-default -->
+                              </div><!-- /col-sm-5 -->
+                            </div><br>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
