@@ -153,8 +153,8 @@ Route::get('3b/{kodeFakultas}/standar7', 'BorangController@lihat3b7')->name('3b/
 
 Route::get('test', 'TestController@index')->name('#');
 
-
-Route::get('evaluasidiri/{kodeProdi}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{kodeProdi}');
+Route::get('evaluasidiri', 'BorangController@pilihProdi')->name('evaluasidiri'); //pimpinan univ only
+Route::post('evaluasidiri/{kodeProdi}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{kodeProdi}');
 Route::get('evaluasidiri/edit/{kodeProdi}', 'BorangController@editEvaluasi')->name('evaluasidiri/edit/{kodeProdi}');
 Route::get('evaluasidiri/edit/{kode}/{jenisBorang}/submit', 'BorangController@submitevaluasi')->name('evaluasidiri/edit/{kodeProdi}/{jenisBorang}/submit');
 

@@ -146,7 +146,7 @@
                                                 @else 
                                                     <li><a href="{{ url('3a/'.$kodeProdi) }}">Borang 3A</a></li>
                                                     <li><a href="{{ url('3b/'.$kode_fakultas) }}">Borang 3B</a></li>
-                                                    <li><a href="{{ url('evaluasidiri') }}">Evaluasi Diri</a></li>
+                                                    <li><a href="{{ url('evaluasidiri/'.$kodeProdi) }}">Evaluasi Diri</a></li>
                                                 @endif
                                     
                                     </ul>
