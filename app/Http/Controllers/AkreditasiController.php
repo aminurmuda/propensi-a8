@@ -257,12 +257,12 @@ class AkreditasiController extends Controller
 
 	}
 
-<<<<<<< HEAD
+
 	public function submitStatusAkreditasi(Request $request,$idHistori,$newStatus) {
 		Akreditasi::updateStatus($idHistori,$newStatus);
 		return redirect()->back();
 	}
-=======
+
 	public function lihatStatusBorang(Request $request, $kodeProdi) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
@@ -299,5 +299,5 @@ class AkreditasiController extends Controller
 			]);
 	}
 
->>>>>>> 9b4596d119b7e3d3ba6f2a2753178c9831d34093
+
 }
