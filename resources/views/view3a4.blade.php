@@ -6,6 +6,11 @@
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
+        @if($status!=2 && $role!='Admin')
+              <div class="alert alert-info">
+                Borang tidak dalam masa atau sudah habis masa pengisian
+              </div>
+            @endif
             <h3>Borang 3A, Standar 4</h3>
             <span> Sumber Daya Manusia </span><br>
             <span> Program Studi {{$prodiBorang->nama_prodi}}, Universitas Indonesia </span><br>
@@ -32,7 +37,11 @@
                         </div><br>
 
                         @if($role=='Tim Akreditasi' || $role=='Admin' )
+                          @if($status==2 || $role=='Admin')
                           <a href="{{ url('3a/standar4edit/4-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                          @else
+                          <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                          @endif
                         @endif
 
                        <br><br><h3>Komentar: </h3>
@@ -40,6 +49,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
+                            @if($status==4||$role=='Admin')
                              <form action="{{url('3a/standar4/4-1/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -49,6 +59,11 @@
                               </div>
                               <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
                               </form>
+                              @else
+                              <div class="alert alert-info">
+                                Borang bukan dalam masa review. Harap ganti status akreditasi terlebih dahulu.
+                              </div>
+                              @endif
                             </div>
                             @endif 
 
@@ -102,7 +117,11 @@
                              {!!rawurldecode($standar4['standar4']['4.2']['isian'])!!}
                              </div><br>
                           @if($role=='Tim Akreditasi' || $role=='Admin' )
+                          @if($status==2 || $role=='Admin')
                           <a href="{{ url('3a/standar4edit/4-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                          @else
+                          <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                          @endif
                           @endif
 
                           <<br><br><h3>Komentar: </h3>
@@ -110,6 +129,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
+                            @if($status==2 || $role=='Admin')
                              <form action="{{url('3a/standar4/4-2/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -119,6 +139,11 @@
                               </div>
                               <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
                               </form>
+                              @else
+                              <div class="alert alert-info">
+                                Borang bukan dalam masa review. Harap ganti status akreditasi terlebih dahulu.
+                              </div>
+                              @endif
                             </div>
                             @endif
 
@@ -970,7 +995,11 @@
                             </div><br>
                             
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
+                            @if($status==2 || $role=='Admin')
                           <a href="{{ url('3a/standar4edit/4-6-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                          @else
+                          <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                          @endif
                           @endif
 
                           <br><br><h3>Komentar: </h3>
@@ -978,6 +1007,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
+                            @if($status==4 || $role=='Admin')
                              <form action="{{url('3a/standar4/4-6/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -987,6 +1017,11 @@
                               </div>
                               <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
                               </form>
+                              @else
+                              <div class="alert alert-info">
+                                Borang bukan dalam masa review. Harap ganti status akreditasi terlebih dahulu.
+                              </div>
+                              @endif
                             </div>
                             @endif
 

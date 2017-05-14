@@ -36,7 +36,7 @@
                  </div>
                  
               
-                <a href="{{ url('tambahakreditasi') }}" class="btn-primary btn-lg col-md-offest-2 pull-right"> Tambah Borang</a><br><br><br>
+                <a href="{{ url('akreditasi/tambah') }}" class="btn-primary btn-lg col-md-offest-2 pull-right"> Tambah Borang</a><br><br><br>
                  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>

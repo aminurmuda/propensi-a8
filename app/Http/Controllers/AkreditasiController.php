@@ -120,7 +120,7 @@ class AkreditasiController extends Controller
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','7');
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',NULL);
 
-  			return 'tambah borang berhasil ye';
+  			return redirect()->back();
 		} else {
 		return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -257,7 +257,14 @@ class AkreditasiController extends Controller
 
 	}
 
+
+	public function submitStatusAkreditasi(Request $request,$idHistori,$newStatus) {
+		Akreditasi::updateStatus($idHistori,$newStatus);
+		return redirect()->back();
+	}
+
 	public function lihatStatusBorang(Request $request) {
+
 		$username=$request->session()->get('user');
 		$pegawai = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -279,9 +286,6 @@ class AkreditasiController extends Controller
 			$getBorang = Borang::getAllBorang();
 		}
 
-		
-
-
 		return view('statusborang',[
 			'role' => $role,
             'user' => $request->session()->get('user'),
@@ -292,5 +296,6 @@ class AkreditasiController extends Controller
             'getBorang' => $getBorang
 		]);
 	}
+
 
 }
