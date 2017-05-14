@@ -19,7 +19,7 @@ class borang extends Model
         public static function getBorang($jenisBorang,$nomorStandar,$kode_prodi,$tahun)
     {
         return DB::table('borang')
-            ->select('borang.isi')
+            ->select('borang.*')
             ->where('kode_prodi',$kode_prodi)
             ->where('tahun',$tahun)
             ->where('standar',$nomorStandar)
@@ -93,4 +93,17 @@ class borang extends Model
             ->groupBy('borang.id_histori', 'borang.jenis','borang.tahun', 'program_studi.nama_prodi')
             ->get();
     }
+
+        public static function updateStatus($jenisBorang,$nomorStandar,$kode,$tahun,$status) {
+      return DB::table('borang')
+            ->where('kode_prodi',$kode)
+            ->where('tahun',$tahun)
+            ->where('standar',$nomorStandar)
+            ->where('jenis',$jenisBorang)
+          ->update(['status' => $status]);
+    }
+
+     
+
+
 }

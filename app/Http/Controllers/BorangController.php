@@ -91,11 +91,8 @@ class BorangController extends Controller
 		
 		$evaluasiDiri = Borang::getBorang('ED',0,$kodeProdi,$tahun);
 		$isi = $evaluasiDiri[0]->isi;
+		$status = $evaluasiDiri[0]->is_reviewed;
 
-
-		$id_histori=1;
-		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
-		$status = $Qstatus[0]->status;
 
 		$role=$request->session()->get('role');
 		if ($role=='Tim Akreditasi') {
@@ -207,8 +204,7 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-		$Qstatus = Akreditasi::getAkreditasi($tahun,$kodeProdi);
-		$status = $Qstatus[0]->status;
+		
 		// dd($status);
 		//Lihat Komentar Borang
 		$idBorang = Borang::getIdBorang('3a',2, $kodeProdi, $tahun)[0]->id;
@@ -222,6 +218,7 @@ class BorangController extends Controller
 		//Lihat Borang standar json
 		$standar2_json = Borang::getBorang('3a',2,$kodeProdi,$tahun);
 		$isi = $standar2_json[0]->isi;
+		$status = $standar2_json[0]->is_reviewed;
 		$standar2 = json_decode(stripslashes($isi),true);
 
 			return view('view3a2',[
@@ -275,8 +272,6 @@ class BorangController extends Controller
 			$tahun = date('Y');
 		}
 
-		$Qstatus = Akreditasi::getAkreditasi($tahun,$kodeProdi);
-		$status = $Qstatus[0]->status;
 
 		//lihat komentar borang
 		$idBorang = Borang::getIdBorang('3a',4, $kodeProdi, $tahun)[0]->id;
@@ -288,6 +283,7 @@ class BorangController extends Controller
 		//poin 4.1,4.2,4.6.1
 		$standar4_json = Borang::getBorang('3a',4,$selectedProdi,$tahun);
 		$isi = $standar4_json[0]->isi;
+		$status = $standar4_json[0]->is_reviewed;
 		$standar4 = json_decode(stripslashes($isi),true);
 
 		//poin 4.3.1
@@ -508,8 +504,6 @@ class BorangController extends Controller
 			$tahun = date('Y');
 		}
 
-		$Qstatus = Akreditasi::getAkreditasi($tahun,$selectedProdi);
-		$status = $Qstatus[0]->status;
 		//lihat komentar borang
 		$idBorang = Borang::getIdBorang('3a',7, $kode_prodi, $tahun)[0]->id;
 		$komentar7_1 = Komentar::lihatKomentar($idBorang, '7-1');
@@ -519,6 +513,7 @@ class BorangController extends Controller
 		$prodiBorang = program_studi::getProdi($selectedProdi);
 		$standar7_json = Borang::getBorang('3a',7,$kodeFakultasPengguna,$tahun);
 		$isi = $standar7_json[0]->isi;
+		$status = $standar7_json[0] -> is_reviewed;
 		$standar7 = json_decode(stripslashes($isi),true);
 
 		$standar7_1_1_a = danaProyek::getDanaProyekBiayaSendiri($kode_prodi,$tahun);
@@ -734,9 +729,6 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-		$id_histori=1;
-		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
-		$status = $Qstatus[0]->status;
 
 		//Lihat Komentar Borang
 		$idBorang = Borang::getIdBorang('3b',2, $kodeFakultas, $tahun)[0]->id;
@@ -748,6 +740,7 @@ class BorangController extends Controller
 
 		$standar2_json = Borang::getBorang("3b",2,$kodeFakultasPengguna,$tahun);
 		$isi = $standar2_json[0]->isi;
+		$status = $standar2_json[0]->is_reviewed;
 		$standar2 = json_decode(stripslashes($isi),true);
 		// dd($isi);
 
@@ -798,12 +791,10 @@ class BorangController extends Controller
 			$tahun = date('Y');
 		}
 
-		$id_histori=1;
-		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
-		$status = $Qstatus[0]->status;
 
 		$standar4_json = Borang::getBorang('3b',4,$kodeFakultasPengguna,$tahun);
 		$isi = $standar4_json[0]->isi;
+		$status = $standar4_json[0]->is_reviewed;
 		$standar4 = json_decode(stripslashes($isi),true);
 
 		if ($request->get('selectFakultasGeneral')){

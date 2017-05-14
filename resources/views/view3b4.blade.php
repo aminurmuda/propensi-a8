@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
-        @if($status!=2 && $role!='Admin')
+        @if($status!=0 && $role!='Admin')
               <div class="alert alert-info">
                 Borang tidak dalam masa atau sudah habis masa pengisian
               </div>
@@ -234,7 +234,7 @@
                              </div>
 
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
-                            @if($status==2 || $role=='Admin')
+                            @if($status==0 || $role=='Admin')
                            <a href="{{ url('3b/standar4edit/4-1-3/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                            @else
                            <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
@@ -246,7 +246,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
-                            @if($status==4 || $role=='Admin')
+                            @if($status==1 || $role=='Admin')
                              <form action="{{url('3b/standar4/4-1/'.$kodeFakultasSelected.'/3b/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -400,7 +400,7 @@
                              </div>
                             
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
-                            @if($status==2 || $role=='Admin')
+                            @if($status==0 || $role=='Admin')
                             <a href="{{ url('3b/standar4edit/4-2/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @else
                             <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
@@ -412,7 +412,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
-                            @if($status==4 || $role=='Admin')
+                            @if($status==1 || $role=='Admin')
                              <form action="{{url('3b/standar4/4-2/'.$kodeFakultasSelected.'/3b/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">

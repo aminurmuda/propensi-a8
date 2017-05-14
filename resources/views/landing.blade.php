@@ -36,7 +36,7 @@
                   <img class="img-responsive center-block" src="{{ url('images/welcome.png') }}" alt="" >
                   
                   <div class="img-overlay">
-                 <button id="tombollogin" type="button" class=" btn btn-info btn-lg btn-responsive" onclick="window.location.href='{{ url('login') }}'" >Login With SSO</button>
+                 <button id="tombollogin" type="button" class=" btn btn-lg btn-responsive" onclick="window.location.href='{{ url('login') }}'" >Login With SSO</button>
              </div>
 
                  <!-- <img class="img-responsive center-block" id="kotaklogin" src="images/loginsso.png" alt="" >
