@@ -55,7 +55,7 @@ class Akreditasi extends Model
 
     public static function getIDAkreditasi($kodeProdi,$tahun) {
          return DB::table('histori_akreditasi')
-            ->where('kode_prodi', $kodeProdi)
+          ->where('kode_prodi', $kodeProdi)
           ->where('tahun_keluar', $tahun)
           ->select('id')
           ->first();

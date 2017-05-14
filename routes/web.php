@@ -167,6 +167,8 @@ Route::get('akreditasi/tambah/submit', 'AkreditasiController@tambahAkreditasi')-
 
 Route::get('riwayatakreditasi', 'AkreditasiController@lihatRiwayat')->name('riwayatakreditasi');
 
+Route::get('homestatus', 'AkreditasiController@lihatStatusBorang')->name('homestatus');
+
 
 });
 

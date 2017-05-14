@@ -75,6 +75,16 @@ class borang extends Model
                     ->insert(['kode_prodi'=> $kodeProdi, 'tahun' => $tahun, 'id_histori' => $idHistori,'jenis'=>$kodeBorang,'isi'=>$isi]);
     }
 
+
+    public static function getAllBorangByProdi($kode_prodi)
+    {
+        return DB::table('borang')
+            ->join('program_studi', 'borang.kode_prodi', '=', 'program_studi.kode_prodi')
+            ->select('borang.isi','borang.jenis','borang.standar', 'borang.tahun', 'program_studi.nama_prodi')
+            ->where('borang.kode_prodi',$kode_prodi)
+            ->get();
+    }
+
      
 
 }
