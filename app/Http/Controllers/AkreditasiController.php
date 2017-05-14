@@ -257,4 +257,8 @@ class AkreditasiController extends Controller
 
 	}
 
+	public function submitAkreditasi(Request $request,$idHistori,$newStatus) {
+		Akreditasi::updateStatus($idHistori,$newStatus);
+		return redirect()->back();
+	}
 }

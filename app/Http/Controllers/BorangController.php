@@ -16,6 +16,7 @@ use App\danaPengmas;
 use App\pengmas_dosen;
 use App\danaProyek;
 use App\Komentar;
+use App\Akreditasi;
 use DB;
 use App\Http\Requests;
 use Charts;
@@ -204,7 +205,9 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-
+		$Qstatus = Akreditasi::getAkreditasi($tahun,$kodeProdi);
+		$status = $Qstatus[0]->status;
+		// dd($status);
 		//Lihat Komentar Borang
 		$idBorang = Borang::getIdBorang('3a',2, $kodeProdi, $tahun)[0]->id;
 		$komentar2_1 = Komentar::lihatKomentar($idBorang, '2-1');
@@ -234,7 +237,8 @@ class BorangController extends Controller
 	            'komentar2_3' => $komentar2_3,
 	            'komentar2_4' => $komentar2_4,
 	            'komentar2_5' => $komentar2_5,
-	            'komentar2_6' => $komentar2_6
+	            'komentar2_6' => $komentar2_6,
+	            'status' => $status
 			]);
 	}
 
@@ -1600,4 +1604,6 @@ class BorangController extends Controller
 		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kodeProdi);
 
 	}
+
+	
 }

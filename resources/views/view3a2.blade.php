@@ -6,6 +6,11 @@
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
+            @if($status==2)
+              <div class="alert alert-info">
+                Borang tidak dalam masa atau sudah habis masa pengisian
+              </div>
+            @endif
             <h3>Borang 3A, Standar 2</h3>
             <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span><br>
             <span> Program Studi {{$prodiBorang->nama_prodi}} , Universitas Indonesia </span><br>
@@ -44,7 +49,12 @@
                                 {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
                             </div><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
+                              @if($status==2)
                               <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              @else
+                              lol
+                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil " disabled="true"> Edit</a>
+                              @endif
                             @endif
 
                             <br><br><h3>Komentar: </h3>
@@ -108,7 +118,11 @@
                                 {!!rawurldecode($standar2['standar2']['2.2']['isian'])!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
+                              @if($status==2)
                               <a href="{{ url('3a/standar2edit/2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              @else
+                              <a href="{{ url('3a/standar2edit/2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
+                              @endif
                             @endif
 
                             <br><br><h3>Komentar: </h3>
@@ -159,7 +173,11 @@
                                 {!!rawurldecode($standar2['standar2']['2.3']['isian'])!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
+                              @if($status==2)
                               <a href="{{ url('3a/standar2edit/2-3/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              @else
+                              <a href="{{ url('3a/standar2edit/2-3/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
+                              @endif
                             @endif
 
                             <br><br><h3>Komentar: </h3>
@@ -204,7 +222,11 @@
                                 {!!rawurldecode($standar2['standar2']['2.4']['isian'])!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
+                              @if($status==2)
                               <a href="{{ url('3a/standar2edit/2-4/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              @else
+                              <a href="{{ url('3a/standar2edit/2-4/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
+                              @endif
                             @endif
 
 
@@ -265,11 +287,19 @@
                                     <td>Dosen</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][0])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
+                                      @if($status==2)
                                       <a href="{{ url('3a/standar2edit/2-5/0/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      @else
+                                      <a href="{{ url('3a/standar2edit/2-5/0/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      @endif
                                     @endif</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][1])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
+                                      @if($status==2)
                                       <a href="{{ url('3a/standar2edit/2-5/1/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      @else
+                                      <a href="{{ url('3a/standar2edit/2-5/1/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      @endif
                                     @endif</td>
                                   </tr>
 
@@ -277,11 +307,19 @@
                                     <td>Mahasiswa</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][2])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
+                                      @if($status==2)
                                       <a href="{{ url('3a/standar2edit/2-5/2/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      @else
+                                      <a href="{{ url('3a/standar2edit/2-5/2/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      @endif
                                     @endif</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][3])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
+                                      @if($status==2)
                                       <a href="{{ url('3a/standar2edit/2-5/3/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      @else
+                                      <a href="{{ url('3a/standar2edit/2-5/3/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      @endif
                                     @endif</td>
                                   </tr>
                                   <tr>
@@ -289,11 +327,19 @@
                                     <td>Alumni</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][4])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
+                                      @if($status==2)
                                       <a href="{{ url('3a/standar2edit/2-5/4/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      @else
+                                      <a href="{{ url('3a/standar2edit/2-5/4/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      @endif
                                     @endif</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][5])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
+                                      @if($status==2)
                                       <a href="{{ url('3a/standar2edit/2-5/5/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      @else
+                                      <a href="{{ url('3a/standar2edit/2-5/5/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      @endif
                                     @endif</td>
                                   </tr>
                                   <tr>
@@ -301,11 +347,19 @@
                                     <td>Pengguna Lulusan</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][6])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
+                                      @if($status==2)
                                       <a href="{{ url('3a/standar2edit/2-5/6/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      @else 
+                                      <a href="{{ url('3a/standar2edit/2-5/6/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      @endif
                                     @endif</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][7])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
+                                      @if($status==2)
                                       <a href="{{ url('3a/standar2edit/2-5/7/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
+                                      @else
+                                      <a href="{{ url('3a/standar2edit/2-5/7/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      @endif
                                     @endif</td>
                                   </tr>
                                 
@@ -385,7 +439,11 @@
                                 {!!rawurldecode($standar2['standar2']['2.6']['isian'])!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
+                              @if($status==2)
                               <a href="{{ url('3a/standar2edit/2-6/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              @else
+                              <a href="{{ url('3a/standar2edit/2-6/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
+                              @endif
                             @endif
 
                             <br><br><h3>Komentar: </h3>
