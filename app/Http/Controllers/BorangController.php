@@ -1497,7 +1497,7 @@ class BorangController extends Controller
 			$tahun = date('Y');
 		}
 
-		$evaluasiDiri = Borang::getBorang('ED',null,$kodeProdi,$tahun);
+		$evaluasiDiri = Borang::getBorang('ED',0,$kodeProdi,$tahun);
 		$isi = $evaluasiDiri[0]->isi;
 		
 			return view('updateevaluasi',[
