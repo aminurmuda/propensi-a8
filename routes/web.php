@@ -157,6 +157,8 @@ Route::get('test', 'TestController@index')->name('#');
 Route::get('evaluasidiri/{kodeProdi}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{kodeProdi}');
 Route::get('evaluasidiri/edit/{kodeProdi}', 'BorangController@editEvaluasi')->name('evaluasidiri/edit/{kodeProdi}');
 Route::get('evaluasidiri/edit/{kode}/{jenisBorang}/submit', 'BorangController@submitevaluasi')->name('evaluasidiri/edit/{kodeProdi}/{jenisBorang}/submit');
+Route::get('evaluasidiri/standarED/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('evaluasidiri/standarED/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
+
 
 Route::get('tambahakreditasi', 'AkreditasiController@tambahAkreditasi')->name('tambahakreditasi');
 Route::get('akreditasi/tambah', 'AkreditasiController@formTambahAkreditasi')->name('akreditasi/tambah');
