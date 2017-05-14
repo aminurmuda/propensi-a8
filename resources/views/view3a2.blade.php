@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            @if($status==2)
+            @if($status!=2 && $role!='Admin')
               <div class="alert alert-info">
                 Borang tidak dalam masa atau sudah habis masa pengisian
               </div>
@@ -49,11 +49,10 @@
                                 {!!rawurldecode($standar2['standar2']['2.1']['isian'])!!}
                             </div><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
-                              @if($status==2)
+                              @if($status==2  ||$role=='Admin')
                               <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
-                              lol
-                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil " disabled="true"> Edit</a>
+                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
                             @endif
 
@@ -64,6 +63,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
+                              @if($status==4 ||$role=='Admin')
                              <form action="{{url('3a/standar2/2-1/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -73,6 +73,11 @@
                               </div>
                               <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
                               </form>
+                              @else
+                              <div class="alert alert-info">
+                                Borang bukan dalam masa review. Harap ganti status akreditasi terlebih dahulu.
+                              </div>
+                              @endif
                             </div>
                             @endif
                             <br><br><br>
@@ -144,10 +149,10 @@
                                 {!!rawurldecode($standar2['standar2']['2.2']['isian'])!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
-                              @if($status==2)
+                              @if($status==2 || $role=='Admin' )
                               <a href="{{ url('3a/standar2edit/2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
-                              <a href="{{ url('3a/standar2edit/2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
+                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
                               @endif
                             @endif
 
@@ -156,6 +161,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
+                            @if($status==4 ||$role=='Admin')
                              <form action="{{url('3a/standar2/2-2/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -165,6 +171,11 @@
                               </div>
                               <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
                               </form>
+                              @else 
+                              <div class="alert alert-info">
+                                Borang bukan dalam masa review. Harap ganti status akreditasi terlebih dahulu.
+                              </div>
+                              @endif
                             </div>
                             @endif
 
@@ -218,10 +229,10 @@
                                 {!!rawurldecode($standar2['standar2']['2.3']['isian'])!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
-                              @if($status==2)
+                              @if($status==2 || $role=='Admin')
                               <a href="{{ url('3a/standar2edit/2-3/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
-                              <a href="{{ url('3a/standar2edit/2-3/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
+                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
                               @endif
                             @endif
 
@@ -230,6 +241,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
+                            @if($status==4 || $role=='Admin')
                              <form action="{{url('3a/standar2/2-3/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -239,6 +251,11 @@
                               </div>
                               <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
                               </form>
+                              @else 
+                              <div class="alert alert-info">
+                                Borang bukan dalam masa review. Harap ganti status akreditasi terlebih dahulu.
+                              </div>
+                              @endif
                             </div>
                             @endif
 
@@ -288,10 +305,10 @@
                                 {!!rawurldecode($standar2['standar2']['2.4']['isian'])!!}
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
-                              @if($status==2)
+                              @if($status==2 || $role=='Admin')
                               <a href="{{ url('3a/standar2edit/2-4/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
-                              <a href="{{ url('3a/standar2edit/2-4/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
+                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
                               @endif
                             @endif
 
@@ -301,6 +318,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
+                            @if($status==4 || $role=='Admin')
                              <form action="{{url('3a/standar2/2-4/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -310,6 +328,11 @@
                               </div>
                               <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
                               </form>
+                              @else 
+                              <div class="alert alert-info">
+                                Borang bukan dalam masa review. Harap ganti status akreditasi terlebih dahulu.
+                              </div>
+                              @endif
                             </div>
                             @endif
 
@@ -373,7 +396,7 @@
                                     <td>Dosen</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][0])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==2)
+                                      @if($status==2 || $role=='Admin')
                                       <a href="{{ url('3a/standar2edit/2-5/0/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                       @else
                                       <a href="{{ url('3a/standar2edit/2-5/0/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
@@ -381,10 +404,10 @@
                                     @endif</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][1])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==2)
+                                      @if($status==2 || $role=='Admin')
                                       <a href="{{ url('3a/standar2edit/2-5/1/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                       @else
-                                      <a href="{{ url('3a/standar2edit/2-5/1/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
                                       @endif
                                     @endif</td>
                                   </tr>
@@ -393,18 +416,18 @@
                                     <td>Mahasiswa</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][2])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==2)
+                                      @if($status==2 || $role=='Admin')
                                       <a href="{{ url('3a/standar2edit/2-5/2/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                       @else
-                                      <a href="{{ url('3a/standar2edit/2-5/2/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
                                       @endif
                                     @endif</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][3])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==2)
+                                      @if($status==2 || $role=='Admin')
                                       <a href="{{ url('3a/standar2edit/2-5/3/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                       @else
-                                      <a href="{{ url('3a/standar2edit/2-5/3/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
                                       @endif
                                     @endif</td>
                                   </tr>
@@ -413,18 +436,18 @@
                                     <td>Alumni</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][4])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==2)
+                                      @if($status==2 || $role=='Admin')
                                       <a href="{{ url('3a/standar2edit/2-5/4/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                       @else
-                                      <a href="{{ url('3a/standar2edit/2-5/4/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
                                       @endif
                                     @endif</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][5])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==2)
+                                      @if($status==2 || $role=='Admin')
                                       <a href="{{ url('3a/standar2edit/2-5/5/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                       @else
-                                      <a href="{{ url('3a/standar2edit/2-5/5/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
                                       @endif
                                     @endif</td>
                                   </tr>
@@ -433,18 +456,18 @@
                                     <td>Pengguna Lulusan</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][6])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==2)
+                                      @if($status==2 || $role=='Admin')
                                       <a href="{{ url('3a/standar2edit/2-5/6/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                       @else 
-                                      <a href="{{ url('3a/standar2edit/2-5/6/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
                                       @endif
                                     @endif</td>
                                     <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][7])!!}
                                     @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==2)
+                                      @if($status==2 || $role=='Admin')
                                       <a href="{{ url('3a/standar2edit/2-5/7/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
                                       @else
-                                      <a href="{{ url('3a/standar2edit/2-5/7/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
+                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
                                       @endif
                                     @endif</td>
                                   </tr>
@@ -461,6 +484,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
+                            @if($status==4 || $role=='Admin')
                              <form action="{{url('3a/standar2/2-5/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -470,6 +494,8 @@
                               </div>
                               <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
                               </form>
+
+                              @endif
                             </div>
                             @endif
                             <!-- komentar -->
@@ -547,7 +573,7 @@
                               @if($status==2)
                               <a href="{{ url('3a/standar2edit/2-6/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
-                              <a href="{{ url('3a/standar2edit/2-6/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
+                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
                               @endif
                             @endif
 
@@ -556,6 +582,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
+                            @if($status==4||$role=='Admin')
                              <form action="{{url('3a/standar2/2-6/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -565,6 +592,11 @@
                               </div>
                               <button type="submit" class="btn-primary btn-lg pull-right">Kirim Komentar</button>
                               </form>
+                              @else
+                              <div class="alert alert-info">
+                                Borang bukan dalam masa review. Harap ganti status akreditasi terlebih dahulu.
+                              </div>
+                              @endif
                             </div>
                             @endif
 

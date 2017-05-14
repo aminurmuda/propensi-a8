@@ -92,7 +92,9 @@ class BorangController extends Controller
 		$evaluasiDiri = Borang::getBorang('ED',0,$kodeProdi,$tahun);
 		$isi = $evaluasiDiri[0]->isi;
 
-
+		$id_histori=1;
+		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
+		$status = $Qstatus[0]->status;
 
 		$role=$request->session()->get('role');
 		if ($role=='Tim Akreditasi') {
@@ -124,8 +126,8 @@ class BorangController extends Controller
 	            'kodeProdi' => $kodeProdi,
 	            'prodiBorang' => $prodiBorang,
 	            'tahun' => $tahun,
-	            'komentarED' => $komentarED
-
+	            'komentarED' => $komentarED,
+	            'status' => $status
 			]);
 	}
 
@@ -271,6 +273,9 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
+
+		$Qstatus = Akreditasi::getAkreditasi($tahun,$kodeProdi);
+		$status = $Qstatus[0]->status;
 
 		//lihat komentar borang
 		$idBorang = Borang::getIdBorang('3a',4, $kodeProdi, $tahun)[0]->id;
@@ -476,6 +481,7 @@ class BorangController extends Controller
 	            'komentar4_1' => $komentar4_1,
 	            'komentar4_2' => $komentar4_2,
 	            'komentar4_6' => $komentar4_6,
+	            'status' => $status
 			]);
 	}
 
@@ -501,6 +507,8 @@ class BorangController extends Controller
 			$tahun = date('Y');
 		}
 
+		$Qstatus = Akreditasi::getAkreditasi($tahun,$selectedProdi);
+		$status = $Qstatus[0]->status;
 		//lihat komentar borang
 		$idBorang = Borang::getIdBorang('3a',7, $kode_prodi, $tahun)[0]->id;
 		$komentar7_1 = Komentar::lihatKomentar($idBorang, '7-1');
@@ -703,7 +711,7 @@ class BorangController extends Controller
 	            'prodiBorang' => $prodiBorang,
 	            'komentar7_1' => $komentar7_1,
 	            'komentar7_2' => $komentar7_2,
-
+	            'status' => $status
 			]);
 	}
 
@@ -725,6 +733,9 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
+		$id_histori=1;
+		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
+		$status = $Qstatus[0]->status;
 
 		//Lihat Komentar Borang
 		$idBorang = Borang::getIdBorang('3b',2, $kodeFakultas, $tahun)[0]->id;
@@ -754,6 +765,7 @@ class BorangController extends Controller
 	            'komentar2_3' => $komentar2_3,
 	            'komentar2_4' => $komentar2_4,
 	            'komentar2_5' => $komentar2_5,
+	            'status' => $status
 			]);
 
 		
@@ -785,7 +797,9 @@ class BorangController extends Controller
 			$tahun = date('Y');
 		}
 
-		
+		$id_histori=1;
+		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
+		$status = $Qstatus[0]->status;
 
 		$standar4_json = Borang::getBorang('3b',4,$kodeFakultasPengguna,$tahun);
 		$isi = $standar4_json[0]->isi;
@@ -969,7 +983,8 @@ class BorangController extends Controller
 	            'totalPendidikanFakultas' => $totalPendidikanFakultas,
 	            'standar4' => $standar4,
 	            'komentar4_1' => $komentar4_1,
-	            'komentar4_2' => $komentar4_2
+	            'komentar4_2' => $komentar4_2,
+	            'status' => $status
  			]);
 
 	}
@@ -1004,6 +1019,8 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
+		$Qstatus = Akreditasi::getAkreditasi($tahun,$kodeProdi);
+		$status = $Qstatus[0]->status;
 
 		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
 		$isi = $standar7_json[0]->isi;
@@ -1024,6 +1041,9 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
+		$id_histori=1;
+		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
+		$status = $Qstatus[0]->status;
 
 		$tahun1 = $tahun-1;
 		$tahun2 = $tahun-2;
@@ -1127,7 +1147,8 @@ class BorangController extends Controller
             'kerjasamaLuarNegeri' => $kerjasamaLuarNegeri,
             'standar7' => $standar7,
             'komentar7_1' => $komentar7_1,
-            'komentar7_2' => $komentar7_2
+            'komentar7_2' => $komentar7_2,
+            'status' => status
 		]);
 	}
 

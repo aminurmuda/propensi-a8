@@ -120,7 +120,7 @@ class AkreditasiController extends Controller
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','7');
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',NULL);
 
-  			return 'tambah borang berhasil ye';
+  			return redirect()->back();
 		} else {
 		return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -257,7 +257,7 @@ class AkreditasiController extends Controller
 
 	}
 
-	public function submitAkreditasi(Request $request,$idHistori,$newStatus) {
+	public function submitStatusAkreditasi(Request $request,$idHistori,$newStatus) {
 		Akreditasi::updateStatus($idHistori,$newStatus);
 		return redirect()->back();
 	}
