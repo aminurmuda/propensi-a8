@@ -257,40 +257,40 @@ class AkreditasiController extends Controller
 
 	}
 
-	public function lihatStatusBorang(Request $request, $kodeProdi) {
+	public function lihatStatusBorang(Request $request) {
 		$username=$request->session()->get('user');
-		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$pegawai = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		
-		$getAllBorangByProdi = Borang::getAllBorangByProdi($kodeProdi);
+		$selectedProdi = 0;
+		$getBorang;
 
 
 		$role=$request->session()->get('role');
+
 		if ($role=='Tim Akreditasi') {
 			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
 			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
-		} else {
-		if ($kodeProdi){
-			$selectedProdi = $kodeProdi; 	
-			} else {
-				$selectedProdi=$kodeProdiPengguna;
-			}	
+			$getBorang = Borang::getAllBorangByProdi($selectedProdi);
+		} else if ($role=='Tim Reviewer') {
+			$selectedProdi = Pegawai::lihatProdiTimReviewer($username);
+			$getBorang = Borang::getAllBorangByProdi($selectedProdi);
+		} else if($role == 'Admin') {
+			$getBorang = Borang::getAllBorang();
 		}
-	
 
-			return view('statusborang',[
-				'role' => $role,
-	            'user' => $request->session()->get('user'),
-	            'pegawai' => $pimpinan,       
-	           // 'kodeFakultas' => $kodeFakultasPengguna,       
-	            'kode_fakultas' => $kodeFakultasPengguna,       
-	            'username' => $username,
-	            'kodeProdi' => $kodeProdi,
-	            'getAllBorangByProdi' => $getAllBorangByProdi
-	          //  'akreditasi' => $akreditasi
-	         
-			]);
+		
+
+
+		return view('statusborang',[
+			'role' => $role,
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pegawai,              
+            'kode_fakultas' => $kodeFakultasPengguna,       
+            'username' => $username,
+            'kodeProdi' => $selectedProdi,
+            'getBorang' => $getBorang
+		]);
 	}
 
 }

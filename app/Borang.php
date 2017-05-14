@@ -85,6 +85,14 @@ class borang extends Model
             ->get();
     }
 
+    public static function getAllBorang()
+    {
+        return DB::table('borang')
+            ->join('program_studi', 'borang.kode_prodi', '=', 'program_studi.kode_prodi')
+            ->select('borang.isi','borang.jenis','borang.standar', 'borang.tahun', 'program_studi.nama_prodi')
+            ->get();
+    }
+
      
 
 }

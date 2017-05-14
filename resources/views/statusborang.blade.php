@@ -35,7 +35,7 @@
                     <tbody>
                        
                         <tr>
-                            @foreach ($getAllBorangByProdi as $borang)
+                            @foreach ($getBorang as $borang)
                             <td> {{ $borang -> jenis}}</td>
                             <td>{{ $borang -> standar}}</td>
                             <td></td>

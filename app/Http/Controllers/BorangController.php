@@ -91,8 +91,6 @@ class BorangController extends Controller
 		$evaluasiDiri = Borang::getBorang('ED',0,$kodeProdi,$tahun);
 		$isi = $evaluasiDiri[0]->isi;
 
-
-
 		$role=$request->session()->get('role');
 		if ($role=='Tim Akreditasi') {
 			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
