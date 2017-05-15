@@ -71,7 +71,7 @@
                         </table>
                     </div> 
                     <div class="pricing-footer">
-                        <button class="btn btn-success col-md-offset-4" type="submit">Update</button>
+                        <button class="btn btn-success col-md-offset-4" type="submit">Update</button><br>
                     </div>
                 </form>
             </div>
