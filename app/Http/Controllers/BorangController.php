@@ -1011,8 +1011,6 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-		$Qstatus = Akreditasi::getAkreditasi($tahun,$kodeProdi);
-		$status = $Qstatus[0]->status;
 
 		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
 		$isi = $standar7_json[0]->isi;
@@ -1033,6 +1031,7 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
+
 		$id_histori=1;
 		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
 		$status = $Qstatus[0]->status;
@@ -1140,7 +1139,7 @@ class BorangController extends Controller
             'standar7' => $standar7,
             'komentar7_1' => $komentar7_1,
             'komentar7_2' => $komentar7_2,
-            'status' => status
+            'status' => $status
 		]);
 	}
 
@@ -1635,6 +1634,57 @@ class BorangController extends Controller
 		}
 
 		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kodeProdi);
+
+	}
+
+	public function submitBorangtoReviewer (Request $request, $idHistori,$jenisBorang,$kode) {
+		$username=$request->session()->get('user');
+		$pegawai = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($username);
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	
+
+		//is reviewed 3a 2 4 7 jadi is reviewed
+		Borang::updateStatus($idHistori,$jenisBorang,1);
+
+		return redirect('homestatus');
+
+	}
+
+	public function submitBorangtoBPMA (Request $request, $idHistori,$jenisBorang,$kode) {
+		$username=$request->session()->get('user');
+		$pegawai = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($username);
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	
+		Borang::updateStatus($idHistori,$jenisBorang,3);
+		//cek se id historinya, kalo is reviewed semua 1 berarti ganti status akreditasinya
+		$allBorang = Borang::getAllBorangByIdHistori($idHistori);
+		$isAllReviewed=true;
+		foreach ($allBorang as $borang) {
+			if($borang->id_histori!=1) {
+				$isAllReviewed = false;
+				break;
+			}
+		}
+
+		if ($isAllReviewed) {
+			Akreditasi::updateStatus($idHistori,3);
+		}
+
+
+		return redirect('homestatus');
+
+	}
+
+	public function returntoTimAkreditasi (Request $request, $idHistori,$jenisBorang,$kode) {
+		$username=$request->session()->get('user');
+		$pegawai = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($username);
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	
+
+		//is reviewed 3a 2 4 7 jadi is reviewed
+		Borang::updateStatus($idHistori,$jenisBorang,0);
+
+		return redirect('homestatus');
 
 	}
 

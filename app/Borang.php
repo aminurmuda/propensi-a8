@@ -95,15 +95,22 @@ class borang extends Model
             ->get();
     }
 
-        public static function updateStatus($jenisBorang,$nomorStandar,$kode,$tahun,$status) {
+        public static function updateStatus($idHistori,$jenisBorang,$status) {
       return DB::table('borang')
-            ->where('kode_prodi',$kode)
-            ->where('tahun',$tahun)
-            ->where('standar',$nomorStandar)
+            ->where('id_histori',$idHistori)
             ->where('jenis',$jenisBorang)
-          ->update(['status' => $status]);
+          ->update(['is_reviewed' => $status]);
     }
 
+    public static function getAllBorangByIdHistori($idHistori)
+    {
+        return DB::table('borang')
+            ->join('program_studi', 'borang.kode_prodi', '=', 'program_studi.kode_prodi')
+            ->select('borang.id_histori', 'borang.jenis', 'borang.tahun', 'program_studi.kode_prodi','program_studi.nama_prodi','borang.is_reviewed as status')
+            ->where('borang.id_histori',$idHistori)
+            ->groupBy('borang.id_histori', 'borang.jenis','borang.tahun', 'program_studi.kode_prodi','program_studi.nama_prodi','borang.is_reviewed')
+            ->get();
+    }
      
 
 

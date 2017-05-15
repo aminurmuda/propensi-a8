@@ -27,7 +27,7 @@ class AkreditasiController extends Controller
 	 * @param string $username username pegawai yang ingin diberikan akses
 	 * @return view halaman notifikasi bahwa user telah ditambahkan sebagai tim akreditasi
 	 */
-	public function editAkreditasi($tahun, $kodeProdi, Request $request) {
+	public function editAkreditasi($idHistori, Request $request) {
 		//munculin detail akreditasi : kode prodi, nama prodi, nama univ, nilai akreditasi, huruf akreditasi
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna= $QKodeFakultasPengguna[0]->kode_fakultas;
@@ -36,7 +36,9 @@ class AkreditasiController extends Controller
 
   		//validasi role. yang bisa edit akreditasi : BPMA
   		if ($role=='BPMA' || $role=='Admin') {
-  			$QAkreditasiProdi = Akreditasi::getAkreditasi($tahun,$kodeProdi);
+  			$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
+  			$kodeProdi = $QAkreditasiProdi[0]->id;
+  			$tahun = $QAkreditasiProdi[0]->tahun_keluar;
 		return view('updateakreditasi', [
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kodeFakultasPengguna,

@@ -23,7 +23,7 @@
                             Borang Akreditasi yang diisi oleh program studi
                         </p><br><br><br>
 
-                        <a href="{{ url('pilihborang/3a') }}" class="btn db-button-color-square btn-m round">Pilih</a>
+                        <a href="{{ url('3A/') }}" class="btn db-button-color-square btn-m round">Pilih</a>
                         <!-- @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi')
                                 <a href="{{ url('3a/standar2/'.$selectedProdi) }}" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>
                                 <a href="{{ url('3a/standar4/'.$selectedProdi) }}" class="btn db-button-color-square btn-m round">Standar 4</a><br><br>

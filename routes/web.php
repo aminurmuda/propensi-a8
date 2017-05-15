@@ -67,7 +67,7 @@ Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a
 Route::get('3a/standar4edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar4edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit'); //pimpinan 
 Route::get('3a/standar4/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar4/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
 
-Route::get('3b/standar2edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3b2')->name('3b/standar2edit/{kodeStandar}/{kodeProdi}'); 
+Route::get('3b/standar2edit/{kodeStandar}/{kodeFakultas}', 'BorangController@edit3b2')->name('3b/standar2edit/{kodeStandar}/{kodeFakultas}'); 
 
 Route::get('3b/standar2edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3b/standar2edit/{kodeStandar}/{kodeFakultas}/{jenisBorang}/submit');
 
@@ -166,15 +166,21 @@ Route::get('akreditasi/tambah', 'AkreditasiController@formTambahAkreditasi')->na
 Route::get('akreditasi/tambah/submit', 'AkreditasiController@tambahAkreditasi')->name('akreditasi/tambah/submit');
 
 
-Route::get('riwayatakreditasi', 'AkreditasiController@lihatRiwayat')->name('riwayatakreditasi');
+Route::get('akreditasi/riwayat', 'AkreditasiController@lihatRiwayat')->name('riwayatakreditasi');
 
 
-Route::get('borang/{idHistori}/{newStatus}/submit', 'AkreditasiController@submitAkreditasi')->name('borang/{idHistori}/{newStatus}/submit'); //submit borang dari tim akreditasi ke reviewer
+Route::get('akreditasi/{idHistori}/{newStatus}/submit', 'AkreditasiController@submitStatusAkreditasi')->name('akreditasi/{idHistori}/{newStatus}/submit'); //submit borang dari tim akreditasi ke reviewer
 
 Route::get('homestatus', 'AkreditasiController@lihatStatusBorang')->name('homestatus');
-Route::get('borang/{idHistori}/{newStatus}/submit', 'AkreditasiController@submitAkreditasi')->name('borang/{idHistori}/{newStatus}/submit');
-Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/publish', 'AkreditasiController@submitBorang')->name('borang/{idHistori}/{jenisBorang}/{kodeProdi}/publish');
 
+
+Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/publish', 'BorangController@submitBorangtoReviewer')->name('borang/{idHistori}/{jenisBorang}/{kodeProdi}/publish');
+
+Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/submit', 'BorangController@submitBorangtoBPMA')->name('borang/{idHistori}/{jenisBorang}/{kodeProdi}/submit');
+
+Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/return', 'BorangController@returntoTimAkreditasi')->name('borang/{idHistori}/{jenisBorang}/{kodeProdi}/return');
+
+Route::get('akreditasi/{idHistori}/edit', 'AkreditasiController@editAkreditasi')->name('akreditasi/{idHistori}/edit');
 });
 
 

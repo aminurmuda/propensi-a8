@@ -44,13 +44,43 @@
                             @endif
                             <td>{{ $borang -> tahun}}</td>
                             <td>{{ $borang -> nama_prodi}}</td>
-                            @if ($borang -> status==1)
-                            <td>Sedang direview</td>
-                            @else
-                            <td>Belum direview</td>
+                            @if ($borang -> status==0)
+                              <td>Belum direview</td>
+                              @else
+                              @if($borang -> status==1)
+                                <td>Telah direview</td>
+                                @else 
+                                <td>Telah dikirim ke BPMA</td>
+                              @endif
                             @endif
                            
-                            <td> <center><a href="{{ url($borang->jenis.'/'.$borang->kode_prodi) }}" class="btn-primary btn-sm"> Edit</a> <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/publish') }}" class="btn-primary btn-sm"> Publish</a></center></td>
+                            <td> <center>
+                            @if($role=='Tim Akreditasi' || $role=='Admin')
+                            @if($borang->status==0) 
+                            <a href="{{ url($borang->jenis.'/'.$borang->kode_prodi) }}" class="btn-primary btn-sm"> Edit</a>
+                            @else
+                            <a href="#" class="btn-primary btn-sm"> Edit</a>
+                            @endif
+                             <!-- tim akreditasi ke reviewer -->
+                            <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/publish') }}" class="btn-primary btn-sm"> Publish</a>  
+
+                            @endif
+                            @if($role=='Tim Reviewer' || $role=='Admin')
+                            <!-- reviewer ke BPMA -->
+                            <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/submit') }}" class="btn-primary btn-sm"> Submit</a>
+
+                            <!-- reviewer borang -->
+                            @if($borang->status==1) 
+                            <a href="{{ url($borang->jenis.'/'.$borang->kode_prodi) }}" class="btn-primary btn-sm"> Review</a>
+                            @else
+                            <a href="#" class="btn-primary btn-sm"> Review</a>
+                            @endif
+
+                            <!-- reviewer ke tim akreditasi -->
+                            <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/return') }}" class="btn-primary btn-sm"> Return</a>
+                            @endif
+                            </center>
+                            </td>
                   
                         </tr>
                         @endforeach
