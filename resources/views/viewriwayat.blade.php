@@ -63,8 +63,20 @@
                             <td>{{ $dataAkreditasi -> peringkat_akreditasi}}</td>
                             <td> {{ $dataAkreditasi -> keterangan}}</td>
                             <td> {{ $dataAkreditasi -> masa_berlaku}}</td>
+                            @if( $dataAkreditasi -> nama_status!='Kadaluwarsa')
                             <td> {{ $dataAkreditasi -> nama_status}}</td>
-                            <td> <center><button class="btn glyphicon glyphicon-pencil" onclick=''>Details</button></center></td>
+                            @else
+                            <td style="color:red;"> {{ $dataAkreditasi -> nama_status}}</td>
+                            @endif
+                            <td> 
+                              <center>
+                              <button class="btn glyphicon glyphicon-pencil" onclick=''>Details</button>
+                              @if($role=='BPMA' || $role=='Admin')
+                              <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-lg glyphicon glyphicon-pencil"> Ases</a>
+                              <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-lg glyphicon glyphicon-pencil"> Edit</a>
+                              @endif
+                              </center>
+                            </td>
                             
                            
                            
