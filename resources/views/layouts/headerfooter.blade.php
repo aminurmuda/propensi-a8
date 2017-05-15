@@ -134,24 +134,24 @@
                                         
                                                 @if($role!='Tim Akreditasi' && $role!='Tim Reviewer')
                                                 <!-- bisa pilih fakultas dan pilih prodi -->
-                                                    <li><a href="{{ url('3a') }}">Borang 3A</a></li>
+                                                    <li><a href="{{ url('3A') }}">Borang 3A</a></li>
                                                     @if($role!='UPMAF' && $role!='Pimpinan Fakultas')
                                                         <!-- perlu pilih fakultas -->
-                                                        <li><a href="{{ url('3b') }}">Borang 3B</a></li>
+                                                        <li><a href="{{ url('3B') }}">Borang 3B</a></li>
                                                     @else
-                                                        <li><a href="{{ url('3b/'.$kode_fakultas) }}">Borang 3B</a></li>
+                                                        <li><a href="{{ url('3B/'.$kode_fakultas) }}">Borang 3B</a></li>
                                                     @endif
 
                                                     <li><a href="{{ url('evaluasidiri') }}">Evaluasi Diri</a></li>
                                                 @else 
-                                                    <li><a href="{{ url('3a/'.$kodeProdi) }}">Borang 3A</a></li>
-                                                    <li><a href="{{ url('3b/'.$kode_fakultas) }}">Borang 3B</a></li>
+                                                    <li><a href="{{ url('3A/'.$kodeProdi) }}">Borang 3A</a></li>
+                                                    <li><a href="{{ url('3B/'.$kode_fakultas) }}">Borang 3B</a></li>
                                                     <li><a href="{{ url('evaluasidiri/'.$kodeProdi) }}">Evaluasi Diri</a></li>
                                                 @endif
                                     
                                     </ul>
                                 </li>
-                                <li><a href="#">Riwayat Akreditasi</a></li>
+                                <li><a href="akreditasi/riwayat">Riwayat Akreditasi</a></li>
                                  @if($role=='Admin')
                                     <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
