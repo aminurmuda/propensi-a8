@@ -1011,8 +1011,6 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-		$Qstatus = Akreditasi::getAkreditasi($tahun,$kodeProdi);
-		$status = $Qstatus[0]->status;
 
 		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
 		$isi = $standar7_json[0]->isi;
@@ -1033,6 +1031,7 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
+
 		$id_histori=1;
 		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
 		$status = $Qstatus[0]->status;
@@ -1140,7 +1139,7 @@ class BorangController extends Controller
             'standar7' => $standar7,
             'komentar7_1' => $komentar7_1,
             'komentar7_2' => $komentar7_2,
-            'status' => status
+            'status' => $status
 		]);
 	}
 
