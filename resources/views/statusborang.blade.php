@@ -44,9 +44,13 @@
                             @endif
                             <td>{{ $borang -> tahun}}</td>
                             <td>{{ $borang -> nama_prodi}}</td>
-                            <td></td>
+                            @if ($borang -> status==1)
+                            <td>Sedang direview</td>
+                            @else
+                            <td>Belum direview</td>
+                            @endif
                            
-                            <td> <center><button class="btn" onclick=''>Edit</button><button class="btn" onclick=''>Publish</button></center></td>
+                            <td> <center><a href="{{ url($borang->jenis.'/'.$borang->kode_prodi) }}" class="btn-primary btn-sm"> Edit</a> <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/publish') }}" class="btn-primary btn-sm"> Publish</a></center></td>
                   
                         </tr>
                         @endforeach

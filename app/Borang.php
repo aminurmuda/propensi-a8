@@ -80,8 +80,9 @@ class borang extends Model
     {
         return DB::table('borang')
             ->join('program_studi', 'borang.kode_prodi', '=', 'program_studi.kode_prodi')
-            ->select('borang.isi','borang.jenis','borang.standar', 'borang.tahun', 'program_studi.nama_prodi')
+            ->select('borang.id_histori','borang.isi','borang.jenis','borang.standar', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.is_reviewed as status')
             ->where('borang.kode_prodi',$kode_prodi)
+            ->groupBy('borang.id_histori','borang.isi','borang.jenis','borang.standar', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.is_reviewed')
             ->get();
     }
 
@@ -89,8 +90,8 @@ class borang extends Model
     {
         return DB::table('borang')
             ->join('program_studi', 'borang.kode_prodi', '=', 'program_studi.kode_prodi')
-            ->select('borang.id_histori', 'borang.jenis', 'borang.tahun', 'program_studi.nama_prodi')
-            ->groupBy('borang.id_histori', 'borang.jenis','borang.tahun', 'program_studi.nama_prodi')
+            ->select('borang.id_histori', 'borang.jenis', 'borang.tahun', 'program_studi.kode_prodi','program_studi.nama_prodi','borang.is_reviewed as status')
+            ->groupBy('borang.id_histori', 'borang.jenis','borang.tahun', 'program_studi.kode_prodi','program_studi.nama_prodi','borang.is_reviewed')
             ->get();
     }
 

@@ -136,19 +136,19 @@ Route::get('akreditasi/lihat/{tahun}/{kodeProdi}', 'AkreditasiController@lihatAk
 Route::get('akreditasi/edit/{tahun}/{kodeProdi}', 'AkreditasiController@editAkreditasi')->name('akreditasi/edit/{kodeProdi}');
 Route::get('akreditasi/edit/{tahun}/{kodeProdi}/submit', 'AkreditasiController@submitAkreditasi')->name('akreditasi/{tahun}/{kodeProdi}/submit');
 
-Route::get('3a', 'BorangController@pilihProdi')->name('3a');
-Route::post('3a/{kodeProdi}', 'BorangController@pilihBorang3A')->name('3a/{kodeProdi}');
-Route::get('3a/{kodeProdi}', 'BorangController@pilihBorang3A')->name('3a/{kodeProdi}');
-Route::get('3a/{kodeProdi}/standar2', 'BorangController@lihat3a2')->name('3a/{kodeProdi}/standar2');
-Route::get('3a/{kodeProdi}/standar4', 'BorangController@lihat3a4')->name('3a/{kodeProdi}/standar4');
-Route::get('3a/{kodeProdi}/standar7', 'BorangController@lihat3a7')->name('3a/{kodeProdi}/standar7');
+Route::get('3A', 'BorangController@pilihProdi')->name('3A');
+Route::post('3A/{kodeProdi}', 'BorangController@pilihBorang3a')->name('3A/{kodeProdi}');
+Route::get('3A/{kodeProdi}', 'BorangController@pilihBorang3a')->name('3A/{kodeProdi}');
+Route::get('3A/{kodeProdi}/standar2', 'BorangController@lihat3a2')->name('3A/{kodeProdi}/standar2');
+Route::get('3A/{kodeProdi}/standar4', 'BorangController@lihat3a4')->name('3A/{kodeProdi}/standar4');
+Route::get('3A/{kodeProdi}/standar7', 'BorangController@lihat3a7')->name('3A/{kodeProdi}/standar7');
 
-Route::get('3b', 'BorangController@pilihFakultasGeneral')->name('3b');
-Route::post('3b/{kodeFakultas}', 'BorangController@pilihBorang3B')->name('3b/{kodeFakultas}');
-Route::get('3b/{kodeFakultas}', 'BorangController@pilihBorang3B')->name('3b/{kodeFakultas}');
-Route::get('3b/{kodeFakultas}/standar2', 'BorangController@lihat3b2')->name('3b/{kodeFakultas}/standar2');
-Route::get('3b/{kodeFakultas}/standar4', 'BorangController@lihat3b4')->name('3b/{kodeFakultas}/standar4');
-Route::get('3b/{kodeFakultas}/standar7', 'BorangController@lihat3b7')->name('3b/{kodeFakultas}/standar7');
+Route::get('3B', 'BorangController@pilihFakultasGeneral')->name('3B');
+Route::post('3B/{kodeFakultas}', 'BorangController@pilihBorang3b')->name('3B/{kodeFakultas}');
+Route::get('3B/{kodeFakultas}', 'BorangController@pilihBorang3b')->name('3B/{kodeFakultas}');
+Route::get('3B/{kodeFakultas}/standar2', 'BorangController@lihat3b2')->name('3B/{kodeFakultas}/standar2');
+Route::get('3B/{kodeFakultas}/standar4', 'BorangController@lihat3b4')->name('3B/{kodeFakultas}/standar4');
+Route::get('3B/{kodeFakultas}/standar7', 'BorangController@lihat3b7')->name('3B/{kodeFakultas}/standar7');
 
 
 Route::get('test', 'TestController@index')->name('#');
@@ -172,7 +172,8 @@ Route::get('riwayatakreditasi', 'AkreditasiController@lihatRiwayat')->name('riwa
 Route::get('borang/{idHistori}/{newStatus}/submit', 'AkreditasiController@submitAkreditasi')->name('borang/{idHistori}/{newStatus}/submit'); //submit borang dari tim akreditasi ke reviewer
 
 Route::get('homestatus', 'AkreditasiController@lihatStatusBorang')->name('homestatus');
-
+Route::get('borang/{idHistori}/{newStatus}/submit', 'AkreditasiController@submitAkreditasi')->name('borang/{idHistori}/{newStatus}/submit');
+Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/publish', 'AkreditasiController@submitBorang')->name('borang/{idHistori}/{jenisBorang}/{kodeProdi}/publish');
 
 });
 
