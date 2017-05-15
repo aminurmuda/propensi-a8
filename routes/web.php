@@ -173,8 +173,11 @@ Route::get('borang/{idHistori}/{newStatus}/submit', 'AkreditasiController@submit
 
 Route::get('homestatus', 'AkreditasiController@lihatStatusBorang')->name('homestatus');
 Route::get('borang/{idHistori}/{newStatus}/submit', 'AkreditasiController@submitAkreditasi')->name('borang/{idHistori}/{newStatus}/submit');
-Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/publish', 'AkreditasiController@submitBorang')->name('borang/{idHistori}/{jenisBorang}/{kodeProdi}/publish');
+Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/publish', 'BorangController@submitBorangtoReviewer')->name('borang/{idHistori}/{jenisBorang}/{kodeProdi}/publish');
 
+Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/submit', 'BorangController@submitBorangtoBPMA')->name('borang/{idHistori}/{jenisBorang}/{kodeProdi}/submit');
+
+Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/return', 'BorangController@returntoTimAkreditasi')->name('borang/{idHistori}/{jenisBorang}/{kodeProdi}/return');
 });
 
 
