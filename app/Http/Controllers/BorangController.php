@@ -1011,8 +1011,6 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-		$Qstatus = Akreditasi::getAkreditasi($tahun,$kodeProdi);
-		$status = $Qstatus[0]->status;
 
 		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
 		$isi = $standar7_json[0]->isi;

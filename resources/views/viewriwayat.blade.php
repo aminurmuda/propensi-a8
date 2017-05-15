@@ -63,7 +63,11 @@
                             <td>{{ $dataAkreditasi -> peringkat_akreditasi}}</td>
                             <td> {{ $dataAkreditasi -> keterangan}}</td>
                             <td> {{ $dataAkreditasi -> masa_berlaku}}</td>
+                            @if( $dataAkreditasi -> nama_status!='Kadaluwarsa')
                             <td> {{ $dataAkreditasi -> nama_status}}</td>
+                            @else
+                            <td style="color:red;"> {{ $dataAkreditasi -> nama_status}}</td>
+                            @endif
                             <td> 
                               <center>
                               <button class="btn glyphicon glyphicon-pencil" onclick=''>Details</button>

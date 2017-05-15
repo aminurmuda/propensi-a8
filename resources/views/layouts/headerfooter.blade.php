@@ -151,7 +151,7 @@
                                     
                                     </ul>
                                 </li>
-                                <li><a href="akreditasi/riwayat">Riwayat Akreditasi</a></li>
+                                <li><a href="{{url('akreditasi/riwayat')}}">Riwayat Akreditasi</a></li>
                                  @if($role=='Admin')
                                     <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
