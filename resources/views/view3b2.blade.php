@@ -50,7 +50,7 @@
 
                             @if($role=='Admin' || $role=='Tim Akreditasi')
                             @if($status==0 || $role=='Admin')
-                            <a href="{{ url('3b/standar2edit/2-1/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                            <a href="{{ url('3b/standar2edit/2-1/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @else
                             <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
@@ -62,7 +62,7 @@
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
                             @if($status==4 || $role=='Admin')
-                             <form action="{{url('3b/standar2/2-1/'.$kodeFakultas.'/3b/submitkomentar')}}">
+                             <form action="{{url('3b/standar2/2-1/'.$kode_fakultas.'/3b/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
                                 <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
@@ -132,7 +132,7 @@
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                                @if($status==0 || $role=='Admin')
-                              <a href="{{ url('3b/standar2edit/2-2/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3b/standar2edit/2-2/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
                               <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
@@ -144,7 +144,7 @@
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
                             @if($status==1 || $role=='Admin')
-                             <form action="{{url('3b/standar2/2-2/'.$kodeFakultas.'/3b/submitkomentar')}}">
+                             <form action="{{url('3b/standar2/2-2/'.$kode_fakultas.'/3b/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
                                 <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
@@ -219,7 +219,7 @@
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                                @if($status==0 || $role == 'Admin')
-                              <a href="{{ url('3b/standar2edit/2-3/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3b/standar2edit/2-3/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
                               <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
@@ -231,7 +231,7 @@
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
                             @if($status==4 || $role=='Admin')
-                             <form action="{{url('3b/standar2/2-3/'.$kodeFakultas.'/3b/submitkomentar')}}">
+                             <form action="{{url('3b/standar2/2-3/'.$kode_fakultas.'/3b/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
                                 <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
@@ -303,7 +303,7 @@
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                                @if($status==0 || $role=='Admin')
-                              <a href="{{ url('3b/standar2edit/2-4/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3b/standar2edit/2-4/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
                               <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
@@ -315,7 +315,7 @@
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
                             @if($status==4 || $role=='Admin')
-                             <form action="{{url('3b/standar2/2-4/'.$kodeFakultas.'/3b/submitkomentar')}}">
+                             <form action="{{url('3b/standar2/2-4/'.$kode_fakultas.'/3b/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
                                 <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
@@ -388,7 +388,7 @@
 
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                                @if($status==0 || $role=='Admin')
-                              <a href="{{ url('3b/standar2edit/2-5/'. $kodeFakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3b/standar2edit/2-5/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
                               <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
@@ -400,7 +400,7 @@
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
                             @if($status==4 || $role=='Admin')
-                             <form action="{{url('3b/standar2/2-5/'.$kodeFakultas.'/3b/submitkomentar')}}">
+                             <form action="{{url('3b/standar2/2-5/'.$kode_fakultas.'/3b/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
                                 <textarea class="form-control" id='isi-komentar' name='isi-komentar'>

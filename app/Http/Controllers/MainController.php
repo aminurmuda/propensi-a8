@@ -89,41 +89,18 @@ class MainController extends Controller
 				$timAkreditasi = Pegawai::getTimAkreditasi($username);		
 				$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
 				$request->session()->put('role', 'Tim Akreditasi');
-				return view ('home', [
-					'user' => $username,
-					'role' => 'Tim Akreditasi',
-					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas,
-					'selectedProdi' => $selectedProdi,
-					'kode_prodi' => $selectedProdi,
-					'kodeProdi' => $selectedProdi
-					]
-					);
+				return redirect()->route('homestatus');
 			} elseif($userIsAdmin) { //admin
 				$request->session()->put('role', 'Admin');;
-				return view ('home', [
-					'user' => $username,
-					'role' => 'Admin',
-					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
-					]
-					);
+				return redirect()->route('homestatus');
 			} elseif($userIsReviewerProdi) { //reviewer prodi
 				$request->session()->put('role', 'Tim Reviewer');;
 
-				return view ('home', [
-					'user' => $username,
-					'role' => 'Reviewer Prodi',
-					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
-					]
-					);
+				return redirect()->route('homestatus');
 			} elseif($userIsReviewerUniv) { //reviewer univ
 				$request->session()->put('role', 'Reviewer Universitas');;
 
-				return view ('home', [
-					'user' => $username,
-					'role' => 'Reviewer Universitas',
-					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
-					]
-					);
+				return redirect()->route('homestatus');
 			} else { //UPMAF
 				$request->session()->put('role', 'UPMAF');;
 

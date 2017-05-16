@@ -747,8 +747,7 @@ class BorangController extends Controller
 			return view('view3b2',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
-	            'pegawai' => $pimpinan,      
-	            'kodeFakultas' => $kodeFakultasPengguna,
+	            'pegawai' => $pimpinan,     
 	            'kode_fakultas' => $kodeFakultasPengguna,
 	            'username' => $username,
 	            'standar2' => $standar2,
@@ -1032,10 +1031,6 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-		// $id_histori=1;
-		// $Qstatus = Akreditasi::getAkreditasiById($id_histori);
-		// $status = $Qstatus[0]->status;
-
 		$tahun1 = $tahun-1;
 		$tahun2 = $tahun-2;
 
@@ -1303,7 +1298,7 @@ class BorangController extends Controller
 			]);
 	}
 
-	public function edit3b2(Request $request,$kodeStandar,$kodeProdi) {
+	public function edit3b2(Request $request, $kodeStandar, $kodeFakultas) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -1332,7 +1327,7 @@ class BorangController extends Controller
 			$tahun = date('Y');
 		}
 		
-		$standar2_json = Borang::getBorang('3b',2,$kodeProdi,$tahun);
+		$standar2_json = Borang::getBorang('3b',2,$kodeFakultas,$tahun);
 		$isi = $standar2_json[0]->isi;
 		$standar2 = json_decode(stripslashes($isi),true);
 
@@ -1346,7 +1341,7 @@ class BorangController extends Controller
 	            'kodeStandar' => $kodeStandar,
 	            'standar2' => $standar2,
 	            'kodeStandarStr' => $kodeStandarStr,
-	            'kodeProdi' => $kodeProdi
+	            'kodeFakultas' => $kodeFakultas
 			]);
 	}
 

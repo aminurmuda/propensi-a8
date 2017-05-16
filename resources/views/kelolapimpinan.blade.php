@@ -39,8 +39,8 @@
                       
                     </form>
                     <br><br>
-                    <div id="titledaftar"> 
-                         <h2>Daftar Pimpinan</h2>
+                    <div id="titledaftar" > 
+                         <center><h2>Daftar Pimpinan</h2></center>
                      </div>
                      <br>
                  </div>
@@ -49,7 +49,7 @@
 
 
                  <!-- <img class="img-responsive center-block" id="kotakbiru" src="images/kotakdaftarpengguna.png" alt="" > -->
-                 
+                
                  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 
                     <thead>

@@ -18,11 +18,11 @@
             <?php
              Session::forget('success');
             ?>
-            <h1>Update Borang 3B Standar {{$kodeStandarStr}}</h1><br>
+            <h1>Update Borang 3B Standar {{$kodeStandarStr}}</h1><a href="{{ url('3B/'.$kodeFakultas.'/standar2') }}" class="btn-primary btn-lg pull-right">Kembali</a><br><br><br>
             
             <p>{{$standar2['standar2'][$kodeStandarStr]['perintah'] }}</p><br>
             
-                          <form action="{{url('3b/standar2edit/'.$kodeStandar.'/'.$kodeProdi.'/3b/submit')}}">
+                          <form action="{{url('3b/standar2edit/'.$kodeStandar.'/'.$kodeFakultas.'/3b/submit')}}">
                           {{csrf_field()}}
                           <div class="form-group">
                             <textarea class="form-control" id='textarea' name='textarea'>
