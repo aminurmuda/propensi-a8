@@ -140,6 +140,7 @@ class AkreditasiController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
 		$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
+		$listProdi;
 	
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
 
@@ -148,6 +149,25 @@ class AkreditasiController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
+
+		if ($request->get('selectFakultasGeneral')){
+			$selectedFakultas = $request->get('selectFakultasGeneral');
+			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
+			$jumlahProdi = count($listProdi); //menghitung jumlah prodi
+		} else {
+			$selectedFakultas = $kodeFakultasPengguna;
+			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
+			$jumlahProdi = count($listProdi); //menghtiung jumlah prodi
+		}
+
+		// $array_akreditasi = array();
+		// foreach ($getAllAkreditasi as $getAllAkreditasi) {
+		// 	$prodi = $getAllAkreditasi -> nama_prodi;
+		// 	$tahun_akreditasi = $getAllAkreditasi -> tahun_keluar;
+		// 	//get nilai
+		// 	//masukkin ke array
+		// }
+
 		
 		$chart1 = Charts::multi('line', 'chartjs')
             // Setup the chart settings
@@ -163,7 +183,7 @@ class AkreditasiController extends Controller
             ->dataset('Tahun 2', [15,30,80])
             ->dataset('Tahun 3', [25,10,40])
             // Setup what the values mean
-            ->labels(['', 'Two', 'Three']);
+            ->labels(['one', 'Two', 'Three']);
             //->labels(['TS', 'TS-1', 'TS-3']);
 
             
@@ -183,8 +203,22 @@ class AkreditasiController extends Controller
             // Setup what the values mean
             ->labels(['One', 'Two', 'Three']);
 
-            $dosenTetap =
+           
+    //         $array_pengembangan_dosen = array();
+    //         foreach ($listProdi as $list) {
+    //         	$kode_prodi = $list->kode_prodi;
+	   //         	$pensiun = count(Dosen::getDosenTetapSesuaiStatusPensiun($kode_prodi));
+				// $array_pengembangan_dosen[0]-> $pensiun;
+				// $dosenBaru = count(Dosen::getDosenTetapSesuaiStatusDosenBaru($kode_prodi));
+				// $array_pengembangan_dosen[1]-> $dosenBaru;
+				// $tugasBelajarS2 = count(Dosen::getDosenTetapSesuaiStatusTugasBelajarS2($kode_prodi));
+				// $array_pengembangan_dosen[2]-> $tugasBelajarS2;
+				// $tugasBelajarS3 = count(Dosen::getDosenTetapSesuaiStatusTugasBelajarS3($kode_prodi));
+    //         	$array_pengembangan_dosen[3]-> $tugasBelajarS3;
 
+    //         }
+           	//dd($array_pengembangan_dosen);
+             //print_r($array_pengembangan_dosen);
             $chart3 = Charts::create('donut', 'chartjs')
             // Setup the chart settings
             ->title("Chart 3")
