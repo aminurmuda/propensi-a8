@@ -143,6 +143,12 @@ class AkreditasiController extends Controller
 	
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
 
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+		
 		$chart1 = Charts::multi('line', 'chartjs')
             // Setup the chart settings
             ->title("Grafik Akreditasi")
@@ -157,7 +163,8 @@ class AkreditasiController extends Controller
             ->dataset('Tahun 2', [15,30,80])
             ->dataset('Tahun 3', [25,10,40])
             // Setup what the values mean
-            ->labels(['One', 'Two', 'Three']);
+            ->labels(['', 'Two', 'Three']);
+            //->labels(['TS', 'TS-1', 'TS-3']);
 
             
 
@@ -176,6 +183,7 @@ class AkreditasiController extends Controller
             // Setup what the values mean
             ->labels(['One', 'Two', 'Three']);
 
+            $dosenTetap =
 
             $chart3 = Charts::create('donut', 'chartjs')
             // Setup the chart settings
