@@ -379,100 +379,16 @@
                         <div class="panel-body">
                             Apakah program studi telah melakukan kajian tentang proses pembelajaran melalui umpan balik dari dosen, mahasiswa, alumni, dan pengguna lulusan mengenai harapan dan persepsi mereka?  Jika Ya, jelaskan isi umpan balik dan tindak lanjutnya.
                             <br><br>
-
-                            <table>
-                                  <tr>
-                                    <th>Umpan Balik dari</th>
-                                    <th>Isi Umpan Balik</th>
-                                    <th>Tindak lanjut</th>
-                                  </tr>
-                                  <tr>
-                                    <th>(1)</td>
-                                    <th>(2)</td>
-                                    <th>(3)</td>
-                                  </tr>
-                                  <tr>
-                                  
-                                    <td>Dosen</td>
-                                    <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][0])!!}
-                                    @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==0 || $role=='Admin')
-                                      <a href="{{ url('3a/standar2edit/2-5/0/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
-                                      @else
-                                      <a href="{{ url('3a/standar2edit/2-5/0/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
-                                      @endif
-                                    @endif</td>
-                                    <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][1])!!}
-                                    @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==0 || $role=='Admin')
-                                      <a href="{{ url('3a/standar2edit/2-5/1/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
-                                      @else
-                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
-                                      @endif
-                                    @endif</td>
-                                  </tr>
-
-                                  <tr>
-                                    <td>Mahasiswa</td>
-                                    <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][2])!!}
-                                    @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==0 || $role=='Admin')
-                                      <a href="{{ url('3a/standar2edit/2-5/2/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
-                                      @else
-                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
-                                      @endif
-                                    @endif</td>
-                                    <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][3])!!}
-                                    @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==0 || $role=='Admin')
-                                      <a href="{{ url('3a/standar2edit/2-5/3/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
-                                      @else
-                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
-                                      @endif
-                                    @endif</td>
-                                  </tr>
-                                  <tr>
-                                  
-                                    <td>Alumni</td>
-                                    <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][4])!!}
-                                    @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==0 || $role=='Admin')
-                                      <a href="{{ url('3a/standar2edit/2-5/4/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
-                                      @else
-                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
-                                      @endif
-                                    @endif</td>
-                                    <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][5])!!}
-                                    @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==0 || $role=='Admin')
-                                      <a href="{{ url('3a/standar2edit/2-5/5/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
-                                      @else
-                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
-                                      @endif
-                                    @endif</td>
-                                  </tr>
-                                  <tr>
-                                  
-                                    <td>Pengguna Lulusan</td>
-                                    <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][6])!!}
-                                    @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==0 || $role=='Admin')
-                                      <a href="{{ url('3a/standar2edit/2-5/6/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
-                                      @else 
-                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
-                                      @endif
-                                    @endif</td>
-                                    <td>{!!rawurldecode($standar2['standar2']['2.5']['isian'][7])!!}
-                                    @if($role=='Tim Akreditasi' || $role=='Admin' )
-                                      @if($status==0 || $role=='Admin')
-                                      <a href="{{ url('3a/standar2edit/2-5/7/'. $kodeProdi) }}" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil"></a>
-                                      @else
-                                      <a href="#" class="btn-primary btn-sm pull-right glyphicon glyphicon-pencil disabled"></a>
-                                      @endif
-                                    @endif</td>
-                                  </tr>
-                                
-                                </table>
+                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:20px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
+                                {!!rawurldecode($standar2['standar2']['2.5']['isian'])!!}
+                            </div><br><br>
+                            @if($role=='Tim Akreditasi' || $role=='Admin' )
+                              @if($status==0 || $role=='Admin')
+                              <a href="{{ url('3a/standar2edit/2-5/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              @else
+                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
+                              @endif
+                            @endif
                             
                                 <br>
                                 <!-- @if($role=='Tim Akreditasi' || $role=='Admin' )
