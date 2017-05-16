@@ -511,7 +511,8 @@ class BorangController extends Controller
 
 
 		$prodiBorang = program_studi::getProdi($selectedProdi);
-		$standar7_json = Borang::getBorang('3a',7,$kodeFakultasPengguna,$tahun);
+		$standar7_json = Borang::getBorang('3a',7,$selectedProdi,$tahun);
+		// dd($standar7_json);
 		$isi = $standar7_json[0]->isi;
 		$status = $standar7_json[0] -> is_reviewed;
 		$standar7 = json_decode(stripslashes($isi),true);
@@ -1020,6 +1021,7 @@ class BorangController extends Controller
 
 		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
 		$isi = $standar7_json[0]->isi;
+		$status = $standar7_json[0]->is_reviewed;
 		$standar7 = json_decode(stripslashes($isi),true);
 
 		if ($request->get('selectFakultasGeneral')){
@@ -1037,11 +1039,6 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-
-		$id_histori=1;
-		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
-		$status = $Qstatus[0]->status;
-
 		$tahun1 = $tahun-1;
 		$tahun2 = $tahun-2;
 

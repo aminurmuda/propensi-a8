@@ -40,7 +40,7 @@ class Akreditasi extends Model
         return DB::table('histori_akreditasi')
             ->where('kode_prodi', $kode_prodi)
           ->where('tahun_keluar', $tahun)
-          ->update(['nilai' => $nilai,'peringkat_akreditasi' => $peringkat, 'masa_berlaku' => $masa_berlaku,'status' => 8,'keterangan' => $keterangan]);
+          ->update(['nilai' => $nilai,'peringkat_akreditasi' => $peringkat, 'masa_berlaku' => $masa_berlaku,'status' => 6,'keterangan' => $keterangan]);
     }    
 
     public static function tambahAkreditasi($kodeProdi,$tahun) {
@@ -68,7 +68,7 @@ class Akreditasi extends Model
             ->join('status', 'histori_akreditasi.status', '=', 'status.id')
             ->join('program_studi', 'histori_akreditasi.kode_prodi', '=', 'program_studi.kode_prodi')
             ->join('fakultas','program_studi.kode_fakultas','=','fakultas.kode_fakultas')
-            ->select('histori_akreditasi.id','histori_akreditasi.nilai','histori_akreditasi.peringkat_akreditasi','histori_akreditasi.keterangan','histori_akreditasi.tahun_keluar','histori_akreditasi.masa_berlaku','histori_akreditasi.status','status.nama as nama_status', 'program_studi.nama_prodi','fakultas.nama_fakultas')
+            ->select('histori_akreditasi.id','histori_akreditasi.nilai','histori_akreditasi.peringkat_akreditasi','histori_akreditasi.keterangan','histori_akreditasi.kode_prodi','histori_akreditasi.tahun_keluar','histori_akreditasi.masa_berlaku','histori_akreditasi.status','status.nama as nama_status', 'program_studi.nama_prodi','fakultas.nama_fakultas')
             ->where('histori_akreditasi.id',$id_histori)
             ->get();
     }
