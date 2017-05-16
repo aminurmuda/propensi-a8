@@ -37,7 +37,7 @@ class AkreditasiController extends Controller
   		//validasi role. yang bisa edit akreditasi : BPMA
   		if ($role=='BPMA' || $role=='Admin') {
   			$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
-  			$kodeProdi = $QAkreditasiProdi[0]->id;
+  			$kodeProdi = $QAkreditasiProdi[0]->kode_prodi;
   			$tahun = $QAkreditasiProdi[0]->tahun_keluar;
 		return view('updateakreditasi', [
 					'role' => $request->session()->get('role'),
@@ -88,7 +88,8 @@ class AkreditasiController extends Controller
 	  			$peringkat='D';
 	  			$keterangan='Kurang';
 	  		}
-			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,8);
+
+			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,6);
 			return 'akreditasi berhasil terupdate'; //ke halaman histori akreditasi
   		} else {
 	   			return view('error', [

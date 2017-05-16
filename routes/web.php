@@ -136,6 +136,7 @@ Route::get('akreditasi/lihat/{tahun}/{kodeProdi}', 'AkreditasiController@lihatAk
 Route::get('akreditasi/edit/{tahun}/{kodeProdi}', 'AkreditasiController@editAkreditasi')->name('akreditasi/edit/{kodeProdi}');
 Route::get('akreditasi/edit/{tahun}/{kodeProdi}/submit', 'AkreditasiController@submitAkreditasi')->name('akreditasi/{tahun}/{kodeProdi}/submit');
 
+
 Route::get('3A', 'BorangController@pilihProdi')->name('3A');
 Route::post('3A/{kodeProdi}', 'BorangController@pilihBorang3a')->name('3A/{kodeProdi}');
 Route::get('3A/{kodeProdi}', 'BorangController@pilihBorang3a')->name('3A/{kodeProdi}');
