@@ -12,7 +12,8 @@
               </div>
             @endif
             <h3>Borang 3B, Standar 7</h3>
-            <span> Penelitian, Pelayanan/Pengabdian Kepada Masyarakat, dan Kerjasama</span>
+            <span> Penelitian, Pelayanan/Pengabdian Kepada Masyarakat, dan Kerjasama</span><br>
+             <span> {{ $nama_fakultas}} , Universitas Indonesia </span>
 
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">

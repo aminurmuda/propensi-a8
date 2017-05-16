@@ -13,7 +13,7 @@
             @endif
             <h3>Borang 3B, Standar 2</h3>
             <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span><br>
-            <span> Fakultas Ilmu Komputer, Universitas Indonesia </span>
+            <span> {{ $nama_fakultas}} , Universitas Indonesia </span>
             <br>
 
              

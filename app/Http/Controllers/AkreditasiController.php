@@ -89,7 +89,7 @@ class AkreditasiController extends Controller
 	  			$keterangan='Kurang';
 	  		}
 			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,8);
-			return 'akreditasi berhasil terupdate'; //ke halaman histori akreditasi
+			return redirect()->route('riwayatakreditasi'); //ke halaman histori akreditasi
   		} else {
 	   			return view('error', [
  					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -122,7 +122,7 @@ class AkreditasiController extends Controller
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','7');
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',NULL);
 
-  			return redirect()->back();
+  			return redirect()->route('riwayatakreditasi');
 		} else {
 		return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -140,7 +140,8 @@ class AkreditasiController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
 		$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
-	
+		$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
+		
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
 
 		if ($request->get('tahun')){
@@ -232,7 +233,8 @@ class AkreditasiController extends Controller
 	            'chart2' => $chart2,
 	            'chart3' => $chart3,
 	            'chart4' => $chart4,
-	            'getAllAkreditasi' => $getAllAkreditasi
+	            'getAllAkreditasi' => $getAllAkreditasi,
+	            'nama_fakultas' => $getNamaFakultas
 	          //  'akreditasi' => $akreditasi
 	         
 			]);
@@ -295,6 +297,7 @@ class AkreditasiController extends Controller
 		} else if($role == 'Admin') {
 			$getBorang = Borang::getAllBorang();
 		}
+
 
 		return view('statusborang',[
 			'role' => $role,

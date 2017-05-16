@@ -90,6 +90,7 @@ class MainController extends Controller
 				$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
 				$request->session()->put('role', 'Tim Akreditasi');
 				return redirect()->route('homestatus');
+				
 			} elseif($userIsAdmin) { //admin
 				$request->session()->put('role', 'Admin');;
 				return redirect()->route('homestatus');
