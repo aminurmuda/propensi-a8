@@ -11,7 +11,11 @@
 
                 <div> 
                     <h3>Status Borang Akreditasi</h3>
-                     <span>Universitas Indonesia</span>
+                    @if ($role=='Admin')
+                      <span>Universitas Indonesia</span>
+                    @else
+                      <span>Program Studi {{ $getBorang[0] -> nama_prodi}}, Universitas Indonesia </span>
+                    @endif
                      
                      <br>
                      <br>
@@ -77,7 +81,7 @@
                             @endif
 
                             <!-- reviewer ke tim akreditasi -->
-                            <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/return') }}" class="btn-info btn-sm"> Return</a>
+                            <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/return') }}" class="btn-info btn-sm"> Reset</a>
                             @endif
                             </center>
                             </td>

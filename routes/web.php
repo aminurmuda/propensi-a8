@@ -77,11 +77,8 @@ Route::get('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/sta
 Route::post('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
 
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}');
-Route::get('3a/standar2edit/{kodeStandar}/{kode}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit');
+Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit');
 Route::get('3a/standar2/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar2/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
-Route::get('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}', 'BorangController@edit3a25')->name('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}');
-Route::get('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}/{jenisBorang}/submit', 'BorangController@submit3a25')->name('3a/standar2edit/{kodeStandar}/{nomorIsian}/{kodeProdi}/{jenisBorang}/submit');
-
 
 
 Route::get('3b/standar2/{kodeFakultas}', 'BorangController@lihat3b2')->name('3b/standar2/{kodeFakultas}');

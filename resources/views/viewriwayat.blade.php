@@ -5,6 +5,7 @@
 {!! Charts::assets() !!}
 
     <!-- Page Content -->
+  @if($role!='Tim Akreditasi' && $role!='Tim Reviewer')
     <div class="container">
         <div class="row">
             <div  class="col-md-12">
@@ -71,6 +72,8 @@
                             <td> 
                               
                               <a href="#" class="btn-primary btn-sm" >Details</a><br><br>
+
+                              
                               @if($role=='BPMA' || $role=='Admin')
                               <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-danger btn-sm"> Ases</a><br><br>
                               <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-success btn-sm glyphicon glyphicon-pencil"> Edit</a>
@@ -122,6 +125,26 @@
           
         </div>
       </div>
+
+      @else
+      <!-- view untuk role tim akreditasi atau tim reviewer-->
+      <div class="container">
+        <div class="row">
+            <div  class="col-md-12">
+
+                <div> 
+                    <h3>Riwayat Akreditasi</h3>
+                    <center><h3>Maaf, Anda tidak memiliki akses.</h3>
+                    <a href="{{ url('homestatus') }}"> Kembali ke Halaman Awal</a>
+                    </center>
+                </div>
+              </div>
+          </div>
+
+        </div>
+
+
+      @endif
 
 
 

@@ -21,10 +21,18 @@ class fakultas extends Model
         return DB::table('fakultas')->get();
     }
 
+
     public static function getFakultasbyId($id_fakultas) {
         return DB::table('fakultas')
         ->where('kode_fakultas',$id_fakultas)
         ->get();
+    }
+    public static function getNamaFakultas($kode_fakultas)
+    {
+        return DB::table('fakultas')
+            ->select('fakultas.nama_fakultas')
+            ->where('fakultas.kode_fakultas',$kode_fakultas)
+            ->get();
     }
 
 }
