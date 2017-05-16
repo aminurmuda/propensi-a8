@@ -29,9 +29,9 @@
                     <tr>
                          <th>Nilai Akreditasi:</th>
                          @if($akreditasi_prodi -> nilai == NULL || $role=='Admin')
-                         <td><input type="number" class="form-control" id="nilai_akreditasi" name="nilai_akreditasi" step=".01" value="{{$akreditasi_prodi -> nilai}}" min="0"></td>
+                         <td><input type="number" class="form-control" id="nilai_akreditasi" name="nilai_akreditasi" step=".01" value="{{$akreditasi_prodi -> nilai}}" min="0" max="400"></td>
                          @else
-                         <td><input type="number" class="form-control" id="nilai_akreditasi" step=".01" name="nilai_akreditasi" value="{{$akreditasi_prodi -> nilai}}" readonly="readonly" min="0"></td>
+                         <td><input type="number" class="form-control" id="nilai_akreditasi" step=".01" name="nilai_akreditasi" value="{{$akreditasi_prodi -> nilai}}" readonly="readonly" min="0" max="400"></td>
                          @endif
                     </tr>
                     <tr>

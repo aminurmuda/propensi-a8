@@ -66,7 +66,7 @@
                             @endif
 
                              <!-- komentar -->
-                            <br><br><br>@foreach($komentar7_2 as $komentar7_2)
+                            <br><br><br>@foreach($komentarED as $komentarED)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -77,13 +77,13 @@
                               <div class="col-sm-10">
                               <div class="panel panel-default">
                               <div class="panel-heading">
-                              <strong>{{$komentar7_2->nama}}</strong> <span class="text-muted">commented:</span><br>
-                              <strong>{{$komentar7_2->date}}</strong>
+                              <strong>{{$komentarED->nama}}</strong> <span class="text-muted">commented:</span><br>
+                              <strong>{{$komentarED->date}}</strong>
                               </div>
                               
 
                               <div class="panel-body">
-                             {!!$komentar7_2->isi!!}
+                             {!!$komentarED->isi!!}
                               </div><!-- /panel-body -->
                               </div><!-- /panel panel-default -->
                               </div><!-- /col-sm-5 -->

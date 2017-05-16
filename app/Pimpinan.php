@@ -13,7 +13,7 @@ class Pimpinan extends Model
     public static function setAktifPimpinanIsBPMA($id_pimpinan) {
     	return DB::table('pimpinan')
                     ->where('id_pimpinan', $id_pimpinan)
-                    ->update(['isBPMA'=> 1, 'isPimpinanFakultas' => 0, 'isPimpinanUniv' => 0]);
+                    ->update(['isBPMA'=> 1, 'isPimpinanFakultas' => 0, 'isPimpinanUniv' => 0'isUPMAF' => 0]);
     }
 
     public static function setAktifPimpinanIsPimpinanFakultas($id_pimpinan, $username) {

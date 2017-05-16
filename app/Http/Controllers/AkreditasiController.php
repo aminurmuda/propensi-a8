@@ -11,6 +11,7 @@ use App\fakultas;
 use App\Dosen;
 use App\tendik;
 use App\Borang;
+use App\danaProyek;
 use DB;
 use App\Http\Requests;
 use Charts;
@@ -37,7 +38,7 @@ class AkreditasiController extends Controller
   		//validasi role. yang bisa edit akreditasi : BPMA
   		if ($role=='BPMA' || $role=='Admin') {
   			$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
-  			$kodeProdi = $QAkreditasiProdi[0]->id;
+  			$kodeProdi = $QAkreditasiProdi[0]->kode_prodi;
   			$tahun = $QAkreditasiProdi[0]->tahun_keluar;
 		return view('updateakreditasi', [
 					'role' => $request->session()->get('role'),
@@ -88,8 +89,10 @@ class AkreditasiController extends Controller
 	  			$peringkat='D';
 	  			$keterangan='Kurang';
 	  		}
+
 			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,8);
-			return 'akreditasi berhasil terupdate'; //ke halaman histori akreditasi
+			return redirect()->route('riwayatakreditasi'); //ke halaman histori akreditasi
+
   		} else {
 	   			return view('error', [
  					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -122,7 +125,7 @@ class AkreditasiController extends Controller
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','7');
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',NULL);
 
-  			return redirect()->back();
+  			return redirect()->route('riwayatakreditasi');
 		} else {
 		return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -140,11 +143,16 @@ class AkreditasiController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
 		$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
+
+		$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
+		
+
 		$listProdi;
 		$totalPensiun = 0;
 		$totalDosenBaru = 0;
 		$totalTugasBelajarS2 = 0;
 		$totalTugasBelajarS3 = 0;
+
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
 
 		if ($request->get('tahun')){
@@ -152,6 +160,9 @@ class AkreditasiController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
+
+		$tahun1 = $tahun-1;
+		$tahun2 = $tahun-2;
 
 		if ($request->get('selectFakultasGeneral')){
 			$selectedFakultas = $request->get('selectFakultasGeneral');
@@ -254,15 +265,93 @@ class AkreditasiController extends Controller
             // Setup what the values mean
             ->labels(['One', 'Two', 'Three']);
 
-          
+           //ini untuk masukin data ke grafik terkait sumber pendanaan penelitian
+        $dana_biayaSendiri = danaProyek::getDanaProyekBiayaSendiri($kode_prodi,$tahun);
+		$arrA = array(0,0,0);
+		foreach ($dana_biayaSendiri as $dana_biayaSendiri ) {
+			$tahun_min = $dana_biayaSendiri->tanggal_selesai;
+			if($tahun_min==($tahun-2)){
+				$arrA[0]=$dana_biayaSendiri->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arrA[1]=$dana_biayaSendiri->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arrA[2]=$dana_biayaSendiri->dana_count;
+			}
+
+		}
+		$dana_PT = danaProyek::getDanaProyekPT($kode_prodi,$tahun);
+		$arrB = array(0,0,0);
+		foreach ($dana_PT as $dana_PT ) {
+			$tahun_min = $dana_PT->tanggal_selesai;
+			if($tahun_min==($tahun-2)){
+				$arrB[0]=$dana_PT->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arrB[1]=$dana_PT->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arrB[2]=$dana_PT->dana_count;
+			}
+
+		}
+		$dana_depdiknas = danaProyek::getProyekDepdiknasDalamNegeri($kode_prodi,$tahun);
+		$arrC = array(0,0,0);
+		foreach ($dana_depdiknas as $dana_depdiknas ) {
+			$tahun_min = $dana_depdiknas->tanggal_selesai;
+			if($tahun_min==($tahun-2)){
+				$arrC[0]=$dana_depdiknas->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arrC[1]=$dana_depdiknas->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arrC[2]=$dana_depdiknas->dana_count;
+			}
+
+		}
+		$dana_dalamNegeri = danaProyek::getDanaProyekInstitusiDalamNegeri($kode_prodi,$tahun);
+		$arrD = array(0,0,0);
+		foreach ($dana_dalamNegeri as $dana_dalamNegeri ) {
+			$tahun_min = $dana_dalamNegeri->tanggal_selesai;
+			if($tahun_min==($tahun-2)){
+				$arrD[0]=$dana_dalamNegeri->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arrD[1]=$dana_dalamNegeri->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arrD[2]=$dana_dalamNegeri->dana_count;
+			}
+
+		}
+		$dana_luarNegeri = danaProyek::getDanaProyekInstitusiLuarNegeri($kode_prodi,$tahun);
+		$arrE = array(0,0,0);
+		foreach ($dana_luarNegeri as $dana_luarNegeri ) {
+			$tahun_min = $dana_luarNegeri->tanggal_selesai;
+			if($tahun_min==($tahun-2)){
+				$arrE[0]=$dana_luarNegeri->dana_count;
+			}
+			elseif ($tahun_min==($tahun-1)) {
+				$arrE[1]=$dana_luarNegeri->dana_count;
+			}
+			elseif ($tahun_min==$tahun) {
+				$arrE[2]=$dana_luarNegeri->dana_count;
+			}
+
+		}
+        
             $chart1 = Charts::multi('bar', 'material')
                 ->responsive(false)
                 ->dimensions(0, 500)
                 ->colors(['#ff0000', '#00ff00', '#0000ff'])
-                ->labels(['2015', '2016', '2017'])
-                ->dataset('Test 1', [1,2,3])
-                ->dataset('Test 2', [0,6,0])
-                ->dataset('Test 3', [3,4,1]);
+                ->labels([$tahun2, $tahun1, $tahun])
+                ->dataset('Pembiyaan sendiri oleh peneliti', $arrA)
+                ->dataset('PT yang bersangkutan', $arrB)
+                ->dataset('Depdiknas', $arrC)
+                ->dataset('Institusi Dalam Negeri diluar Depdiknas', $arrD)
+                ->dataset('Institusi Luar Negeri', $arrE);
 
 			
 
@@ -277,6 +366,8 @@ class AkreditasiController extends Controller
 	            'chart2' => $chart2,
 	            'chart3' => $chart3,
 	            'chart4' => $chart4,
+	            'getAllAkreditasi' => $getAllAkreditasi,
+	            'nama_fakultas' => $getNamaFakultas
 	            //'chart5' => $chart5,
 	            'getAllAkreditasi' => $getAllAkreditasi
 	          //  'akreditasi' => $akreditasi
@@ -341,6 +432,7 @@ class AkreditasiController extends Controller
 		} else if($role == 'Admin') {
 			$getBorang = Borang::getAllBorang();
 		}
+
 
 		return view('statusborang',[
 			'role' => $role,
