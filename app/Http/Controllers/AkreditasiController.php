@@ -153,6 +153,9 @@ class AkreditasiController extends Controller
 			$tahun = date('Y');
 		}
 
+		$tahun1 = $tahun-1;
+		$tahun2 = $tahun-2;
+
 		if ($request->get('selectFakultasGeneral')){
 			$selectedFakultas = $request->get('selectFakultasGeneral');
 			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
@@ -259,10 +262,9 @@ class AkreditasiController extends Controller
                 ->responsive(false)
                 ->dimensions(0, 500)
                 ->colors(['#ff0000', '#00ff00', '#0000ff'])
-                ->labels(['2015', '2016', '2017'])
+                ->labels([$tahun, $tahun1, $tahun])
                 ->dataset('Test 1', [1,2,3])
-                ->dataset('Test 2', [0,6,0])
-                ->dataset('Test 3', [3,4,1]);
+                ->dataset('Test 2', [5,6,5]);
 
 			
 
