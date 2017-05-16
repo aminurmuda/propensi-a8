@@ -13,7 +13,7 @@
             @endif
             <h3>Borang 3B, Standar 4</h3>
             <span> Sumber Daya Manusia</span><br>
-            <span>Fakultas Ilmu Komputer, Universitas Indonesia</span>
+            <span>{{ $nama_fakultas}}, Universitas Indonesia</span>
 
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
