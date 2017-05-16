@@ -133,7 +133,7 @@ class AkreditasiController extends Controller
 		}
 	}
 
-		public function lihatRiwayat(Request $request) {
+	public function lihatRiwayat(Request $request) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));

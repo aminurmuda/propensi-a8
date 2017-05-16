@@ -34,7 +34,7 @@ class Akreditasi extends Model
             ->get();
     }
 
-        public static function updateNilai($kode_prodi,$tahun,$nilai,$peringkat,$keterangan)
+    public static function updateNilai($kode_prodi,$tahun,$nilai,$peringkat,$keterangan)
     {
         $masa_berlaku = $tahun+5;
         return DB::table('histori_akreditasi')
