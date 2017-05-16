@@ -512,7 +512,7 @@ class BorangController extends Controller
 
 		$prodiBorang = program_studi::getProdi($selectedProdi);
 		$standar7_json = Borang::getBorang('3a',7,$selectedProdi,$tahun);
-		dd($standar7_json);
+		// dd($standar7_json);
 		$isi = $standar7_json[0]->isi;
 		$status = $standar7_json[0] -> is_reviewed;
 		$standar7 = json_decode(stripslashes($isi),true);

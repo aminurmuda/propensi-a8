@@ -11,7 +11,7 @@
 
                 <div> 
                     <h3>Riwayat Akreditasi</h3>
-                     <span>Fakultas ,  Universitas Indonesia</span>
+                     <span>{{$nama_fakultas}},  Universitas Indonesia</span>
                      
                      <br>
                      <br>

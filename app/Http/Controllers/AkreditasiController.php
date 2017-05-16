@@ -154,6 +154,7 @@ class AkreditasiController extends Controller
 			$tahun = date('Y');
 		}
 
+
 		if ($request->get('selectFakultasGeneral')){
 			$selectedFakultas = $request->get('selectFakultasGeneral');
 			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
@@ -163,6 +164,9 @@ class AkreditasiController extends Controller
 			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
 			$jumlahProdi = count($listProdi); //menghtiung jumlah prodi
 		}
+
+		$fakultasnya = fakultas::getFakultasbyId($selectedFakultas);
+		$namaFakultasnya = $fakultasnya[0]->nama_fakultas;
 
 		// $array_akreditasi = array();
 		// foreach ($getAllAkreditasi as $getAllAkreditasi) {
@@ -279,7 +283,8 @@ class AkreditasiController extends Controller
 	            'chart3' => $chart3,
 	            'chart4' => $chart4,
 	            //'chart5' => $chart5,
-	            'getAllAkreditasi' => $getAllAkreditasi
+	            'getAllAkreditasi' => $getAllAkreditasi,
+	            'nama_fakultas' => $namaFakultasnya
 	          //  'akreditasi' => $akreditasi
 	         
 			]);
@@ -341,6 +346,7 @@ class AkreditasiController extends Controller
 			$getBorang = Borang::getAllBorangByProdi($selectedProdi);
 		} else if($role == 'Admin') {
 			$getBorang = Borang::getAllBorang();
+			// dd($getBorang);
 		}
 
 		return view('statusborang',[
