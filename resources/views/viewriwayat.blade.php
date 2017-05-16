@@ -69,13 +69,13 @@
                             <td style="color:red;"> {{ $dataAkreditasi -> nama_status}}</td>
                             @endif
                             <td> 
-                              <center>
-                              <button class="btn glyphicon glyphicon-pencil" onclick=''>Details</button>
+                              
+                              <a href="#" class="btn-primary btn-sm" >Details</a><br><br>
                               @if($role=='BPMA' || $role=='Admin')
-                              <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-lg glyphicon glyphicon-pencil"> Ases</a>
-                              <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-lg glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-danger btn-sm"> Ases</a><br><br>
+                              <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-success btn-sm glyphicon glyphicon-pencil"> Edit</a>
                               @endif
-                              </center>
+                             
                             </td>
                             
                            
