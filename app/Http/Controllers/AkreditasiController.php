@@ -8,7 +8,7 @@ use App\Pimpinan;
 use App\program_studi;
 use App\Akreditasi;
 use App\fakultas;
-use App\dosen;
+use App\Dosen;
 use App\tendik;
 use App\Borang;
 use DB;
@@ -140,7 +140,11 @@ class AkreditasiController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
 		$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
-	
+		$listProdi;
+		$totalPensiun = 0;
+		$totalDosenBaru = 0;
+		$totalTugasBelajarS2 = 0;
+		$totalTugasBelajarS3 = 0;
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
 
 		if ($request->get('tahun')){
@@ -148,23 +152,42 @@ class AkreditasiController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
+
+		if ($request->get('selectFakultasGeneral')){
+			$selectedFakultas = $request->get('selectFakultasGeneral');
+			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
+			$jumlahProdi = count($listProdi); //menghitung jumlah prodi
+		} else {
+			$selectedFakultas = $kodeFakultasPengguna;
+			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
+			$jumlahProdi = count($listProdi); //menghtiung jumlah prodi
+		}
+
+		// $array_akreditasi = array();
+		// foreach ($getAllAkreditasi as $getAllAkreditasi) {
+		// 	$prodi = $getAllAkreditasi -> nama_prodi;
+		// 	$tahun_akreditasi = $getAllAkreditasi -> tahun_keluar;
+		// 	//get nilai
+		// 	//masukkin ke array
+		// }
+
 		
-		$chart1 = Charts::multi('line', 'chartjs')
-            // Setup the chart settings
-            ->title("Grafik Akreditasi")
-            // A dimension of 0 means it will take 100% of the space
-            ->dimensions(600, 300) // Width x Height
-            // This defines a preset of colors already done:)
-            ->template("material")
-            // You could always set them manually
-            // ->colors(['#2196F3', '#F44336', '#FFC107'])
-            // Setup the diferent datasets (this is a multi chart)
-            ->dataset('Tahun 1', [5,20,100])
-            ->dataset('Tahun 2', [15,30,80])
-            ->dataset('Tahun 3', [25,10,40])
-            // Setup what the values mean
-            ->labels(['', 'Two', 'Three']);
-            //->labels(['TS', 'TS-1', 'TS-3']);
+		// $chart1 = Charts::multi('line', 'chartjs')
+  //           // Setup the chart settings
+  //           ->title("Grafik Akreditasi")
+  //           // A dimension of 0 means it will take 100% of the space
+  //           ->dimensions(600, 300) // Width x Height
+  //           // This defines a preset of colors already done:)
+  //           ->template("material")
+  //           // You could always set them manually
+  //           // ->colors(['#2196F3', '#F44336', '#FFC107'])
+  //           // Setup the diferent datasets (this is a multi chart)
+  //           ->dataset('Tahun 1', [5,20,100])
+  //           ->dataset('Tahun 2', [15,30,80])
+  //           ->dataset('Tahun 3', [25,10,40])
+  //           // Setup what the values mean
+  //           ->labels(['one', 'Two', 'Three']);
+  //           //->labels(['TS', 'TS-1', 'TS-3']);
 
             
 
@@ -183,22 +206,37 @@ class AkreditasiController extends Controller
             // Setup what the values mean
             ->labels(['One', 'Two', 'Three']);
 
-            $dosenTetap =
+           
+             $array_pengembangan_dosen = array();
 
+           
+             foreach ($listProdi as $list) {
+    			$kode_prodi = $list->kode_prodi;
+    			$pensiun = count(Dosen::getDosenTetapSesuaiStatusPensiun($kode_prodi));
+				$dosenBaru = count(Dosen::getDosenTetapSesuaiStatusDosenBaru($kode_prodi));
+				$tugasBelajarS2 = count(Dosen::getDosenTetapSesuaiStatusTugasBelajarS2($kode_prodi));
+				$tugasBelajarS3 = count(Dosen::getDosenTetapSesuaiStatusTugasBelajarS3($kode_prodi));
+	   			$totalPensiun += $pensiun;
+				$totalDosenBaru += $dosenBaru;
+				$totalTugasBelajarS2 += $tugasBelajarS2;
+				$totalTugasBelajarS3 += $tugasBelajarS3;
+             }
+           	
+             //print_r($array_pengembangan_dosen);
             $chart3 = Charts::create('donut', 'chartjs')
             // Setup the chart settings
             ->title("Chart 3")
             // A dimension of 0 means it will take 100% of the space
-            ->dimensions(200, 200) // Width x Height
+            ->dimensions(300, 300) // Width x Height
             // This defines a preset of colors already done:)
             ->template("material")
             // You could always set them manually
             // ->colors(['#2196F3', '#F44336', '#FFC107'])
             // Setup the diferent datasets (this is a multi chart)
-            ->values([5,20,100])
+            ->values([$totalPensiun,$totalDosenBaru,$totalTugasBelajarS2,$totalTugasBelajarS3])
            
             // Setup what the values mean
-            ->labels(['One', 'Two', 'Three']);
+            ->labels(['Pensiun', 'Dosen Baru', 'Tugas Belajar S2', 'Tugas Belajar S3']);
 
 
             $chart4 = Charts::create('donut', 'chartjs')
@@ -217,7 +255,14 @@ class AkreditasiController extends Controller
             ->labels(['One', 'Two', 'Three']);
 
           
-
+            $chart1 = Charts::multi('bar', 'material')
+                ->responsive(false)
+                ->dimensions(0, 500)
+                ->colors(['#ff0000', '#00ff00', '#0000ff'])
+                ->labels(['2015', '2016', '2017'])
+                ->dataset('Test 1', [1,2,3])
+                ->dataset('Test 2', [0,6,0])
+                ->dataset('Test 3', [3,4,1]);
 
 			
 
@@ -232,6 +277,7 @@ class AkreditasiController extends Controller
 	            'chart2' => $chart2,
 	            'chart3' => $chart3,
 	            'chart4' => $chart4,
+	            //'chart5' => $chart5,
 	            'getAllAkreditasi' => $getAllAkreditasi
 	          //  'akreditasi' => $akreditasi
 	         
