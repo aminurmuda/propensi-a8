@@ -511,7 +511,8 @@ class BorangController extends Controller
 
 
 		$prodiBorang = program_studi::getProdi($selectedProdi);
-		$standar7_json = Borang::getBorang('3a',7,$kodeFakultasPengguna,$tahun);
+		$standar7_json = Borang::getBorang('3a',7,$selectedProdi,$tahun);
+		// dd($standar7_json);
 		$isi = $standar7_json[0]->isi;
 		$status = $standar7_json[0] -> is_reviewed;
 		$standar7 = json_decode(stripslashes($isi),true);
@@ -717,6 +718,7 @@ class BorangController extends Controller
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role = $request->session()->get('role');
+		$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
 
 		$kodeProdi=0;
 		if($role=='Tim Akreditasi') {
@@ -758,6 +760,7 @@ class BorangController extends Controller
 	            'komentar2_3' => $komentar2_3,
 	            'komentar2_4' => $komentar2_4,
 	            'komentar2_5' => $komentar2_5,
+	            'nama_fakultas' => $getNamaFakultas,
 	            'status' => $status
 			]);
 
@@ -777,6 +780,8 @@ class BorangController extends Controller
 		$totalTugasBelajarS2 = 0;
 		$totalTugasBelajarS3 = 0;
 		$role = $request->session()->get('role');
+
+		$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
 
 		// $kodeProdi=0;
 		if($role=='Tim Akreditasi') {
@@ -975,6 +980,7 @@ class BorangController extends Controller
 	            'standar4' => $standar4,
 	            'komentar4_1' => $komentar4_1,
 	            'komentar4_2' => $komentar4_2,
+	            'nama_fakultas' => $getNamaFakultas,
 	            'status' => $status
  			]);
 
@@ -1000,6 +1006,8 @@ class BorangController extends Controller
 		$totalDanaPengmas2 = 0;
 		$role = $request->session()->get('role');
 
+		$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
+
 		if($role=='Tim Akreditasi') {
 			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
 			$kodeProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
@@ -1013,6 +1021,7 @@ class BorangController extends Controller
 
 		$standar7_json = Borang::getBorang('3b',7,$kodeFakultasPengguna,$tahun);
 		$isi = $standar7_json[0]->isi;
+		$status = $standar7_json[0]->is_reviewed;
 		$standar7 = json_decode(stripslashes($isi),true);
 
 		if ($request->get('selectFakultasGeneral')){
@@ -1030,11 +1039,6 @@ class BorangController extends Controller
 		} else {
 			$tahun = date('Y');
 		}
-
-		$id_histori=1;
-		$Qstatus = Akreditasi::getAkreditasiById($id_histori);
-		$status = $Qstatus[0]->status;
-
 		$tahun1 = $tahun-1;
 		$tahun2 = $tahun-2;
 
@@ -1138,6 +1142,7 @@ class BorangController extends Controller
             'standar7' => $standar7,
             'komentar7_1' => $komentar7_1,
             'komentar7_2' => $komentar7_2,
+            'nama_fakultas' => $getNamaFakultas,
             'status' => $status
 		]);
 	}
