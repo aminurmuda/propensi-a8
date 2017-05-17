@@ -136,7 +136,7 @@ class AkreditasiController extends Controller
 		}
 	}
 
-		public function lihatRiwayat(Request $request) {
+	public function lihatRiwayat(Request $request) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -146,13 +146,6 @@ class AkreditasiController extends Controller
 
 		$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
 		
-
-		$listProdi;
-		$totalPensiun = 0;
-		$totalDosenBaru = 0;
-		$totalTugasBelajarS2 = 0;
-		$totalTugasBelajarS3 = 0;
-
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
 
 		if ($request->get('tahun')){
@@ -178,206 +171,109 @@ class AkreditasiController extends Controller
 		$fakultasnya = fakultas::getFakultasbyId($selectedFakultas);
 		$namaFakultasnya = $fakultasnya[0]->nama_fakultas;
 
-		// $array_akreditasi = array();
-		// foreach ($getAllAkreditasi as $getAllAkreditasi) {
-		// 	$prodi = $getAllAkreditasi -> nama_prodi;
-		// 	$tahun_akreditasi = $getAllAkreditasi -> tahun_keluar;
-		// 	//get nilai
-		// 	//masukkin ke array
-		// }
 
-		
-		// $chart1 = Charts::multi('line', 'chartjs')
-  //           // Setup the chart settings
-  //           ->title("Grafik Akreditasi")
-  //           // A dimension of 0 means it will take 100% of the space
-  //           ->dimensions(600, 300) // Width x Height
-  //           // This defines a preset of colors already done:)
-  //           ->template("material")
-  //           // You could always set them manually
-  //           // ->colors(['#2196F3', '#F44336', '#FFC107'])
-  //           // Setup the diferent datasets (this is a multi chart)
-  //           ->dataset('Tahun 1', [5,20,100])
-  //           ->dataset('Tahun 2', [15,30,80])
-  //           ->dataset('Tahun 3', [25,10,40])
-  //           // Setup what the values mean
-  //           ->labels(['one', 'Two', 'Three']);
-  //           //->labels(['TS', 'TS-1', 'TS-3']);
+        $arrNamaProdi = [];
+        $arrKodeProdi = [];
+        $arrNilaiAkreditasi = [];
+        foreach ($listProdi as $list2) {
+        	$arrNamaProdi[] = $list2->nama_prodi;
+        	$arrKodeProdi[] = $list2->kode_prodi;
+        	$arrNilaiAkreditasi[] = Akreditasi::get3PerdiodeNilaiAkreditasi($list2->kode_prodi);
+        }
 
-            
-
-            $chart2 = Charts::create('pie', 'chartjs')
-            // Setup the chart settings
-            ->title("Chart 2")
-            // A dimension of 0 means it will take 100% of the space
-            ->dimensions(200, 300) // Width x Height
-            // This defines a preset of colors already done:)
-            ->template("material")
-            // You could always set them manually
-            // ->colors(['#2196F3', '#F44336', '#FFC107'])
-            // Setup the diferent datasets (this is a multi chart)
-            ->values([5,200,10])
-           
-            // Setup what the values mean
-            ->labels(['One', 'Two', 'Three']);
-
-           
-             $array_pengembangan_dosen = array();
-
-           
-             foreach ($listProdi as $list) {
-    			$kode_prodi = $list->kode_prodi;
-    			$pensiun = count(Dosen::getDosenTetapSesuaiStatusPensiun($kode_prodi));
-				$dosenBaru = count(Dosen::getDosenTetapSesuaiStatusDosenBaru($kode_prodi));
-				$tugasBelajarS2 = count(Dosen::getDosenTetapSesuaiStatusTugasBelajarS2($kode_prodi));
-				$tugasBelajarS3 = count(Dosen::getDosenTetapSesuaiStatusTugasBelajarS3($kode_prodi));
-	   			$totalPensiun += $pensiun;
-				$totalDosenBaru += $dosenBaru;
-				$totalTugasBelajarS2 += $tugasBelajarS2;
-				$totalTugasBelajarS3 += $tugasBelajarS3;
-             }
-           	
-             //print_r($array_pengembangan_dosen);
-            $chart3 = Charts::create('donut', 'chartjs')
-            // Setup the chart settings
-            ->title("Chart 3")
-            // A dimension of 0 means it will take 100% of the space
-            ->dimensions(300, 300) // Width x Height
-            // This defines a preset of colors already done:)
-            ->template("material")
-            // You could always set them manually
-            // ->colors(['#2196F3', '#F44336', '#FFC107'])
-            // Setup the diferent datasets (this is a multi chart)
-            ->values([$totalPensiun,$totalDosenBaru,$totalTugasBelajarS2,$totalTugasBelajarS3])
-           
-            // Setup what the values mean
-            ->labels(['Pensiun', 'Dosen Baru', 'Tugas Belajar S2', 'Tugas Belajar S3']);
-
-
-            $chart4 = Charts::create('donut', 'chartjs')
-            // Setup the chart settings
-            ->title("Chart 4")
-            // A dimension of 0 means it will take 100% of the space
-            ->dimensions(200, 200) // Width x Height
-            // This defines a preset of colors already done:)
-            ->template("material")
-            // You could always set them manually
-            // ->colors(['#2196F3', '#F44336', '#FFC107'])
-            // Setup the diferent datasets (this is a multi chart)
-            ->values([100,50,10])
-           
-            // Setup what the values mean
-            ->labels(['One', 'Two', 'Three']);
-
-           //ini untuk masukin data ke grafik terkait sumber pendanaan penelitian
-        $dana_biayaSendiri = danaProyek::getDanaProyekBiayaSendiri($kode_prodi,$tahun);
-		$arrA = array(0,0,0);
-		foreach ($dana_biayaSendiri as $dana_biayaSendiri ) {
-			$tahun_min = $dana_biayaSendiri->tanggal_selesai;
-			if($tahun_min==($tahun-2)){
-				$arrA[0]=$dana_biayaSendiri->dana_count;
-			}
-			elseif ($tahun_min==($tahun-1)) {
-				$arrA[1]=$dana_biayaSendiri->dana_count;
-			}
-			elseif ($tahun_min==$tahun) {
-				$arrA[2]=$dana_biayaSendiri->dana_count;
-			}
-
-		}
-		$dana_PT = danaProyek::getDanaProyekPT($kode_prodi,$tahun);
-		$arrB = array(0,0,0);
-		foreach ($dana_PT as $dana_PT ) {
-			$tahun_min = $dana_PT->tanggal_selesai;
-			if($tahun_min==($tahun-2)){
-				$arrB[0]=$dana_PT->dana_count;
-			}
-			elseif ($tahun_min==($tahun-1)) {
-				$arrB[1]=$dana_PT->dana_count;
-			}
-			elseif ($tahun_min==$tahun) {
-				$arrB[2]=$dana_PT->dana_count;
-			}
-
-		}
-		$dana_depdiknas = danaProyek::getProyekDepdiknasDalamNegeri($kode_prodi,$tahun);
-		$arrC = array(0,0,0);
-		foreach ($dana_depdiknas as $dana_depdiknas ) {
-			$tahun_min = $dana_depdiknas->tanggal_selesai;
-			if($tahun_min==($tahun-2)){
-				$arrC[0]=$dana_depdiknas->dana_count;
-			}
-			elseif ($tahun_min==($tahun-1)) {
-				$arrC[1]=$dana_depdiknas->dana_count;
-			}
-			elseif ($tahun_min==$tahun) {
-				$arrC[2]=$dana_depdiknas->dana_count;
-			}
-
-		}
-		$dana_dalamNegeri = danaProyek::getDanaProyekInstitusiDalamNegeri($kode_prodi,$tahun);
-		$arrD = array(0,0,0);
-		foreach ($dana_dalamNegeri as $dana_dalamNegeri ) {
-			$tahun_min = $dana_dalamNegeri->tanggal_selesai;
-			if($tahun_min==($tahun-2)){
-				$arrD[0]=$dana_dalamNegeri->dana_count;
-			}
-			elseif ($tahun_min==($tahun-1)) {
-				$arrD[1]=$dana_dalamNegeri->dana_count;
-			}
-			elseif ($tahun_min==$tahun) {
-				$arrD[2]=$dana_dalamNegeri->dana_count;
-			}
-
-		}
-		$dana_luarNegeri = danaProyek::getDanaProyekInstitusiLuarNegeri($kode_prodi,$tahun);
-		$arrE = array(0,0,0);
-		foreach ($dana_luarNegeri as $dana_luarNegeri ) {
-			$tahun_min = $dana_luarNegeri->tanggal_selesai;
-			if($tahun_min==($tahun-2)){
-				$arrE[0]=$dana_luarNegeri->dana_count;
-			}
-			elseif ($tahun_min==($tahun-1)) {
-				$arrE[1]=$dana_luarNegeri->dana_count;
-			}
-			elseif ($tahun_min==$tahun) {
-				$arrE[2]=$dana_luarNegeri->dana_count;
-			}
-
-		}
         
-            $chart1 = Charts::multi('bar', 'material')
-                ->responsive(false)
-                ->dimensions(0, 500)
-                ->colors(['#ff0000', '#00ff00', '#0000ff'])
-                ->labels([$tahun2, $tahun1, $tahun])
-                ->dataset('Pembiyaan sendiri oleh peneliti', $arrA)
-                ->dataset('PT yang bersangkutan', $arrB)
-                ->dataset('Depdiknas', $arrC)
-                ->dataset('Institusi Dalam Negeri diluar Depdiknas', $arrD)
-                ->dataset('Institusi Luar Negeri', $arrE);
+        
+        
+        $jmlhProdi = count($listProdi);
+        if($jmlhProdi==2) {
+        	$arrNilaiAkreditasi1 = [];
+       		$arrNilaiAkreditasi2 = [];
+        	for ($i=0; $i < 3 ; $i++) {
+            	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
+            	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
+        	}
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('My nice chart')
+			    ->colors(['#ff0000', '#808080'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
+			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2);  
+			    
+        } elseif($jmlhProdi==3) {
+        	$arrNilaiAkreditasi1 = [];
+       		$arrNilaiAkreditasi2 = [];
+       		$arrNilaiAkreditasi3 = [];
+        	for ($i=0; $i < 3 ; $i++) {
+            	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
+            	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
+            	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
+        	}
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('My nice chart')
+			    ->colors(['#ff0000', '#ffffff'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
+			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
+			    ->dataset($arrNamaProdi[2],  $arrNilaiAkreditasi3); 
+		} elseif($jmlhProdi==4) {
+        	$arrNilaiAkreditasi1 = [];
+       		$arrNilaiAkreditasi2 = [];
+       		$arrNilaiAkreditasi3 = [];
+       		$arrNilaiAkreditasi4 = [];
 
-			
+        	for ($i=0; $i < 3 ; $i++) {
+            	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
+            	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
+            	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
+            	$arrNilaiAkreditasi4[$i] = $arrNilaiAkreditasi[3][$i]->nilai;
+        	}
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('My nice chart')
+			    ->colors(['#ff0000', '#ffffff'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
+			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
+			    ->dataset($arrNamaProdi[2], $arrNilaiAkreditasi3)
+			    ->dataset($arrNamaProdi[3],  $arrNilaiAkreditasi4); 
+        } elseif($jmlhProdi==5) {
+        	$arrNilaiAkreditasi1 = [];
+       		$arrNilaiAkreditasi2 = [];
+       		$arrNilaiAkreditasi3 = [];
+       		$arrNilaiAkreditasi4 = [];
+       		$arrNilaiAkreditasi5 = [];
 
-			return view('viewriwayat',[
-				'role' => $role,
-	            'user' => $request->session()->get('user'),
-	            'pegawai' => $pimpinan,       
-	           // 'kodeFakultas' => $kodeFakultasPengguna,       
-	            'kode_fakultas' => $kodeFakultasPengguna,       
-	            'username' => $username,
-	            'chart1' => $chart1,
-	            'chart2' => $chart2,
-	            'chart3' => $chart3,
-	            'chart4' => $chart4,
-	            'getAllAkreditasi' => $getAllAkreditasi,
-	            'nama_fakultas' => $getNamaFakultas,
-	            //'chart5' => $chart5,
-	            'getAllAkreditasi' => $getAllAkreditasi,
-	            'nama_fakultas' => $namaFakultasnya
-	          //  'akreditasi' => $akreditasi
-	         
-			]);
+        	for ($i=0; $i < 3 ; $i++) {
+            	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
+            	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
+            	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
+            	$arrNilaiAkreditasi4[$i] = $arrNilaiAkreditasi[3][$i]->nilai;
+            	$arrNilaiAkreditasi5[$i] = $arrNilaiAkreditasi[4][$i]->nilai;
+            	
+        	}
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('My nice chart')
+			    ->colors(['#ff0000', '#ffffff'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
+			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
+			    ->dataset($arrNamaProdi[2], $arrNilaiAkreditasi3)
+			    ->dataset($arrNamaProdi[3],  $arrNilaiAkreditasi4)
+			    ->dataset($arrNamaProdi[4], $arrNilaiAkreditasi5); 
+        } 
+		
+
+		return view('viewriwayat',[
+			'role' => $role,
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pimpinan,       
+            'kode_fakultas' => $kodeFakultasPengguna,       
+            'username' => $username,
+            'chart1' => $chart1,
+            'getAllAkreditasi' => $getAllAkreditasi,
+            'nama_fakultas' => $getNamaFakultas,
+            'getAllAkreditasi' => $getAllAkreditasi,
+            'nama_fakultas' => $namaFakultasnya
+		]);
 	}
 
 	public function formTambahAkreditasi(Request $request) {
