@@ -357,6 +357,31 @@ class AkreditasiController extends Controller
                 ->dataset('Institusi Dalam Negeri diluar Depdiknas', $arrD)
                 ->dataset('Institusi Luar Negeri', $arrE);
 
+            $jmlhProdi = count($listProdi);
+
+            $arrNamaProdi = [];
+            $arrKodeProdi = [];
+            $arrNilaiAkreditasi = [];
+            foreach ($listProdi as $list2) {
+            	$arrNamaProdi[] = $list2->nama_prodi;
+            	$arrKodeProdi[] = $list2->kode_prodi;
+            	$arrNilaiAkreditasi[] = Akreditasi::get3PerdiodeNilaiAkreditasi($list2->kode_prodi);
+            }
+
+            dd($arrNilaiAkreditasi[0]);
+
+
+
+            if($jmlhProdi==2) {
+            	$arrNilaiAkreditasi1 = [];
+            	$arrNilaiAkreditasi2 = [];
+	        	$chart3 = Charts::multi('areaspline', 'highcharts')
+				    ->title('My nice chart')
+				    ->colors(['#ff0000', '#ffffff'])
+				    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+				    ->dataset($arrNamaProdi[0], [3, 4, 7])
+				    ->dataset($arrNamaProdi[1],  [1, 3, 4]);  
+            }
 
 			
 

@@ -11,7 +11,7 @@ class Akreditasi extends Model
 {
     protected $table = 'histori_akreditasi';
 
-        public static function getAkreditasi($tahun,$kode_prodi)
+    public static function getAkreditasi($tahun,$kode_prodi)
     {
         return DB::table('histori_akreditasi')
             ->join('status', 'histori_akreditasi.status', '=', 'status.id')
@@ -32,6 +32,15 @@ class Akreditasi extends Model
             ->select('histori_akreditasi.id','histori_akreditasi.nilai','histori_akreditasi.peringkat_akreditasi','histori_akreditasi.keterangan','histori_akreditasi.tahun_keluar','histori_akreditasi.masa_berlaku','status.nama as nama_status', 'program_studi.nama_prodi')
             ->where('program_studi.kode_fakultas',$kode_fakultas)
             ->get();
+    }
+
+    public static function get3PerdiodeNilaiAkreditasi($kode_prodi) {
+        return DB::table('histori_akreditasi')
+                ->select('nilai', 'kode_prodi')
+                ->where('kode_prodi', $kode_prodi)
+                ->orderBy('tahun_keluar', 'desc')
+                ->limit(3)
+                ->get();
     }
 
     public static function updateNilai($kode_prodi,$tahun,$nilai,$peringkat,$keterangan)
