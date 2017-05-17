@@ -179,6 +179,10 @@ Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/submit', 'BorangControl
 Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/return', 'BorangController@returntoTimAkreditasi')->name('borang/{idHistori}/{jenisBorang}/{kodeProdi}/return');
 
 Route::get('akreditasi/{idHistori}/edit', 'AkreditasiController@editAkreditasi')->name('akreditasi/{idHistori}/edit');
+
+Route::get('akreditasi/{idHistori}/pilih', 'AkreditasiController@pilihJenisBorang')->name('akreditasi/{idHistori}/pilih');
+
+
 });
 
 

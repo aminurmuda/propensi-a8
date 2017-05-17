@@ -71,7 +71,7 @@
                             @endif
                             <td> 
                               
-                              <a href="#" class="btn-primary btn-sm" >Details</a><br><br>
+                              <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/pilih') }}" class="btn-primary btn-sm" >Details</a><br><br>
 
                               
                               @if($role=='BPMA' || $role=='Admin')
