@@ -61,7 +61,7 @@
                             <td> <center>
                             @if($role=='Tim Akreditasi' || $role=='Admin')
                             @if($borang->status==0) 
-                            <a href="{{ url($borang->jenis.'/'.$borang->kode_prodi) }}" class="btn-success btn-sm"> Edit</a>
+                            <a href="{{ url($borang->jenis.'/'.$borang->kodeProdiFakultas) }}" class="btn-success btn-sm"> Edit</a>
                             @else
                             <a href="#" class="btn-success btn-sm"> Edit</a>
                             @endif
