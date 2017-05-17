@@ -18,7 +18,7 @@
             <?php
              Session::forget('success');
             ?>
-            <h1>Update Borang 3A Standar {{$kodeStandarStr}}</h1><a href="{{ url('3A/'.$kodeProdi.'/standar7') }}" class="btn-primary btn-lg pull-right">Kembali</a>
+            <h1>Update Borang 3A Standar {{$kodeStandarStr}}</h1><a href="{{ url('3A/'.$kodeProdi.'/'.$tahun.'/standar7') }}" class="btn-primary btn-lg pull-right">Kembali</a>
             <br><br><br>
             @if($kodeStandarStr=='7.1.2')
             <p>
@@ -32,7 +32,7 @@
             </p>
             @endif
             <br>          
-            <form action="{{url('3a/standar7edit/'.$kodeStandar.'/'.$kodeProdi.'/3a/submit')}}">
+            <form action="{{url('3a/standar7edit/'.$kodeStandar.'/'.$idHistori.'/3a/submit')}}">
             {{csrf_field()}}
             <div class="form-group">
               <textarea class="form-control" id='textarea' name='textarea'>

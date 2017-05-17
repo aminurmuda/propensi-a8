@@ -327,6 +327,7 @@ class AkreditasiController extends Controller
 			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
 			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
 			$getBorang = Borang::getAllBorangByProdi($selectedProdi);
+			// dd($getBorang);
 		} else if ($role=='Tim Reviewer') {
 			$selectedProdi = Pegawai::lihatProdiTimReviewer($username);
 			$getBorang = Borang::getAllBorangByProdi($selectedProdi);

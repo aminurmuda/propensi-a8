@@ -50,7 +50,7 @@
                             </div><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               @if($status==0  ||$role=='Admin')
-                              <a href="{{ url('3a/standar2edit/2-1/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3a/standar2edit/2-1/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
                               <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
@@ -150,7 +150,7 @@
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               @if($status==0 || $role=='Admin' )
-                              <a href="{{ url('3a/standar2edit/2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3a/standar2edit/2-2/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
                               <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
                               @endif
@@ -230,7 +230,7 @@
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               @if($status==0 || $role=='Admin')
-                              <a href="{{ url('3a/standar2edit/2-3/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3a/standar2edit/2-3/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
                               <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
                               @endif
@@ -306,7 +306,7 @@
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               @if($status==0 || $role=='Admin')
-                              <a href="{{ url('3a/standar2edit/2-4/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3a/standar2edit/2-4/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
                               <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
                               @endif
@@ -384,7 +384,7 @@
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               @if($status==0 || $role=='Admin')
-                              <a href="{{ url('3a/standar2edit/2-5/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3a/standar2edit/2-5/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
                               <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
                               @endif
@@ -487,7 +487,7 @@
                             </div><br><br>
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                               @if($status==0)
-                              <a href="{{ url('3a/standar2edit/2-6/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+                              <a href="{{ url('3a/standar2edit/2-6/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @else
                               <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil disabled"> Edit</a>
                               @endif

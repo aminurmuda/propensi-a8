@@ -82,9 +82,10 @@ class borang extends Model
         return DB::table('borang')
             ->join('histori_akreditasi','borang.id_histori','=','histori_akreditasi.id')
             ->join('program_studi', 'histori_akreditasi.kode_prodi', '=', 'program_studi.kode_prodi')
-            ->select('borang.id_histori','borang.isi','borang.jenis','borang.standar', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.kode_prodi as kodeProdiFakultas','borang.is_reviewed as status')
+            ->select('borang.id_histori','borang.jenis', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.kode_prodi as kodeProdiFakultas','borang.is_reviewed as status')
             ->where('borang.kode_prodi',$kode_prodi)
-            ->groupBy('borang.id_histori','borang.isi','borang.jenis','borang.standar', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.kode_prodi','borang.is_reviewed')
+            ->groupBy('borang.id_histori','borang.jenis', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.kode_prodi','borang.is_reviewed')
+            ->orderBy('borang.tahun','desc')
             ->get();
     }
 
@@ -93,8 +94,9 @@ class borang extends Model
         return DB::table('borang')
             ->join('histori_akreditasi','borang.id_histori','=','histori_akreditasi.id')
             ->join('program_studi', 'histori_akreditasi.kode_prodi', '=', 'program_studi.kode_prodi')
-            ->select('borang.id_histori', 'borang.jenis', 'borang.tahun', 'program_studi.kode_prodi','program_studi.nama_prodi','borang.kode_prodi as kodeProdiFakultas','borang.is_reviewed as status')
-            ->groupBy('borang.id_histori', 'borang.jenis', 'borang.tahun', 'program_studi.kode_prodi','program_studi.nama_prodi','borang.kode_prodi','borang.is_reviewed')
+            ->select('borang.id_histori','borang.jenis', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.kode_prodi as kodeProdiFakultas','borang.is_reviewed as status')
+            ->groupBy('borang.id_histori','borang.jenis', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.kode_prodi','borang.is_reviewed')
+            ->orderBy('borang.tahun','desc')
             ->get();
     }
 
@@ -133,6 +135,16 @@ class borang extends Model
             ->where('standar',$nomorStandar)
             ->where('jenis',$jenisBorang)
             ->get();
+    }
+
+          public static function updateBorangByIdHistori($jenisBorang,$nomorStandar,$idHistori,$isi)
+    {
+        return DB::table('borang')
+            ->where('id_histori', $idHistori)
+          // ->where('tahun', $tahun)
+          ->where('standar',$nomorStandar)
+          ->where('jenis',$jenisBorang)
+          ->update(['isi' => $isi]);
     }
 
 

@@ -19,11 +19,11 @@
              Session::forget('success');
             ?> 
           <h1>Update Evaluasi Diri</h1><br>
-          <a href="{{ URL::previous() }}" class="btn-primary btn-lg pull-right">Kembali</a>
+          <a href="{{ url('evaluasidiri/'.$idHistori.'/'.$tahun) }}" class="btn-primary btn-lg pull-right">Kembali</a>
            <br>
            <br>
            <br>
-            <form action="{{url('evaluasidiri/edit/'.$kodeProdi.'/ED/submit')}}">
+            <form action="{{url('evaluasidiri/edit/'.$idHistori.'/ED/submit')}}">
             {{csrf_field()}}
             <div class="form-group">
               <textarea class="form-control" id='textarea' name='textarea'>

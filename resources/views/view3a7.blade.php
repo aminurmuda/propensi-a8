@@ -103,7 +103,7 @@
 
                              @if($role=='Tim Akreditasi' || $role=='Admin' )
                              @if($status==0 || $role=='Admin')
-                             <a href="{{ url('3a/standar7edit/7-1-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
+                             <a href="{{ url('3a/standar7edit/7-1-2/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
                              @else
                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
                               @endif
@@ -363,7 +363,7 @@
                         </div><br>
                              @if($role=='Tim Akreditasi' || $role=='Admin' )
                              @if ($status==0 || $role=='Admin')
-                             <a href="{{ url('3a/standar7edit/7-2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
+                             <a href="{{ url('3a/standar7edit/7-2-2/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
                              @else
                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
                               @endif

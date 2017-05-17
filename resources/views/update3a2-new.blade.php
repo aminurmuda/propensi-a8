@@ -18,7 +18,7 @@
             <?php
              Session::forget('success');
             ?>
-          <h1>Update Borang 3A Standar {{$kodeStandarStr}}</h1><a href="{{ url('3A/'.$kodeProdi.'/standar2') }}" class="btn-primary btn-lg pull-right">Kembali</a>
+          <h1>Update Borang 3A Standar {{$kodeStandarStr}}</h1><a href="{{ url('3A/'.$kodeProdi.'/'.$tahun.'/standar2') }}" class="btn-primary btn-lg pull-right">Kembali</a>
             <h3>{!!$standar2['standar2'][$kodeStandarStr]['judul']!!}</h3>
             <br>
 
@@ -27,7 +27,7 @@
             @endif
             <p>{!!$standar2['standar2'][$kodeStandarStr]['perintah']!!}</p><br>
 
-            <form action="{{url('3a/standar2edit/'.$kodeStandar.'/'.$kodeProdi.'/3a/submit')}}">
+            <form action="{{url('3a/standar2edit/'.$kodeStandar.'/'.$idHistori.'/3a/submit')}}">
             {{csrf_field()}}
             <div class="form-group">
               <textarea class="form-control" id='textarea' name='textarea'>
@@ -46,5 +46,5 @@
       </div>
   </div>
 </div>
-
+ 
 @endsection

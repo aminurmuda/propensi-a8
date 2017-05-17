@@ -61,7 +61,15 @@
                             <td> <center>
                             @if($role=='Tim Akreditasi' || $role=='Admin')
                             @if($borang->status==0) 
-                            <a href="{{ url($borang->jenis.'/'.$borang->kodeProdiFakultas) }}" class="btn-success btn-sm"> Edit</a>
+                                @if($borang->jenis=='3A')
+                            <a href="{{ url($borang->jenis.'/'.$borang->kodeProdiFakultas.'/'.$borang -> tahun) }}" class="btn-success btn-sm"> Edit</a>
+                                @endif
+                                @if($borang->jenis=='3B')
+                            <a href="{{ url($borang->jenis.'/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-success btn-sm"> Edit</a>
+                                @endif
+                                @if($borang->jenis=='ED')
+                            <a href="{{ url('evaluasidiri/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-success btn-sm"> Edit</a>
+                                @endif
                             @else
                             <a href="#" class="btn-success btn-sm"> Edit</a>
                             @endif

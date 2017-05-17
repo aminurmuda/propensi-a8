@@ -18,7 +18,7 @@
             <?php
              Session::forget('success');
             ?>
-            <h1>Update Borang 3A Standar {{$kodeStandarStr}}</h1><a href="{{url('3A/'.$kodeProdi.'/standar4')}}" class="btn-primary btn-lg pull-right">Kembali</a><br><br><br>
+            <h1>Update Borang 3A Standar {{$kodeStandarStr}}</h1><a href="{{url('3A/'.$kodeProdi.'/'.$tahun.'/standar4')}}" class="btn-primary btn-lg pull-right">Kembali</a><br><br><br>
             @if($kodeStandarStr!='4.6.2')
             <p>{{$standar4['standar4'][$kodeStandarStr]['perintah'] }}</p>
             @else
@@ -26,7 +26,7 @@
             @endif
 
             <br>
-                          <form action="{{url('3a/standar4edit/'.$kodeStandar.'/'.$kodeProdi.'/3a/submit')}}">
+                          <form action="{{url('3a/standar4edit/'.$kodeStandar.'/'.$idHistori.'/3a/submit')}}">
                           {{csrf_field()}}
                           <div class="form-group">
                             <textarea class="form-control" id='textarea' name='textarea' style='height: 600px;'>@if($kodeStandarStr!='4.6.2')
