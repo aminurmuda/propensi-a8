@@ -84,7 +84,7 @@ class borang extends Model
             ->join('program_studi', 'histori_akreditasi.kode_prodi', '=', 'program_studi.kode_prodi')
             ->select('borang.id_histori','borang.isi','borang.jenis','borang.standar', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.kode_prodi as kodeProdiFakultas','borang.is_reviewed as status')
             ->where('borang.kode_prodi',$kode_prodi)
-            ->groupBy('borang.id_histori','borang.isi','borang.jenis','borang.standar', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.is_reviewed')
+            ->groupBy('borang.id_histori','borang.isi','borang.jenis','borang.standar', 'borang.tahun', 'program_studi.nama_prodi','program_studi.kode_prodi','borang.kode_prodi','borang.is_reviewed')
             ->get();
     }
 
