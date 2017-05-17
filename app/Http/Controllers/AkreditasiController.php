@@ -138,13 +138,19 @@ class AkreditasiController extends Controller
 
 	public function lihatRiwayat(Request $request) {
 		$username=$request->session()->get('user');
+		$kode_fakultas=$request->get('selectFakultasGeneral');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
-		$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
+		if($role == 'UPMAF' || $role=='Pimpinan Fakultas') {
+			$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
+			$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
 
-		$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
+		} elseif($role=='Pimpinan Universitas' || $role=='Admin'|| $role=='BPMA') {
+			$getAllAkreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
+			$getNamaFakultas = fakultas::getNamaFakultas($kode_fakultas)[0]->nama_fakultas;
+		}
 		
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
 
@@ -180,12 +186,27 @@ class AkreditasiController extends Controller
         	$arrKodeProdi[] = $list2->kode_prodi;
         	$arrNilaiAkreditasi[] = Akreditasi::get3PerdiodeNilaiAkreditasi($list2->kode_prodi);
         }
-
-        
-        
         
         $jmlhProdi = count($listProdi);
-        if($jmlhProdi==2) {
+        if($jmlhProdi==0) {
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('My nice chart')
+			    ->colors(['#ff0000', '#808080'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3']);
+			     
+
+        } elseif($jmlhProdi==1) {
+        	$arrNilaiAkreditasi1 = [];
+        	for ($i=0; $i < 3 ; $i++) {
+            	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
+        	}
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('My nice chart')
+			    ->colors(['#ff0000', '#808080'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1);
+
+        } elseif($jmlhProdi==2) {
         	$arrNilaiAkreditasi1 = [];
        		$arrNilaiAkreditasi2 = [];
         	for ($i=0; $i < 3 ; $i++) {
@@ -198,7 +219,7 @@ class AkreditasiController extends Controller
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
 			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2);  
-			    
+
         } elseif($jmlhProdi==3) {
         	$arrNilaiAkreditasi1 = [];
        		$arrNilaiAkreditasi2 = [];

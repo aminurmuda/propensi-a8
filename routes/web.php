@@ -180,7 +180,9 @@ Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/return', 'BorangControl
 
 Route::get('akreditasi/{idHistori}/edit', 'AkreditasiController@editAkreditasi')->name('akreditasi/{idHistori}/edit');
 
-Route::get('akreditasi/{idHistori}/pilih', 'AkreditasiController@pilihJenisBorang')->name('akreditasi/{idHistori}/pilih');
+Route::get('akreditasi/riwayat/pilihFakultas', 'BorangController@pilihFakultasGeneral')->name('akreditasi/riwayat/pilihFakultas');
+
+Route::post('akreditasi/riwayat/pilihFakultas/{kodeFakultas}', 'AkreditasiController@lihatRiwayat')->name('akreditasi/riwayat/pilihFakultas/{kodeFakultas}');
 
 
 });
