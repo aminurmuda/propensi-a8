@@ -792,6 +792,11 @@ class BorangController extends Controller
 			$kodeProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
 		}
 
+		$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
+		// dd($QAkreditasiProdi);
+
+  		$kodeProdi = $QAkreditasiProdi[0]->kode_prodi;
+
 
 		$standar4_json = Borang::getBorangByIdHistori('3b',4,$idHistori);
 		$isi = $standar4_json[0]->isi;
@@ -980,7 +985,8 @@ class BorangController extends Controller
 	            'nama_fakultas' => $getNamaFakultas,
 	            'status' => $status,
 	            'tahun' => $tahun,
-	            'idHistori' => $idHistori
+	            'idHistori' => $idHistori,
+	            'kodeProdi' => $kodeProdi
  			]);
 
 	}
@@ -1012,6 +1018,10 @@ class BorangController extends Controller
 			$kodeProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
 		}
 
+		$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
+		// dd($QAkreditasiProdi);
+
+  		$kodeProdi = $QAkreditasiProdi[0]->kode_prodi;
 
 		$standar7_json = Borang::getBorangByIdHistori('3b',7,$idHistori);
 		$isi = $standar7_json[0]->isi;
@@ -1132,7 +1142,8 @@ class BorangController extends Controller
             'nama_fakultas' => $getNamaFakultas,
             'status' => $status,
             'idHistori' => $idHistori,
-            'tahun' => $tahun
+            'tahun' => $tahun,
+            'kodeProdi'=> $kodeProdi
 		]);
 	}
 

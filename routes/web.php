@@ -128,7 +128,7 @@ Route::get('3b/standar7edit/{kodeFakultas}', 'BorangController@edit3b7')->name('
 Route::get('3b/standar7edit/{kodeStandar}/{idHistori}', 'BorangController@edit3b7')->name('3b/standar7edit/{kodeStandar}/{idHistori}'); 
 Route::get('3b/standar7edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3b/standar7edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit'); //pimpinan 
 
-Route::get('3b/standar4/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar4/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar');
+Route::get('3b/standar7/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar7/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar');
 
 
 Route::get('akreditasi/lihat/{tahun}/{kodeProdi}', 'AkreditasiController@lihatAkreditasi')->name('akreditasi/lihat/{kodeProdi}');
