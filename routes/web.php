@@ -135,25 +135,26 @@ Route::get('akreditasi/edit/{tahun}/{kodeProdi}/submit', 'AkreditasiController@s
 
 
 Route::get('3A', 'BorangController@pilihProdi')->name('3A');
-Route::post('3A/{kodeProdi}', 'BorangController@pilihBorang3a')->name('3A/{kodeProdi}');
-Route::get('3A/{kodeProdi}', 'BorangController@pilihBorang3a')->name('3A/{kodeProdi}');
-Route::get('3A/{kodeProdi}/standar2', 'BorangController@lihat3a2')->name('3A/{kodeProdi}/standar2');
-Route::get('3A/{kodeProdi}/standar4', 'BorangController@lihat3a4')->name('3A/{kodeProdi}/standar4');
-Route::get('3A/{kodeProdi}/standar7', 'BorangController@lihat3a7')->name('3A/{kodeProdi}/standar7');
+Route::post('3A/{kodeProdi}/{tahun}', 'BorangController@pilihBorang3a')->name('3A/{kodeProdi}');
+Route::get('3A/{kodeProdi}/{tahun}', 'BorangController@pilihBorang3a')->name('3A/{kodeProdi}');
+Route::get('3A/{kodeProdi}/{tahun}/standar2', 'BorangController@lihat3a2')->name('3A/{kodeProdi}/standar2');
+Route::get('3A/{kodeProdi}/{tahun}/standar4', 'BorangController@lihat3a4')->name('3A/{kodeProdi}/standar4');
+Route::get('3A/{kodeProdi}/{tahun}/standar7', 'BorangController@lihat3a7')->name('3A/{kodeProdi}/standar7');
 
 Route::get('3B', 'BorangController@pilihFakultasGeneral')->name('3B');
-Route::post('3B/{kodeFakultas}', 'BorangController@pilihBorang3b')->name('3B/{kodeFakultas}');
-Route::get('3B/{kodeFakultas}', 'BorangController@pilihBorang3b')->name('3B/{kodeFakultas}');
-Route::get('3B/{kodeFakultas}/standar2', 'BorangController@lihat3b2')->name('3B/{kodeFakultas}/standar2');
-Route::get('3B/{kodeFakultas}/standar4', 'BorangController@lihat3b4')->name('3B/{kodeFakultas}/standar4');
-Route::get('3B/{kodeFakultas}/standar7', 'BorangController@lihat3b7')->name('3B/{kodeFakultas}/standar7');
+Route::post('3B/{idHistori}/{tahun}', 'BorangController@pilihBorang3b')->name('3B/{idHistori}/{tahun}');
+Route::get('3B/{idHistori}/{tahun}', 'BorangController@pilihBorang3b')->name('3B/{idHistori}/{tahun}');
+Route::get('3B/{idHistori}/{tahun}/standar2', 'BorangController@lihat3b2')->name('3B/{idHistori}/{tahun}/standar2');
+Route::get('3B/{idHistori}/{tahun}/standar4', 'BorangController@lihat3b4')->name('3B/{idHistori}/{tahun}/standar4');
+Route::get('3B/{idHistori}/{tahun}/standar7', 'BorangController@lihat3b7')->name('3B/{idHistori}/{tahun}/standar7');
 
 
 Route::get('test', 'TestController@index')->name('#');
 
 Route::get('evaluasidiri', 'BorangController@pilihProdi')->name('evaluasidiri'); //pimpinan univ only
-Route::post('evaluasidiri/{kodeProdi}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{kodeProdi}');
-Route::get('evaluasidiri/{kodeProdi}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{kodeProdi}');
+Route::post('evaluasidiri/{idHistori}/{tahun}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{idHistori}/{tahun}');
+Route::get('evaluasidiri/{idHistori}/{tahun}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{idHistori}/{tahun}');
+
 Route::get('evaluasidiri/edit/{kodeProdi}', 'BorangController@editEvaluasi')->name('evaluasidiri/edit/{kodeProdi}');
 Route::get('evaluasidiri/edit/{kode}/{jenisBorang}/submit', 'BorangController@submitevaluasi')->name('evaluasidiri/edit/{kodeProdi}/{jenisBorang}/submit');
 Route::get('evaluasidiri/standarED/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('evaluasidiri/standarED/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
@@ -180,9 +181,13 @@ Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/return', 'BorangControl
 
 Route::get('akreditasi/{idHistori}/edit', 'AkreditasiController@editAkreditasi')->name('akreditasi/{idHistori}/edit');
 
+
 Route::get('akreditasi/riwayat/pilihFakultas', 'BorangController@pilihFakultasGeneral')->name('akreditasi/riwayat/pilihFakultas');
 
 Route::post('akreditasi/riwayat/pilihFakultas/{kodeFakultas}', 'AkreditasiController@lihatRiwayat')->name('akreditasi/riwayat/pilihFakultas/{kodeFakultas}');
+
+Route::get('akreditasi/{idHistori}/{tahun}/pilih', 'AkreditasiController@pilihJenisBorang')->name('akreditasi/{idHistori}/{tahun}/pilih');
+
 
 
 });

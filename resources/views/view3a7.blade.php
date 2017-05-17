@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
-        @if($status!=2 && $role!='Admin')
+        @if($status!=0 && $role!='Admin')
               <div class="alert alert-info">
                 Borang tidak dalam masa atau sudah habis masa pengisian
               </div>
@@ -102,7 +102,7 @@
                             </div><br>
 
                              @if($role=='Tim Akreditasi' || $role=='Admin' )
-                             @if($status==2 || $role=='Admin')
+                             @if($status==0 || $role=='Admin')
                              <a href="{{ url('3a/standar7edit/7-1-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
                              @else
                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
@@ -114,7 +114,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
-                            @if($status==4 || $role=='Admin')
+                            @if($status==1 || $role=='Admin')
                              <form action="{{url('3a/standar7/7-1/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
@@ -284,7 +284,7 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#bs-collapse" href="#two">
-       7.2  Kegiatan Pelayanan/Pengabdian kepada Masyarakat (PkM)
+       7.2  Kegiatan Pelayanan/Pengabdian kepada Masyarakat (PKM)
         </a>
       </h4>
                     </div>
@@ -362,7 +362,7 @@
                         {!!rawurldecode($standar7['standar7']['7.2']['7.2.2']['isian'])!!}
                         </div><br>
                              @if($role=='Tim Akreditasi' || $role=='Admin' )
-                             @if ($status==2 || $role=='Admin')
+                             @if ($status==0 || $role=='Admin')
                              <a href="{{ url('3a/standar7edit/7-2-2/'. $kodeProdi) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
                              @else
                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
@@ -374,7 +374,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
-                            @if($status==4 || $role=='Admin')
+                            @if($status==1 || $role=='Admin')
                              <form action="{{url('3a/standar7/7-2/'.$kodeProdi.'/3a/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">

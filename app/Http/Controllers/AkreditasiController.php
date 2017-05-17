@@ -368,7 +368,7 @@ class AkreditasiController extends Controller
 		]);
 	}
 
-	public function pilihJenisBorang(Request $request, $idHistori) {
+	public function pilihJenisBorang(Request $request, $idHistori,$tahun) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -378,6 +378,7 @@ class AkreditasiController extends Controller
 		
 
 		$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
+		// dd($QAkreditasiProdi);
   		$kodeProdi = $QAkreditasiProdi[0]->kode_prodi;
   		$tahun = $QAkreditasiProdi[0]->tahun_keluar;
   		$nama_prodi = $QAkreditasiProdi[0]->nama_prodi;
@@ -391,12 +392,6 @@ class AkreditasiController extends Controller
 		$totalTugasBelajarS3 = 0;
 
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
-
-		if ($request->get('tahun')){
-			$tahun = $request->get('tahun'); 	
-		} else {
-			$tahun = date('Y');
-		}
 
 
 		$tahun1 = $tahun-1;
@@ -582,9 +577,10 @@ class AkreditasiController extends Controller
 	            'chart2' => $chart2,
 	            'chart3' => $chart3,
 	            'chart4' => $chart4,
-	            'kode_prodi' => $kode_prodi,
+	            'kode_prodi' => $kodeProdi,
 	            'nama_prodi' => $nama_prodi,
-	            'tahun' => $tahun
+	            'tahun' => $tahun,
+	            'id_histori' => $idHistori
 	         
 	            //'chart5' => $chart5,
 	          

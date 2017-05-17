@@ -36,7 +36,7 @@
                             Borang Akreditasi yang diisi oleh program studi
                         </p><br><br><br>
 
-                        <a href="{{ url('3A/'.$kode_prodi) }}" class="btn db-button-color-square btn-m round">Pilih</a>
+                        <a href="{{ url('3A/'.$kode_prodi.'/'.$tahun) }}" class="btn db-button-color-square btn-m round">Pilih</a>
 
                             
                     </div>
@@ -61,7 +61,7 @@
                             <br>Borang Institusi yang diisi oleh fakultas
                         </p><br><br><br>
 
-                        <a href="{{ url('pilihborang/3b') }}" class="btn db-button-color-square btn-m round">Pilih</a>
+                        <a href="{{ url('3B/'.$id_histori.'/'.$tahun) }}" class="btn db-button-color-square btn-m round">Pilih</a>
                
                     </div>
                     <div class="pricing-footer">
@@ -86,7 +86,7 @@
                         <p class="plan-text">
                             <br>Evaluasi Diri Program Studi
                         </p> <br> <br> <br><br>
-                        <a href="#" class="btn db-button-color-square btn-m round">Pilih</a>
+                        <a href="{{ url('evaluasidiri/'.$id_histori.'/'.$tahun) }}" class="btn db-button-color-square btn-m round">Pilih</a>
                     </div>
                     <div class="pricing-footer">
                         <br><br><br><br>

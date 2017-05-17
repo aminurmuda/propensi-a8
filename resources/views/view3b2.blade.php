@@ -15,6 +15,8 @@
             <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span><br>
             <span> {{ $nama_fakultas}} , Universitas Indonesia </span>
             <br>
+            <span> Tahun {{ $tahun}} </span>
+            <br>
 
              
 
