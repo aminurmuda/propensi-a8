@@ -65,7 +65,7 @@ Route::post('3a/standar4/{kodeProdi}', 'BorangController@lihat3a4')->name('3a/st
 Route::get('3a/standar4edit/{kodeStandar}/{idHistori}', 'BorangController@edit3a4')->name('3a/standar4edit/{kodeStandar}/{idHistori}'); 
 
 Route::get('3a/standar4edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar4edit/{kodeStandar}/idHistori}/{jenisBorang}/submit'); //pimpinan 
-Route::get('3a/standar4/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar4/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
+Route::get('3a/standar4/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar4/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar');
 
 Route::get('3b/standar2edit/{kodeStandar}/{idHistori}', 'BorangController@edit3b2')->name('3b/standar2edit/{kodeStandar}/{idHistori}'); 
 
@@ -78,11 +78,11 @@ Route::post('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/st
 
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}');
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}/{jenisBorang}/submit');
-Route::get('3a/standar2/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar2/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
+Route::get('3a/standar2/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar2/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar');
 
 
 Route::get('3b/standar2/{kodeFakultas}', 'BorangController@lihat3b2')->name('3b/standar2/{kodeFakultas}');
-Route::get('3b/standar2/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar2/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
+Route::get('3b/standar2/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar2/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar');
 
 Route::get('3b/standar2', 'BorangController@pilihFakultasGeneral')->name('3b/standar2'); //pimpinan univ only
 
@@ -101,7 +101,7 @@ Route::get('3a/standar7edit/{kodeProdi}', 'BorangController@edit3a7')->name('3a/
 Route::get('3a/standar7edit/{kodeStandar}/{idHistori}', 'BorangController@edit3a7')->name('3a/standar7edit/{kodeStandar}/{idHistori}'); 
 
 Route::get('3a/standar7edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3a/standar7edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit'); //pimpinan 
-Route::get('3a/standar7/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar7/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
+Route::get('3a/standar7/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3a/standar7/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar');
 
 Route::get('3b/standar4/', 'BorangController@pilihFakultasGeneral')->name('3b/standar4'); //pimpinan univ, reviewer univ, admin only
 
@@ -112,7 +112,8 @@ Route::get('3b/standar4/{kodeFakultas}', 'BorangController@lihat3b4')->name('3b/
 Route::get('3b/standar4edit/{kodeStandar}/{idHistori}', 'BorangController@edit3b4')->name('3b/standar4edit/{kodeStandar}/{idHistori}'); 
 
 Route::get('3b/standar4edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3b/standar4edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit'); //pimpinan 
-Route::get('3b/standar4/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar4/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
+
+Route::get('3b/standar4/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar4/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar');
 
 Route::get('3b/standar4edit/{kodeFakultas}', 'BorangController@edit3b4')->name('3b/standar4edit/{kodeProdi}');
 
@@ -126,7 +127,8 @@ Route::get('3b/standar7edit/{kodeFakultas}', 'BorangController@edit3b7')->name('
 
 Route::get('3b/standar7edit/{kodeStandar}/{idHistori}', 'BorangController@edit3b7')->name('3b/standar7edit/{kodeStandar}/{idHistori}'); 
 Route::get('3b/standar7edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit', 'BorangController@submitKualitatif')->name('3b/standar7edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit'); //pimpinan 
-Route::get('3b/standar7/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar7/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
+
+Route::get('3b/standar4/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('3b/standar4/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar');
 
 
 Route::get('akreditasi/lihat/{tahun}/{kodeProdi}', 'AkreditasiController@lihatAkreditasi')->name('akreditasi/lihat/{kodeProdi}');

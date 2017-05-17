@@ -249,7 +249,7 @@
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
                             @if($status==1 || $role=='Admin')
-                             <form action="{{url('3b/standar4/4-1/'.$kodeFakultasSelected.'/3b/submitkomentar')}}">
+                             <form action="{{url('3b/standar4/4-1/'.$kodeProdi.'/'.$idHistori.'/3B/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
                                 <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
@@ -415,7 +415,7 @@
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
                             @if($status==1 || $role=='Admin')
-                             <form action="{{url('3b/standar4/4-2/'.$kodeFakultasSelected.'/3b/submitkomentar')}}">
+                             <form action="{{url('3b/standar4/4-2/'.$kodeProdi.'/'.$idHistori.'/3B/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
                                 <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
