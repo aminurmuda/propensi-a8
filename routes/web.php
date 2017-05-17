@@ -161,7 +161,7 @@ Route::get('evaluasidiri/{idHistori}/{tahun}', 'BorangController@lihatEvaluasi')
 
 
 Route::get('evaluasidiri/edit/{idHistori}/{jenisBorang}/submit', 'BorangController@submitevaluasi')->name('evaluasidiri/edit/{idHistori}/{jenisBorang}/submit');
-Route::get('evaluasidiri/standarED/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('evaluasidiri/standarED/{kodeStandar}/{kodeProdi}/{jenisBorang}/submitkomentar');
+Route::get('evaluasidiri/standarED/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('evaluasidiri/standarED/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar');
 
 
 Route::get('tambahakreditasi', 'AkreditasiController@tambahAkreditasi')->name('tambahakreditasi');

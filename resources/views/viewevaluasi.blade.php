@@ -48,7 +48,7 @@
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
                             @if($status==1 || $role=='Admin')
-                             <form action="{{url('evaluasidiri/standarED/0/'.$kodeProdi.'/ed/submitkomentar')}}">
+                             <form action="{{url('evaluasidiri/standarED/0/'.$kodeProdi.'/'.$idHistori.'/ED/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
                                 <textarea class="form-control" id='isi-komentar' name='isi-komentar'>
