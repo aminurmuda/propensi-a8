@@ -368,7 +368,7 @@ class AkreditasiController extends Controller
 	            'chart3' => $chart3,
 	            'chart4' => $chart4,
 	            'getAllAkreditasi' => $getAllAkreditasi,
-	            'nama_fakultas' => $getNamaFakultas
+	            'nama_fakultas' => $getNamaFakultas,
 	            //'chart5' => $chart5,
 	            'getAllAkreditasi' => $getAllAkreditasi
 	          //  'akreditasi' => $akreditasi
