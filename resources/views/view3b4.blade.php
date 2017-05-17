@@ -15,6 +15,8 @@
             <span> Sumber Daya Manusia</span><br>
             <span>{{ $nama_fakultas}}, Universitas Indonesia</span>
 
+            <br>
+            <span> Tahun {{ $tahun}} </span>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 

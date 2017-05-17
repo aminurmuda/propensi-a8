@@ -9,7 +9,8 @@
 	    	<h3>Pilih Standar Borang 3A</h3>
 	    	<span>Borang Akreditasi yang diisi oleh program studi</span><br>
 	    	<span>Program Studi {{$prodi->nama_prodi}}</span><br>
-	    	<span>{{ $nama_fakultas }}, Universitas Indonesia</span><br><br>
+	    	<span>{{ $nama_fakultas }}, Universitas Indonesia</span><br>
+	    	<span>Tahun {{$tahun}}</span><br><br>
 	    	<!-- start content -->
 	    	<div class="container">
 	    	 <div class="col-md-12 col-md-offset-0" >

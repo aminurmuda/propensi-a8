@@ -73,7 +73,7 @@ class borang extends Model
         }
 
        return DB::table('borang')
-                    ->insert(['kode_prodi'=> $kodeProdi, 'tahun' => $tahun, 'id_histori' => $idHistori,'jenis'=>$kodeBorang,'isi'=>$isi]);
+                    ->insert(['kode_prodi'=> $kodeProdi, 'tahun' => $tahun, 'id_histori' => $idHistori,'standar'=>0,'jenis'=>$kodeBorang,'isi'=>$isi]);
     }
 
 
@@ -115,6 +115,25 @@ class borang extends Model
             ->get();
     }
      
+         public static function getIdBorangByIdHistori($jenisBorang,$nomorStandar,$idHistori)
+    {
+        return DB::table('borang')
+            ->select('borang.id')
+            ->where('id_histori',$idHistori)
+            ->where('standar',$nomorStandar)
+            ->where('jenis',$jenisBorang)
+            ->get();
+    } 
+
+            public static function getBorangByIdHistori($jenisBorang,$nomorStandar,$idHistori)
+    {
+        return DB::table('borang')
+            ->select('borang.*')
+            ->where('id_histori',$idHistori)
+            ->where('standar',$nomorStandar)
+            ->where('jenis',$jenisBorang)
+            ->get();
+    }
 
 
 }
