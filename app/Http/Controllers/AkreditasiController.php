@@ -190,7 +190,7 @@ class AkreditasiController extends Controller
         $jmlhProdi = count($listProdi);
         if($jmlhProdi==0) {
         	$chart1 = Charts::multi('line', 'chartjs')
-			    ->title('My nice chart')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->colors(['#ff0000', '#808080'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3']);
 			     
@@ -201,7 +201,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
-			    ->title('My nice chart')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->colors(['#ff0000', '#808080'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1);
@@ -214,7 +214,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
-			    ->title('My nice chart')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->colors(['#ff0000', '#808080'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
@@ -230,7 +230,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
-			    ->title('My nice chart')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->colors(['#ff0000', '#ffffff'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
@@ -249,7 +249,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi4[$i] = $arrNilaiAkreditasi[3][$i]->nilai;
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
-			    ->title('My nice chart')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->colors(['#ff0000', '#ffffff'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
@@ -272,7 +272,7 @@ class AkreditasiController extends Controller
             	
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
-			    ->title('My nice chart')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->colors(['#ff0000', '#ffffff'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
@@ -375,8 +375,6 @@ class AkreditasiController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
 
-		
-
 		$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
 		// dd($QAkreditasiProdi);
   		$kodeProdi = $QAkreditasiProdi[0]->kode_prodi;
@@ -476,7 +474,7 @@ class AkreditasiController extends Controller
             ->labels(['One', 'Two', 'Three']);
 
            //ini untuk masukin data ke grafik terkait sumber pendanaan penelitian
-        $dana_biayaSendiri = danaProyek::getDanaProyekBiayaSendiri($kode_prodi,$tahun);
+        $dana_biayaSendiri = danaProyek::getDanaProyekBiayaSendiri($kodeProdi,$tahun);
 		$arrA = array(0,0,0);
 		foreach ($dana_biayaSendiri as $dana_biayaSendiri ) {
 			$tahun_min = $dana_biayaSendiri->tanggal_selesai;
@@ -491,7 +489,7 @@ class AkreditasiController extends Controller
 			}
 
 		}
-		$dana_PT = danaProyek::getDanaProyekPT($kode_prodi,$tahun);
+		$dana_PT = danaProyek::getDanaProyekPT($kodeProdi, $tahun);
 		$arrB = array(0,0,0);
 		foreach ($dana_PT as $dana_PT ) {
 			$tahun_min = $dana_PT->tanggal_selesai;
@@ -506,7 +504,7 @@ class AkreditasiController extends Controller
 			}
 
 		}
-		$dana_depdiknas = danaProyek::getProyekDepdiknasDalamNegeri($kode_prodi,$tahun);
+		$dana_depdiknas = danaProyek::getProyekDepdiknasDalamNegeri($kodeProdi,$tahun);
 		$arrC = array(0,0,0);
 		foreach ($dana_depdiknas as $dana_depdiknas ) {
 			$tahun_min = $dana_depdiknas->tanggal_selesai;
@@ -521,7 +519,7 @@ class AkreditasiController extends Controller
 			}
 
 		}
-		$dana_dalamNegeri = danaProyek::getDanaProyekInstitusiDalamNegeri($kode_prodi,$tahun);
+		$dana_dalamNegeri = danaProyek::getDanaProyekInstitusiDalamNegeri($kodeProdi,$tahun);
 		$arrD = array(0,0,0);
 		foreach ($dana_dalamNegeri as $dana_dalamNegeri ) {
 			$tahun_min = $dana_dalamNegeri->tanggal_selesai;
@@ -536,7 +534,7 @@ class AkreditasiController extends Controller
 			}
 
 		}
-		$dana_luarNegeri = danaProyek::getDanaProyekInstitusiLuarNegeri($kode_prodi,$tahun);
+		$dana_luarNegeri = danaProyek::getDanaProyekInstitusiLuarNegeri($kodeProdi,$tahun);
 		$arrE = array(0,0,0);
 		foreach ($dana_luarNegeri as $dana_luarNegeri ) {
 			$tahun_min = $dana_luarNegeri->tanggal_selesai;
