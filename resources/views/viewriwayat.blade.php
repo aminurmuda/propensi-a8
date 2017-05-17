@@ -21,22 +21,10 @@
 
                 <!-- content chart -->
              
-                
-                <div class="pull-right">
-                 {!! $chart2->render() !!}<br><br>
-                 </div>
 
                  {!! $chart1->render() !!}
 
-                <div class="pull-right">
-                 <br><br><br>{!! $chart4->render() !!}<br><br>
-                 </div>
-
-                 <div class="col-md-offset-2">
-                 <br><br><br>{!! $chart3->render() !!}<br><br>
-                 </div>
-                 
-              
+                
                 <a href="{{ url('akreditasi/tambah') }}" class="btn-primary btn-lg col-md-offest-2 pull-right"> Tambah Borang</a><br><br><br>
                  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>

@@ -36,9 +36,9 @@ class Akreditasi extends Model
 
     public static function get3PerdiodeNilaiAkreditasi($kode_prodi) {
         return DB::table('histori_akreditasi')
-                ->select('nilai', 'kode_prodi')
+                ->select('nilai')
                 ->where('kode_prodi', $kode_prodi)
-                ->orderBy('tahun_keluar', 'desc')
+                ->orderBy('tahun_keluar', 'asc')
                 ->limit(3)
                 ->get();
     }
