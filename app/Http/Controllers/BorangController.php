@@ -183,7 +183,7 @@ class BorangController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
 			//untuk pimpinan univ, reviewer univ, admin
-			if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas' || $role=='Admin'|| $role=='BPMA'){
+			if($role=='Pimpinan Universitas' || $role=='Reviewer Universitas' || $role=='Admin'|| $role=='BPMA' || $role='UPMAF'){
 				$fakultas = fakultas::getAllFakultas();
 			} 
 			return view('pilihfakultas',[

@@ -128,7 +128,7 @@ class AkreditasiController extends Controller
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',0);
 
 
-  			return redirect()->route('riwayatakreditasipilih');
+  			return redirect()->route('akreditasi/riwayat');
 
 		} else {
 		return view('error', [
@@ -344,7 +344,7 @@ class AkreditasiController extends Controller
 
 	public function submitStatusAkreditasi(Request $request,$idHistori,$newStatus) {
 		Akreditasi::updateStatus($idHistori,$newStatus);
-		return redirect()->route('riwayatakreditasipilih');
+		return redirect()->route('akreditasi/riwayat');
 	}
 
 	public function lihatStatusBorang(Request $request) {
