@@ -133,8 +133,8 @@
                         <li><a href="{{ url('home') }}" class="">Home</a></li>
                         @endif
                                 
-                                @if($role=='Admin')
-                                <li><a href="{{url('akreditasi/riwayat/pilihFakultas')}}">Riwayat Akreditasi</a></li>
+                                @if($role=='Admin' || $role=='Pimpinan Universitas' || $role=='BPMA')
+                                <li><a href="{{url('akreditasi/riwayat/fakultas')}}">Riwayat Akreditasi</a></li>
                                 @else
                                 <li><a href="{{url('akreditasi/riwayat')}}">Riwayat Akreditasi</a></li>
                                 @endif

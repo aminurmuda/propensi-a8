@@ -273,7 +273,8 @@ class AkreditasiController extends Controller
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#ffffff'])
+			    ->dimensions(200,200)
+			    ->colors(['#1F618D', '#CB4335'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
 			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
@@ -587,6 +588,172 @@ class AkreditasiController extends Controller
 	         
 			]);
 	}
+
+
+	public function homePimpinan(Request $request) {
+		$username=$request->session()->get('user');
+		$kode_fakultas=$request->get('selectFakultasGeneral');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+		$role=$request->session()->get('role');
+		if($role == 'UPMAF' || $role=='Pimpinan Fakultas') {
+			$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
+			$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
+
+		} elseif($role=='Pimpinan Universitas' || $role=='Admin'|| $role=='BPMA') {
+			$getAllAkreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
+			$getNamaFakultas = fakultas::getNamaFakultas($kode_fakultas)[0]->nama_fakultas;
+		}
+		
+		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
+
+		if ($request->get('tahun')){
+			$tahun = $request->get('tahun'); 	
+		} else {
+			$tahun = date('Y');
+		}
+
+
+		$tahun1 = $tahun-1;
+		$tahun2 = $tahun-2;
+
+		if ($request->get('selectFakultasGeneral')){
+			$selectedFakultas = $request->get('selectFakultasGeneral');
+			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
+			$jumlahProdi = count($listProdi); //menghitung jumlah prodi
+		} else {
+			$selectedFakultas = $kodeFakultasPengguna;
+			$listProdi = program_studi::getProdiByFakultas($selectedFakultas);
+			$jumlahProdi = count($listProdi); //menghtiung jumlah prodi
+		}
+
+		$fakultasnya = fakultas::getFakultasbyId($selectedFakultas);
+		$namaFakultasnya = $fakultasnya[0]->nama_fakultas;
+
+
+        $arrNamaProdi = [];
+        $arrKodeProdi = [];
+        $arrNilaiAkreditasi = [];
+        foreach ($listProdi as $list2) {
+        	$arrNamaProdi[] = $list2->nama_prodi;
+        	$arrKodeProdi[] = $list2->kode_prodi;
+        	$arrNilaiAkreditasi[] = Akreditasi::get3PerdiodeNilaiAkreditasi($list2->kode_prodi);
+        }
+        
+        $jmlhProdi = count($listProdi);
+        if($jmlhProdi==0) {
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
+			    ->colors(['#ff0000', '#808080'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3']);
+			     
+
+        } elseif($jmlhProdi==1) {
+        	$arrNilaiAkreditasi1 = [];
+        	for ($i=0; $i < 3 ; $i++) {
+            	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
+        	}
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
+			    ->colors(['#ff0000', '#808080'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1);
+
+        } elseif($jmlhProdi==2) {
+        	$arrNilaiAkreditasi1 = [];
+       		$arrNilaiAkreditasi2 = [];
+        	for ($i=0; $i < 3 ; $i++) {
+            	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
+            	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
+        	}
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
+			    ->colors(['#ff0000', '#808080'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
+			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2);  
+
+        } elseif($jmlhProdi==3) {
+        	$arrNilaiAkreditasi1 = [];
+       		$arrNilaiAkreditasi2 = [];
+       		$arrNilaiAkreditasi3 = [];
+        	for ($i=0; $i < 3 ; $i++) {
+            	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
+            	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
+            	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
+        	}
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
+			    ->colors(['#ff0000', '#ffffff'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
+			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
+			    ->dataset($arrNamaProdi[2],  $arrNilaiAkreditasi3); 
+		} elseif($jmlhProdi==4) {
+        	$arrNilaiAkreditasi1 = [];
+       		$arrNilaiAkreditasi2 = [];
+       		$arrNilaiAkreditasi3 = [];
+       		$arrNilaiAkreditasi4 = [];
+
+        	for ($i=0; $i < 3 ; $i++) {
+            	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
+            	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
+            	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
+            	$arrNilaiAkreditasi4[$i] = $arrNilaiAkreditasi[3][$i]->nilai;
+        	}
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
+			    ->colors(['#ff0000', '#ffffff'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
+			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
+			    ->dataset($arrNamaProdi[2], $arrNilaiAkreditasi3)
+			    ->dataset($arrNamaProdi[3],  $arrNilaiAkreditasi4); 
+        } elseif($jmlhProdi==5) {
+        	$arrNilaiAkreditasi1 = [];
+       		$arrNilaiAkreditasi2 = [];
+       		$arrNilaiAkreditasi3 = [];
+       		$arrNilaiAkreditasi4 = [];
+       		$arrNilaiAkreditasi5 = [];
+
+        	for ($i=0; $i < 3 ; $i++) {
+            	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
+            	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
+            	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
+            	$arrNilaiAkreditasi4[$i] = $arrNilaiAkreditasi[3][$i]->nilai;
+            	$arrNilaiAkreditasi5[$i] = $arrNilaiAkreditasi[4][$i]->nilai;
+            	
+        	}
+        	$chart1 = Charts::multi('line', 'chartjs')
+			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
+			    ->dimensions(200,200)
+			    ->colors(['#1F618D', '#CB4335'])
+			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
+			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
+			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
+			    ->dataset($arrNamaProdi[2], $arrNilaiAkreditasi3)
+			    ->dataset($arrNamaProdi[3],  $arrNilaiAkreditasi4)
+			    ->dataset($arrNamaProdi[4], $arrNilaiAkreditasi5); 
+        } 
+		
+
+		return view('homepimpinan',[
+			'role' => $role,
+            'user' => $request->session()->get('user'),
+            'pegawai' => $pimpinan,       
+            'kode_fakultas' => $kodeFakultasPengguna,       
+            'username' => $username,
+            'chart1' => $chart1,
+            'getAllAkreditasi' => $getAllAkreditasi,
+            'nama_fakultas' => $getNamaFakultas,
+            'getAllAkreditasi' => $getAllAkreditasi,
+            'nama_fakultas' => $namaFakultasnya
+		]);
+	}
+
+
+	
 
 
 }

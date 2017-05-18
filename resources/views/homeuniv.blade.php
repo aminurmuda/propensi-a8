@@ -6,9 +6,9 @@
 
     <div class="container">
     <div class="row">
-        <center><h3>Riwayat Akreditasi</h3>
-        <span>Silahkan pilih fakultas.</span></center>
-        <div class="col-md-9 col-md-offset-1" >
+        <center><h3>Selamat Datang!</h3>
+        <span>Silahkan Pilih Fakultas</span></center><br><br>
+        <div class="col-md-12" >
             <div class="db-wrapper">
                 <div class="db-pricing-eleven db-bk-color-one">
                     <div class="price">

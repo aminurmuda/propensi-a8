@@ -36,7 +36,7 @@
                             <tr>
                                 <th>Sebagai</th>
                                 @if (count($prodiTimAkreditasi)==0 && $pegawaiIsReviewer ==0 )
-                                <td>Belum menjadi apa-apa</td>
+                                <td>Tidak memiliki role</td>
                                 @endif
                                 @if (count($prodiTimAkreditasi)!=0)
                                 <td>Tim Akreditasi {{$prodiTimAkreditasi[0]->nama_prodi}}</td>

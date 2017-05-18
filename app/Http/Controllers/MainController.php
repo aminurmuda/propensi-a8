@@ -77,12 +77,15 @@ class MainController extends Controller
 				} else {
 					$role='Pimpinan Universitas';
 				} 
+
 				$request->session()->put('role', $role);
-				return view ('home', [
-					'user' => $username,
-					'role' => $role,
-					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas,
-					]);
+
+				if($role=='Pimpinan Fakultas' || $role=='UPMAF'){
+					return redirect()->route('homepimpinan');
+				}else{
+					return redirect()->route('homeuniv');
+				}
+				
 
 			} elseif($userIsTimAkreditasi){	//Validasi jika yang login merupakan tim akreditasi
 
@@ -94,23 +97,21 @@ class MainController extends Controller
 			} elseif($userIsAdmin) { //admin
 				$request->session()->put('role', 'Admin');;
 				return redirect()->route('homestatus');
+
+
 			} elseif($userIsReviewerProdi) { //reviewer prodi
 				$request->session()->put('role', 'Tim Reviewer');;
-
 				return redirect()->route('homestatus');
+
+
 			} elseif($userIsReviewerUniv) { //reviewer univ
 				$request->session()->put('role', 'Reviewer Universitas');;
-
 				return redirect()->route('homestatus');
+		
 			} else { //UPMAF
 				$request->session()->put('role', 'UPMAF');;
+				return redirect()->route('homeuniv');
 
-				return view ('home', [
-					'user' => $username,
-					'role' => 'UPMAF',
-					'kode_fakultas' => $kodeFakultas[0]->kode_fakultas
-					]
-					);
 			}
 		} else {
 			return view ('logingagal', [
