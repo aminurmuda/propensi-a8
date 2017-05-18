@@ -91,9 +91,9 @@
 
                             <!-- reviewer borang -->
                             @if($borang->status==1) 
-                            <a href="{{ url($borang->jenis.'/'.$borang->kode_prodi) }}" class="btn-primary btn-sm"> Review</a>
+                            <a href="{{ url($borang->jenis.'/'.$borang->kode_prodi.'/'.$borang -> tahun) }}" class="btn-primary btn-sm"> Review</a>
                             @else
-                            <a href="#" class="btn-primary btn-sm disabled"> Review</a>
+                            <a href="#" class="btn-default btn-sm disabled"> Review</a>
                             @endif
 
                             <!-- reviewer ke tim akreditasi -->

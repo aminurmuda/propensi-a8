@@ -62,7 +62,7 @@
 
                             @if($role=='Tim Reviewer' || $role=='Admin' )
                             <div>
-                              @if($status==4 ||$role=='Admin')
+                              @if($status==4 ||$role=='Admin' || $role=='Tim Reviewer')
                              <form action="{{url('3a/standar2/2-1/'.$kodeProdi.'/'.$idHistori.'/3A/submitkomentar')}}">
                               {{csrf_field()}}
                               <div class="form-group">
