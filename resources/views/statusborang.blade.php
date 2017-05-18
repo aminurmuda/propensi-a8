@@ -49,7 +49,7 @@
                             <td>{{ $borang -> tahun}}</td>
                             <td>{{ $borang -> nama_prodi}}</td>
                             @if ($borang -> status==0)
-                              <td>Belum direview</td>
+                              <td>Dalam Pengisian</td>
                               @else
                               @if($borang -> status==1)
                                 <td>Sedang direview</td>
