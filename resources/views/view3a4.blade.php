@@ -40,8 +40,6 @@
                         @if($role=='Tim Akreditasi' || $role=='Admin' )
                           @if($status==0 || $role=='Admin')
                           <a href="{{ url('3a/standar4edit/4-1/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                          @else
-                          <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                           @endif
                         @endif
 
@@ -69,7 +67,9 @@
                             @endif 
 
                             <!-- komentar -->
-                            <br><br><br>@foreach($komentar4_1 as $komentar4_1)
+                            <br>
+                            @if(count($komentar4_1)>0)
+                            <br><br>@foreach($komentar4_1 as $komentar4_1)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -92,6 +92,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
 
 
                         </div>
@@ -120,8 +123,7 @@
                           @if($role=='Tim Akreditasi' || $role=='Admin' )
                           @if($status==0 || $role=='Admin')
                           <a href="{{ url('3a/standar4edit/4-2/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                          @else
-                          <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
+
                           @endif
                           @endif
 
@@ -149,7 +151,9 @@
                             @endif
 
                               <!-- komentar -->
-                            <br><br><br>@foreach($komentar4_2 as $komentar4_2)
+                            <br>
+                            @if(count($komentar4_2)>0)
+                            <br><br>@foreach($komentar4_2 as $komentar4_2)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -172,7 +176,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
-
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
 
 
                         </div>
@@ -998,8 +1004,6 @@
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                             @if($status==0 || $role=='Admin')
                           <a href="{{ url('3a/standar4edit/4-6-2/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                          @else
-                          <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                           @endif
                           @endif
 
@@ -1027,7 +1031,9 @@
                             @endif
 
                               <!-- komentar -->
-                            <br><br><br>@foreach($komentar4_6 as $komentar4_6)
+                            <br>
+                            @if(count($komentar4_6)>0)
+                            <br><br>@foreach($komentar4_6 as $komentar4_6)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -1050,7 +1056,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
-
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
                         </div>
                     </div>
                 </div>

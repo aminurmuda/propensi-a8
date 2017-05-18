@@ -14,6 +14,11 @@
               <strong>Berhasil Tersimpan!</strong>
             </div>
             @endif
+            @if($status!=0 && $role!='Admin')
+              <div class="alert alert-info">
+                Borang tidak dalam masa atau sudah habis masa pengisian
+              </div>
+            @endif
 
             <?php
              Session::forget('success');
@@ -30,17 +35,23 @@
             <form action="{{url('3a/standar2edit/'.$kodeStandar.'/'.$idHistori.'/3a/submit')}}">
             {{csrf_field()}}
             <div class="form-group">
+              @if($status!=0)
+              <textarea class="form-control" id='textarea' name='textarea' readonly="readonly">
+                {!!rawurldecode($standar2['standar2'][$kodeStandarStr]['isian'])!!}
+              </textarea>
+              @else
               <textarea class="form-control" id='textarea' name='textarea'>
                 {!!rawurldecode($standar2['standar2'][$kodeStandarStr]['isian'])!!}
               </textarea>
+              @endif
             </div>
+            @if($status==0)
             <button type="submit" class="btn-primary btn-lg pull-right">Simpan</button>
+            @endif
             </form>
             <br><br><br><br><br><br>
             <script>
-             // Replace the <textarea id="editor1"> with a CKEditor
-                  // instance, using default configuration.
-              CKEDITOR.replace( 'textarea' );
+              // $('textarea').attr('contenteditable', false);
              </script>            
           </div>
       </div>

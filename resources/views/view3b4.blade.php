@@ -17,7 +17,7 @@
 
             <br>
             <span> Tahun {{ $tahun}} </span>
-            <a href="{{ url('3B/'.$kodeProdi.'/'.$tahun) }}" class="btn-primary btn-lg pull-right">Kembali Ke Borang 3B</a>
+            <a href="{{ url('3B/'.$idHistori.'/'.$tahun) }}" class="btn-primary btn-lg pull-right">Kembali Ke Borang 3B</a>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -239,8 +239,6 @@
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                             @if($status==0 || $role=='Admin')
                            <a href="{{ url('3b/standar4edit/4-1-3/'.$idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                           @else
-                           <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                            @endif
                            @endif
 
@@ -268,7 +266,8 @@
                             @endif
 
                              <!-- komentar -->
-                            <br><br><br>@foreach($komentar4_1 as $komentar4_1)
+                            <br>
+                            @if(count($komentar4_1)>0)<br><br>@foreach($komentar4_1 as $komentar4_1)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -291,6 +290,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
                         </div>
                     </div>
 
@@ -405,8 +407,6 @@
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                             @if($status==0 || $role=='Admin')
                             <a href="{{ url('3b/standar4edit/4-2/'.$idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                            @else
-                            <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
                             @endif
 
@@ -434,7 +434,8 @@
                             @endif
 
                              <!-- komentar -->
-                            <br><br><br>@foreach($komentar4_2 as $komentar4_2)
+                            <br>
+                            @if(count($komentar4_2)>0)<br><br>@foreach($komentar4_2 as $komentar4_2)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -457,6 +458,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
 
 
                         </div>

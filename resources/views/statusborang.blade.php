@@ -52,7 +52,7 @@
                               <td>Belum direview</td>
                               @else
                               @if($borang -> status==1)
-                                <td>Telah direview</td>
+                                <td>Sedang direview</td>
                                 @else 
                                 <td>Telah dikirim ke BPMA</td>
                               @endif
@@ -71,7 +71,15 @@
                             <a href="{{ url('evaluasidiri/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-success btn-sm"> Edit</a>
                                 @endif
                             @else
-                            <a href="#" class="btn-success btn-sm"> Edit</a>
+                             @if($borang->jenis=='3A')
+                            <a href="{{ url($borang->jenis.'/'.$borang->kodeProdiFakultas.'/'.$borang -> tahun) }}" class="btn-info btn-sm"> Lihat</a>
+                                @endif
+                                @if($borang->jenis=='3B')
+                            <a href="{{ url($borang->jenis.'/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-info btn-sm"> Lihat</a>
+                                @endif
+                                @if($borang->jenis=='ED')
+                            <a href="{{ url('evaluasidiri/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-info btn-sm"> Lihat</a>
+                                @endif
                             @endif
                              <!-- tim akreditasi ke reviewer -->
                             <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/publish') }}" class="btn-warning btn-sm"> Publish</a>  
@@ -85,7 +93,7 @@
                             @if($borang->status==1) 
                             <a href="{{ url($borang->jenis.'/'.$borang->kode_prodi) }}" class="btn-primary btn-sm"> Review</a>
                             @else
-                            <a href="#" class="btn-primary btn-sm"> Review</a>
+                            <a href="#" class="btn-primary btn-sm disabled"> Review</a>
                             @endif
 
                             <!-- reviewer ke tim akreditasi -->

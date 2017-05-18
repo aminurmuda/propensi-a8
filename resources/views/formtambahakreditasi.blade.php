@@ -22,7 +22,7 @@
                     <div class="plan-div">
                           <div class="form-group">
                             <label style="color:black;">Program Studi:</label>
-                            <select class="form-control" id="kodeProdi" name='kodeProdi'>
+                            <select class="form-control" id="kodeProdi" name='kodeProdi' required="required">
                             <option>--Pilih Prodi--</option>
                             @foreach($prodi as $prodi)
                               <option value='{{$prodi->kode_prodi}}'>{{$prodi->nama_prodi}}</option>
@@ -31,7 +31,7 @@
                           </div>
                           <div class="form-group">
                             <label style="color:black;">Tahun Keluar Akreditasi:</label>
-                            <input type="number" class="form-control" id="tahun" name="tahun">
+                            <input type="number" class="form-control" id="tahun" name="tahun" required="required" min="{{$tahun}}">
                           </div>
                     </div>
                     <br>

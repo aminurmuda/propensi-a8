@@ -105,8 +105,6 @@
                              @if($role=='Tim Akreditasi' || $role=='Admin' )
                              @if($status==0 || $role=='Admin')
                              <a href="{{ url('3a/standar7edit/7-1-2/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
-                             @else
-                             <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
                               @endif
                             @endif
 
@@ -134,7 +132,9 @@
                             @endif
 
                               <!-- komentar -->
-                            <br><br><br>@foreach($komentar7_1 as $komentar7_1)
+                            <br>
+                            @if(count($komentar7_1)>0)
+                            <br><br>@foreach($komentar7_1 as $komentar7_1)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -157,7 +157,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
-
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
 
 
 							<br><br><br><br>7.1.3  Tuliskan judul artikel ilmiah/karya ilmiah/karya seni/buku yang dihasilkan selama tiga tahun terakhir oleh dosen tetap yang bidang keahliannya sesuai dengan PS dengan mengikuti format tabel berikut:<br>
@@ -365,8 +367,6 @@
                              @if($role=='Tim Akreditasi' || $role=='Admin' )
                              @if ($status==0 || $role=='Admin')
                              <a href="{{ url('3a/standar7edit/7-2-2/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
-                             @else
-                             <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a><br>
                               @endif
                             @endif
 
@@ -394,7 +394,9 @@
                             @endif
 
                              <!-- komentar -->
-                            <br><br><br>@foreach($komentar7_2 as $komentar7_2)
+                            <br>
+                            @if(count($komentar7_2)>0)
+                            <br><br>@foreach($komentar7_2 as $komentar7_2)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -417,7 +419,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
-
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
 
                         </div>
 

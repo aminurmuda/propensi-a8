@@ -139,14 +139,9 @@
                         @endif
                                 
                                 @if($role=='Admin' || $role=='Pimpinan Universitas' || $role=='BPMA')
-                                <li><a href="{{url('akreditasi/riwayat/fakultas')}}">Riwayat Akreditasi</a></li>
+                                <li><a href="{{url('akreditasi/riwayat')}}">Riwayat Akreditasi</a></li>
                                 @else
-                                     @if($role=='Tim Akreditasi' || $role=='Tim Reviewer')
-                                     <li></li>
-                                     @else
-                                      <li><a href="{{url('akreditasi/riwayat')}}">Riwayat Akreditasi</a></li>
-                                    @endif
-                               
+                                <li><a href="{{url('akreditasi/riwayat/'.$kode_fakultas)}}">Riwayat Akreditasi</a></li>
                                 @endif
                                 
                                  @if($role=='Admin')

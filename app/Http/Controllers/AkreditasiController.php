@@ -91,7 +91,7 @@ class AkreditasiController extends Controller
 	  		}
 
 			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,8);
-			return redirect()->route('riwayatakreditasi'); //ke halaman histori akreditasi
+			return redirect()->route('riwayatakreditasipilih'); //ke halaman histori akreditasi
 
   		} else {
 	   			return view('error', [
@@ -112,7 +112,7 @@ class AkreditasiController extends Controller
     	$kodeProdi = $request -> get('kodeProdi');
     	$tahun = $request -> get('tahun');
   		//validasi role. yang bisa edit akreditasi : BPMA dan admin
-  		if ($role=='UPMAF' || $role=='Pimpinan Fakultas' || $role=='Admin') {
+  		if ($role=='UPMAF' || $role=='Admin') {
   			//tambah ke database histori akreditasi, status = new
   			Akreditasi::tambahAkreditasi($kodeProdi,$tahun);
   			$idHistori = Akreditasi::getIDAkreditasi($kodeProdi,$tahun)->id;
@@ -123,9 +123,11 @@ class AkreditasiController extends Controller
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','2');
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','4');
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','7');
-  			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',NULL);
+  			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',0);
 
-  			return redirect()->route('riwayatakreditasi');
+
+  			return redirect()->route('riwayatakreditasipilih');
+
 		} else {
 		return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -136,13 +138,21 @@ class AkreditasiController extends Controller
 		}
 	}
 
-	public function lihatRiwayat(Request $request) {
+	public function lihatRiwayat(Request $request,$kodeFakultas) {
 		$username=$request->session()->get('user');
 		$kode_fakultas=$request->get('selectFakultasGeneral');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
+		if ($role=='Tim Akreditasi' || $role=='Tim Reviewer') {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);
+		}
 		if($role == 'UPMAF' || $role=='Pimpinan Fakultas') {
 			$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
 			$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
@@ -191,7 +201,7 @@ class AkreditasiController extends Controller
         if($jmlhProdi==0) {
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#808080'])
+			    ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3']);
 			     
 
@@ -202,7 +212,7 @@ class AkreditasiController extends Controller
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#808080'])
+			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1);
 
@@ -215,7 +225,7 @@ class AkreditasiController extends Controller
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#808080'])
+			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
 			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2);  
@@ -231,7 +241,7 @@ class AkreditasiController extends Controller
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#ffffff'])
+			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
 			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
@@ -250,7 +260,7 @@ class AkreditasiController extends Controller
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#ffffff'])
+			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
 			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
@@ -274,7 +284,7 @@ class AkreditasiController extends Controller
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->dimensions(200,200)
-			    ->colors(['#1F618D', '#CB4335'])
+			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
 			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
@@ -305,16 +315,18 @@ class AkreditasiController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
 
-		if ($role=='UPMAF' || $role=='Pimpinan Fakultas' || $role=='Admin') {
+		if ($role=='UPMAF'|| $role=='Admin') {
 			$prodi = program_studi::getProdiByFakultas($kodeFakultasPengguna);				
-
+			$tahun = date('Y');
+			// echo $tahun;
 			return view('formtambahakreditasi',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'prodi' => $prodi,  
-	            'username' => $username
+	            'username' => $username,
+	            'tahun' => $tahun
 			]);
 		} else {
 		return view('error', [
@@ -358,6 +370,13 @@ class AkreditasiController extends Controller
 		} else if($role == 'Admin') {
 			$getBorang = Borang::getAllBorang();
 			// dd($getBorang);
+		} else {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);
 		}
 
 
@@ -431,11 +450,11 @@ class AkreditasiController extends Controller
             		$prestasi_internasional=$prestasi_internasional+1;
             	}
             }
-            $chart2 = Charts::create('pie', 'fusioncharts')
+            $chart2 = Charts::create('pie', 'c3')
             // Setup the chart settings
-            ->title("Chart 2")
+            ->title("Prestasi Dosen Tetap Sesuai PS")
             // A dimension of 0 means it will take 100% of the space
-            ->dimensions(400, 400) // Width x Height
+            ->dimensions(350, 250) // Width x Height
             // This defines a preset of colors already done:)
             ->template("material")
             // You could always set them manually
@@ -616,6 +635,14 @@ class AkreditasiController extends Controller
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
+		if ($role=='Tim Akreditasi' || $role=='Tim Reviewer') {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);
+		}
 		if($role == 'UPMAF' || $role=='Pimpinan Fakultas') {
 			$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
 			$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
