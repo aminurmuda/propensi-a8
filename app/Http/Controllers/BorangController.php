@@ -1617,8 +1617,6 @@ class BorangController extends Controller
 		} elseif($jenisBorang=='3B') {
 			return redirect($jenisBorang.'/'.$idHistori.'/'.$tahun.'/standar'.$nomorStandar);
 		}
-
-		dd($jenisBorang);
 		return redirect($jenisBorang.'/'.$kodeProdi.'/'.$tahun.'/standar'.$nomorStandar);
 
 	}
