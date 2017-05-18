@@ -134,7 +134,7 @@
     <div class="row">
         <div class="col-md-12" >
         <center><h1>Mohon maaf! Halaman yang Anda Cari Tidak Ditemukan!</h1>
-        <a href="{{URL::previous()}}"><-- kembali ke Home</a>
+        <a href="{{URL::to('/')}}"><-- kembali ke Home</a>
         </center>
         </div>
     </div>
