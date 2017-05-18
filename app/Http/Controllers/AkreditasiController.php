@@ -91,7 +91,7 @@ class AkreditasiController extends Controller
 	  		}
 
 			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,8);
-			return redirect()->route('akreditasi/riwayat'); //ke halaman histori akreditasi
+			return redirect()->route('riwayatakreditasipilih'); //ke halaman histori akreditasi
 
   		} else {
 	   			return view('error', [
@@ -126,7 +126,7 @@ class AkreditasiController extends Controller
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',0);
 
 
-  			return redirect()->route('akreditasi/riwayat/');
+  			return redirect()->route('riwayatakreditasipilih');
 
 		} else {
 		return view('error', [
@@ -448,7 +448,7 @@ class AkreditasiController extends Controller
             		$prestasi_internasional=$prestasi_internasional+1;
             	}
             }
-            $chart2 = Charts::create('pie', 'highcharts')
+            $chart2 = Charts::create('pie', 'c3')
             // Setup the chart settings
             ->title("Prestasi Dosen Tetap Sesuai PS")
             // A dimension of 0 means it will take 100% of the space

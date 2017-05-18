@@ -26,7 +26,7 @@
 
                 @if($role=='UPMAF' || $role=='Admin')
 
-                <a href="{{ url('akreditasi/tambah') }}" class="btn-success btn-lg col-md-offest-2 pull-right"> Tambah Akreditasi</a>
+                <br><br><a href="{{ url('akreditasi/tambah') }}" class="btn-success btn-lg col-md-offest-2 pull-right"> Tambah Akreditasi</a>
 
                 @endif
                 <br><br><br>
