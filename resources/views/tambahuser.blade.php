@@ -7,11 +7,11 @@
     <!-- Page Content -->
     <div class="container">
         <div class="row">
-            <div  class="col-md-8 col-md-offset-2" id="kontenkelola">
+            <div  class="col-md-10 col-md-offset-1" id="kontenkelola">
 
                 <div id="titlekelola"> 
-                     <img class="img-responsive" src="{{ url('images/kelolatim.png') }}" alt="" >
-                     <span>Tambah Pengguna</span>
+                     <h3>Kelola Pegawai</h3>
+                     <span>Tambah Pegawai sebagai Tim Akreditasi dan Reviewer</span>
                      
                      <br>
                      <br>

@@ -8,7 +8,7 @@
     <!-- Page Content -->
     <div class="container">
         <div class="row">
-            <div  class="col-md-8 col-md-offset-2" id="kontenkelola">
+            <div  class="col-md-10 col-md-offset-1" id="kontenkelola">
 
                 <div id="titlekelola"> 
                      <h2>Kelola Pimpinan</h2>
@@ -38,7 +38,8 @@
                       </div>
                       
                     </form>
-                    <br><br>
+                    <br>
+                    <hr>
                     <div id="titledaftar" > 
                          <center><h2>Daftar Pimpinan</h2></center>
                      </div>

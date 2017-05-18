@@ -27,7 +27,7 @@
                               </select>
                             </div>
                             <div>
-                             <button class="btn btn-primary col-md-offset-4" type="submit">Pilih</button>
+                             <button class="btn btn-primary" type="submit">Pilih</button>
                             </div>
                       </form>
                     </div> 

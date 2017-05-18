@@ -128,7 +128,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         @if($role=='Tim Akreditasi' || $role=='Tim Reviewer' || $role=='Admin')
-                        <li><a href="{{ url('homestatus') }}" class="">Home</a></li>
+                        <li><a href="{{ url('homestatus') }}" class="">Kelola Borang Akreditasi</a></li>
                         @else 
                             @if($role=='Pimpinan Universitas' || $role=='BPMA')
                                 <li></li>
@@ -141,7 +141,12 @@
                                 @if($role=='Admin' || $role=='Pimpinan Universitas' || $role=='BPMA')
                                 <li><a href="{{url('akreditasi/riwayat/fakultas')}}">Riwayat Akreditasi</a></li>
                                 @else
-                                <li><a href="{{url('akreditasi/riwayat')}}">Riwayat Akreditasi</a></li>
+                                     @if($role=='Tim Akreditasi' || $role=='Tim Reviewer')
+                                     <li></li>
+                                     @else
+                                      <li><a href="{{url('akreditasi/riwayat')}}">Riwayat Akreditasi</a></li>
+                                    @endif
+                               
                                 @endif
                                 
                                  @if($role=='Admin')
