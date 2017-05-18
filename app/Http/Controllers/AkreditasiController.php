@@ -351,8 +351,10 @@ class AkreditasiController extends Controller
 			$getBorang = Borang::getAllBorangByProdi($selectedProdi);
 			// dd($getBorang);
 		} else if ($role=='Tim Reviewer') {
+			$idProdi = Pegawai::getIdProdiTimReviewer($username);
 			$selectedProdi = Pegawai::lihatProdiTimReviewer($username);
-			$getBorang = Borang::getAllBorangByProdi($selectedProdi);
+			// dd($selectedProdi);
+			$getBorang = Borang::getAllBorangByProdi($idProdi[0]->kode_prodi);
 		} else if($role == 'Admin') {
 			$getBorang = Borang::getAllBorang();
 			// dd($getBorang);

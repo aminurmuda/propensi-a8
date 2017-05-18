@@ -267,6 +267,15 @@ class Pegawai extends Model
         ->get();
     }
 
+    public static function getIdProdiTimReviewer($username) {
+        return DB::table('pegawai')
+        ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
+        ->join('program_studi', 'program_studi.kode_prodi', '=', 'pegawai.id_prodi_reviewer')
+        ->select('program_studi.kode_prodi')
+        ->where('pegawai.username',$username)
+        ->get();
+    }
+
     /**
      * Method getPimpinanPegawai untuk mendapatkan data pegawai yang menjadi pimpinan
      * 
