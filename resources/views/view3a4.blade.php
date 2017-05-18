@@ -16,6 +16,7 @@
             <span> Program Studi {{$prodiBorang->nama_prodi}}, Universitas Indonesia </span><br>
 
             <span> Tahun {{$tahun}} </span>
+            <a href="{{ url('3A/'.$kodeProdi.'/'.$tahun) }}" class="btn-primary btn-lg pull-right">Kembali Ke Borang 3A</a>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 

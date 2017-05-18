@@ -60,7 +60,7 @@
                             <br>Borang Institusi yang diisi oleh fakultas
                         </p><br><br><br>
 
-                        <a href="{{ url('pilihborang/3b') }}" class="btn db-button-color-square btn-m round">Pilih</a>
+                        <a href="{{ url('3B') }}" class="btn db-button-color-square btn-m round">Pilih</a>
                         <!-- @if($role=='Tim Akreditasi' || $role=='Reviewer Prodi' || $role=='UPMAF' || $role=='Pimpinan Fakultas')
                         @if($role=='Tim Akreditasi')
                         <a href="{{ url('3b/standar2/'.$selectedProdi) }}" class="btn db-button-color-square btn-m round">Standar 2</a><br><br>

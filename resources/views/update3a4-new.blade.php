@@ -18,7 +18,7 @@
             <?php
              Session::forget('success');
             ?>
-            <h1>Update Borang 3A Standar {{$kodeStandarStr}}</h1><a href="{{url('3A/'.$kodeProdi.'/'.$tahun.'/standar4')}}" class="btn-primary btn-lg pull-right">Kembali</a><br><br><br>
+            <h1>Update Borang 3A Standar {{$kodeStandarStr}}</h1><a href="{{url('3A/'.$kodeProdi.'/'.$tahun.'/standar4')}}" class="btn-primary btn-lg pull-right">Kembali Ke Standar 4</a><br><br><br>
             @if($kodeStandarStr!='4.6.2')
             <p>{{$standar4['standar4'][$kodeStandarStr]['perintah'] }}</p>
             @else

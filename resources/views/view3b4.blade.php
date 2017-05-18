@@ -17,6 +17,7 @@
 
             <br>
             <span> Tahun {{ $tahun}} </span>
+            <a href="{{ url('3B/'.$kodeProdi.'/'.$tahun) }}" class="btn-primary btn-lg pull-right">Kembali Ke Borang 3B</a>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 

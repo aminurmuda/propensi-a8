@@ -18,7 +18,7 @@
             <?php
              Session::forget('success');
             ?>
-            <h1>Update Borang 3B Standar {{$kodeStandarStr}}</h1><a href="{{ url('3B/'.$idHistori.'/'.$tahun.'/standar2') }}" class="btn-primary btn-lg pull-right">Kembali</a><br><br><br>
+            <h1>Update Borang 3B Standar {{$kodeStandarStr}}</h1><a href="{{ url('3B/'.$idHistori.'/'.$tahun.'/standar2') }}" class="btn-primary btn-lg pull-right">Kembali Ke Standar 2</a><br><br><br>
             
             <p>{{$standar2['standar2'][$kodeStandarStr]['perintah'] }}</p><br>
             

@@ -1160,13 +1160,13 @@ class BorangController extends Controller
 			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
 			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
 			$kodeProdi = $selectedProdi;
+			$prodiBorang = program_studi::getProdi($selectedProdi);
 		} 
-
-		$prodiBorang = program_studi::getProdi($selectedProdi);
-
-		$standar2_json = Borang::getBorangByIdHistori('3a', $nomorStandar,$idHistori);
+		
+		$standar2_json = Borang::getBorangByIdHistori('3a',2,$idHistori);
 		$isi = $standar2_json[0]->isi;
 		$tahun = $standar2_json[0]->tahun;
+		$kodeProdi = $standar2_json[0]->kode_prodi;
 		$standar2 = json_decode(stripslashes($isi),true);
 
 			return view('update3a2-new',[
@@ -1179,7 +1179,7 @@ class BorangController extends Controller
 	            'kodeProdi' => $kodeProdi,
 	            'kodeStandar' => $kodeStandar,
 	            'kodeStandarStr' => $kodeStandarStr,
-	            'prodiBorang' => $prodiBorang,
+	            'prodiBorang' => $kodeProdi,
 	            'tahun' => $tahun,
 	            'idHistori' => $idHistori
 			]);
@@ -1264,6 +1264,7 @@ class BorangController extends Controller
 		if ($role=='Tim Akreditasi') {
 			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
 			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+			$prodiBorang = program_studi::getProdi($selectedProdi);
 		} 
 		// else {
 		// if ($kodeProdi){
@@ -1273,7 +1274,6 @@ class BorangController extends Controller
 		// 	}	
 		// }
 
-		$prodiBorang = program_studi::getProdi($selectedProdi);
 		// if ($request->get('tahun')){
 		// 	$tahun = $request->get('tahun'); 	
 		// } else {
@@ -1296,7 +1296,7 @@ class BorangController extends Controller
 	            'kodeProdi' => $kodeProdi,
 	            'kodeStandar' => $kodeStandar,
 	            'kodeStandarStr' => $kodeStandarStr,
-	            'prodiBorang' => $prodiBorang,
+	            'prodiBorang' => $kodeProdi,
 	            'tahun' => $tahun,
 	            'idHistori' => $idHistori
 			]);
