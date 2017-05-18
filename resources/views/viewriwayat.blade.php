@@ -25,7 +25,9 @@
                  {!! $chart1->render() !!}
 
                 @if($role=='UPMAF' || $role=='Admin')
-                <br><br><a href="{{ url('akreditasi/tambah') }}" class="btn-primary btn-lg col-md-offest-2 pull-right"> Tambah Borang</a>
+
+                <a href="{{ url('akreditasi/tambah') }}" class="btn-success btn-lg col-md-offest-2 pull-right"> Tambah Akreditasi</a>
+
                 @endif
                 <br><br><br>
                  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">

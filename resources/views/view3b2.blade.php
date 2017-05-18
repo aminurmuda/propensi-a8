@@ -16,7 +16,7 @@
             <span> {{ $nama_fakultas}} , Universitas Indonesia </span>
             <br>
             <span> Tahun {{ $tahun}} </span>
-            <a href="{{ url('3B/'.$kodeProdi.'/'.$tahun) }}" class="btn-primary btn-lg pull-right">Kembali Ke Borang 3B</a>
+            <a href="{{ url('3B/'.$idHistori.'/'.$tahun) }}" class="btn-primary btn-lg pull-right">Kembali Ke Borang 3B</a>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
@@ -50,8 +50,6 @@
                             @if($role=='Admin' || $role=='Tim Akreditasi')
                             @if($status==0 || $role=='Admin')
                             <a href="{{ url('3b/standar2edit/2-1/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                            @else
-                            <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                             @endif
                             @endif
 
@@ -79,7 +77,9 @@
                             @endif
 
                              <!-- komentar -->
-                            <br><br><br>@foreach($komentar2_1 as $komentar2_1)
+                            <br>
+                            @if(count($komentar2_1)>0)
+                            <br><br>@foreach($komentar2_1 as $komentar2_1)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -102,7 +102,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
-
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
                         </div>
                     </div>
 
@@ -132,8 +134,6 @@
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                                @if($status==0 || $role=='Admin')
                               <a href="{{ url('3b/standar2edit/2-2/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                              @else
-                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
                               @endif
 
@@ -161,7 +161,8 @@
                             @endif
 
                              <!-- komentar -->
-                            <br><br><br>@foreach($komentar2_2 as $komentar2_2)
+                            <br>
+                            @if(count($komentar2_2)>0)<br><br>@foreach($komentar2_2 as $komentar2_2)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -184,6 +185,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
 
                             
 
@@ -219,8 +223,6 @@
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                                @if($status==0 || $role == 'Admin')
                               <a href="{{ url('3b/standar2edit/2-3/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                              @else
-                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
                               @endif
 
@@ -248,7 +250,8 @@
                             @endif
 
                              <!-- komentar -->
-                            <br><br><br>@foreach($komentar2_3 as $komentar2_3)
+                            <br>
+                            @if(count($komentar2_3)>0)<br><br>@foreach($komentar2_3 as $komentar2_3)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -271,6 +274,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
 
                             
                         </div>
@@ -303,8 +309,6 @@
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                                @if($status==0 || $role=='Admin')
                               <a href="{{ url('3b/standar2edit/2-4/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                              @else
-                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
                               @endif
 
@@ -332,7 +336,9 @@
                             @endif
 
                              <!-- komentar -->
-                            <br><br><br>@foreach($komentar2_4 as $komentar2_4)
+                            <br>
+                            @if(count($komentar2_4)>0)
+                            <br><br>@foreach($komentar2_4 as $komentar2_4)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -355,6 +361,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
 
                             
 
@@ -388,8 +397,6 @@
                                @if($role=='Admin' || $role=='Tim Akreditasi')
                                @if($status==0 || $role=='Admin')
                               <a href="{{ url('3b/standar2edit/2-5/'.$kode_fakultas) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                              @else
-                              <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                               @endif
                               @endif
 
@@ -417,7 +424,9 @@
                             @endif
 
                              <!-- komentar -->
-                            <br><br><br>@foreach($komentar2_5 as $komentar2_5)
+                            <br>
+                            @if(count($komentar2_5)>0)
+                            <br><br>@foreach($komentar2_5 as $komentar2_5)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -440,6 +449,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
 
                           
                             

@@ -14,6 +14,11 @@
               <strong>Berhasil Tersimpan!</strong>
             </div>
             @endif
+            @if($status!=0 && $role!='Admin')
+              <div class="alert alert-info">
+                Borang tidak dalam masa atau sudah habis masa pengisian
+              </div>
+            @endif
 
             <?php
              Session::forget('success');
@@ -37,7 +42,8 @@
                             </textarea>
                           </div>
 
-                          <button class="btn-primary btn-lg pull-right" type="submit">Simpan</button>
+                          @if($status==0)<button class="btn-primary btn-lg pull-right" type="submit">Simpan</button>
+                          @endif
                           </form>
                           <script>
                            // Replace the <textarea id="editor1"> with a CKEditor

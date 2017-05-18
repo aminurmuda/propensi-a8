@@ -169,7 +169,9 @@ Route::get('akreditasi/tambah', 'AkreditasiController@formTambahAkreditasi')->na
 Route::get('akreditasi/tambah/submit', 'AkreditasiController@tambahAkreditasi')->name('akreditasi/tambah/submit');
 
 
-Route::get('akreditasi/riwayat', 'AkreditasiController@lihatRiwayat')->name('riwayatakreditasi');
+Route::get('akreditasi/riwayat/{kodeFakultas}', 'AkreditasiController@lihatRiwayat')->name('riwayatakreditasi');
+Route::post('akreditasi/riwayat/{kodeFakultas}', 'AkreditasiController@lihatRiwayat')->name('riwayatakreditasi');
+Route::get('akreditasi/riwayat', 'BorangController@pilihFakultasGeneral')->name('riwayatakreditasipilih');
 
 
 Route::get('akreditasi/{idHistori}/{newStatus}/submit', 'AkreditasiController@submitStatusAkreditasi')->name('akreditasi/{idHistori}/{newStatus}/submit'); //submit borang dari tim akreditasi ke reviewer

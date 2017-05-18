@@ -11,8 +11,8 @@
                 Borang tidak dalam masa atau sudah habis masa pengisian
               </div>
             @endif
-           
-           
+
+            <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">
 
                 <div class="panel">
@@ -35,8 +35,6 @@
                             @if($role=='Tim Akreditasi' || $role=='Admin' )
                             @if($status==0 || $role=='Admin')
                            <a href="{{ url('evaluasidiri/edit/'. $idHistori) }}" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
-                           @else 
-                           <a href="#" class="btn-primary btn-lg pull-right glyphicon glyphicon-pencil"> Edit</a>
                            @endif
                            @endif
                          
@@ -65,7 +63,8 @@
                             @endif
 
                              <!-- komentar -->
-                            <br><br><br>@foreach($komentarED as $komentarED)
+                            <br>
+                            @if(count($komentarED)>0)<br><br>@foreach($komentarED as $komentarED)
                             <div class="row">
                               <div class="col-sm-2">
                               <div class="thumbnail">
@@ -88,6 +87,9 @@
                               </div><!-- /col-sm-5 -->
                             </div><br>
                             @endforeach
+                            @else
+                            <i>Belum ada komentar</i>
+                            @endif
 
                            
                         </div>
