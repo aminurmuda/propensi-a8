@@ -212,11 +212,13 @@ class PegawaiController extends Controller
 		$pengguna = Pegawai::lihatProfilPengguna($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+		
 		if($username == $request->session()->get('user')){
 			return view('profile', [
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kodeFakultasPengguna,
 					'user' => $username,
+					
 					'pengguna' =>$pengguna
 					]);
 		}

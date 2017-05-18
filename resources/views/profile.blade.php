@@ -2,61 +2,72 @@
 
 @section('content')
 
-    <!-- Page Content -->
-
-    <div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-0" >
-            <div class="db-wrapper">
-                <h2>Profil Pengguna</h2>
-                <br>
-                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                @foreach($pengguna as $pengguna)
-                    <tr>
-                        <th>Name:</th>
-                        <td>{{$pengguna->nama}}</td>
-                    </tr>
-                    <tr>
-                        <th>Username:</th>
-                        <td>{{$pengguna->username}}</td>
-                    </tr>
-                    <tr>
-                         <th>NIP</th>
-                         <td>{{$pengguna->no_pegawai}}</td>
-                    </tr>
-                    <tr>
-                         <th>Role</th>
-                         <td>{{$role}}</td>
-                    </tr>
-                    <tr>
-                         <th>Program Studi</th>
-                         <td>{{$pengguna->nama_prodi}}</td>
-                    </tr>
-                @endforeach
-                </table>
-            </div>
-        </div>
-        <div class="col-md-4 col-md-offset-0">
-            <div class="db-wrapper">
-            </div>
-        </div>
-        <div class="col-md-4 col-md-offset-0">
-            <div class="db-wrapper">
-            </div>
-        </div>
+<div class="container">
+              <div class="row">
+              @foreach($pengguna as $pengguna)
+                <div class="col-md-12 thumbnail" >
+           
+           
+                  <div class="panel panel-info">
+                    <div class="panel-heading">
+                      <h2>{{$pengguna->nama}}</h2>
+                    </div>
+                    <div class="panel-body">
+                      <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://home.iitk.ac.in/~kundua/male.png" class="img-circle img-responsive"> </div>
+                        
+                        <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                          <dl>
+                            <dt>DEPARTMENT:</dt>
+                            <dd>Administrator</dd>
+                            <dt>HIRE DATE</dt>
+                            <dd>11/12/2013</dd>
+                            <dt>DATE OF BIRTH</dt>
+                               <dd>11/12/2013</dd>
+                            <dt>GENDER</dt>
+                            <dd>Male</dd>
+                          </dl>
+                        </div>-->
+                        <div class=" col-md-9 col-lg-9 "> 
+                          <table class="table table-user-information">
+                            <tbody>
+                              <tr>
+                                <td><b>Username:</b></td>
+                                <td>{{$pengguna->username}}</td>
+                              </tr>
+                              <tr>
+                                <td><b>NIP:</b></td>
+                                <td>{{$pengguna->no_pegawai}}</td>
+                              </tr>
+                              <tr>
+                                <td><b>Role:</b></td>
+                                <td>{{$role}}</td>
+                              </tr>
+                           
+                                 <tr>
+                                     <tr>
+                                <td><b>Program Studi:</b></td>
+                                <td>{{$pengguna -> nama_prodi}}</td>
+                              </tr>
+                                <tr>
+                                <td><b>Fakultas:</b></td>
+                                <td>{{$pengguna->nama_fakultas}}</td>
+                              </tr>
+                              
+                             
+                            </tbody>
+                          </table>
+                          
+                       
+                        </div>
+                      </div>
+              
+                </div>
+      </div>
     </div>
-   
-   <br>
-   <br>
-   <br>
-   <br>
 
+    @endforeach
 
-
-</div>
-
-    
-    <!-- /.container -->
 
 
 @endsection
