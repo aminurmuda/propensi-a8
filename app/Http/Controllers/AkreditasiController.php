@@ -91,7 +91,7 @@ class AkreditasiController extends Controller
 	  		}
 
 			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,8);
-			return redirect()->route('riwayatakreditasi'); //ke halaman histori akreditasi
+			return redirect()->route('akreditasi/riwayat'); //ke halaman histori akreditasi
 
   		} else {
 	   			return view('error', [
@@ -125,7 +125,7 @@ class AkreditasiController extends Controller
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','7');
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',NULL);
 
-  			return redirect()->route('riwayatakreditasi');
+  			return redirect()->route('akreditasi/riwayat');
 		} else {
 		return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -191,7 +191,7 @@ class AkreditasiController extends Controller
         if($jmlhProdi==0) {
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#808080'])
+			    ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3']);
 			     
 
@@ -202,7 +202,7 @@ class AkreditasiController extends Controller
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#808080'])
+			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1);
 
@@ -215,7 +215,7 @@ class AkreditasiController extends Controller
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#808080'])
+			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
 			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2);  
@@ -231,7 +231,7 @@ class AkreditasiController extends Controller
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#ffffff'])
+			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
 			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
@@ -250,7 +250,7 @@ class AkreditasiController extends Controller
         	}
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
-			    ->colors(['#ff0000', '#ffffff'])
+			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
 			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
@@ -274,7 +274,7 @@ class AkreditasiController extends Controller
         	$chart1 = Charts::multi('line', 'chartjs')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->dimensions(200,200)
-			    ->colors(['#1F618D', '#CB4335'])
+			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
 			    ->dataset($arrNamaProdi[0], $arrNilaiAkreditasi1)
 			    ->dataset($arrNamaProdi[1],  $arrNilaiAkreditasi2)
@@ -429,11 +429,11 @@ class AkreditasiController extends Controller
             		$prestasi_internasional=$prestasi_internasional+1;
             	}
             }
-            $chart2 = Charts::create('pie', 'fusioncharts')
+            $chart2 = Charts::create('pie', 'highcharts')
             // Setup the chart settings
-            ->title("Chart 2")
+            ->title("Prestasi Dosen Tetap Sesuai PS")
             // A dimension of 0 means it will take 100% of the space
-            ->dimensions(400, 400) // Width x Height
+            ->dimensions(350, 250) // Width x Height
             // This defines a preset of colors already done:)
             ->template("material")
             // You could always set them manually

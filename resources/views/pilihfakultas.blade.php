@@ -6,7 +6,11 @@
 
     <div class="container">
     <div class="row">
+        @if($role=='Pimpinan Universitasi' || $role=='BPMA')
         <center><h3>Selamat Datang!</h3>
+        @else
+        <center><h3>Riwayat Akreditasi</h3>
+        @endif
       
         <span>Silahkan pilih fakultas.</span></center>
         <div class="col-md-9 col-md-offset-1" >
