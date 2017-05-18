@@ -87,6 +87,7 @@ class BorangController extends Controller
 
 		
 		$evaluasiDiri = Borang::getBorangByIdHistori('ED',0,$idHistori);
+		
 		// dd($evaluasiDiri);
 		// dd($evaluasiDiri);
 		$isi = $evaluasiDiri[0]->isi;
@@ -118,6 +119,8 @@ class BorangController extends Controller
 		$idBorang = Borang::getIdBorangByIdHistori('ED',0, $idHistori)[0]->id;
 		$komentarED = Komentar::lihatKomentar($idBorang, '0');
 
+		$prodiBorang = program_studi::getProdi($kodeProdi);
+
 		// $prodiBorang = program_studi::getProdi($selectedProdi);
 
 			return view('viewevaluasi',[
@@ -134,7 +137,9 @@ class BorangController extends Controller
 	            'tahun' => $tahun,
 	            'komentarED' => $komentarED,
 	            'status' => $status,
+	            'prodiBorang' => $prodiBorang,
 	            'idHistori' => $idHistori
+
 			]);
 	}
 

@@ -10,7 +10,7 @@
             <div  class="col-md-12">
 
                 <div> 
-                    <h3>Status Borang Akreditasi</h3>
+                    <h3>Kelola Borang Akreditasi</h3>
                     @if ($role=='Admin')
                       <span>Universitas Indonesia</span>
                     @else

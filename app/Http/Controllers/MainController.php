@@ -83,7 +83,7 @@ class MainController extends Controller
 				if($role=='Pimpinan Fakultas' || $role=='UPMAF'){
 					return redirect()->route('homepimpinan');
 				}else{
-					return redirect()->route('homeuniv');
+					return redirect()->route('akreditasi/riwayat');
 				}
 				
 

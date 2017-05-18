@@ -125,7 +125,7 @@ class AkreditasiController extends Controller
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','7');
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',0);
 
-  			return redirect()->route('riwayatakreditasi');
+  			return redirect()->route('akreditasi/riwayat/');
 		} else {
 		return view('error', [
 					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
@@ -407,6 +407,9 @@ class AkreditasiController extends Controller
 		$totalDosenBaru = 0;
 		$totalTugasBelajarS2 = 0;
 		$totalTugasBelajarS3 = 0;
+		$prestasi_lokal = 0;
+		$prestasi_nasional = 0;
+		$prestasi_internasional = 0;
 
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
 
@@ -428,21 +431,35 @@ class AkreditasiController extends Controller
 		$namaFakultasnya = $fakultasnya[0]->nama_fakultas;
 
             
-
-            $chart2 = Charts::create('pie', 'chartjs')
+			$prestasi_dosen =dosen::getPrestasiDosen($kodeProdi,$tahun);
+            
+    
+            foreach ($prestasi_dosen as $prestasi_dosen) {
+            	$tingkat_prestasi = $prestasi_dosen ->tingkat;
+            	if ($tingkat_prestasi=='Lokal') {
+            		$prestasi_lokal=$prestasi_lokal+1;
+            	}
+            	else if ($tingkat_prestasi=='Nasional') {
+            		$prestasi_nasional=$prestasi_nasional+1;
+            	}
+            	else{
+            		$prestasi_internasional=$prestasi_internasional+1;
+            	}
+            }
+            $chart2 = Charts::create('pie', 'fusioncharts')
             // Setup the chart settings
             ->title("Chart 2")
             // A dimension of 0 means it will take 100% of the space
-            ->dimensions(250, 250) // Width x Height
+            ->dimensions(400, 400) // Width x Height
             // This defines a preset of colors already done:)
             ->template("material")
             // You could always set them manually
             // ->colors(['#2196F3', '#F44336', '#FFC107'])
             // Setup the diferent datasets (this is a multi chart)
-            ->values([5,200,10])
+            ->values([$prestasi_lokal,$prestasi_nasional,$prestasi_internasional])
            
             // Setup what the values mean
-            ->labels(['One', 'Two', 'Three']);
+            ->labels(['Lokal', 'Nasional', 'Internasional']);
 
            
              $array_pengembangan_dosen = array();

@@ -128,9 +128,14 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         @if($role=='Tim Akreditasi' || $role=='Tim Reviewer' || $role=='Admin')
-                        <li><a href="{{ url('homestatus') }}" class="">Home</a></li>
-                        @else
-                        <li><a href="{{ url('home') }}" class="">Home</a></li>
+                        <li><a href="{{ url('homestatus') }}" class="">Kelola Borang Akreditasi</a></li>
+                        @else 
+                            @if($role=='Pimpinan Universitas' || $role=='BPMA')
+                                <li></li>
+                            @else
+                                 <li><a href="{{ url('home') }}" class="">Home</a></li>
+                            @endif
+                       
                         @endif
                                 
                                 @if($role=='Admin' || $role=='Pimpinan Universitas' || $role=='BPMA')
@@ -142,8 +147,8 @@
                                  @if($role=='Admin')
                                     <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{ url('/timakreditasi/tambah/') }}">Tambah Tim Akreditasi</a></li>
-                                        <li><a href="{{ url('/timakreditasi/kelola/') }}">Lihat dan Hapus Tim Akreditasi</a></li>
+                                        <li><a href="{{ url('/timakreditasi/tambah/') }}">Kelola Pegawai</a></li>
+                                        <li><a href="{{ url('/timakreditasi/kelola/') }}">Kelola Tim</a></li>
                                         <li><a href="{{ url('kelolapimpinan/'.$user) }}">Kelola Pimpinan</a></li>
                                     </ul>
                                     </li>
@@ -152,8 +157,8 @@
                                     @if($role=='Pimpinan Fakultas')
                                     <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kelola<span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Tambah Pengguna</a></li>
-                                        <li><a href="{{ url('/timakreditasi/kelola/'.$kode_fakultas) }}">Lihat dan Hapus Pengguna</a></li>
+                                        <li><a href="{{ url('/timakreditasi/tambah/'.$kode_fakultas) }}">Kelola Pegawai</a></li>
+                                        <li><a href="{{ url('/timakreditasi/kelola/'.$kode_fakultas) }}">Kelola Tim</a></li>
 
 
                                        

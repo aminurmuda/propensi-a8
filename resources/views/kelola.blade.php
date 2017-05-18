@@ -8,11 +8,11 @@
     <!-- Page Content -->
     <div class="container">
         <div class="row">
-            <div  class="col-md-8 col-md-offset-2" id="kontenkelola">
+            <div  class="col-md-10 col-md-offset-1" id="kontenkelola">
 
                 <div id="titlekelola"> 
-                     <img class="img-responsive" src="{{ url('images/kelolatim.png') }}" alt="" >
-                     <span>Lihat dan Hapus Pengguna</span>
+                     <h3>Kelola Tim Akreditasi dan Reviewer</h3>
+                     <span>Update role dari Tim Akreditasi dan Reviwer</span>
                      
                      <br>
                      <br>
