@@ -6,7 +6,8 @@
 
     <div class="container">
     <div class="row">
-        <center><h3>Riwayat Akreditasi</h3>
+        <center><h3>Selamat Datang!</h3>
+      
         <span>Silahkan pilih fakultas.</span></center>
         <div class="col-md-9 col-md-offset-1" >
             <div class="db-wrapper">

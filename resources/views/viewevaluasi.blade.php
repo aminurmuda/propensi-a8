@@ -27,9 +27,8 @@
                     </div>
                     <div id="one" class="panel-collapse collapse in">
                         <div class="panel-body">
+                            <h5>Borang Evaluasi Diri <br><br> Program Studi {{$prodiBorang->nama_prodi}}, Tahun {{$tahun}}:</h5>
                             <br><br>
-
-                            <br>
                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                             {!!$isi!!}
                             </div><br>
