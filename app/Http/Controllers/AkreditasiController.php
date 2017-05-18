@@ -90,7 +90,9 @@ class AkreditasiController extends Controller
 	  			$keterangan='Kurang';
 	  		}
 
-			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,8);
+
+			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,6);
+
 			return redirect()->route('riwayatakreditasipilih'); //ke halaman histori akreditasi
 
   		} else {
@@ -342,7 +344,7 @@ class AkreditasiController extends Controller
 
 	public function submitStatusAkreditasi(Request $request,$idHistori,$newStatus) {
 		Akreditasi::updateStatus($idHistori,$newStatus);
-		return redirect()->back();
+		return redirect()->route('riwayatakreditasipilih');
 	}
 
 	public function lihatStatusBorang(Request $request) {

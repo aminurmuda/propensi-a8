@@ -28,6 +28,8 @@ class BorangController extends Controller
     }
 
     public function pilihBorang3A(Request $request,$kodeProdi,$tahun) {
+    	//ganti status borang
+
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -1665,6 +1667,7 @@ class BorangController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	
 
 		//is reviewed 3a 2 4 7 jadi is reviewed
+		Akreditasi::submitStatusAkreditasi($idHistori,2);
 		Borang::updateStatus($idHistori,$jenisBorang,1);
 
 		return redirect('homestatus');
