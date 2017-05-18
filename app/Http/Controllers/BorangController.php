@@ -1667,7 +1667,7 @@ class BorangController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	
 
 		//is reviewed 3a 2 4 7 jadi is reviewed
-		Akreditasi::submitStatusAkreditasi($idHistori,2);
+		// Akreditasi::submitStatusAkreditasi($idHistori,2);
 		Borang::updateStatus($idHistori,$jenisBorang,1);
 
 		return redirect('homestatus');

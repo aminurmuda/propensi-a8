@@ -60,25 +60,25 @@
                            
                             <td> <center>
                             @if($role=='Tim Akreditasi' || $role=='Admin')
-                            @if($borang->status==0) 
-                                @if($borang->jenis=='3A')
-                            <a href="{{ url($borang->jenis.'/'.$borang->kodeProdiFakultas.'/'.$borang -> tahun) }}" class="btn-success btn-sm"> Edit</a>
-                                @endif
-                                @if($borang->jenis=='3B')
-                            <a href="{{ url($borang->jenis.'/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-success btn-sm"> Edit</a>
-                                @endif
-                                @if($borang->jenis=='ED')
-                            <a href="{{ url('evaluasidiri/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-success btn-sm"> Edit</a>
-                                @endif
-                            @else
-                             @if($borang->jenis=='3A')
-                            <a href="{{ url($borang->jenis.'/'.$borang->kodeProdiFakultas.'/'.$borang -> tahun) }}" class="btn-info btn-sm"> Lihat</a>
-                                @endif
-                                @if($borang->jenis=='3B')
-                            <a href="{{ url($borang->jenis.'/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-info btn-sm"> Lihat</a>
-                                @endif
-                                @if($borang->jenis=='ED')
-                            <a href="{{ url('evaluasidiri/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-info btn-sm"> Lihat</a>
+                                @if($borang->status==0) 
+                                    @if($borang->jenis=='3A')
+                                <a href="{{ url($borang->jenis.'/'.$borang->kodeProdiFakultas.'/'.$borang -> tahun) }}" class="btn-success btn-sm"> Edit</a>
+                                    @endif
+                                    @if($borang->jenis=='3B')
+                                <a href="{{ url($borang->jenis.'/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-success btn-sm"> Edit</a>
+                                    @endif
+                                    @if($borang->jenis=='ED')
+                                <a href="{{ url('evaluasidiri/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-success btn-sm"> Edit</a>
+                                    @endif
+                                @else
+                                 @if($borang->jenis=='3A')
+                                <a href="{{ url($borang->jenis.'/'.$borang->kodeProdiFakultas.'/'.$borang -> tahun) }}" class="btn-info btn-sm"> Lihat</a>
+                                    @endif
+                                    @if($borang->jenis=='3B')
+                                <a href="{{ url($borang->jenis.'/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-info btn-sm"> Lihat</a>
+                                    @endif
+                                    @if($borang->jenis=='ED')
+                                <a href="{{ url('evaluasidiri/'.$borang->id_histori.'/'.$borang -> tahun) }}" class="btn-info btn-sm"> Lihat</a>
                                 @endif
                             @endif
                              <!-- tim akreditasi ke reviewer -->
@@ -93,7 +93,7 @@
                             @if($borang->status==1) 
                             <a href="{{ url($borang->jenis.'/'.$borang->kode_prodi.'/'.$borang -> tahun) }}" class="btn-primary btn-sm"> Review</a>
                             @else
-                            <a href="#" class="btn-default btn-sm disabled"> Review</a>
+                            <a href="#" class="btn-basic btn-sm disabled"> Review</a>
                             @endif
 
                             <!-- reviewer ke tim akreditasi -->
