@@ -112,7 +112,7 @@ class AkreditasiController extends Controller
     	$kodeProdi = $request -> get('kodeProdi');
     	$tahun = $request -> get('tahun');
   		//validasi role. yang bisa edit akreditasi : BPMA dan admin
-  		if ($role=='UPMAF' || $role=='Pimpinan Fakultas' || $role=='Admin') {
+  		if ($role=='UPMAF' || $role=='Admin') {
   			//tambah ke database histori akreditasi, status = new
   			Akreditasi::tambahAkreditasi($kodeProdi,$tahun);
   			$idHistori = Akreditasi::getIDAkreditasi($kodeProdi,$tahun)->id;
@@ -123,7 +123,7 @@ class AkreditasiController extends Controller
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','2');
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','4');
   			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'3B','7');
-  			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',NULL);
+  			Borang::inisiasiBorang($kodeProdi,$tahun,$idHistori,'ED',0);
 
   			return redirect()->route('riwayatakreditasi');
 		} else {
@@ -136,13 +136,21 @@ class AkreditasiController extends Controller
 		}
 	}
 
-	public function lihatRiwayat(Request $request) {
+	public function lihatRiwayat(Request $request,$kodeFakultas) {
 		$username=$request->session()->get('user');
 		$kode_fakultas=$request->get('selectFakultasGeneral');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
+		if ($role=='Tim Akreditasi' || $role=='Tim Reviewer') {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);
+		}
 		if($role == 'UPMAF' || $role=='Pimpinan Fakultas') {
 			$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
 			$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;
@@ -305,16 +313,18 @@ class AkreditasiController extends Controller
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
 
-		if ($role=='UPMAF' || $role=='Pimpinan Fakultas' || $role=='Admin') {
+		if ($role=='UPMAF'|| $role=='Admin') {
 			$prodi = program_studi::getProdiByFakultas($kodeFakultasPengguna);				
-
+			$tahun = date('Y');
+			// echo $tahun;
 			return view('formtambahakreditasi',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'prodi' => $prodi,  
-	            'username' => $username
+	            'username' => $username,
+	            'tahun' => $tahun
 			]);
 		} else {
 		return view('error', [
@@ -356,6 +366,13 @@ class AkreditasiController extends Controller
 		} else if($role == 'Admin') {
 			$getBorang = Borang::getAllBorang();
 			// dd($getBorang);
+		} else {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);
 		}
 
 
@@ -597,6 +614,14 @@ class AkreditasiController extends Controller
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
 		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
 		$role=$request->session()->get('role');
+		if ($role=='Tim Akreditasi' || $role=='Tim Reviewer') {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);
+		}
 		if($role == 'UPMAF' || $role=='Pimpinan Fakultas') {
 			$getAllAkreditasi = Akreditasi::getAllAkreditasi($kodeFakultasPengguna);
 			$getNamaFakultas = fakultas::getNamaFakultas($kodeFakultasPengguna)[0]->nama_fakultas;

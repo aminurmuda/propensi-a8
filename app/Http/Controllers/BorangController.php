@@ -1156,17 +1156,27 @@ class BorangController extends Controller
 		$nomorStandar = explode("-", $kodeStandar)[0];
 		
 		$role=$request->session()->get('role');
-		if ($role=='Tim Akreditasi') {
-			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
-			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
-			$kodeProdi = $selectedProdi;
-			$prodiBorang = program_studi::getProdi($selectedProdi);
-		} 
+		if ($role=='Tim Akreditasi' || $role=='Admin') {
+			if($role=='Tim Akreditasi') {
+				$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+				$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+				$kodeProdi = $selectedProdi;
+				$prodiBorang = program_studi::getProdi($selectedProdi);				
+			}
+		} else {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);				
+		}
 		
 		$standar2_json = Borang::getBorangByIdHistori('3a',2,$idHistori);
 		$isi = $standar2_json[0]->isi;
 		$tahun = $standar2_json[0]->tahun;
 		$kodeProdi = $standar2_json[0]->kode_prodi;
+		$status = $standar2_json[0]->is_reviewed;
 		$standar2 = json_decode(stripslashes($isi),true);
 
 			return view('update3a2-new',[
@@ -1181,7 +1191,8 @@ class BorangController extends Controller
 	            'kodeStandarStr' => $kodeStandarStr,
 	            'prodiBorang' => $kodeProdi,
 	            'tahun' => $tahun,
-	            'idHistori' => $idHistori
+	            'idHistori' => $idHistori,
+	            'status' => $status
 			]);
 	}
 
@@ -1235,6 +1246,7 @@ class BorangController extends Controller
 		$isi = $standar4_json[0]->isi;
 		$tahun = $standar4_json[0]->tahun;
 		$kodeProdi = $standar4_json[0]->kode_prodi;
+		$status = $standar4_json[0]->is_reviewed;
 		$standar4 = json_decode($isi,true);		
 		
 			return view('update3a4-new',[
@@ -1248,7 +1260,8 @@ class BorangController extends Controller
 	            'standar4' => $standar4,
 	            'kodeStandarStr' => $kodeStandarStr,
 	            'idHistori' => $idHistori,
-	            'tahun' => $tahun
+	            'tahun' => $tahun,
+	            'status' => $status
 			]);
 	}
 
@@ -1261,11 +1274,20 @@ class BorangController extends Controller
 		$nomorStandar = explode("-", $kodeStandar)[0];
 		
 		$role=$request->session()->get('role');
-		if ($role=='Tim Akreditasi') {
-			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
-			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
-			$prodiBorang = program_studi::getProdi($selectedProdi);
-		} 
+		if ($role=='Tim Akreditasi' || $role=='Admin') {
+			if($role=='Tim Akreditasi') {
+				$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+				$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+				$prodiBorang = program_studi::getProdi($selectedProdi);	
+			}
+		} else {
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $role,
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username
+			]);				
+		}
 		// else {
 		// if ($kodeProdi){
 		// 	$selectedProdi = $kodeProdi; 	
@@ -1284,6 +1306,7 @@ class BorangController extends Controller
 		$isi = $standar7_json[0]->isi;
 		$tahun = $standar7_json[0]->tahun;
 		$kodeProdi = $standar7_json[0]->kode_prodi;
+		$status = $standar7_json[0]->is_reviewed;
 		$standar7 = json_decode(stripslashes($isi),true);
 
 			return view('update3a7-new',[
@@ -1298,7 +1321,8 @@ class BorangController extends Controller
 	            'kodeStandarStr' => $kodeStandarStr,
 	            'prodiBorang' => $kodeProdi,
 	            'tahun' => $tahun,
-	            'idHistori' => $idHistori
+	            'idHistori' => $idHistori,
+	            'status' => $status
 			]);
 	}
 
@@ -1329,6 +1353,7 @@ class BorangController extends Controller
 		$standar2_json = Borang::getBorangByIdHistori('3b',2,$idHistori);
 		$isi = $standar2_json[0]->isi;
 		$tahun = $standar2_json[0]->tahun;
+		$status = $standar2_json[0]->is_reviewed;
 		$standar2 = json_decode(stripslashes($isi),true);
 
 			return view('update3b2-new',[
@@ -1343,7 +1368,8 @@ class BorangController extends Controller
 	            'kodeStandarStr' => $kodeStandarStr,
 	            // 'kodeFakultas' => $kodeFakultas
 	            'tahun'=>$tahun,
-	            'idHistori' =>$idHistori
+	            'idHistori' =>$idHistori,
+	            'status' => $status
 			]);
 	}
 
@@ -1374,6 +1400,7 @@ class BorangController extends Controller
 		$standar4_json = Borang::getBorangByIdHistori('3b',4,$idHistori);
 		$isi = $standar4_json[0]->isi;
 		$tahun = $standar4_json[0]->tahun;
+		$status = $standar4_json[0]->is_reviewed;
 		$standar4 = json_decode(stripslashes($isi),true);
 		// dd($standar4);
 
@@ -1390,7 +1417,8 @@ class BorangController extends Controller
 	            'standar4' => $standar4,
 	            'kodeStandarStr' => $kodeStandarStr,
 	            'idHistori' => $idHistori,
-	            'tahun' => $tahun
+	            'tahun' => $tahun,
+	            'status'=>$status
 			]);
 	}
 
@@ -1425,6 +1453,7 @@ class BorangController extends Controller
 		$isi = $standar7_json[0]->isi;
 		$tahun = $standar7_json[0]->tahun;
 		$kodeProdi = $standar7_json[0]->kode_prodi;
+		$status = $standar7_json[0]->is_reviewed;
 		$standar7 = json_decode(stripslashes($isi),true);
 		// dd($standar4);
 
@@ -1440,7 +1469,8 @@ class BorangController extends Controller
 	            'kodeStandarStr' => $kodeStandarStr,
 	            'kodeProdi' => $kodeProdi,
 	            'tahun'=>$tahun,
-	            'idHistori' => $idHistori
+	            'idHistori' => $idHistori,
+	            'status'=>$status
 			]);
 	}
 
@@ -1503,6 +1533,7 @@ class BorangController extends Controller
 		$evaluasiDiri = Borang::getBorangByIdHistori('ED',0,$idHistori);
 		$isi = $evaluasiDiri[0]->isi;
 		$tahun = $evaluasiDiri[0]->tahun;
+		$status = $evaluasiDiri[0]->is_reviewed;
 		$kodeProdi = $evaluasiDiri[0]->kode_prodi;
 		
 			return view('updateevaluasi',[
@@ -1515,7 +1546,8 @@ class BorangController extends Controller
 	            // 'kodeStandar' => $kodeStandar,
 	             'isi' => $isi,
 	             'tahun' => $tahun,
-	             'idHistori' => $idHistori
+	             'idHistori' => $idHistori,
+	             'status' => $status
 	            // 'kodeStandarStr' => $kodeStandarStr
 			]);
 	}

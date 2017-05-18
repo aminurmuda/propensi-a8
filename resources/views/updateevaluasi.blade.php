@@ -14,6 +14,11 @@
               <strong>Berhasil Tersimpan!</strong>
             </div>
             @endif
+            @if($status!=0 && $role!='Admin')
+              <div class="alert alert-info">
+                Borang tidak dalam masa atau sudah habis masa pengisian
+              </div>
+            @endif
 
             <?php
              Session::forget('success');
@@ -30,7 +35,9 @@
               <p>{!!$isi!!}</p>
               </textarea>
             </div>
+            @if($status==0)
             <button type="submit" class="btn-primary btn-lg pull-right">Simpan</button>
+            @endif
             </form>
             <br><br><br><br><br><br>
           </div>
