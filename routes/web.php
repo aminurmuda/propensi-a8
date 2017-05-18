@@ -186,11 +186,17 @@ Route::get('borang/{idHistori}/{jenisBorang}/{kodeProdi}/return', 'BorangControl
 Route::get('akreditasi/{idHistori}/edit', 'AkreditasiController@editAkreditasi')->name('akreditasi/{idHistori}/edit');
 
 
-Route::get('akreditasi/riwayat/pilihFakultas', 'BorangController@pilihFakultasGeneral')->name('akreditasi/riwayat/pilihFakultas');
+Route::get('akreditasi/riwayat/fakultas', 'BorangController@pilihFakultasGeneral')->name('akreditasi/riwayat/fakultas');
 
-Route::post('akreditasi/riwayat/pilihFakultas/{kodeFakultas}', 'AkreditasiController@lihatRiwayat')->name('akreditasi/riwayat/pilihFakultas/{kodeFakultas}');
+Route::post('akreditasi/riwayat/fakultas/{kodeFakultas}', 'AkreditasiController@lihatRiwayat')->name('akreditasi/riwayat/fakultas/{kodeFakultas}');
 
 Route::get('akreditasi/{idHistori}/{tahun}/pilih', 'AkreditasiController@pilihJenisBorang')->name('akreditasi/{idHistori}/{tahun}/pilih');
+
+Route::get('homepimpinan', 'AkreditasiController@homePimpinan')->name('homepimpinan');
+
+Route::get('homeuniv', 'BorangController@pilihFakultasGeneral')->name('homeuniv');
+
+
 
 
 

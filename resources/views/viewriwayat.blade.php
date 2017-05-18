@@ -24,8 +24,10 @@
 
                  {!! $chart1->render() !!}
 
-                
-                <a href="{{ url('akreditasi/tambah') }}" class="btn-primary btn-lg col-md-offest-2 pull-right"> Tambah Borang</a><br><br><br>
+                @if($role=='UPMAF')
+                <a href="{{ url('akreditasi/tambah') }}" class="btn-primary btn-lg col-md-offest-2 pull-right"> Tambah Borang</a>
+                @endif
+                <br><br><br>
                  <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                         <tr>

@@ -29,6 +29,8 @@
                         <tr>
                             <th>Nama</th>
                             <th>NIP</th>
+                            <th>Prodi</th>
+                            <th>Role</th>
                             <th>Edit</th>
                     
                         </tr>
@@ -39,6 +41,8 @@
                         <tr>
                             <td>{{$pegawai->nama}}</td>
                             <td>{{$pegawai->no_pegawai}}</td>
+                            <td>{{$pegawai->nama_prodi}}</td>
+                            <td></td>
                             <td>
                                 <center>
                                 <!-- <a href="hapus/{{$pegawai->username}}"> -->

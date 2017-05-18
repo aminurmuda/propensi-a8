@@ -170,6 +170,8 @@ class PegawaiController extends Controller
     	$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
     	$role = $request->session()->get('role');
+    	//$prodiTimAkreditasi = Pegawai::lihatProdiTimAkreditasi($username);
+
     	if ($role=='Pimpinan Fakultas'){
     		if ($kodeFakultasPengguna==$kode_fakultas) {
 		    	$timAkreditasi = Pegawai::getTimByFakultas($kode_fakultas);
@@ -177,6 +179,7 @@ class PegawaiController extends Controller
 						'timAkreditasi' => $timAkreditasi,
 						'role' => $request->session()->get('role'),
 						'kode_fakultas' => $kode_fakultas,
+						//'prodiTimAkreditasi' => $prodiTimAkreditasi,
 						'user' => $request->session()->get('user')
 				]);	    		
     		}
@@ -186,6 +189,7 @@ class PegawaiController extends Controller
 					'timAkreditasi' => $timAkreditasi,
 					'role' => $request->session()->get('role'),
 					'kode_fakultas' => $kode_fakultas,
+					//'prodiTimAkreditasi' => $prodiTimAkreditasi,
 					'user' => $request->session()->get('user')
 			]);	 
     	}
