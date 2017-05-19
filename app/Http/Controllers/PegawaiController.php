@@ -175,6 +175,7 @@ class PegawaiController extends Controller
     	if ($role=='Pimpinan Fakultas'){
     		if ($kodeFakultasPengguna==$kode_fakultas) {
 		    	$timAkreditasi = Pegawai::getTimByFakultas($kode_fakultas);
+
 				return view('kelola', [
 						'timAkreditasi' => $timAkreditasi,
 						'role' => $request->session()->get('role'),
@@ -185,6 +186,8 @@ class PegawaiController extends Controller
     		}
     	} elseif ($role=='Admin') {
     		$timAkreditasi = Pegawai::getTimByFakultas($kode_fakultas);
+    		// dd($timAkreditasi);
+    		// dd($timAkreditasi);
 			return view('kelola', [
 					'timAkreditasi' => $timAkreditasi,
 					'role' => $request->session()->get('role'),
