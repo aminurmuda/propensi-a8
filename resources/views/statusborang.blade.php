@@ -58,7 +58,7 @@
                               @endif
                             @endif
                            
-                            <td> <center>
+                            <td> 
                             @if($role=='Tim Akreditasi' || $role=='Admin')
                                 @if($borang->status==0) 
                                     @if($borang->jenis=='3A')
@@ -99,7 +99,7 @@
                             <!-- reviewer ke tim akreditasi -->
                             <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/return') }}" class="btn-info btn-sm"> Reset</a>
                             @endif
-                            </center>
+                           
                             </td>
                   
                         </tr>
