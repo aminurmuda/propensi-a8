@@ -93,7 +93,7 @@ class AkreditasiController extends Controller
 
 			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,6);
 
-			return redirect()->route('riwayatakreditasipilih'); //ke halaman histori akreditasi
+			return redirect()->route('akreditasi/riwayat'); //ke halaman histori akreditasi
 
   		} else {
 	   			return view('error', [
