@@ -204,14 +204,14 @@ class Pegawai extends Model
      */      
     public static function getTimByFakultas($kode_fakultas)
     {
-        echo $kode_fakultas;
+        // echo $kode_fakultas;
         return DB::table('pegawai')
             ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
             ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
             ->select('pegawai.nama', 'pegawai.no_pegawai','pegawai.username', 'program_studi.nama_prodi')
-            ->where('program_studi.kode_fakultas',$kode_fakultas)
             ->where('pegawai.isTimAkreditasi',1)
             ->orWhere('pegawai.is_reviewer_prodi',1)
+            ->where('program_studi.kode_fakultas',$kode_fakultas)
             ->get();
     }
 
