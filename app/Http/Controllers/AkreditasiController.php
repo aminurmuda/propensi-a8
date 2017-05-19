@@ -293,7 +293,7 @@ class AkreditasiController extends Controller
 			    ->dataset($arrNamaProdi[3],  $arrNilaiAkreditasi4)
 			    ->dataset($arrNamaProdi[4], $arrNilaiAkreditasi5); 
         } 
-		
+	
 		return view('viewriwayat',[
 			'role' => $role,
             'user' => $request->session()->get('user'),

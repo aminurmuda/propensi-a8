@@ -63,10 +63,14 @@
                               
                               <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/'.$dataAkreditasi -> tahun_keluar.'/pilih') }}" class="btn-primary btn-sm" >Details</a><br><br>
 
-                              
-                              @if($role=='BPMA' || $role=='Admin')
-                              <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-danger btn-sm"> Ases</a><br><br>
-                              <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-success btn-sm glyphicon glyphicon-pencil"> Edit</a>
+                              @if($role=='Admin')
+                                <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-danger btn-sm"> Ases</a><br><br>
+                                <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-success btn-sm glyphicon glyphicon-pencil"> Edit</a>
+                              @elseif($role=='BPMA')
+                                @if($dataAkreditasi -> nama_status == 'New')
+                                <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-danger btn-sm"> Ases</a><br><br>
+                                @endif
+                                <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-success btn-sm glyphicon glyphicon-pencil"> Edit</a>
                               @endif
                              
                             </td>

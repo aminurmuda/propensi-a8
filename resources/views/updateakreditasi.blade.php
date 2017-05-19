@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-12 col-md-offset-0" >
             <div class="db-wrapper">
-                @if($akreditasi_prodi -> nilai != NULL && $role!='Admin')
+                @if(($akreditasi_prodi -> status ==6 || $akreditasi_prodi -> nilai != NULL) && $role!='Admin')
                 <div class="alert alert-danger">
                   <strong>Mohon maaf,</strong> Nilai yang sudah dimasukkan tidak dapat diubah. Silahkan kontak Admin untuk pengubahan
                 </div>
@@ -55,11 +55,15 @@
                          <td>{{$akreditasi_prodi -> nama_status}}</td>
                     </tr>
                 </table>
-                @if($akreditasi_prodi -> nilai == NULL || $role=='Admin')
-                <button class="btn-primary btn-lg pull-right" type="submit">Simpan</button>
+
+                @if($role=='Admin')
+                    <button class="btn-primary btn-lg pull-right" type="submit">Simpan</button>    
+                @elseif($role=='BPMA' && $akreditasi_prodi -> status ==5)
+                    <button class="btn-primary btn-lg pull-right" type="submit">Simpan</button>
                 @else
-                <button class="btn-primary btn-lg pull-right" type="submit" disabled="disabled">Simpan</button>
+                    <button class="btn-basic btn-lg pull-right" type="submit" disabled="disabled">Simpan</button>
                 @endif
+
                 </form>
             </div>
         </div>
