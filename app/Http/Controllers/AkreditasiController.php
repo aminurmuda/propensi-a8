@@ -165,7 +165,6 @@ class AkreditasiController extends Controller
 		}
 		
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
-
 		if ($request->get('tahun')){
 			$tahun = $request->get('tahun'); 	
 		} else {
@@ -295,7 +294,6 @@ class AkreditasiController extends Controller
 			    ->dataset($arrNamaProdi[4], $arrNilaiAkreditasi5); 
         } 
 		
-
 		return view('viewriwayat',[
 			'role' => $role,
             'user' => $request->session()->get('user'),

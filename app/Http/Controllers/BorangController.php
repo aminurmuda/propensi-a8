@@ -517,8 +517,10 @@ class BorangController extends Controller
 		$komentar7_2 = Komentar::lihatKomentar($idBorang, '7-2');
 
 
-		$prodiBorang = program_studi::getProdi($selectedProdi);
-		$standar7_json = Borang::getBorang('3a',7,$selectedProdi,$tahun);
+		$prodiBorang = program_studi::getProdi($kode_prodi);
+		// echo $selectedProdi;
+		// echo $tahun;
+		$standar7_json = Borang::getBorang('3a',7,$kode_prodi,$tahun);
 		// dd($standar7_json);
 		$isi = $standar7_json[0]->isi;
 		$status = $standar7_json[0]->is_reviewed;

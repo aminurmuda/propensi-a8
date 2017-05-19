@@ -170,11 +170,13 @@ class PegawaiController extends Controller
     	$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
     	$role = $request->session()->get('role');
+    	
     	//$prodiTimAkreditasi = Pegawai::lihatProdiTimAkreditasi($username);
 
     	if ($role=='Pimpinan Fakultas'){
     		if ($kodeFakultasPengguna==$kode_fakultas) {
 		    	$timAkreditasi = Pegawai::getTimByFakultas($kode_fakultas);
+
 				return view('kelola', [
 						'timAkreditasi' => $timAkreditasi,
 						'role' => $request->session()->get('role'),
