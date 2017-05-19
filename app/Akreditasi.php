@@ -25,6 +25,11 @@ class Akreditasi extends Model
 
     public static function getAllAkreditasi($kode_fakultas)
     {
+        $tahun = date('Y');
+        DB::table('histori_akreditasi')
+            ->where('masa_berlaku','<' ,$tahun)
+          ->update(['status' => 7]);
+
         return DB::table('histori_akreditasi')
             ->join('status', 'histori_akreditasi.status', '=', 'status.id')
             ->join('program_studi', 'histori_akreditasi.kode_prodi', '=', 'program_studi.kode_prodi')
