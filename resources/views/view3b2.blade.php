@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
-        @if($status!=0 && $role!='Admin')
+        @if($status!=0 && $role=='Tim Akreditasi')
               <div class="alert alert-info">
                 Borang tidak dalam masa atau sudah habis masa pengisian
               </div>
