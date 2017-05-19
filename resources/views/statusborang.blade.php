@@ -97,7 +97,7 @@
                             @endif
 
                             <!-- reviewer ke tim akreditasi -->
-                            <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/return') }}" class="btn-info btn-sm"> Reset</a>
+                            <a href="{{ url('borang/'.$borang->id_histori.'/'.$borang->jenis.'/'.$borang->kode_prodi.'/return') }}" class="btn-info btn-sm glyphicon glyphicon-repeat"> </a>
                             @endif
                            
                             </td>
