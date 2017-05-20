@@ -2,10 +2,6 @@
 
 @section('content')
 
-
-
-
-    <!-- Page Content -->
     <div class="container">
         <div class="row">
             <div  class="col-md-10 col-md-offset-1" id="kontenkelola">
@@ -25,7 +21,7 @@
                          <br>
                          <br>
                         <select class="form-control" id="sel1" required>
-                           <option name="undefined" value="0">Select Role</option>
+                           <option name="undefined">Select Role</option>
                            <option name="isBPMA" value="1">BPMA</option>
                            <option name="isPimpinanFakultas" value="2">Pimpinan Fakultas</option>
                            <option name="isPimpinanUniv" value="3">Pimpinan Universitas</option>
