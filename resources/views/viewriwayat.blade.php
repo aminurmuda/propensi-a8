@@ -70,7 +70,10 @@
                                 @if($dataAkreditasi -> nama_status == 'New')
                                 <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-danger btn-sm"> Ases</a><br><br>
                                 @endif
+                                
+                                @if($dataAkreditasi -> nama_status == 'Asesmen')
                                 <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-success btn-sm glyphicon glyphicon-pencil"> Edit</a>
+                                @endif
                               @endif
                              
                             </td>
