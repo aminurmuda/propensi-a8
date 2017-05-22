@@ -437,21 +437,10 @@ class PegawaiController extends Controller
       	$file->move($destinationPath,$file->getClientOriginalName());	
 			Pegawai::uploadgambar($file->getClientOriginalName(),$username);
 
-			return view('profile', [
-					'role' => $request->session()->get('role'),
-					'kode_fakultas' => $kodeFakultasPengguna,
-					'user' => $username,
-					
-					'pengguna' =>$pengguna
-					]);
-		}
+			return redirect()->back();
 			
-			return view('error', [
-					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
-					'role' => $request->session()->get('role'),
-					'kode_fakultas' => $kodeFakultasPengguna,
-					'user' => $request->session()->get('user')
-			]);	 
+			
 	}
+}
 
 }
