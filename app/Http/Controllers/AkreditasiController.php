@@ -36,7 +36,7 @@ class AkreditasiController extends Controller
     	$role = $request->session()->get('role');
 
   		//validasi role. yang bisa edit akreditasi : BPMA
-  		if ($role=='BPMA' || $role=='Admin') {
+  		if ($role=='BPMA' || $role=='Admin' || $role=='Pimpinan Fakultas') {
   			$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
   			$kodeProdi = $QAkreditasiProdi[0]->kode_prodi;
   			$tahun = $QAkreditasiProdi[0]->tahun_keluar;
@@ -61,7 +61,7 @@ class AkreditasiController extends Controller
 
 	}
 
-	public function submitAkreditasi($tahun, $kodeProdi, Request $request) {
+	public function submitAkreditasi($tahun,$kodeProdi, Request $request) {
 		//munculin detail akreditasi : kode prodi, nama prodi, nama univ, nilai akreditasi, huruf akreditasi
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
     	$kodeFakultasPengguna= $QKodeFakultasPengguna[0]->kode_fakultas;
@@ -70,7 +70,7 @@ class AkreditasiController extends Controller
 
   		//validasi role. yang bisa edit akreditasi : BPMA
   		//validasi role. yang bisa edit akreditasi : BPMA dan admin
-  		if ($role=='BPMA' || $role=='Admin') {
+  		if ($role=='BPMA' || $role=='Admin' || $role=='Pimpinan Fakultas') {
   			
   			//hitung peringkat akreditasi
 	  		$nilai = $request->get('nilai_akreditasi');
@@ -90,8 +90,16 @@ class AkreditasiController extends Controller
 	  			$keterangan='Kurang';
 	  		}
 
+	  		$tahun_keluar = $request->get('tahun_keluar');
+	  		$masa_berlaku = $request->get('masa_berlaku');
+	  		// echo $tahun_keluar;
+	  		// echo $masa_berlaku;
+	  		// echo $kodeProdi;
+			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun,$tahun_keluar,$masa_berlaku, $nilai,$peringkat,$keterangan,6);
+			$idHistori = Akreditasi::getIDAkreditasi($kodeProdi,$tahun_keluar)->id;
+			// dd($QidHistori);
+			$QupdateBorang = Borang::updateTahunBorang($idHistori,$tahun_keluar);
 
-			$QUpdateNilaiAkreditasi = Akreditasi::updateNilai($kodeProdi,$tahun, $nilai,$peringkat,$keterangan,6);
 
 			return redirect()->route('akreditasi/riwayat'); //ke halaman histori akreditasi
 
@@ -200,7 +208,7 @@ class AkreditasiController extends Controller
         
         $jmlhProdi = count($listProdi);
         if($jmlhProdi==0) {
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3']);
@@ -211,7 +219,7 @@ class AkreditasiController extends Controller
         	for ($i=0; $i < 3 ; $i++) {
             	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
         	}
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
@@ -224,7 +232,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
             	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
         	}
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
@@ -240,7 +248,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
             	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
         	}
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
@@ -259,7 +267,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
             	$arrNilaiAkreditasi4[$i] = $arrNilaiAkreditasi[3][$i]->nilai;
         	}
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
@@ -282,7 +290,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi5[$i] = $arrNilaiAkreditasi[4][$i]->nilai;
             	
         	}
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->dimensions(200,200)
 			     ->colors(['#E74C3C', '#2E86C1'])
@@ -416,10 +424,11 @@ class AkreditasiController extends Controller
 		$prestasi_internasional = 0;
 
 		//$akreditasi = Akreditasi::getAllAkreditasi($kode_fakultas);
-
-
+		$tahun = substr($tahun,0,4);
 		$tahun1 = $tahun-1;
 		$tahun2 = $tahun-2;
+		// $tahun1 = $tahun-1;
+		// $tahun2 = $tahun-2;
 
 		if ($request->get('selectFakultasGeneral')){
 			$selectedFakultas = $request->get('selectFakultasGeneral');
