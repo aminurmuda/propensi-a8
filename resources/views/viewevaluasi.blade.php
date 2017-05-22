@@ -3,9 +3,11 @@
 @section('content')
 
     <!-- Page Content -->
-
+    <br><br>
     <div class="container">
         <div class="col-md-12 col-sm-12 col-xs-12">
+            <a href="{{ url('evaluasidiri/'. $idHistori.'/'.$tahun.'/print') }}" class="btn-primary btn-lg pull-left glyphicon glyphicon-print"> Print</a>
+            <br>
              @if($status!=0 && $role=='Tim Akreditasi')
               <div class="alert alert-info">
                 Borang tidak dalam masa atau sudah habis masa pengisian
@@ -28,8 +30,6 @@
                     <div id="one" class="panel-collapse collapse ">
                         <div class="panel-body">
                             <h5>Borang Evaluasi Diri <br><br> Program Studi {{$prodiBorang->nama_prodi}}, Tahun {{$tahun}}:</h5>
-                            <a href="{{ url('evaluasidiri/'. $idHistori.'/'.$tahun.'/print') }}" class="btn-primary btn-lg pull-right"> Print</a>
-                            <br><br><br>
                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                             {!!rawurldecode($standarED['evaluasidiri']['isi'])!!}
                             </div><br>
@@ -126,8 +126,7 @@
                     </div>
                     <div id="two" class="panel-collapse collapse ">
                         <div class="panel-body">
-                            <h5>Borang Evaluasi Diri <br><br> Program Studi {{$prodiBorang->nama_prodi}}, Tahun {{$tahun}}:</h5>
-                            <br><br>
+                            <h5>Borang Evaluasi Diri--Tambahan<br><br> Program Studi {{$prodiBorang->nama_prodi}}, Tahun {{$tahun}}:</h5>
                             <div style="width:850px;height:200px;line-height:3em;overflow:scroll;padding:5px;background-color:#edeef9;color:#000000;scrollbar-base-color:#DEBB07;">
                             {!!rawurldecode($standarED['evaluasidiri']['tambahan'])!!}
                             </div><br>
@@ -201,9 +200,12 @@
 
             </div>
             <!-- end of #bs-collapse  -->
-            <br><br><br>
+            
 
         </div>
+
+        
+                  
 
 
 

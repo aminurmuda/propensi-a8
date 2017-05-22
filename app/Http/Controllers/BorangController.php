@@ -101,14 +101,6 @@ class BorangController extends Controller
 			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
 			$kodeProdi = $selectedProdi;
 		} 
-		// else {
-		// if ($kodeProdi){
-		// 	$selectedProdi = $kodeProdi; 	
-		// 	} else {
-		// 		$selectedProdi=$kodeProdiPengguna;
-		// 	}	
-		// }
-
 
 		$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
 		// dd($QAkreditasiProdi);
@@ -156,12 +148,10 @@ class BorangController extends Controller
 
 		
 		$evaluasiDiri = Borang::getBorangByIdHistori('ED',0,$idHistori);
-		
-		// dd($evaluasiDiri);
-		// dd($evaluasiDiri);
-		$isi = $evaluasiDiri[0]->isi;
-		$status = $evaluasiDiri[0]->is_reviewed;
 
+		//dd($evaluasiDiri);
+		$standarED = json_decode(stripslashes($evaluasiDiri[0]->isi),true);
+		$status = $evaluasiDiri[0]->is_reviewed;
 
 		$role=$request->session()->get('role');
 		$kodeProdi=0;
@@ -170,14 +160,16 @@ class BorangController extends Controller
 			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
 			$kodeProdi = $selectedProdi;
 		} 
-		
+
 		$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
-		
+		// dd($QAkreditasiProdi);
+
   		$kodeProdi = $QAkreditasiProdi[0]->kode_prodi;
 
 		//Lihat Komentar Borang
 		$idBorang = Borang::getIdBorangByIdHistori('ED',0, $idHistori)[0]->id;
 		$komentarED = Komentar::lihatKomentar($idBorang, '0');
+
 
 		$prodiBorang = program_studi::getProdi($kodeProdi);
 
@@ -191,14 +183,13 @@ class BorangController extends Controller
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
-	            'isi' => $isi,
+	            'standarED' => $standarED,
 	            'kodeProdi' => $kodeProdi,
 	            'tahun' => $tahun,
 	            'komentarED' => $komentarED,
 	            'status' => $status,
 	            'prodiBorang' => $prodiBorang,
 	            'idHistori' => $idHistori
-
 			]);
 	}
 
