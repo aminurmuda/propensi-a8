@@ -28,18 +28,12 @@
            <br>
            <br>
            <br>
-            <form method="post" action="{{url('evaluasidiri/edit/'.$jenis.'/'.$idHistori.'/ED/submit')}}">
+            <form action="{{url('evaluasidiri/edit/'.$idHistori.'/ED/submit')}}">
             {{csrf_field()}}
             <div class="form-group">
-              @if($jenis=='isi')
               <textarea class="form-control" id='textarea' name='textarea'>
-              <p>{!!rawurldecode($standarED['evaluasidiri']['isi'])!!}</p>
-              </textarea>
-              @else
-               <textarea class="form-control" id='textarea' name='textarea'>
               <p>{!!rawurldecode($standarED['evaluasidiri']['tambahan'])!!}</p>
               </textarea>
-              @endif
             </div>
             @if($status==0)
             <button type="submit" class="btn-primary btn-lg pull-right">Simpan</button>

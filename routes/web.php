@@ -154,13 +154,14 @@ Route::get('3B/{idHistori}/{tahun}/standar7', 'BorangController@lihat3b7')->name
 Route::get('test', 'TestController@index')->name('#');
 
 Route::get('evaluasidiri', 'BorangController@pilihProdi')->name('evaluasidiri'); //pimpinan univ only
-Route::get('evaluasidiri/edit/{idHistori}', 'BorangController@editEvaluasi')->name('evaluasidiri/edit/{idHistori}');
+Route::get('evaluasidiri/edit/{jenis}/{idHistori}', 'BorangController@editEvaluasi')->name('evaluasidiri/edit/{jenis}/{idHistori}');
 
 Route::post('evaluasidiri/{idHistori}/{tahun}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{idHistori}/{tahun}');
 Route::get('evaluasidiri/{idHistori}/{tahun}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{idHistori}/{tahun}');
 
 
-Route::get('evaluasidiri/edit/{idHistori}/{jenisBorang}/submit', 'BorangController@submitevaluasi')->name('evaluasidiri/edit/{idHistori}/{jenisBorang}/submit');
+Route::post('evaluasidiri/edit/{jenis}/{idHistori}/{jenisBorang}/submit', 'BorangController@submitevaluasi')->name('evaluasidiri/edit/{jenis}/{idHistori}/{jenisBorang}/submit');
+
 Route::get('evaluasidiri/standarED/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar', 'BorangController@komenBorang')->name('evaluasidiri/standarED/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/submitkomentar');
 
 

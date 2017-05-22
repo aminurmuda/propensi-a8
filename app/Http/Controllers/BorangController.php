@@ -89,12 +89,10 @@ class BorangController extends Controller
 
 		
 		$evaluasiDiri = Borang::getBorangByIdHistori('ED',0,$idHistori);
-		
-		// dd($evaluasiDiri);
-		// dd($evaluasiDiri);
-		$isi = $evaluasiDiri[0]->isi;
-		$status = $evaluasiDiri[0]->is_reviewed;
 
+		//dd($evaluasiDiri);
+		$standarED = json_decode(stripslashes($evaluasiDiri[0]->isi),true);
+		$status = $evaluasiDiri[0]->is_reviewed;
 
 		$role=$request->session()->get('role');
 		$kodeProdi=0;
@@ -121,6 +119,7 @@ class BorangController extends Controller
 		$idBorang = Borang::getIdBorangByIdHistori('ED',0, $idHistori)[0]->id;
 		$komentarED = Komentar::lihatKomentar($idBorang, '0');
 
+
 		$prodiBorang = program_studi::getProdi($kodeProdi);
 
 		// $prodiBorang = program_studi::getProdi($selectedProdi);
@@ -133,7 +132,8 @@ class BorangController extends Controller
 	            'pegawai' => $pimpinan,      
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
-	            'isi' => $isi,
+	            //'isi' => $isi,
+	            'standarED' => $standarED,
 	            'kodeProdi' => $kodeProdi,
 	            // 'prodiBorang' => $prodiBorang,
 	            'tahun' => $tahun,
@@ -1520,7 +1520,7 @@ class BorangController extends Controller
 		return redirect($jenisBorang.'/standar'.$nomorStandar.'/'.$kodeProdi);
 	}
 
-	public function editevaluasi(Request $request,$idHistori) {
+	public function editevaluasi(Request $request,$jenis,$idHistori) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -1536,6 +1536,8 @@ class BorangController extends Controller
 			]);				
 		}
 
+
+
 		//$kodeStandarStr= str_replace("-",".",$kodeStandar);
 		
 
@@ -1544,13 +1546,16 @@ class BorangController extends Controller
 		$tahun = $evaluasiDiri[0]->tahun;
 		$status = $evaluasiDiri[0]->is_reviewed;
 		$kodeProdi = $evaluasiDiri[0]->kode_prodi;
-		
+		$standarED = json_decode(stripslashes($isi),true);
+
 			return view('updateevaluasi',[
 				'role' => $request->session()->get('role'),
 	            'user' => $request->session()->get('user'),
-	            'pegawai' => $pimpinan,      
+	            'pegawai' => $pimpinan,
+	            'jenis' => $jenis,     
 	            'kode_fakultas' => $kodeFakultasPengguna,  
 	            'username' => $username,
+	            'standarED' => $standarED,
 	            'kodeProdi' => $kodeProdi,
 	            // 'kodeStandar' => $kodeStandar,
 	             'isi' => $isi,
@@ -1607,7 +1612,7 @@ class BorangController extends Controller
 
 	}
 
-	public function submitevaluasi(Request $request,$idHistori,$jenisBorang) {
+	public function submitevaluasi(Request $request,$jenis,$idHistori,$jenisBorang) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
 		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
@@ -1623,11 +1628,18 @@ class BorangController extends Controller
 			]);				
 		}
 
+		$textarea=rawurlencode($request->get('textarea'));
+		$standarED_json = Borang::getBorangByIdHistori('ED',0,$idHistori);
+		$isi =$standarED_json[0]->isi;
+		$standarED = json_decode(stripslashes($isi),true);
+				
+		$standarED['evaluasidiri'][$jenis]=$textarea;	
+		$encoded_json = json_encode($standarED,JSON_UNESCAPED_SLASHES);
 
-		$isi = $request->get('textarea');
-		Borang::updateBorangByIdHistori('ED',0,$idHistori,$isi);
+		
+		Borang::updateBorangByIdHistori('ED',0,$idHistori,$encoded_json);
 		$request->session()->put('success','1');
-		return redirect('/evaluasidiri/edit'.'/'.$idHistori);
+		return redirect('/evaluasidiri/edit/'.$jenis.'/'.$idHistori);
 	}
 
 	public function komenBorang(Request $request, $kodeStandar, $kodeProdi, $idHistori, $jenisBorang) {

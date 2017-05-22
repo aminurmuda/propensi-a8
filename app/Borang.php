@@ -64,7 +64,7 @@ class borang extends Model
         } else if ($kodeBorang=='3B' && $standar=='7') {
           $isi = '{"standar7":{"7.1":{"judul":"Penelitian","narasi":"-","isian":"-","7.1.1":{"perintah":"Tuliskan jumlah dan dana penelitian yang dilakukan oleh masing-masing PS di lingkungan Fakultas/Sekolah Tinggi dalam tiga tahun terakhir dengan mengikuti format tabel berikut:","tabel":"-","isian":"-","keterangan":"-"},"7.1.2":{"perintah":"Uraikan pandangan pimpinan Fakultas/Sekolah Tinggi tentang data pada butir 7.1.1, dalam perspektif: kesesuaian dengan Visi dan Misi, kecukupan, kewajaran, upaya pengembangan dan peningkatan mutu. Uraikan pula kendala-kendala yang dihadapi.","tabel":"-","isian":"","keterangan":"-"}},"7.2":{"judul":"Pelayanan/Pengabdian kepada Masyarakat","narasi":"Pelayanan/Pengabdian kepada Masyarakat adalah penerapan bidang ilmu untuk menyelesaikan masalah di masyarakat (termasuk masyarakat industri, pemerintah, dsb.)","isian":"-","7.2.1":{"perintah":"Tuliskan jumlah dan dana kegiatan pelayanan/pengabdian kepada masyarakat yang dilakukan oleh masing-masing PS di lingkungan Fakultas dalam tiga tahun terakhir dengan mengikuti format tabel berikut:","tabel":"-","isian":"-","keterangan":"-"},"7.2.2":{"perintah":"Uraikan pandangan Fakultas/Sekolah Tinggi tentang data pada butir 7.2.1 dalam perspektif: kesesuaian dengan Visi dan Misi, kecukupan, kewajaran, upaya pengembangan dan peningkatan mutu. Uraikan pula kendala-kendala yang dihadapi.","tabel":"-","isian":"","keterangan":"-"}}}}';
         } else if ($kodeBorang=='ED') {
-          $isi = 'Silahkan isi borang evaluasi diri disini';
+          $isi = '{"evaluasidiri":{"isi":"","tambahan":"" }}';
         }
 
         if($kodeBorang!='ED') {
