@@ -422,4 +422,36 @@ class PegawaiController extends Controller
 					'user' => $request->session()->get('user')
 			]);	 
 	}
+
+	public function uploadFoto(Request $request) {
+		$username = $request->session()->get('user');
+		$pengguna = Pegawai::lihatProfilPengguna($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+
+		if($username == $request->session()->get('user')){
+			$file = $request->file('photo');
+			$path = $request->photo->path();
+
+		 $destinationPath = 'uploads';
+      	$file->move($destinationPath,$file->getClientOriginalName());	
+			Pegawai::uploadgambar($file->getClientOriginalName(),$username);
+
+			return view('profile', [
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $username,
+					
+					'pengguna' =>$pengguna
+					]);
+		}
+			
+			return view('error', [
+					'message' => 'Anda tidak memiliki akses ke dalam halaman ini',
+					'role' => $request->session()->get('role'),
+					'kode_fakultas' => $kodeFakultasPengguna,
+					'user' => $request->session()->get('user')
+			]);	 
+	}
+
 }

@@ -281,7 +281,7 @@
                        
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as {{$role}} <span class="caret"></span></a>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$role}} : <b>{{$user}}</b>  <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
                                 <li><a href="{{ url('profil/'.$user) }}">My Profile</a></li>

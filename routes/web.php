@@ -44,6 +44,7 @@ Route::post('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPega
 Route::get('timakreditasi/kelola/hapus/{username}', 'PegawaiController@deleteTim')->name('timakreditasi/hapus/{username}'); //pimpinan fakultas only
 
 Route::get('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
+Route::post('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
 
 Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')->name('kelolapimpinan/{username}'); //admin only
 
@@ -197,6 +198,8 @@ Route::get('akreditasi/{idHistori}/{tahun}/pilih', 'AkreditasiController@pilihJe
 Route::get('homepimpinan', 'AkreditasiController@homePimpinan')->name('homepimpinan');
 
 Route::get('homeuniv', 'BorangController@pilihFakultasGeneral')->name('homeuniv');
+
+Route::post('uploadFoto', 'PegawaiController@uploadFoto')->name('uploadFoto');
 
 
 
