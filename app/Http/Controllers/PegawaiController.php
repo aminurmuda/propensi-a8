@@ -422,4 +422,25 @@ class PegawaiController extends Controller
 					'user' => $request->session()->get('user')
 			]);	 
 	}
+
+	public function uploadFoto(Request $request) {
+		$username = $request->session()->get('user');
+		$pengguna = Pegawai::lihatProfilPengguna($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;
+
+		if($username == $request->session()->get('user')){
+			$file = $request->file('photo');
+			$path = $request->photo->path();
+
+		 $destinationPath = 'uploads';
+      	$file->move($destinationPath,$file->getClientOriginalName());	
+			Pegawai::uploadgambar($file->getClientOriginalName(),$username);
+
+			return redirect()->back();
+			
+			
+	}
+}
+
 }

@@ -247,7 +247,7 @@ class Pegawai extends Model
         ->join('dosen', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
         ->join('program_studi', 'program_studi.kode_prodi', '=', 'dosen.kode_prodi_pengajaran')
         ->join('fakultas', 'fakultas.kode_fakultas', '=', 'program_studi.kode_fakultas')
-        ->select('pegawai.nama', 'pegawai.no_pegawai','pegawai.username','program_studi.nama_prodi','fakultas.nama_fakultas')
+        ->select('pegawai.nama','pegawai.picture', 'pegawai.no_pegawai','pegawai.username','program_studi.nama_prodi','fakultas.nama_fakultas')
         ->where('pegawai.username',$username)
         ->get();
     }
@@ -345,6 +345,13 @@ class Pegawai extends Model
         return DB::table('pegawai')
                     ->where('username', $username)
                     ->update(['isPimpinan'=> 0, 'isTimAkreditasi'=> 0, 'id_pimpinan'=> null, 'is_reviewer_prodi' => 1,'id_prodi_tim_akreditasi' => 0, 'id_prodi_reviewer' => $kode_prodi]);
+    }
+
+    public static function uploadgambar($file, $username) {
+
+        return DB::table('pegawai')
+                    ->where('username', $username)
+                    ->update(['picture'=> $file]);
     }
 
 }
