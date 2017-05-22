@@ -145,6 +145,63 @@ class BorangController extends Controller
 			]);
 	}
 
+	public function printEvaluasi(Request $request, $idHistori,$tahun) {
+
+		$username=$request->session()->get('user');
+		$pimpinan = Pegawai::getPegawaiByUsername($username);
+		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
+		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
+
+		$role=$request->session()->get('role');
+
+		
+		$evaluasiDiri = Borang::getBorangByIdHistori('ED',0,$idHistori);
+		
+		// dd($evaluasiDiri);
+		// dd($evaluasiDiri);
+		$isi = $evaluasiDiri[0]->isi;
+		$status = $evaluasiDiri[0]->is_reviewed;
+
+
+		$role=$request->session()->get('role');
+		$kodeProdi=0;
+		if ($role=='Tim Akreditasi') {
+			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
+			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
+			$kodeProdi = $selectedProdi;
+		} 
+		
+		$QAkreditasiProdi = Akreditasi::getAkreditasiById($idHistori);
+		
+  		$kodeProdi = $QAkreditasiProdi[0]->kode_prodi;
+
+		//Lihat Komentar Borang
+		$idBorang = Borang::getIdBorangByIdHistori('ED',0, $idHistori)[0]->id;
+		$komentarED = Komentar::lihatKomentar($idBorang, '0');
+
+		$prodiBorang = program_studi::getProdi($kodeProdi);
+
+		// $prodiBorang = program_studi::getProdi($selectedProdi);
+
+			return view('printevaluasi',[
+				'role' => $role,
+	            'user' => $request->session()->get('user'),
+	            'pegawai' => $pimpinan,       
+	            'username' => $username,
+	            'pegawai' => $pimpinan,      
+	            'kode_fakultas' => $kodeFakultasPengguna,  
+	            'username' => $username,
+	            'isi' => $isi,
+	            'kodeProdi' => $kodeProdi,
+	            'tahun' => $tahun,
+	            'komentarED' => $komentarED,
+	            'status' => $status,
+	            'prodiBorang' => $prodiBorang,
+	            'idHistori' => $idHistori
+
+			]);
+	}
+
 	public function pilihProdi(Request $request) {
 		$username=$request->session()->get('user');
 		$pimpinan = Pegawai::getPegawaiByUsername($username);
@@ -232,7 +289,7 @@ class BorangController extends Controller
 		$status = $standar2_json[0]->is_reviewed;
 		$idHistori = $standar2_json[0]->id_histori;
 		$standar2 = json_decode(stripslashes($isi),true);
-
+		
 			return view('view3a2',[
 				'role' => $role,
 	            'user' => $request->session()->get('user'),
@@ -1565,6 +1622,8 @@ class BorangController extends Controller
 	            // 'kodeStandarStr' => $kodeStandarStr
 			]);
 	}
+
+	
 
 	public function submitKualitatif(Request $request,$kodeStandar,$idHistori,$jenisBorang) {
 		$username=$request->session()->get('user');

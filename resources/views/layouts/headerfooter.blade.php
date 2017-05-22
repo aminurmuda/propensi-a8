@@ -281,7 +281,7 @@
                        
                     </ul>
                     <ul class="nav navbar-nav pull-right">
-                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signed in as {{$role}} <span class="caret"></span></a>
+                        <li class=" dropdown"><a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{$role}} : <b>{{$user}}</b>  <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 
                                 <li><a href="{{ url('profil/'.$user) }}">My Profile</a></li>
@@ -374,6 +374,20 @@
               var linkHapus = "hapus/"+username;
             link.setAttribute("href", linkHapus);
           });
+
+        $('#submitBtn').click(function() {
+            $('#a').text($('#username').val());
+            var username = $('#username').val();
+            var value = $('#sel1').val();
+            if(username == "") {
+                document.getElementById('isiSubmit').innerHTML="Tolong lengkapi data yang diperlukan";
+                document.getElementById('linkSubmit').style.visibility = 'hidden';
+            }
+            var link = document.getElementById("linkSubmit");
+            var linkTambah = "tambah/"+username+"/"+value;
+            link.setAttribute("href", linkTambah);
+        });
+
     </script>
 
     <!-- script untuk navigation -->

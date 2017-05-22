@@ -66,13 +66,20 @@
                               @if($role=='Admin')
                                 <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-danger btn-sm"> Ases</a><br><br>
                                 <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-success btn-sm glyphicon glyphicon-pencil"> Edit</a>
-                              @elseif($role=='BPMA')
-                                @if($dataAkreditasi -> nama_status == 'New')
-                                <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-danger btn-sm"> Ases</a><br><br>
+                              @elseif($role=='BPMA' || $role=='Pimpinan Fakultas')
+                                @if($role=='BPMA')
+                                  @if($dataAkreditasi -> status < 5)
+                                  <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/5/submit') }}" class="btn-danger btn-sm"> Ases</a><br><br>
+                                  @endif
                                 @endif
-                                
-                                @if($dataAkreditasi -> nama_status == 'Asesmen')
+                                @if($dataAkreditasi -> status >= 5)
+                                @if($dataAkreditasi -> status > 5 && $role=='Pimpinan Fakultas')
                                 <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-success btn-sm glyphicon glyphicon-pencil"> Edit</a>
+                                @else
+                                  @if($role=='BPMA')
+                                  <a href="{{ url('akreditasi/'.$dataAkreditasi->id.'/edit') }}" class="btn-success btn-sm glyphicon glyphicon-pencil"> Edit</a>
+                                  @endif
+                                @endif
                                 @endif
                               @endif
                              

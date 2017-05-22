@@ -44,12 +44,13 @@ Route::post('timakreditasi/tambah/{kode_fakultas}', 'PegawaiController@lihatPega
 Route::get('timakreditasi/kelola/hapus/{username}', 'PegawaiController@deleteTim')->name('timakreditasi/hapus/{username}'); //pimpinan fakultas only
 
 Route::get('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
+Route::post('profil/{username}', 'PegawaiController@profilPengguna')->name('profil/{username}');
 
 Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')->name('kelolapimpinan/{username}'); //admin only
 
 Route::get('kelolapimpinan/hapus/{username}', 'PegawaiController@hapusPimpinan')->name('kelolapimpinan/hapus/{username}'); //admin only
 
-Route::post('kelolapimpinan/tambah/{username}/{valuePimpinan}', 'PegawaiController@tambahPimpinan')->name('kelolapimpinan/tambah/{username}/{valuePimpinan}'); //admin only
+Route::get('kelolapimpinan/tambah/{username}/{valuePimpinan}', 'PegawaiController@tambahPimpinan')->name('kelolapimpinan/tambah/{username}/{valuePimpinan}'); //admin only
 
 Route::get('kelolapimpinan/{username}', 'PegawaiController@kelolaPimpinanPage')->name('kelolapimpinan'); //admin only
 
@@ -73,7 +74,7 @@ Route::get('3b/standar2edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit', 'Bo
 
 
 Route::get('3a/standar2', 'BorangController@pilihProdi')->name('3a/standar2'); //pimpinan univ only
-Route::get('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
+Route::get('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/standar2/{kodeProdi}');
 Route::post('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
 
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}');
@@ -134,6 +135,8 @@ Route::get('3b/standar7/{kodeStandar}/{kodeProdi}/{idHistori}/{jenisBorang}/subm
 Route::get('akreditasi/lihat/{tahun}/{kodeProdi}', 'AkreditasiController@lihatAkreditasi')->name('akreditasi/lihat/{kodeProdi}');
 Route::get('akreditasi/edit/{tahun}/{kodeProdi}', 'AkreditasiController@editAkreditasi')->name('akreditasi/edit/{kodeProdi}');
 Route::get('akreditasi/edit/{tahun}/{kodeProdi}/submit', 'AkreditasiController@submitAkreditasi')->name('akreditasi/{tahun}/{kodeProdi}/submit');
+// Route::post('akreditasi/edit/{tahun_keluar}/{kodeProdi}/submit', 'AkreditasiController@submitAkreditasi')->name('akreditasi/{tahun_keluar}/{kodeProdi}/submit');
+
 
 
 Route::get('3A', 'BorangController@pilihProdi')->name('3A');
@@ -158,6 +161,7 @@ Route::get('evaluasidiri/edit/{jenis}/{idHistori}', 'BorangController@editEvalua
 
 Route::post('evaluasidiri/{idHistori}/{tahun}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{idHistori}/{tahun}');
 Route::get('evaluasidiri/{idHistori}/{tahun}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{idHistori}/{tahun}');
+Route::get('evaluasidiri/{idHistori}/{tahun}/print', 'BorangController@printEvaluasi')->name('evaluasidiri/{idHistori}/{tahun}/print');
 
 
 Route::post('evaluasidiri/edit/{jenis}/{idHistori}/{jenisBorang}/submit', 'BorangController@submitevaluasi')->name('evaluasidiri/edit/{jenis}/{idHistori}/{jenisBorang}/submit');
@@ -198,6 +202,8 @@ Route::get('akreditasi/{idHistori}/{tahun}/pilih', 'AkreditasiController@pilihJe
 Route::get('homepimpinan', 'AkreditasiController@homePimpinan')->name('homepimpinan');
 
 Route::get('homeuniv', 'BorangController@pilihFakultasGeneral')->name('homeuniv');
+
+Route::post('uploadFoto', 'PegawaiController@uploadFoto')->name('uploadFoto');
 
 
 

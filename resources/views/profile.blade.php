@@ -14,7 +14,19 @@
                     </div>
                     <div class="panel-body">
                       <div class="row">
-                        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://home.iitk.ac.in/~kundua/male.png" class="img-circle img-responsive"> </div>
+                        <div class="col-md-3 col-lg-3 " align="center">
+                         <img alt="User Pic" src="{{ url('uploads/'.$pengguna->picture) }}" class="img-circle img-responsive">
+
+                         <br><center>
+                         <form action="{{ route('uploadFoto') }}" method="post" enctype="multipart/form-data"> 
+                            {{ csrf_field() }}
+                            Select image to upload:
+                            <input type="file" name="photo" id="fileToUpload" required="required"><br>
+                            <input type="submit" value="Upload Image" name="submit">
+                        </form>
+                        </center>
+                         
+                          </div>
                         
                         <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
                           <dl>

@@ -147,5 +147,13 @@ class borang extends Model
           ->update(['isi' => $isi]);
     }
 
+    public static function updateTahunBorang($idHistori,$tahun_keluar)
+    {
+      $tahun = substr($tahun_keluar, 0,4);
+      return DB::table('borang')
+            ->where('id_histori', $idHistori)
+          ->update(['tahun' => $tahun]);
+    }
+
 
 }
