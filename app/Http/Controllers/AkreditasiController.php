@@ -200,7 +200,7 @@ class AkreditasiController extends Controller
         
         $jmlhProdi = count($listProdi);
         if($jmlhProdi==0) {
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3']);
@@ -211,7 +211,7 @@ class AkreditasiController extends Controller
         	for ($i=0; $i < 3 ; $i++) {
             	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
         	}
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
@@ -224,7 +224,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi1[$i] = $arrNilaiAkreditasi[0][$i]->nilai;
             	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
         	}
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
@@ -240,7 +240,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi2[$i] = $arrNilaiAkreditasi[1][$i]->nilai;
             	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
         	}
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
@@ -259,7 +259,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi3[$i] = $arrNilaiAkreditasi[2][$i]->nilai;
             	$arrNilaiAkreditasi4[$i] = $arrNilaiAkreditasi[3][$i]->nilai;
         	}
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			     ->colors(['#E74C3C', '#2E86C1'])
 			    ->labels(['Periode 1', 'Periode 2', 'Periode 3'])
@@ -282,7 +282,7 @@ class AkreditasiController extends Controller
             	$arrNilaiAkreditasi5[$i] = $arrNilaiAkreditasi[4][$i]->nilai;
             	
         	}
-        	$chart1 = Charts::multi('line', 'chartjs')
+        	$chart1 = Charts::multi('line', 'highcharts')
 			    ->title('Grafik Nilai Akreditasi Program Studi dalam 3 Periode Terakhir')
 			    ->dimensions(200,200)
 			     ->colors(['#E74C3C', '#2E86C1'])
