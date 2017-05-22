@@ -145,51 +145,6 @@ class BorangController extends Controller
 			]);
 	}
 
-	public function print3a2 (Request $request, $kodeProdi,$tahun) {
-		$username=$request->session()->get('user');
-		$pimpinan = Pegawai::getPegawaiByUsername($username);
-		$QKodeFakultasPengguna = Pegawai::getFakultasPegawai($request->session()->get('user'));
-		$kodeFakultasPengguna=$QKodeFakultasPengguna[0]->kode_fakultas;	 //kode fakultas dari yang sedang login
-		
-		$role=$request->session()->get('role');
-		if ($role=='Tim Akreditasi') {
-			$timAkreditasi = Pegawai::getTimAkreditasi($username);		
-			$selectedProdi=$timAkreditasi[0]->id_prodi_tim_akreditasi;
-		} else {
-		if ($kodeProdi){
-			$selectedProdi = $kodeProdi; 	
-			} else {
-				$selectedProdi=$kodeProdiPengguna;
-			}	
-		}
-
-		$prodiBorang = program_studi::getProdi($selectedProdi);
-		
-		// dd($status);
-		//Lihat Komentar Borang
-		$idBorang = Borang::getIdBorang('3a',2, $kodeProdi, $tahun)[0]->id;
-
-		//Lihat Borang standar json
-		$standar2_json = Borang::getBorang('3a',2,$kodeProdi,$tahun);
-		$isi = $standar2_json[0]->isi;
-		$status = $standar2_json[0]->is_reviewed;
-		$idHistori = $standar2_json[0]->id_histori;
-		$standar2 = json_decode(stripslashes($isi),true);
-			return view('print3a2',[
-				'role' => $role,
-	            'user' => $request->session()->get('user'),
-	            'pegawai' => $pimpinan,      
-	            'kode_fakultas' => $kodeFakultasPengguna,  
-	            'username' => $username,
-	            'standar2' => $standar2,
-	            'kodeProdi' => $kodeProdi,
-	            'prodiBorang' => $prodiBorang,
-	            'tahun' => $tahun,
-	            'status' => $status,
-	            'idHistori'=> $idHistori
-			]);
-	}
-
 	public function printEvaluasi(Request $request, $idHistori,$tahun) {
 
 		$username=$request->session()->get('user');
