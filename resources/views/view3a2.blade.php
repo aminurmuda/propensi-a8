@@ -14,8 +14,9 @@
             <h3>Borang 3A, Standar 2</h3>
             <span> Tata Pamong, Kepemimpinan, Sistem Pengelolaan, dan Penjaminan Mutu </span><br>
             <span> Program Studi {{$prodiBorang->nama_prodi}} , Universitas Indonesia </span><br>
-          
             <span> Tahun {{$tahun}} </span>
+            <a href="{{ url('3A/'. $kodeProdi.'/'.$tahun.'/standar2/print') }}" class="btn-primary btn-lg pull-right"> Print</a>
+            <br><br><br>
             <a href="{{ url('3A/'.$kodeProdi.'/'.$tahun) }}" class="btn-primary btn-lg pull-right">Kembali Ke Borang 3A</a>
             <br><br><br>
             <div class="panel-group wrap" id="bs-collapse">

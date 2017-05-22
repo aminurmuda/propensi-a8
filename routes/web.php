@@ -73,7 +73,7 @@ Route::get('3b/standar2edit/{kodeStandar}/{idHistori}/{jenisBorang}/submit', 'Bo
 
 
 Route::get('3a/standar2', 'BorangController@pilihProdi')->name('3a/standar2'); //pimpinan univ only
-Route::get('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
+Route::get('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/standar2/{kodeProdi}');
 Route::post('3a/standar2/{kodeProdi}', 'BorangController@lihat3a2')->name('3a/standar2/{kodeProdi}'); 
 
 Route::get('3a/standar2edit/{kodeStandar}/{kodeProdi}', 'BorangController@edit3a2')->name('3a/standar2edit/{kodeStandar}/{kodeProdi}');
@@ -142,6 +142,7 @@ Route::get('3A', 'BorangController@pilihProdi')->name('3A');
 Route::post('3A/{kodeProdi}/{tahun}', 'BorangController@pilihBorang3a')->name('3A/{kodeProdi}');
 Route::get('3A/{kodeProdi}/{tahun}', 'BorangController@pilihBorang3a')->name('3A/{kodeProdi}');
 Route::get('3A/{kodeProdi}/{tahun}/standar2', 'BorangController@lihat3a2')->name('3A/{kodeProdi}/standar2');
+Route::get('3A/{kodeProdi}/{tahun}/standar2/print', 'BorangController@print3a2')->name('3A/{kodeProdi}/standar2/print');
 Route::get('3A/{kodeProdi}/{tahun}/standar4', 'BorangController@lihat3a4')->name('3A/{kodeProdi}/{tahun}/standar4');
 Route::get('3A/{kodeProdi}/{tahun}/standar7', 'BorangController@lihat3a7')->name('3A/{kodeProdi}/{tahun}/standar7');
 
