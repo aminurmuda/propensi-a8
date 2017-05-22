@@ -158,6 +158,7 @@ Route::get('evaluasidiri/edit/{idHistori}', 'BorangController@editEvaluasi')->na
 
 Route::post('evaluasidiri/{idHistori}/{tahun}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{idHistori}/{tahun}');
 Route::get('evaluasidiri/{idHistori}/{tahun}', 'BorangController@lihatEvaluasi')->name('evaluasidiri/{idHistori}/{tahun}');
+Route::get('evaluasidiri/{idHistori}/{tahun}/print', 'BorangController@printEvaluasi')->name('evaluasidiri/{idHistori}/{tahun}/print');
 
 
 Route::get('evaluasidiri/edit/{idHistori}/{jenisBorang}/submit', 'BorangController@submitevaluasi')->name('evaluasidiri/edit/{idHistori}/{jenisBorang}/submit');
