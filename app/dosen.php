@@ -40,6 +40,7 @@ class Dosen extends Model
          */ 
         public static function getPrestasiDosen($kode_prodi,$tahun)
     {
+        // dd($tahun);
         $tahun_min=$tahun-2;
         return DB::table('dosen')
             ->join('pegawai', 'pegawai.id_pegawai', '=', 'dosen.id_pegawai')
