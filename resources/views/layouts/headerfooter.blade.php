@@ -374,6 +374,20 @@
               var linkHapus = "hapus/"+username;
             link.setAttribute("href", linkHapus);
           });
+
+        $('#submitBtn').click(function() {
+            $('#a').text($('#username').val());
+            var username = $('#username').val();
+            var value = $('#sel1').val();
+            if(username == "") {
+                document.getElementById('isiSubmit').innerHTML="Tolong lengkapi data yang diperlukan";
+                document.getElementById('linkSubmit').style.visibility = 'hidden';
+            }
+            var link = document.getElementById("linkSubmit");
+            var linkTambah = "tambah/"+username+"/"+value;
+            link.setAttribute("href", linkTambah);
+        });
+
     </script>
 
     <!-- script untuk navigation -->

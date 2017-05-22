@@ -21,7 +21,7 @@
                          <br>
                          <br>
                         <select class="form-control" id="sel1" required>
-                           <option name="undefined">Select Role</option>
+                           <option value="" disabled="disabled">Select Role</option>
                            <option name="isBPMA" value="1">BPMA</option>
                            <option name="isPimpinanFakultas" value="2">Pimpinan Fakultas</option>
                            <option name="isPimpinanUniv" value="3">Pimpinan Universitas</option>
@@ -30,10 +30,11 @@
                         <br>
                         <br>
                         <br>
-                        <button class="btn btn-primary col-md-offset-4" type="submit" onclick="return confirm('Apakah anda yakin ingin menambah '+$('#username').val() +' menjadi pimpinan?');return false;"> Tambah</button>
+                        
                       </div>
                       
                     </form>
+                    <button class="btn btn-primary col-md-offset-4" type="submit" data-toggle="modal" data-target="#confirm-submit" id="submitBtn"> Tambah</button>
                     <br>
                     <hr>
                     <div id="titledaftar" > 
@@ -162,28 +163,22 @@
     </div>
   </div>
 
+  <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#fad845">
+                Tambah Pimpinan
+            </div>
+            <div class="modal-body">
+                Apakah anda yakin untuk menambahkan <span id="a"></span> sebagai Pimpinan?
+            </div>
 
-    <script> 
-            
+  <div class="modal-footer">
+            <button type="button" class="btn db-button-color-square btn-m round" data-dismiss="modal">Batal</button>
+            <a href="#" id="linkSubmit"><button type="button" class="btn db-button-color-square btn-m round">Yakin</button></a>
+        </div>
+    </div>
+</div>
 
-        $('#confirmationModal1').on('show.bs.modal', function(e) {
-          var name = e.relatedTarget.dataset.name;
-          var username = e.relatedTarget.dataset.username;
-          document.getElementById("isi").innerHTML="Anda yakin ingin menghapus "+name+ " dari pimpinan?";
-          var link = document.getElementById("link");
-          var linkHapus = "hapus/"+username;
-        link.setAttribute("href", linkHapus);
-      });
-
-        $('#confirmationModal1').on('show.bs.modal', function(e) {
-          var username = e.relatedTarget.dataset.username;
-          var name = e.relatedTarget.dataset.username;
-          var nip = e.relatedTarget.dataset.nip;
-          document.getElementById("isi1").innerHTML="Anda yakin ingin menambah dengan data berikut menjadi pimpinan? <br> Username: "+username+"<br> Nama: "+name+"<br> NIP: "+nip;
-          var link = document.getElementById("link1");
-          //var linkHapus = "hapus/"+username;
-        link.setAttribute("href", linkHapus);
-      });
-    </script>
 
 @endsection
